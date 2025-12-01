@@ -1,0 +1,55 @@
+export const GAME_CONFIG = {
+  WIDTH: 480,
+  HEIGHT: 800,
+  GRAVITY: 1000,
+  MOVE_SPEED: 250,
+  JUMP_FORCE: 700,
+  MARGIN_X: 40,
+  
+  PLAYER: {
+    WIDTH: 40,
+    HEIGHT: 40,
+    BOUNCE: 0.1,
+    START_Y_RATIO: 0.8,
+  },
+  
+  PLATFORM: {
+    WIDTH: 80,
+    HEIGHT: 16,
+    MOVING_RANGE: { MIN: 80, MAX: 150 },
+    MOVING_SPEED: { MIN: 60, MAX: 100 },
+    BREAK_DELAY: 200,
+  },
+  
+  COLLECTIBLE: {
+    CARROT_SIZE: 24,
+    CARROT_OFFSET_Y: 40,
+    SPAWN_CHANCE: 0.3,
+  },
+  
+  SCORING: {
+    HEIGHT_FACTOR: 0.5,
+    CARROT_POINTS: 50,
+    BEST_SCORE_KEY: 'bunnyJumperBestScore',
+  },
+  
+  DIFFICULTY: {
+    EASY: {
+      HEIGHT_THRESHOLD: 1000,
+      GAP_Y: { MIN: 80, MAX: 140 },
+      PLATFORM_DISTRIBUTION: { STATIC: 0.8, MOVING: 0.2, BREAKABLE: 0 },
+    },
+    MEDIUM: {
+      HEIGHT_THRESHOLD: 3000,
+      GAP_Y: { MIN: 100, MAX: 160 },
+      PLATFORM_DISTRIBUTION: { STATIC: 0.6, MOVING: 0.3, BREAKABLE: 0.1 },
+    },
+    HARD: {
+      HEIGHT_THRESHOLD: Infinity,
+      GAP_Y: { MIN: 120, MAX: 180 },
+      PLATFORM_DISTRIBUTION: { STATIC: 0.4, MOVING: 0.4, BREAKABLE: 0.2 },
+    },
+  },
+  
+  INITIAL_PLATFORMS: 15,
+} as const

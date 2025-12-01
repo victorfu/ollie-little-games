@@ -1,5 +1,7 @@
+import BunnyJumper from './components/BunnyJumper'
+
 function App() {
-    return <div></div>
+    return <BunnyJumper />
 }
 
 export default App
