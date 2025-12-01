@@ -222,10 +222,11 @@ export default function BunnyJumper() {
         !platform.isBreaking &&
         player.velocity.y > 0 &&
         checkCollision(player, platform) &&
-        player.y < platform.y
+        player.y + player.height - player.velocity.y * deltaTime <= platform.y
       ) {
         player.velocity.y = -GAME_CONFIG.JUMP_FORCE
         player.onGround = true
+        player.y = platform.y - player.height
 
         if (platform.type === PlatformType.Breakable) {
           platform.isBreaking = true
