@@ -77,7 +77,7 @@ export default function BunnyJumper() {
       }
     }
 
-    player.y = platforms[platforms.length - 1].y - GAME_CONFIG.PLAYER.HEIGHT - 10
+    player.y = platforms[0].y - GAME_CONFIG.PLAYER.HEIGHT - 10
 
     gameDataRef.current = {
       player,
