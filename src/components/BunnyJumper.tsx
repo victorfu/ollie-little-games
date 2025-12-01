@@ -218,11 +218,16 @@ export default function BunnyJumper() {
         }
       }
 
+      const playerBottom = player.y + player.height
+      const playerPrevBottom = playerBottom - player.velocity.y * deltaTime
+      const platformTop = platform.y
+      
       if (
         !platform.isBreaking &&
         player.velocity.y > 0 &&
         checkCollision(player, platform) &&
-        player.y + player.height - player.velocity.y * deltaTime <= platform.y
+        playerPrevBottom <= platformTop &&
+        playerBottom >= platformTop
       ) {
         player.velocity.y = -GAME_CONFIG.JUMP_FORCE
         player.onGround = true
