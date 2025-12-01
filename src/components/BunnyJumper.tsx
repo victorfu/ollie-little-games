@@ -6,6 +6,8 @@ import {
   Platform,
   Collectible,
   PlatformType,
+  Powerup,
+  PowerupType,
 } from "@/lib/types";
 import {
   checkCollision,
@@ -17,6 +19,7 @@ import {
 import {
   createPlatform,
   createCarrot,
+  createPowerup,
   selectPlatformType,
   getGapRange,
 } from "@/lib/game-objects";
@@ -50,6 +53,10 @@ type GameData = {
   player: Player;
   platforms: Platform[];
   collectibles: Collectible[];
+  powerups: Powerup[];
+  activePowerups: Map<PowerupType, number>;
+  hasShield: boolean;
+  savedPosition: { x: number; y: number; cameraY: number } | null;
   cameraY: number;
   startY: number;
   maxHeight: number;
@@ -158,6 +165,10 @@ export default function BunnyJumper() {
       player,
       platforms,
       collectibles,
+      powerups: [],
+      activePowerups: new Map(),
+      hasShield: false,
+      savedPosition: null,
       cameraY: 0,
       startY: player.y,
       maxHeight: player.y,
@@ -233,14 +244,43 @@ export default function BunnyJumper() {
       const totalScore = heightScore + collectScore;
       setCurrentScore(totalScore);
 
+      // 玩家掉出畫面判定
       if (data.player.y > data.cameraY + GAME_CONFIG.HEIGHT + 100) {
-        const best = getBestScore();
-        if (totalScore > best) {
-          setBestScore(totalScore);
-          setBestScoreState(totalScore);
+        // 護盾效果：救回玩家到上次保存的平台位置
+        if (data.hasShield && data.savedPosition) {
+          data.player.x = data.savedPosition.x;
+          data.player.y = data.savedPosition.y;
+          data.player.velocity.x = 0;
+          data.player.velocity.y = 0;
+          data.hasShield = false;
+          data.savedPosition = null;
+          data.activePowerups.delete(PowerupType.Shield);
+
+          // 顯示護盾救回特效
+          for (let i = 0; i < 20; i++) {
+            const angle = (i / 20) * Math.PI * 2;
+            data.collectParticles.push({
+              x: data.player.x + GAME_CONFIG.PLAYER.WIDTH / 2,
+              y: data.player.y + GAME_CONFIG.PLAYER.HEIGHT / 2,
+              velocity: {
+                x: Math.cos(angle) * 150,
+                y: Math.sin(angle) * 150,
+              },
+              life: 1.0,
+              maxLife: 1.0,
+              color: "#60A5FA",
+            });
+          }
+        } else {
+          // 無護盾，遊戲結束
+          const best = getBestScore();
+          if (totalScore > best) {
+            setBestScore(totalScore);
+            setBestScoreState(totalScore);
+          }
+          setGameState(GameState.GameOver);
+          return;
         }
-        setGameState(GameState.GameOver);
-        return;
       }
 
       gameLoopRef.current = requestAnimationFrame(gameLoop);
@@ -256,20 +296,47 @@ export default function BunnyJumper() {
   }, [gameState]);
 
   const updateGame = (deltaTime: number, data: GameData) => {
-    const { player, platforms, collectibles, keys } = data;
+    const { player, platforms, collectibles, powerups, keys, activePowerups } =
+      data;
+    const currentTime = performance.now();
+
+    // 檢查並移除過期的道具效果
+    activePowerups.forEach((endTime, type) => {
+      if (endTime > 0 && currentTime > endTime) {
+        activePowerups.delete(type);
+      }
+    });
+
+    // 檢查飛行效果
+    const isFlying = activePowerups.has(PowerupType.Flight);
+    // 檢查超級跳躍效果
+    const hasSuperJump = activePowerups.has(PowerupType.SuperJump);
+    // 檢查磁鐵效果
+    const hasMagnet = activePowerups.has(PowerupType.Magnet);
 
     let moveX = 0;
     if (keys["arrowleft"] || keys["a"]) moveX -= 1;
     if (keys["arrowright"] || keys["d"]) moveX += 1;
 
     player.velocity.x = moveX * GAME_CONFIG.MOVE_SPEED;
-    player.velocity.y += GAME_CONFIG.GRAVITY * deltaTime;
+
+    // 飛行效果：向上飄
+    if (isFlying) {
+      player.velocity.y = GAME_CONFIG.POWERUP.FLIGHT_SPEED;
+    } else {
+      player.velocity.y += GAME_CONFIG.GRAVITY * deltaTime;
+    }
 
     player.x += player.velocity.x * deltaTime;
     player.y += player.velocity.y * deltaTime;
     player.x = clamp(player.x, 0, GAME_CONFIG.WIDTH - player.width);
 
     player.onGround = false;
+
+    // 儲存護盾救回位置（當在安全位置時）
+    if (data.hasShield && player.velocity.y < 0) {
+      data.savedPosition = { x: player.x, y: player.y, cameraY: data.cameraY };
+    }
 
     platforms.forEach((platform) => {
       if (platform.isBreaking && platform.breakTimer !== undefined) {
@@ -300,11 +367,17 @@ export default function BunnyJumper() {
       if (
         !platform.isBreaking &&
         player.velocity.y > 0 &&
+        !isFlying &&
         checkCollision(player, platform) &&
         playerPrevBottom <= platformTop &&
         playerBottom >= platformTop
       ) {
-        player.velocity.y = -GAME_CONFIG.JUMP_FORCE;
+        // 計算跳躍力（超級跳躍加成）
+        const jumpForce = hasSuperJump
+          ? GAME_CONFIG.JUMP_FORCE * GAME_CONFIG.POWERUP.SUPER_JUMP_MULTIPLIER
+          : GAME_CONFIG.JUMP_FORCE;
+
+        player.velocity.y = -jumpForce;
         player.onGround = true;
         player.y = platform.y - player.height;
 
@@ -325,6 +398,27 @@ export default function BunnyJumper() {
       data.playerSquash = 1.4 - (timeSinceLand / 0.15) * 0.4;
     } else {
       data.playerSquash = 1;
+    }
+
+    // 磁鐵效果：吸引寶石
+    if (hasMagnet) {
+      const playerCenterX = player.x + player.width / 2;
+      const playerCenterY = player.y + player.height / 2;
+
+      collectibles.forEach((carrot) => {
+        if (carrot.collected) return;
+        const carrotCenterX = carrot.x + carrot.width / 2;
+        const carrotCenterY = carrot.y + carrot.height / 2;
+        const dx = playerCenterX - carrotCenterX;
+        const dy = playerCenterY - carrotCenterY;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+
+        if (distance < GAME_CONFIG.POWERUP.MAGNET_RANGE && distance > 0) {
+          const speed = GAME_CONFIG.POWERUP.MAGNET_SPEED * deltaTime;
+          carrot.x += (dx / distance) * speed;
+          carrot.y += (dy / distance) * speed;
+        }
+      });
     }
 
     collectibles.forEach((carrot) => {
@@ -349,9 +443,55 @@ export default function BunnyJumper() {
       }
     });
 
+    // 道具碰撞檢測
+    powerups.forEach((powerup) => {
+      if (!powerup.collected && checkCollision(player, powerup)) {
+        powerup.collected = true;
+
+        // 啟用道具效果
+        const duration =
+          GAME_CONFIG.POWERUP.DURATIONS[
+            powerup.type.toUpperCase() as keyof typeof GAME_CONFIG.POWERUP.DURATIONS
+          ];
+        if (powerup.type === PowerupType.Shield) {
+          data.hasShield = true;
+        } else {
+          activePowerups.set(powerup.type, currentTime + duration);
+        }
+
+        // 道具收集粒子效果
+        const centerX = powerup.x + powerup.width / 2;
+        const centerY = powerup.y + powerup.height / 2;
+        const powerupColors: Record<PowerupType, string[]> = {
+          [PowerupType.Flight]: ["#87CEEB", "#B0E0E6", "#ADD8E6", "#E0FFFF"],
+          [PowerupType.SuperJump]: ["#FFD700", "#FFA500", "#FFFF00", "#FFE066"],
+          [PowerupType.Magnet]: ["#FF69B4", "#FF1493", "#DB7093", "#FFB6C1"],
+          [PowerupType.Shield]: ["#98FB98", "#90EE90", "#00FA9A", "#7CFC00"],
+        };
+        const colors = powerupColors[powerup.type];
+        for (let i = 0; i < 12; i++) {
+          const angle = (Math.PI * 2 * i) / 12 + Math.random() * 0.3;
+          data.collectParticles.push({
+            x: centerX,
+            y: centerY,
+            vx: Math.cos(angle) * (80 + Math.random() * 50),
+            vy: Math.sin(angle) * (80 + Math.random() * 50) - 50,
+            life: 1,
+            maxLife: 1.0 + Math.random() * 0.5,
+            color: colors[Math.floor(Math.random() * colors.length)],
+          });
+        }
+      }
+    });
+
     data.collectibles = data.collectibles.filter(
       (carrot) =>
         !carrot.collected && carrot.y <= data.cameraY + GAME_CONFIG.HEIGHT + 80,
+    );
+
+    // 清理已收集的道具
+    data.powerups = data.powerups.filter(
+      (p) => !p.collected && p.y <= data.cameraY + GAME_CONFIG.HEIGHT + 80,
     );
 
     for (let i = data.collectParticles.length - 1; i >= 0; i--) {
@@ -386,12 +526,25 @@ export default function BunnyJumper() {
         const newPlatform = createPlatform(newX, newY, newType);
         platforms[index] = newPlatform;
 
+        // 生成寶石
         if (Math.random() < GAME_CONFIG.COLLECTIBLE.SPAWN_CHANCE) {
           data.collectibles.push(
             createCarrot(
               newPlatform.x +
                 newPlatform.width / 2 -
                 GAME_CONFIG.COLLECTIBLE.CARROT_SIZE / 2,
+              newPlatform.y,
+            ),
+          );
+        }
+
+        // 生成道具（機率較低）
+        if (Math.random() < GAME_CONFIG.POWERUP.SPAWN_CHANCE) {
+          data.powerups.push(
+            createPowerup(
+              newPlatform.x +
+                newPlatform.width / 2 -
+                GAME_CONFIG.POWERUP.SIZE / 2,
               newPlatform.y,
             ),
           );
@@ -927,12 +1080,218 @@ export default function BunnyJumper() {
     ctx.restore();
   };
 
+  // 繪製道具
+  const drawPowerup = (
+    ctx: CanvasRenderingContext2D,
+    powerup: Powerup,
+    time: number,
+  ) => {
+    if (powerup.collected) return;
+    const centerX = powerup.x + powerup.width / 2;
+    const centerY = powerup.y + powerup.height / 2;
+    const float = Math.sin(time * 2.5 + centerX * 0.05) * 6;
+    const pulse = 1 + Math.sin(time * 3) * 0.15;
+
+    ctx.save();
+    ctx.translate(centerX, centerY + float);
+    ctx.scale(pulse, pulse);
+
+    const size = GAME_CONFIG.POWERUP.SIZE / 2;
+
+    switch (powerup.type) {
+      case PowerupType.Flight: {
+        // 飛行道具 - 羽毛翅膀
+        ctx.shadowColor = "rgba(96, 165, 250, 0.7)";
+        ctx.shadowBlur = 25;
+
+        // 左翅膀
+        ctx.fillStyle = "#93C5FD";
+        ctx.beginPath();
+        ctx.ellipse(
+          -size * 0.4,
+          0,
+          size * 0.6,
+          size * 0.3,
+          -Math.PI / 4,
+          0,
+          Math.PI * 2,
+        );
+        ctx.fill();
+
+        // 右翅膀
+        ctx.beginPath();
+        ctx.ellipse(
+          size * 0.4,
+          0,
+          size * 0.6,
+          size * 0.3,
+          Math.PI / 4,
+          0,
+          Math.PI * 2,
+        );
+        ctx.fill();
+
+        // 中心光點
+        ctx.fillStyle = "#DBEAFE";
+        ctx.beginPath();
+        ctx.arc(0, 0, size * 0.25, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 羽毛紋理
+        ctx.strokeStyle = "#60A5FA";
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(-size * 0.7, -size * 0.15);
+        ctx.lineTo(-size * 0.1, 0);
+        ctx.moveTo(size * 0.7, -size * 0.15);
+        ctx.lineTo(size * 0.1, 0);
+        ctx.stroke();
+        break;
+      }
+
+      case PowerupType.SuperJump: {
+        // 超級跳躍 - 彈簧星星
+        ctx.shadowColor = "rgba(251, 191, 36, 0.7)";
+        ctx.shadowBlur = 25;
+
+        // 星星
+        const grad = ctx.createRadialGradient(0, 0, 0, 0, 0, size);
+        grad.addColorStop(0, "#FEF08A");
+        grad.addColorStop(0.5, "#FBBF24");
+        grad.addColorStop(1, "#F59E0B");
+        ctx.fillStyle = grad;
+        drawStar(ctx, 0, 0, size, size * 0.45);
+
+        // 向上箭頭
+        ctx.fillStyle = "#FFFFFF";
+        ctx.beginPath();
+        ctx.moveTo(0, -size * 0.35);
+        ctx.lineTo(size * 0.15, -size * 0.1);
+        ctx.lineTo(-size * 0.15, -size * 0.1);
+        ctx.closePath();
+        ctx.fill();
+
+        // 閃光
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+        const sparkle = 2 + Math.sin(time * 8) * 1;
+        ctx.beginPath();
+        ctx.arc(size * 0.3, -size * 0.4, sparkle, 0, Math.PI * 2);
+        ctx.fill();
+        break;
+      }
+
+      case PowerupType.Magnet: {
+        // 磁鐵道具 - 馬蹄形磁鐵
+        ctx.shadowColor = "rgba(167, 139, 250, 0.7)";
+        ctx.shadowBlur = 25;
+
+        // 磁鐵本體
+        ctx.strokeStyle = "#A78BFA";
+        ctx.lineWidth = size * 0.35;
+        ctx.lineCap = "round";
+        ctx.beginPath();
+        ctx.arc(0, size * 0.1, size * 0.6, Math.PI * 0.2, Math.PI * 0.8, true);
+        ctx.stroke();
+
+        // 紅色端點
+        ctx.fillStyle = "#F87171";
+        ctx.beginPath();
+        ctx.arc(-size * 0.55, size * 0.3, size * 0.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 藍色端點
+        ctx.fillStyle = "#60A5FA";
+        ctx.beginPath();
+        ctx.arc(size * 0.55, size * 0.3, size * 0.2, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 吸引粒子效果
+        for (let i = 0; i < 3; i++) {
+          const angle = time * 4 + i * ((Math.PI * 2) / 3);
+          const dist = size * 0.8 + Math.sin(time * 6 + i) * 5;
+          ctx.fillStyle = "rgba(167, 139, 250, 0.6)";
+          ctx.beginPath();
+          ctx.arc(
+            Math.cos(angle) * dist,
+            Math.sin(angle) * dist - size * 0.2,
+            3,
+            0,
+            Math.PI * 2,
+          );
+          ctx.fill();
+        }
+        break;
+      }
+
+      case PowerupType.Shield: {
+        // 護盾道具 - 泡泡盾
+        ctx.shadowColor = "rgba(34, 211, 238, 0.7)";
+        ctx.shadowBlur = 25;
+
+        // 外圈
+        const shieldGrad = ctx.createRadialGradient(
+          0,
+          0,
+          size * 0.3,
+          0,
+          0,
+          size,
+        );
+        shieldGrad.addColorStop(0, "rgba(165, 243, 252, 0.9)");
+        shieldGrad.addColorStop(0.6, "rgba(34, 211, 238, 0.7)");
+        shieldGrad.addColorStop(1, "rgba(6, 182, 212, 0.5)");
+        ctx.fillStyle = shieldGrad;
+        ctx.beginPath();
+        ctx.arc(0, 0, size * 0.85, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 愛心圖案
+        ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
+        ctx.save();
+        ctx.scale(0.5, 0.5);
+        drawHeart(ctx, 0, size * 0.1, size * 0.6);
+        ctx.restore();
+
+        // 高光
+        ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+        ctx.beginPath();
+        ctx.ellipse(
+          -size * 0.3,
+          -size * 0.3,
+          size * 0.2,
+          size * 0.12,
+          -Math.PI / 4,
+          0,
+          Math.PI * 2,
+        );
+        ctx.fill();
+
+        // 氣泡效果
+        for (let i = 0; i < 4; i++) {
+          const bubbleAngle = time * 1.5 + i * (Math.PI / 2);
+          const bx = Math.cos(bubbleAngle) * size * 0.6;
+          const by = Math.sin(bubbleAngle) * size * 0.6;
+          ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+          ctx.beginPath();
+          ctx.arc(bx, by, 3, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        break;
+      }
+    }
+
+    ctx.restore();
+  };
+
   const render = (ctx: CanvasRenderingContext2D, data: GameData) => {
     const time = performance.now() / 1000;
     const {
       player,
       platforms,
       collectibles,
+      powerups,
+      activePowerups,
+      hasShield,
       cameraY,
       collectParticles,
       playerSquash,
@@ -1002,6 +1361,7 @@ export default function BunnyJumper() {
 
     platforms.forEach((platform) => drawPlatform(ctx, platform, time));
     collectibles.forEach((item) => drawCollectible(ctx, item, time));
+    powerups.forEach((powerup) => drawPowerup(ctx, powerup, time));
 
     // 粒子效果
     collectParticles.forEach((particle) => {
@@ -1029,6 +1389,152 @@ export default function BunnyJumper() {
     ctx.globalAlpha = 1;
 
     drawRabbit(ctx, player, playerSquash, time);
+
+    // 玩家道具特效
+    const playerCenterX = player.x + GAME_CONFIG.PLAYER.WIDTH / 2;
+    const playerCenterY = player.y + GAME_CONFIG.PLAYER.HEIGHT / 2;
+
+    // 飛行翅膀特效
+    if (activePowerups.has(PowerupType.Flight)) {
+      ctx.save();
+      ctx.translate(playerCenterX, playerCenterY);
+      const wingFlap = Math.sin(time * 15) * 0.3;
+
+      // 左翅膀
+      ctx.save();
+      ctx.rotate(-0.4 + wingFlap);
+      ctx.fillStyle = "rgba(147, 197, 253, 0.7)";
+      ctx.beginPath();
+      ctx.ellipse(-25, -5, 20, 10, -0.3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "rgba(219, 234, 254, 0.8)";
+      ctx.beginPath();
+      ctx.ellipse(-20, -5, 12, 6, -0.3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      // 右翅膀
+      ctx.save();
+      ctx.rotate(0.4 - wingFlap);
+      ctx.fillStyle = "rgba(147, 197, 253, 0.7)";
+      ctx.beginPath();
+      ctx.ellipse(25, -5, 20, 10, 0.3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = "rgba(219, 234, 254, 0.8)";
+      ctx.beginPath();
+      ctx.ellipse(20, -5, 12, 6, 0.3, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.restore();
+    }
+
+    // 護盾光環特效
+    if (hasShield) {
+      ctx.save();
+      ctx.translate(playerCenterX, playerCenterY);
+
+      // 護盾氣泡
+      const shieldPulse = 1 + Math.sin(time * 4) * 0.1;
+      const shieldRadius = GAME_CONFIG.PLAYER.WIDTH * 0.75 * shieldPulse;
+
+      const shieldGrad = ctx.createRadialGradient(
+        0,
+        0,
+        shieldRadius * 0.5,
+        0,
+        0,
+        shieldRadius,
+      );
+      shieldGrad.addColorStop(0, "rgba(34, 211, 238, 0.05)");
+      shieldGrad.addColorStop(0.7, "rgba(34, 211, 238, 0.15)");
+      shieldGrad.addColorStop(1, "rgba(6, 182, 212, 0.3)");
+
+      ctx.fillStyle = shieldGrad;
+      ctx.beginPath();
+      ctx.arc(0, 0, shieldRadius, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = "rgba(34, 211, 238, 0.5)";
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      // 旋轉的小愛心
+      for (let i = 0; i < 4; i++) {
+        const angle = time * 2 + i * (Math.PI / 2);
+        const hx = Math.cos(angle) * shieldRadius * 0.85;
+        const hy = Math.sin(angle) * shieldRadius * 0.85;
+        ctx.save();
+        ctx.translate(hx, hy);
+        ctx.fillStyle = "rgba(255, 182, 193, 0.7)";
+        drawHeart(ctx, 0, 0, 6);
+        ctx.restore();
+      }
+
+      ctx.restore();
+    }
+
+    // 超級跳躍閃光特效
+    if (activePowerups.has(PowerupType.SuperJump)) {
+      ctx.save();
+      ctx.translate(playerCenterX, player.y + GAME_CONFIG.PLAYER.HEIGHT);
+
+      // 腳底閃光
+      const sparkCount = 5;
+      for (let i = 0; i < sparkCount; i++) {
+        const sparkAngle = time * 8 + i * ((Math.PI * 2) / sparkCount);
+        const sparkDist = 8 + Math.sin(time * 6 + i) * 3;
+        const sx = Math.cos(sparkAngle) * sparkDist;
+        const sy = Math.sin(sparkAngle) * 3;
+
+        ctx.fillStyle = `rgba(251, 191, 36, ${
+          0.6 + Math.sin(time * 10 + i) * 0.3
+        })`;
+        ctx.beginPath();
+        ctx.arc(sx, sy, 3, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // 星星特效
+      ctx.fillStyle = "#FEF08A";
+      const starSize = 4 + Math.sin(time * 6) * 1;
+      drawStar(ctx, 0, -5, starSize, starSize * 0.4);
+
+      ctx.restore();
+    }
+
+    // 磁鐵吸引特效
+    if (activePowerups.has(PowerupType.Magnet)) {
+      ctx.save();
+      ctx.translate(playerCenterX, playerCenterY);
+
+      // 磁力場圈圈
+      const magnetRange = GAME_CONFIG.POWERUP.MAGNET_RANGE;
+      ctx.strokeStyle = "rgba(167, 139, 250, 0.2)";
+      ctx.lineWidth = 2;
+      ctx.setLineDash([10, 5]);
+      ctx.beginPath();
+      ctx.arc(0, 0, magnetRange, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.setLineDash([]);
+
+      // 旋轉粒子
+      for (let i = 0; i < 6; i++) {
+        const angle = time * 3 + i * (Math.PI / 3);
+        const dist = magnetRange * 0.7;
+        const px = Math.cos(angle) * dist;
+        const py = Math.sin(angle) * dist;
+
+        ctx.fillStyle = `rgba(167, 139, 250, ${
+          0.4 + Math.sin(time * 5 + i) * 0.2
+        })`;
+        ctx.beginPath();
+        ctx.arc(px, py, 4, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      ctx.restore();
+    }
 
     ctx.restore();
 
@@ -1084,6 +1590,110 @@ export default function BunnyJumper() {
     );
 
     ctx.restore();
+
+    // 活躍道具效果指示器
+    const currentTime = performance.now();
+    const activeEffects: {
+      type: PowerupType;
+      endTime: number;
+      color: string;
+      icon: string;
+    }[] = [];
+
+    if (activePowerups.has(PowerupType.Flight)) {
+      activeEffects.push({
+        type: PowerupType.Flight,
+        endTime: activePowerups.get(PowerupType.Flight)!,
+        color: "#60A5FA",
+        icon: "🪽",
+      });
+    }
+    if (activePowerups.has(PowerupType.SuperJump)) {
+      activeEffects.push({
+        type: PowerupType.SuperJump,
+        endTime: activePowerups.get(PowerupType.SuperJump)!,
+        color: "#FBBF24",
+        icon: "⭐",
+      });
+    }
+    if (activePowerups.has(PowerupType.Magnet)) {
+      activeEffects.push({
+        type: PowerupType.Magnet,
+        endTime: activePowerups.get(PowerupType.Magnet)!,
+        color: "#A78BFA",
+        icon: "🧲",
+      });
+    }
+    if (hasShield) {
+      activeEffects.push({
+        type: PowerupType.Shield,
+        endTime: -1,
+        color: "#22D3EE",
+        icon: "🛡️",
+      });
+    }
+
+    if (activeEffects.length > 0) {
+      ctx.save();
+
+      const indicatorY = 90;
+      const indicatorSpacing = 45;
+      const startX =
+        GAME_CONFIG.WIDTH / 2 -
+        ((activeEffects.length - 1) * indicatorSpacing) / 2;
+
+      activeEffects.forEach((effect, index) => {
+        const x = startX + index * indicatorSpacing;
+
+        // 圓形背景
+        ctx.shadowColor = effect.color;
+        ctx.shadowBlur = 10;
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+        ctx.beginPath();
+        ctx.arc(x, indicatorY, 18, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 進度環
+        if (effect.endTime > 0) {
+          const remaining = Math.max(0, effect.endTime - currentTime);
+          const duration =
+            GAME_CONFIG.POWERUP.DURATIONS[
+              effect.type.toUpperCase() as keyof typeof GAME_CONFIG.POWERUP.DURATIONS
+            ];
+          const progress = remaining / duration;
+
+          ctx.shadowBlur = 0;
+          ctx.strokeStyle = effect.color;
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.arc(
+            x,
+            indicatorY,
+            18,
+            -Math.PI / 2,
+            -Math.PI / 2 + progress * Math.PI * 2,
+          );
+          ctx.stroke();
+        } else {
+          // 護盾沒有時間限制，畫完整的圈
+          ctx.shadowBlur = 0;
+          ctx.strokeStyle = effect.color;
+          ctx.lineWidth = 3;
+          ctx.beginPath();
+          ctx.arc(x, indicatorY, 18, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+
+        // 圖標
+        ctx.shadowBlur = 0;
+        ctx.font = "16px system-ui";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(effect.icon, x, indicatorY);
+      });
+
+      ctx.restore();
+    }
   };
 
   return (

@@ -5,14 +5,14 @@ export const GAME_CONFIG = {
   MOVE_SPEED: 280,
   JUMP_FORCE: 750,
   MARGIN_X: 30,
-  
+
   PLAYER: {
     WIDTH: 48,
     HEIGHT: 48,
     BOUNCE: 0.1,
     START_Y_RATIO: 0.8,
   },
-  
+
   PLATFORM: {
     WIDTH: 90,
     HEIGHT: 18,
@@ -20,19 +20,35 @@ export const GAME_CONFIG = {
     MOVING_SPEED: { MIN: 50, MAX: 90 },
     BREAK_DELAY: 250,
   },
-  
+
   COLLECTIBLE: {
     CARROT_SIZE: 28,
     CARROT_OFFSET_Y: 45,
     SPAWN_CHANCE: 0.35,
   },
-  
+
+  POWERUP: {
+    SIZE: 36,
+    OFFSET_Y: 55,
+    SPAWN_CHANCE: 0.03,
+    DURATIONS: {
+      FLIGHT: 3000,
+      SUPER_JUMP: 8000,
+      MAGNET: 6000,
+      SHIELD: -1,
+    },
+    MAGNET_RANGE: 150,
+    MAGNET_SPEED: 200,
+    FLIGHT_SPEED: -200,
+    SUPER_JUMP_MULTIPLIER: 1.5,
+  },
+
   SCORING: {
     HEIGHT_FACTOR: 0.5,
     CARROT_POINTS: 50,
-    BEST_SCORE_KEY: 'bunnyJumperBestScore',
+    BEST_SCORE_KEY: "bunnyJumperBestScore",
   },
-  
+
   DIFFICULTY: {
     EASY: {
       HEIGHT_THRESHOLD: 1500,
@@ -50,6 +66,6 @@ export const GAME_CONFIG = {
       PLATFORM_DISTRIBUTION: { STATIC: 0.5, MOVING: 0.35, BREAKABLE: 0.15 },
     },
   },
-  
+
   INITIAL_PLATFORMS: 18,
-} as const
+} as const;
