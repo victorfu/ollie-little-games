@@ -18,26 +18,30 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Play, ArrowsClockwise, House } from '@phosphor-icons/react'
 
+type CollectParticle = { x: number; y: number; vx: number; vy: number; life: number; maxLife: number }
+
+type GameData = {
+  player: Player
+  platforms: Platform[]
+  collectibles: Collectible[]
+  cameraY: number
+  startY: number
+  maxHeight: number
+  carrotCount: number
+  keys: Record<string, boolean>
+  lastTime: number
+  playerSquash: number
+  playerLandTime: number
+  collectParticles: CollectParticle[]
+}
+
 export default function BunnyJumper() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [gameState, setGameState] = useState<GameState>(GameState.Menu)
   const [currentScore, setCurrentScore] = useState(0)
   const [bestScore, setBestScoreState] = useState(0)
   const gameLoopRef = useRef<number | undefined>(undefined)
-  const gameDataRef = useRef<{
-    player: Player
-    platforms: Platform[]
-    collectibles: Collectible[]
-    cameraY: number
-    startY: number
-    maxHeight: number
-    carrotCount: number
-    keys: { [key: string]: boolean }
-    lastTime: number
-    playerSquash: number
-    playerLandTime: number
-    collectParticles: Array<{ x: number; y: number; vx: number; vy: number; life: number; maxLife: number }>
-  } | undefined>(undefined)
+  const gameDataRef = useRef<GameData | undefined>(undefined)
 
   useEffect(() => {
     setBestScoreState(getBestScore())
@@ -55,35 +59,36 @@ export default function BunnyJumper() {
 
     const platforms: Platform[] = []
     const collectibles: Collectible[] = []
-    
     let currentY = GAME_CONFIG.HEIGHT - 80
-    
+
     const startPlatform = createPlatform(
       GAME_CONFIG.WIDTH / 2 - GAME_CONFIG.PLATFORM.WIDTH / 2,
       currentY,
       PlatformType.Static
     )
     platforms.push(startPlatform)
-    
+
     for (let i = 1; i < GAME_CONFIG.INITIAL_PLATFORMS; i++) {
       const gapRange = getGapRange(0)
       const gap = randomInt(gapRange.min, gapRange.max)
       currentY -= gap
-      
+
       const x = randomInt(
         GAME_CONFIG.MARGIN_X,
         GAME_CONFIG.WIDTH - GAME_CONFIG.MARGIN_X - GAME_CONFIG.PLATFORM.WIDTH
       )
-      
+
       const platformType = i < 3 ? PlatformType.Static : selectPlatformType(0)
       const platform = createPlatform(x, currentY, platformType)
       platforms.push(platform)
-      
+
       if (Math.random() < GAME_CONFIG.COLLECTIBLE.SPAWN_CHANCE) {
-        collectibles.push(createCarrot(
-          platform.x + platform.width / 2 - GAME_CONFIG.COLLECTIBLE.CARROT_SIZE / 2,
-          platform.y
-        ))
+        collectibles.push(
+          createCarrot(
+            platform.x + platform.width / 2 - GAME_CONFIG.COLLECTIBLE.CARROT_SIZE / 2,
+            platform.y
+          )
+        )
       }
     }
 
@@ -186,12 +191,7 @@ export default function BunnyJumper() {
     }
   }, [gameState])
 
-  const updateGame = (
-    deltaTime: number,
-    data: typeof gameDataRef.current
-  ) => {
-    if (!data) return
-
+  const updateGame = (deltaTime: number, data: GameData) => {
     const { player, platforms, collectibles, keys } = data
 
     let moveX = 0
@@ -199,12 +199,10 @@ export default function BunnyJumper() {
     if (keys['arrowright'] || keys['d']) moveX += 1
 
     player.velocity.x = moveX * GAME_CONFIG.MOVE_SPEED
-
     player.velocity.y += GAME_CONFIG.GRAVITY * deltaTime
 
     player.x += player.velocity.x * deltaTime
     player.y += player.velocity.y * deltaTime
-
     player.x = clamp(player.x, 0, GAME_CONFIG.WIDTH - player.width)
 
     player.onGround = false
@@ -221,7 +219,7 @@ export default function BunnyJumper() {
       if (platform.movingData) {
         const { baseX, range, speed, direction } = platform.movingData
         platform.x += direction * speed * deltaTime
-        
+
         if (platform.x < baseX - range / 2) {
           platform.x = baseX - range / 2
           platform.movingData.direction = 1
@@ -234,7 +232,7 @@ export default function BunnyJumper() {
       const playerBottom = player.y + player.height
       const playerPrevBottom = playerBottom - player.velocity.y * deltaTime
       const platformTop = platform.y
-      
+
       if (
         !platform.isBreaking &&
         player.velocity.y > 0 &&
@@ -245,7 +243,7 @@ export default function BunnyJumper() {
         player.velocity.y = -GAME_CONFIG.JUMP_FORCE
         player.onGround = true
         player.y = platform.y - player.height
-        
+
         data.playerSquash = 1.4
         data.playerLandTime = performance.now() / 1000
 
@@ -255,7 +253,11 @@ export default function BunnyJumper() {
         }
       }
     })
-    
+
+    const timeSinceLand = performance.now() / 1000 - data.playerLandTime
+    if (player.onGround) {
+      data.playerSquash = 1.4
+    } else if (data.playerLandTime > 0 && timeSinceLand < 0.15) {
       data.playerSquash = 1.4 - (timeSinceLand / 0.15) * 0.4
     } else {
       data.playerSquash = 1
@@ -264,36 +266,39 @@ export default function BunnyJumper() {
     collectibles.forEach((carrot) => {
       if (!carrot.collected && checkCollision(player, carrot)) {
         carrot.collected = true
-    collectibles.forEach((carrot) => {
-      if (!carrot.collected && checkCollision(player, carrot)) {
-        carrot.collected = true
         data.carrotCount++
+        const centerX = carrot.x + carrot.width / 2
+        const centerY = carrot.y + carrot.height / 2
+        for (let i = 0; i < 6; i++) {
+          const angle = (Math.PI * 2 * i) / 6 + Math.random() * 0.35
           data.collectParticles.push({
-            x: carrot.x + carrot.width / 2,
-            y: carrot.y + carrot.height / 2,
+            x: centerX,
+            y: centerY,
             vx: Math.cos(angle) * (50 + Math.random() * 30),
             vy: Math.sin(angle) * (50 + Math.random() * 30) - 30,
             life: 1,
-            maxLife: 0.6 + Math.random() * 0.4
+            maxLife: 0.7 + Math.random() * 0.3,
           })
         }
       }
     })
-    
-      }
-    })
-    
+
+    data.collectibles = data.collectibles.filter(
+      (carrot) => !carrot.collected && carrot.y <= data.cameraY + GAME_CONFIG.HEIGHT + 80
+    )
+
+    for (let i = data.collectParticles.length - 1; i >= 0; i--) {
+      const particle = data.collectParticles[i]
+      particle.life -= deltaTime
+      particle.x += particle.vx * deltaTime
       particle.y += particle.vy * deltaTime
       particle.vy += 200 * deltaTime
-      
+
       if (particle.life <= 0) {
-        data.collectParticles.splice(index, 1)
+        data.collectParticles.splice(i, 1)
       }
-    })
+    }
 
-    data.maxHeight = Math.min(data.maxHeight, player.y)
-
-    if (player.y < data.cameraY + GAME_CONFIG.HEIGHT * 0.4) {
     data.maxHeight = Math.min(data.maxHeight, player.y)
 
     if (player.y < data.cameraY + GAME_CONFIG.HEIGHT * 0.4) {
@@ -315,543 +320,264 @@ export default function BunnyJumper() {
         platforms[index] = newPlatform
 
         if (Math.random() < GAME_CONFIG.COLLECTIBLE.SPAWN_CHANCE) {
-          collectibles.push(createCarrot(
-            newPlatform.x + newPlatform.width / 2 - GAME_CONFIG.COLLECTIBLE.CARROT_SIZE / 2,
-            newPlatform.y
-          ))
+          data.collectibles.push(
+            createCarrot(
+              newPlatform.x + newPlatform.width / 2 - GAME_CONFIG.COLLECTIBLE.CARROT_SIZE / 2,
+              newPlatform.y
+            )
+          )
         }
       }
     })
   }
 
   const drawBunny = (
-    ctx: CanvasRenderingContext2D, 
-    x: number, 
-    y: number, 
-    idleBounce: number
+    ctx: CanvasRenderingContext2D,
+    player: Player,
+    squash: number,
+    time: number
   ) => {
-    const centerX = x + width / 2
-    const centerY = y + height / 2
-    
+    const width = player.width
+    const height = player.height
+    const centerX = player.x + width / 2
+    const centerY = player.y + height / 2
+    const idleBounce = Math.sin(time * 3) * 1.5
+
     ctx.save()
     ctx.translate(centerX, centerY + idleBounce)
-    ctx.scale(1 / squashStretch, squashStretch)
+    ctx.scale(1 / squash, squash)
     ctx.translate(-centerX, -(centerY + idleBounce))
-    
-    const earHeight = 18 * squashStretch
-    const earWidth = 7
-    const earSpacing = 11
-    
-    ctx.shadowColor = 'rgba(255, 182, 217, 0.35)'
-    ctx.shadowBlur = 10
-    ctx.shadowOffsetY = 4
-    
+
     ctx.fillStyle = '#FFE5F0'
     ctx.beginPath()
-    ctx.ellipse(centerX - earSpacing, y + 3 + idleBounce, earWidth, earHeight, -0.15, 0, Math.PI * 2)
+    ctx.ellipse(centerX - 10, player.y + 6 + idleBounce, 8, 16, -0.15, 0, Math.PI * 2)
+    ctx.ellipse(centerX + 10, player.y + 6 + idleBounce, 8, 16, 0.15, 0, Math.PI * 2)
     ctx.fill()
-    ctx.beginPath()
-    ctx.ellipse(centerX + earSpacing, y + 3 + idleBounce, earWidth, earHeight, 0.15, 0, Math.PI * 2)
-    ctx.fill()
-    
-    ctx.fillStyle = '#FFB6D9'
-    ctx.beginPath()
-    ctx.ellipse(centerX - earSpacing, y + 6 + idleBounce, 3.5, 11, -0.15, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.beginPath()
-    ctx.ellipse(centerX + earSpacing, y + 6 + idleBounce, 3.5, 11, 0.15, 0, Math.PI * 2)
-    ctx.fill()
-    
-    const bodyGradient = ctx.createRadialGradient(centerX, centerY + 2 + idleBounce, 0, centerX, centerY + 2 + idleBounce, width * 0.5)
+
+    const bodyGradient = ctx.createRadialGradient(centerX, centerY + 4, 0, centerX, centerY + 4, width * 0.6)
     bodyGradient.addColorStop(0, '#FFFFFF')
-    bodyGradient.addColorStop(0.7, '#FFF5F7')
-    bodyGradient.addColorStop(1, '#FFE5F0')
-    
+    bodyGradient.addColorStop(1, '#FFD6E8')
     ctx.fillStyle = bodyGradient
     ctx.beginPath()
-    ctx.arc(centerX, centerY + 4 + idleBounce, width * 0.48, 0, Math.PI * 2)
+    ctx.ellipse(centerX, centerY + 6, width * 0.45, height * 0.46, 0, 0, Math.PI * 2)
     ctx.fill()
-    
-    ctx.shadowBlur = 0
-    ctx.strokeStyle = '#FFB6D9'
-    ctx.lineWidth = 2
-    ctx.stroke()
-    
-    const eyeY = centerY - 1 + idleBounce
-    const eyeSpacing = 9
-    
+
     ctx.fillStyle = '#1A1A2E'
     ctx.beginPath()
-    ctx.ellipse(centerX - eyeSpacing, eyeY, 4, 5, 0, 0, Math.PI * 2)
+    ctx.arc(centerX - 8, centerY - 4, 3.5, 0, Math.PI * 2)
+    ctx.arc(centerX + 8, centerY - 4, 3.5, 0, Math.PI * 2)
     ctx.fill()
+
+    ctx.fillStyle = '#FF8FAB'
     ctx.beginPath()
-    ctx.ellipse(centerX + eyeSpacing, eyeY, 4, 5, 0, 0, Math.PI * 2)
+    ctx.arc(centerX, centerY + 4, 3, 0, Math.PI * 2)
     ctx.fill()
-    
-    ctx.fillStyle = '#FFFFFF'
-    ctx.beginPath()
-    ctx.arc(centerX - eyeSpacing + 2, eyeY - 1.5, 2, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.beginPath()
-    ctx.arc(centerX + eyeSpacing + 2, eyeY - 1.5, 2, 0, Math.PI * 2)
-    ctx.fill()
-    
+
     ctx.strokeStyle = '#FF8FAB'
-    ctx.lineWidth = 2.5
+    ctx.lineWidth = 2
     ctx.lineCap = 'round'
     ctx.beginPath()
-    ctx.moveTo(centerX - 5, eyeY + 7)
-    ctx.quadraticCurveTo(centerX, eyeY + 9, centerX + 5, eyeY + 7)
+    ctx.moveTo(centerX - 6, centerY + 10)
+    ctx.quadraticCurveTo(centerX, centerY + 12, centerX + 6, centerY + 10)
     ctx.stroke()
-    
-    const noseGradient = ctx.createRadialGradient(centerX, eyeY + 6, 0, centerX, eyeY + 6, 2.5)
-    noseGradient.addColorStop(0, '#FFB6D9')
-    noseGradient.addColorStop(1, '#FF8FAB')
-    ctx.fillStyle = noseGradient
-    ctx.beginPath()
-    ctx.arc(centerX, eyeY + 6, 2.5, 0, Math.PI * 2)
-    ctx.fill()
-    
-    ctx.fillStyle = '#FFD6E8'
-    ctx.beginPath()
-    ctx.arc(centerX - 13, centerY + 2 + idleBounce, 4, 0, Math.PI * 2)
-    ctx.fill()
-    ctx.beginPath()
-    ctx.arc(centerX + 13, centerY + 2 + idleBounce, 4, 0, Math.PI * 2)
-    ctx.fill()
-    
+
     ctx.restore()
-    ctx.shadowColor = 'transparent'
   }
 
   const drawPlatform = (ctx: CanvasRenderingContext2D, platform: Platform, time: number) => {
     const { x, y, width, height, type, isBreaking } = platform
-    
-    const bobAmount = type === PlatformType.Moving ? Math.sin(time * 2 + x) * 1.5 : Math.sin(time * 1.5 + x * 0.1) * 0.8
-    const drawY = y + bobAmount
-    
-    if (isBreaking) {
-      ctx.globalAlpha = 0.4
-    }
-    
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.2)'
-    ctx.shadowBlur = 10
-    ctx.shadowOffsetY = 5
-    
-    let gradient
+    const bob = Math.sin(time * 2 + x) * 1.5
+    const drawY = y + bob
+
+    ctx.save()
+    ctx.shadowColor = 'rgba(0,0,0,0.15)'
+    ctx.shadowBlur = 8
+    ctx.shadowOffsetY = 4
+
+    const gradient = ctx.createLinearGradient(x, drawY, x, drawY + height)
     if (type === PlatformType.Moving) {
-      gradient = ctx.createLinearGradient(x, drawY, x, drawY + height)
-      gradient.addColorStop(0, '#F3E8FF')
-      gradient.addColorStop(0.3, '#E9D5FF')
-      gradient.addColorStop(0.7, '#C084FC')
-      gradient.addColorStop(1, '#A855F7')
-      
-      ctx.fillStyle = gradient
-      ctx.beginPath()
-      ctx.roundRect(x, drawY, width, height, 14)
-      ctx.fill()
-      
-      ctx.strokeStyle = '#FAF5FF'
-      ctx.lineWidth = 3.5
-      ctx.stroke()
-      
-      for (let i = 0; i < 3; i++) {
-        const pulse = Math.sin(time * 4 + i) * 0.3 + 0.7
-        ctx.fillStyle = `rgba(255, 255, 255, ${pulse * 0.5})`
-        ctx.beginPath()
-        ctx.arc(x + 15 + i * 20, drawY + height / 2, 3.5, 0, Math.PI * 2)
-        ctx.fill()
-      }
-      
-      const sparkle = Math.sin(time * 3 + x) * 0.3 + 0.7
-      ctx.strokeStyle = `rgba(255, 255, 255, ${sparkle * 0.4})`
-      ctx.lineWidth = 2
-      ctx.beginPath()
-      ctx.moveTo(x + width - 12, drawY + 5)
-      ctx.lineTo(x + width - 8, drawY + height - 5)
-      ctx.stroke()
+      gradient.addColorStop(0, '#E9D5FF')
+      gradient.addColorStop(1, '#C084FC')
     } else if (type === PlatformType.Breakable) {
-      gradient = ctx.createLinearGradient(x, drawY, x, drawY + height)
-      gradient.addColorStop(0, '#FFE4E6')
-      gradient.addColorStop(0.3, '#FECDD3')
-      gradient.addColorStop(0.7, '#FDA4AF')
+      gradient.addColorStop(0, '#FECDD3')
       gradient.addColorStop(1, '#FB7185')
-      
-      ctx.fillStyle = gradient
-      ctx.beginPath()
-      ctx.roundRect(x, drawY, width, height, 14)
-      ctx.fill()
-      
-      ctx.strokeStyle = '#FFF1F2'
-      ctx.lineWidth = 3.5
-      ctx.stroke()
-      
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)'
-      ctx.lineWidth = 2
-      ctx.setLineDash([5, 5])
-      ctx.strokeRect(x + 5, drawY + 5, width - 10, height - 10)
-      ctx.setLineDash([])
-      
-      const crackAlpha = isBreaking ? 0.8 : 0.3
-      ctx.strokeStyle = `rgba(190, 18, 60, ${crackAlpha})`
-      ctx.lineWidth = 1.5
-      ctx.beginPath()
-      ctx.moveTo(x + width * 0.3, drawY + 4)
-      ctx.lineTo(x + width * 0.35, drawY + height - 4)
-      ctx.moveTo(x + width * 0.65, drawY + 4)
-      ctx.lineTo(x + width * 0.6, drawY + height - 4)
-      ctx.stroke()
     } else {
-      gradient = ctx.createLinearGradient(x, drawY, x, drawY + height)
-      gradient.addColorStop(0, '#F7FEE7')
-      gradient.addColorStop(0.3, '#ECFCCB')
-      gradient.addColorStop(0.7, '#D9F99D')
-      gradient.addColorStop(1, '#BEF264')
-      
-      ctx.fillStyle = gradient
-      ctx.beginPath()
-      ctx.roundRect(x, drawY, width, height, 14)
-      ctx.fill()
-      
-      ctx.strokeStyle = '#FEFCE8'
-      ctx.lineWidth = 3.5
-      ctx.stroke()
-      
-      for (let i = 0; i < 4; i++) {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)'
-        ctx.beginPath()
-        ctx.arc(x + 12 + i * 18, drawY + height / 2, 2.5, 0, Math.PI * 2)
-        ctx.fill()
-      }
-      
-      for (let i = 0; i < 3; i++) {
-        ctx.fillStyle = 'rgba(132, 204, 22, 0.2)'
-        ctx.beginPath()
-        ctx.arc(x + 20 + i * 20, drawY + height / 2 + 2, 1.5, 0, Math.PI * 2)
-        ctx.fill()
-      }
+      gradient.addColorStop(0, '#ECFCCB')
+      gradient.addColorStop(1, '#D9F99D')
     }
-    
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)'
+
+    ctx.fillStyle = gradient
     ctx.beginPath()
-    ctx.roundRect(x + 6, drawY + 3, width - 12, height / 3, 8)
+    ctx.roundRect(x, drawY, width, height, 10)
     ctx.fill()
-    
-    ctx.shadowColor = 'transparent'
-    ctx.shadowBlur = 0
-    ctx.globalAlpha = 1
+
+    if (isBreaking) {
+      ctx.strokeStyle = 'rgba(239, 68, 68, 0.8)'
+      ctx.setLineDash([6, 6])
+      ctx.strokeRect(x + 4, drawY + 4, width - 8, height - 8)
+      ctx.setLineDash([])
+    }
+
+    ctx.restore()
   }
 
   const drawCarrot = (ctx: CanvasRenderingContext2D, carrot: Collectible, time: number) => {
     if (carrot.collected) return
-    
     const centerX = carrot.x + carrot.width / 2
     const centerY = carrot.y + carrot.height / 2
     const bounce = Math.sin(time * 3 + centerX) * 3
-    const pulse = Math.sin(time * 4 + centerX) * 0.1 + 1
-    const rotation = Math.sin(time * 2 + centerX) * 0.05
-    
+
     ctx.save()
     ctx.translate(centerX, centerY + bounce)
-    ctx.rotate(rotation)
-    ctx.scale(pulse, pulse)
+    ctx.rotate(Math.sin(time * 2 + centerX) * 0.05)
     ctx.translate(-centerX, -(centerY + bounce))
-    
-    ctx.shadowColor = 'rgba(249, 115, 22, 0.4)'
-    ctx.shadowBlur = 12
-    ctx.shadowOffsetY = 5
-    
-    const leafGradient = ctx.createLinearGradient(centerX, carrot.y - 8 + bounce, centerX, carrot.y + 4 + bounce)
-    leafGradient.addColorStop(0, '#D9F99D')
-    leafGradient.addColorStop(0.5, '#BEF264')
-    leafGradient.addColorStop(1, '#84CC16')
-    
-    ctx.fillStyle = leafGradient
+
+    ctx.fillStyle = '#84CC16'
     ctx.beginPath()
-    ctx.moveTo(centerX - 7, carrot.y + 2 + bounce)
-    ctx.quadraticCurveTo(centerX - 5, carrot.y - 8 + bounce, centerX - 2, carrot.y + 2 + bounce)
+    ctx.moveTo(centerX - 6, carrot.y + bounce)
+    ctx.quadraticCurveTo(centerX - 2, carrot.y - 8 + bounce, centerX + 2, carrot.y + bounce)
+    ctx.quadraticCurveTo(centerX + 6, carrot.y - 6 + bounce, centerX + 10, carrot.y + bounce)
     ctx.fill()
-    
-    ctx.beginPath()
-    ctx.moveTo(centerX - 2, carrot.y + 2 + bounce)
-    ctx.quadraticCurveTo(centerX + 1, carrot.y - 10 + bounce, centerX + 4, carrot.y + 2 + bounce)
-    ctx.fill()
-    
-    ctx.beginPath()
-    ctx.moveTo(centerX + 2, carrot.y + 2 + bounce)
-    ctx.quadraticCurveTo(centerX + 5, carrot.y - 7 + bounce, centerX + 8, carrot.y + 2 + bounce)
-    ctx.fill()
-    
-    const carrotGradient = ctx.createLinearGradient(centerX - carrot.width / 2, centerY + bounce, centerX + carrot.width / 2, centerY + bounce)
-    carrotGradient.addColorStop(0, '#FDBA74')
-    carrotGradient.addColorStop(0.3, '#FB923C')
-    carrotGradient.addColorStop(0.7, '#F97316')
-    carrotGradient.addColorStop(1, '#EA580C')
-    
-    ctx.fillStyle = carrotGradient
+
+    const carrotGrad = ctx.createLinearGradient(centerX - 10, centerY, centerX + 10, centerY)
+    carrotGrad.addColorStop(0, '#FDBA74')
+    carrotGrad.addColorStop(1, '#F97316')
+    ctx.fillStyle = carrotGrad
     ctx.beginPath()
     ctx.moveTo(centerX, carrot.y + bounce)
     ctx.lineTo(centerX + carrot.width * 0.3, centerY + bounce)
-    ctx.lineTo(centerX + carrot.width * 0.18, carrot.y + carrot.height - 4 + bounce)
-    ctx.lineTo(centerX - carrot.width * 0.18, carrot.y + carrot.height - 4 + bounce)
+    ctx.lineTo(centerX + carrot.width * 0.2, carrot.y + carrot.height - 4 + bounce)
+    ctx.lineTo(centerX - carrot.width * 0.2, carrot.y + carrot.height - 4 + bounce)
     ctx.lineTo(centerX - carrot.width * 0.3, centerY + bounce)
     ctx.closePath()
     ctx.fill()
-    
-    ctx.strokeStyle = '#C2410C'
-    ctx.lineWidth = 2
-    ctx.stroke()
-    
-    ctx.strokeStyle = 'rgba(251, 146, 60, 0.6)'
-    ctx.lineWidth = 1.2
-    for (let i = 0; i < 3; i++) {
-      ctx.beginPath()
-      ctx.moveTo(centerX - 4, carrot.y + 8 + i * 5 + bounce)
-      ctx.lineTo(centerX + 4, carrot.y + 10 + i * 5 + bounce)
-      ctx.stroke()
-    }
-    
-    const glowPulse = Math.sin(time * 6) * 0.2 + 0.3
-    ctx.strokeStyle = `rgba(251, 146, 60, ${glowPulse})`
-    ctx.lineWidth = 3
-    ctx.beginPath()
-    ctx.arc(centerX, centerY + bounce, carrot.width * 0.7, 0, Math.PI * 2)
-    ctx.stroke()
-    
+
     ctx.restore()
-    ctx.shadowColor = 'transparent'
-    ctx.shadowBlur = 0
   }
 
-  const render = (
-    ctx: CanvasRenderingContext2D,
-    data: typeof gameDataRef.current
-  ) => {
-    if (!data) return
-
-    const { player, platforms, collectibles, cameraY, collectParticles, playerSquash } = data
+  const render = (ctx: CanvasRenderingContext2D, data: GameData) => {
     const time = performance.now() / 1000
-
     const { player, platforms, collectibles, cameraY, collectParticles, playerSquash } = data
-    const time = performance.now() / 1000
 
-    bgGradient.addColorStop(0.6, '#FCE7F3')
+    ctx.clearRect(0, 0, GAME_CONFIG.WIDTH, GAME_CONFIG.HEIGHT)
+
+    const bgGradient = ctx.createLinearGradient(0, 0, 0, GAME_CONFIG.HEIGHT)
     bgGradient.addColorStop(0, '#E0F2FE')
-    bgGradient.addColorStop(0.3, '#F0F9FF')
-    bgGradient.addColorStop(0.6, '#FCE7F3')
-    bgGradient.addColorStop(1, '#FDF4FF')
-    const starPositions = [
-      [80, 100], [320, 150], [150, 280], [380, 320], [50, 450],
-      [250, 520], [100, 650], [350, 700], [180, 820], [290, 900]
-    starPositions.forEach(([sx, sy], i) => {
-      const offsetY = ((cameraY * 0.15 + sy) % (GAME_CONFIG.HEIGHT + 300))
-      const twinkle = Math.sin(time * 2 + i) * 0.3 + 0.7
-      ctx.fillStyle = `rgba(255, 255, 255, ${twinkle * 0.9})`
-      ctx.shadowColor = `rgba(255, 255, 255, ${twinkle * 0.5})`
-      const offsetY = ((cameraY * 0.15 + sy) % (GAME_CONFIG.HEIGHT + 300))
-      ctx.beginPath()
-      ctx.fillStyle = `rgba(255, 255, 255, ${twinkle * 0.9})`
-      ctx.shadowColor = `rgba(255, 255, 255, ${twinkle * 0.5})`
-      ctx.shadowBlur = 4
-        const radius = j % 2 === 0 ? size : size / 2
-        const px = sx + Math.cos(angle) * radius
-        const py = offsetY + Math.sin(angle) * radius
-        if (j === 0) ctx.moveTo(px, py)
-        else ctx.lineTo(px, py)
-      }
-      ctx.closePath()
-      ctx.fill()
-    })
-    ctx.shadowBlur = 0
-    
-    const cloudY = [120, 280, 460, 620, 780]
-    const cloudX = [60, 220, 340, 100, 300]
-    ctx.shadowBlur = 0
-      const offsetY = ((cameraY * 0.2 + cy) % (GAME_CONFIG.HEIGHT + 250))
-      const float = Math.sin(time * 0.5 + i * 2) * 4
-    const cloudX = [60, 220, 340, 100, 300]
-    cloudY.forEach((cy, i) => {
-      const offsetY = ((cameraY * 0.2 + cy) % (GAME_CONFIG.HEIGHT + 250))
-      const float = Math.sin(time * 0.5 + i * 2) * 4
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.75)'
-      ctx.shadowColor = 'rgba(255, 255, 255, 0.6)'
-      ctx.shadowBlur = 18
-      ctx.beginPath()
-      ctx.arc(cloudX[i], offsetY + float, 24, 0, Math.PI * 2)
-      ctx.arc(cloudX[i] + 24, offsetY - 2 + float, 32, 0, Math.PI * 2)
-      ctx.arc(cloudX[i] + 52, offsetY + float, 26, 0, Math.PI * 2)
-      ctx.fill()
+    bgGradient.addColorStop(0.5, '#FCE7F3')
+    bgGradient.addColorStop(1, '#FDF2F8')
+    ctx.fillStyle = bgGradient
+    ctx.fillRect(0, 0, GAME_CONFIG.WIDTH, GAME_CONFIG.HEIGHT)
+
+    ctx.save()
     ctx.translate(0, -cameraY)
 
-    platforms.forEach((platform) => {
-      drawPlatform(ctx, platform, time)
-    })
+    platforms.forEach((platform) => drawPlatform(ctx, platform, time))
+    collectibles.forEach((carrot) => drawCarrot(ctx, carrot, time))
 
-    collectibles.forEach((carrot) => {
-      drawPlatform(ctx, platform, time)
-    })
-
-    collectParticles.forEach((particle) => {
-      drawCarrot(ctx, carrot, time)
-      ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`
-      ctx.shadowColor = `rgba(249, 115, 22, ${alpha * 0.5})`
     collectParticles.forEach((particle) => {
       const alpha = particle.life / particle.maxLife
-      ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`Math.PI * 2)
-      ctx.shadowColor = `rgba(249, 115, 22, ${alpha * 0.5})`
-      ctx.shadowBlur = 6
+      ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`
       ctx.beginPath()
       ctx.arc(particle.x, particle.y, 3 * alpha, 0, Math.PI * 2)
       ctx.fill()
-      
       ctx.fillStyle = `rgba(254, 215, 170, ${alpha * 0.8})`
       ctx.beginPath()
       ctx.arc(particle.x, particle.y, 1.5 * alpha, 0, Math.PI * 2)
       ctx.fill()
     })
-    ctx.shadowBlur = 0
 
-    const idleBounce = Math.sin(time * 3) * 1.5
-    drawBunny(ctx, player.x, player.y, player.width, player.height, playerSquash, idleBounce)
+    drawBunny(ctx, player, playerSquash, time)
 
+    ctx.restore()
+
+    const heightProgress = data.startY - data.maxHeight
+    const heightScore = Math.floor(heightProgress * GAME_CONFIG.SCORING.HEIGHT_FACTOR)
     const collectScore = data.carrotCount * GAME_CONFIG.SCORING.CARROT_POINTS
     const displayScore = heightScore + collectScore
 
-    const hudGradient = ctx.createLinearGradient(GAME_CONFIG.WIDTH / 2 - 120, 12, GAME_CONFIG.WIDTH / 2 + 120, 12)
-    hudGradient.addColorStop(0, 'rgba(255, 240, 245, 0.97)')
-    hudGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.98)')
-orStop(1, 'rgba(252, 231, 243, 0.97)')
-    const hudGradient = ctx.createLinearGradient(GAME_CONFIG.WIDTH / 2 - 120, 12, GAME_CONFIG.WIDTH / 2 + 120, 12)
-    hudGradient.addColorStop(0, 'rgba(255, 240, 245, 0.97)')
-    hudGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.98)')
-    hudGradient.addColorStop(1, 'rgba(252, 231, 243, 0.97)')
-    ctx.fillStyle = hudGradient
-    ctx.shadowColor = 'rgba(219, 39, 119, 0.2)'
-    ctx.shadowBlur = 20
-    ctx.shadowOffsetY = 4
+    ctx.save()
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.9)'
+    ctx.strokeStyle = 'rgba(219, 39, 119, 0.25)'
+    ctx.lineWidth = 2
     ctx.beginPath()
-    ctx.roundRect(GAME_CONFIG.WIDTH / 2 - 120, 12, 240, 70, 20)
-    ctx.strokeStyle = 'rgba(236, 72, 153, 0.25)'
-    ctx.shadowBlur = 0
-    ctx.shadowOffsetY = 0
-    
-    ctx.strokeStyle = 'rgba(236, 72, 153, 0.25)'
-    ctx.lineWidth = 2.5
-    scoreGrad.addColorStop(0, '#EC4899')
-    scoreGrad.addColorStop(1, '#DB2777')
-    ctx.font = 'bold 22px Fredoka, sans-serif'
-    const scoreGrad = ctx.createLinearGradient(0, 20, 0, 60)
-    scoreGrad.addColorStop(0, '#EC4899')
-    scoreGrad.addColorStop(1, '#DB2777')
-    ctx.fillStyle = scoreGrad
-    ctx.fillText('分數', GAME_CONFIG.WIDTH / 2 - 105, 40)
-    
-    ctx.fillStyle = numberGrad
-    const numberGrad = ctx.createLinearGradient(0, 50, 0, 75)
+    ctx.roundRect(GAME_CONFIG.WIDTH / 2 - 130, 12, 260, 70, 18)
+    ctx.fill()
+    ctx.stroke()
+
+    ctx.fillStyle = '#DB2777'
+    ctx.font = 'bold 20px sans-serif'
+    ctx.fillText('分數', GAME_CONFIG.WIDTH / 2 - 110, 42)
+
+    const numberGrad = ctx.createLinearGradient(0, 0, 0, 70)
     numberGrad.addColorStop(0, '#DB2777')
     numberGrad.addColorStop(1, '#BE185D')
     ctx.fillStyle = numberGrad
-    ctx.fillText(`${displayScore}`, GAME_CONFIG.WIDTH / 2 - 105, 68)
-      carrotGrad.addColorStop(0, '#F97316')
-      carrotGrad.addColorStop(1, '#EA580C')
-      ctx.fillStyle = carrotGrad
-      const carrotGrad = ctx.createLinearGradient(0, 52, 0, 72)
-      carrotGrad.addColorStop(0, '#F97316')
-      carrotGrad.addColorStop(1, '#EA580C')
-      ctx.fillStyle = carrotGrad
-      ctx.fillText(`🥕 × ${data.carrotCount}`, GAME_CONFIG.WIDTH / 2 + 15, 55)
-    }h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 animate-gradient-shift">
+    ctx.font = 'bold 28px sans-serif'
+    ctx.fillText(`${displayScore}`, GAME_CONFIG.WIDTH / 2 - 110, 68)
+
+    ctx.fillStyle = '#EA580C'
+    ctx.font = 'bold 18px sans-serif'
+    ctx.fillText(`🥕 x ${data.carrotCount}`, GAME_CONFIG.WIDTH / 2 + 30, 55)
+
+    ctx.restore()
   }
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 animate-gradient-shift">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200">
       <div className="relative">
-        <canvasborder-[10px] border-white rounded-[2rem] shadow-[0_20px_60px_rgba(219,39,119,0.3)]"
+        <canvas
           ref={canvasRef}
-          width={GAME_CONFIG.WIDTH}.3), 0 0 0 3px rgba(236, 72, 153, 0.2)'
+          width={GAME_CONFIG.WIDTH}
           height={GAME_CONFIG.HEIGHT}
-          className="border-[10px] border-white rounded-[2rem] shadow-[0_20px_60px_rgba(219,39,119,0.3)]"
-          style={{
-            boxShadow: '0 20px 60px rgba(219, 39, 119, 0.3), 0 0 0 3px rgba(236, 72, 153, 0.2)'
-          }}iv className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-pink-50/98 via-purple-50/98 to-blue-50/98 backdrop-blur-sm rounded-[2rem]">
+          className="border-[8px] border-white rounded-[2rem] shadow-[0_20px_60px_rgba(219,39,119,0.3)]"
         />
 
-        {gameState === GameState.Menu && (b-4 filter drop-shadow-lg animate-wiggle">🐰</div>
-              </div>
-              <h1 className="text-8xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4 drop-shadow-sm animate-gradient-x" style={{ fontFamily: 'Fredoka, sans-serif' }}>
-                跳跳兔
-              </h1>
-              <div className="inline-block bg-white/70 px-8 py-4 rounded-3xl backdrop-blur-sm shadow-lg">
-                <p className="text-2xl text-purple-600 font-semibold">
-                  跳上平台，收集胡蘿蔔！
-              </h1>
-              <div className="inline-block bg-white/70 px-8 py-4 rounded-3xl backdrop-blur-sm shadow-lg">
-                <p className="text-2xl text-purple-600 font-semibold">
-                  跳上平台，收集胡蘿蔔！span>
-                </p>style={{ animationDelay: '0.2s' }}>💖</span>
-                <div className="flex items-center justify-center gap-3 mt-2 text-3xl">
-                  <span className="animate-bounce" style={{ animationDelay: '0s' }}>🥕</span>
-                  <span className="animate-bounce" style={{ animationDelay: '0.1s' }}>✨</span>
-                size="lg" 
-                </div>
-                className="gap-3 text-2xl px-12 py-8 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 hover:from-pink-600 hover:via-purple-600 hover:to-pink-600 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 animate-pulse-slow border-4 border-white/50"
-              <Button 
-                size="lg" 
-                <span className="font-bold">開始遊戲</span>
-                className="gap-3 text-2xl px-12 py-8 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 hover:from-pink-600 hover:via-purple-600 hover:to-pink-600 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 animate-pulse-slow border-4 border-white/50"
-              >
-                <div className="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-3xl backdrop-blur-sm shadow-lg border-4 border-white/60">
-                  <div className="text-xl text-purple-600 mb-2 font-semibold">👑 最高分數 👑</div>
-              </Button> from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
-              {bestScore > 0 && (
-                <div className="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-3xl backdrop-blur-sm shadow-lg border-4 border-white/60">
-                  <div className="text-xl text-purple-600 mb-2 font-semibold">👑 最高分數 👑</div>
-                  <div className="text-5xl font-bold bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
-                    {bestScore}
-                  </div>="text-lg text-purple-600 font-semibold">✨ 使用 ← → 或 A D 鍵移動 ✨</p>
-              </div>
-              )}
-              <div className="mt-8 bg-white/50 rounded-2xl p-4 backdrop-blur-sm">
-                <p className="text-lg text-purple-600 font-semibold">✨ 使用 ← → 或 A D 鍵移動 ✨</p>
-              </div>
-            </div>
+        {gameState === GameState.Menu && (
           <div className="absolute inset-0 flex items-center justify-center p-4">
-            <Card className="p-12 max-w-md mx-4 text-center bg-gradient-to-br from-white via-pink-50 to-purple-50 backdrop-blur-sm border-[6px] border-white shadow-2xl rounded-[2rem]">
-              <div className="text-7xl mb-6 animate-bounce-slow">💫</div>
-        {gameState === GameState.GameOver && (clip-text text-transparent mb-8 animate-gradient-x" style={{ fontFamily: 'Fredoka, sans-serif' }}>
-          <div className="absolute inset-0 flex items-center justify-center p-4">
-            <Card className="p-12 max-w-md mx-4 text-center bg-gradient-to-br from-white via-pink-50 to-purple-50 backdrop-blur-sm border-[6px] border-white shadow-2xl rounded-[2rem]">
-              <div className="text-7xl mb-6 animate-bounce-slow">💫</div>
-              <h2 className="text-6xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-8 animate-gradient-x" style={{ fontFamily: 'Fredoka, sans-serif' }}>
-                  <p className="text-2xl text-purple-600 mb-3 font-semibold">
-                    你的分數
-                  </p>
-                  <p className="text-7xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                    {currentScore}
-                  </p>
-                </div>
-                <div className="p-6 bg-gradient-to-r from-yellow-100 to-orange-100 rounded-3xl shadow-md border-4 border-white/70">
-                  <p className="text-xl text-purple-600 font-semibold">
-                    👑 最高分數: <span className="text-3xl font-bold text-orange-600">{bestScore}</span>
-                  </p>
-                </div>
+            <Card className="p-10 max-w-md text-center bg-white/80 backdrop-blur-md border-4 border-white shadow-2xl rounded-[1.5rem]">
+              <div className="text-6xl mb-4 animate-bounce">🐰</div>
+              <h1 className="text-4xl font-bold text-pink-500 mb-3">跳跳兔</h1>
+              <p className="text-lg text-purple-600 mb-6">跳上平台，收集胡蘿蔔！</p>
+              <div className="space-y-3">
+                <Button onClick={startGame} size="lg" className="w-full gap-2 text-xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500">
+                  <Play weight="bold" />
+                  <span className="font-bold">開始遊戲</span>
+                </Button>
+                {bestScore > 0 && (
+                  <div className="text-purple-700 font-semibold bg-white/70 rounded-xl py-3 border border-white">
+                    👑 最高分數：{bestScore}
+                  </div>
+                )}
+                <div className="text-sm text-purple-500">使用 ← → 或 A D 移動</div>
               </div>
-              <div className="flex gap-5 justify-center">
+            </Card>
+          </div>
+        )}
+
+        {gameState === GameState.GameOver && (
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <Card className="p-10 max-w-md text-center bg-white/85 backdrop-blur-md border-4 border-white shadow-2xl rounded-[1.5rem]">
+              <div className="text-6xl mb-4">💫</div>
+              <h2 className="text-4xl font-bold text-pink-500 mb-4">遊戲結束</h2>
+              <p className="text-xl text-purple-600 mb-2">你的分數</p>
+              <p className="text-5xl font-bold text-orange-500 mb-4">{currentScore}</p>
+              <p className="text-md text-purple-600 mb-6">最高分：{bestScore}</p>
+              <div className="flex gap-3 justify-center">
                 <Button 
                   onClick={handleRestart} 
                   size="lg" 
-                  className="gap-3 px-8 py-7 text-xl rounded-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 hover:from-pink-600 hover:via-purple-600 hover:to-pink-600 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all border-4 border-white/50"
+                  className="gap-2 px-8 text-lg bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500"
                 >
-                  <ArrowsClockwise size={28} weight="bold" />
+                  <ArrowsClockwise size={24} weight="bold" />
                   <span className="font-bold">再玩一次</span>
                 </Button>
                 <Button 
                   onClick={handleMenu} 
                   variant="outline" 
                   size="lg" 
-                  className="gap-3 px-8 py-7 text-xl rounded-3xl border-4 border-purple-300 hover:bg-purple-50 hover:border-purple-400 shadow-md hover:shadow-lg transform hover:scale-105 transition-all"
+                  className="gap-2 px-8 text-lg"
                 >
-                  <House size={28} weight="bold" />
+                  <House size={24} weight="bold" />
                   <span className="font-bold">主選單</span>
                 </Button>
               </div>
