@@ -477,6 +477,11 @@ export default function BunnyJumper() {
 
     ctx.restore()
 
+    const heightProgress = data.startY - data.maxHeight
+    const heightScore = Math.floor(heightProgress * GAME_CONFIG.SCORING.HEIGHT_FACTOR)
+    const collectScore = data.carrotCount * GAME_CONFIG.SCORING.CARROT_POINTS
+    const displayScore = heightScore + collectScore
+
     const scoreGradient = ctx.createLinearGradient(10, 10, 10, 70)
     scoreGradient.addColorStop(0, 'rgba(255, 255, 255, 0.95)')
     scoreGradient.addColorStop(1, 'rgba(255, 255, 255, 0.85)')
@@ -491,7 +496,7 @@ export default function BunnyJumper() {
     
     ctx.fillStyle = '#1F2937'
     ctx.font = 'bold 28px Fredoka, sans-serif'
-    ctx.fillText(`分數: ${currentScore}`, 25, 48)
+    ctx.fillText(`分數: ${displayScore}`, 25, 48)
     
     if (data.carrotCount > 0) {
       ctx.font = '18px Fredoka, sans-serif'
