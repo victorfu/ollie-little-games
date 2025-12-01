@@ -53,9 +53,16 @@ export default function BunnyJumper() {
     const platforms: Platform[] = []
     const collectibles: Collectible[] = []
     
-    let currentY = GAME_CONFIG.HEIGHT - 100
+    let currentY = GAME_CONFIG.HEIGHT - 80
     
-    for (let i = 0; i < GAME_CONFIG.INITIAL_PLATFORMS; i++) {
+    const startPlatform = createPlatform(
+      GAME_CONFIG.WIDTH / 2 - GAME_CONFIG.PLATFORM.WIDTH / 2,
+      currentY,
+      PlatformType.Static
+    )
+    platforms.push(startPlatform)
+    
+    for (let i = 1; i < GAME_CONFIG.INITIAL_PLATFORMS; i++) {
       const gapRange = getGapRange(0)
       const gap = randomInt(gapRange.min, gapRange.max)
       currentY -= gap
@@ -77,7 +84,7 @@ export default function BunnyJumper() {
       }
     }
 
-    player.y = platforms[0].y - GAME_CONFIG.PLAYER.HEIGHT - 10
+    player.y = startPlatform.y - GAME_CONFIG.PLAYER.HEIGHT - 5
 
     gameDataRef.current = {
       player,
