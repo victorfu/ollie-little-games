@@ -34,6 +34,9 @@ export default function BunnyJumper() {
     carrotCount: number
     keys: { [key: string]: boolean }
     lastTime: number
+    playerSquash: number
+    playerLandTime: number
+    collectParticles: Array<{ x: number; y: number; vx: number; vy: number; life: number; maxLife: number }>
   } | undefined>(undefined)
 
   useEffect(() => {
@@ -96,6 +99,9 @@ export default function BunnyJumper() {
       carrotCount: 0,
       keys: {},
       lastTime: performance.now(),
+      playerSquash: 1,
+      playerLandTime: 0,
+      collectParticles: [],
     }
   }
 
@@ -239,6 +245,9 @@ export default function BunnyJumper() {
         player.velocity.y = -GAME_CONFIG.JUMP_FORCE
         player.onGround = true
         player.y = platform.y - player.height
+        
+        data.playerSquash = 1.4
+        data.playerLandTime = performance.now() / 1000
 
         if (platform.type === PlatformType.Breakable) {
           platform.isBreaking = true
@@ -246,11 +255,42 @@ export default function BunnyJumper() {
         }
       }
     })
+    
+    const currentTime = performance.now() / 1000
+    const timeSinceLand = currentTime - data.playerLandTime
+    if (timeSinceLand < 0.15) {
+      data.playerSquash = 1.4 - (timeSinceLand / 0.15) * 0.4
+    } else {
+      data.playerSquash = 1
+    }
 
     collectibles.forEach((carrot) => {
       if (!carrot.collected && checkCollision(player, carrot)) {
         carrot.collected = true
         data.carrotCount++
+        
+        for (let i = 0; i < 8; i++) {
+          const angle = (Math.PI * 2 * i) / 8
+          data.collectParticles.push({
+            x: carrot.x + carrot.width / 2,
+            y: carrot.y + carrot.height / 2,
+            vx: Math.cos(angle) * (50 + Math.random() * 30),
+            vy: Math.sin(angle) * (50 + Math.random() * 30) - 30,
+            life: 1,
+            maxLife: 0.6 + Math.random() * 0.4
+          })
+        }
+      }
+    })
+    
+    data.collectParticles.forEach((particle, index) => {
+      particle.life -= deltaTime
+      particle.x += particle.vx * deltaTime
+      particle.y += particle.vy * deltaTime
+      particle.vy += 200 * deltaTime
+      
+      if (particle.life <= 0) {
+        data.collectParticles.splice(index, 1)
       }
     })
 
@@ -284,42 +324,55 @@ export default function BunnyJumper() {
     })
   }
 
-  const drawBunny = (ctx: CanvasRenderingContext2D, x: number, y: number, width: number, height: number, isJumping: boolean) => {
+  const drawBunny = (
+    ctx: CanvasRenderingContext2D, 
+    x: number, 
+    y: number, 
+    width: number, 
+    height: number, 
+    squashStretch: number,
+    idleBounce: number
+  ) => {
     const centerX = x + width / 2
     const centerY = y + height / 2
     
-    const earHeight = isJumping ? 20 : 18
+    ctx.save()
+    ctx.translate(centerX, centerY + idleBounce)
+    ctx.scale(1 / squashStretch, squashStretch)
+    ctx.translate(-centerX, -(centerY + idleBounce))
+    
+    const earHeight = 18 * squashStretch
     const earWidth = 7
     const earSpacing = 11
     
-    ctx.shadowColor = 'rgba(255, 182, 217, 0.3)'
-    ctx.shadowBlur = 8
-    ctx.shadowOffsetY = 3
+    ctx.shadowColor = 'rgba(255, 182, 217, 0.35)'
+    ctx.shadowBlur = 10
+    ctx.shadowOffsetY = 4
     
     ctx.fillStyle = '#FFE5F0'
     ctx.beginPath()
-    ctx.ellipse(centerX - earSpacing, y + 3, earWidth, earHeight, -0.15, 0, Math.PI * 2)
+    ctx.ellipse(centerX - earSpacing, y + 3 + idleBounce, earWidth, earHeight, -0.15, 0, Math.PI * 2)
     ctx.fill()
     ctx.beginPath()
-    ctx.ellipse(centerX + earSpacing, y + 3, earWidth, earHeight, 0.15, 0, Math.PI * 2)
+    ctx.ellipse(centerX + earSpacing, y + 3 + idleBounce, earWidth, earHeight, 0.15, 0, Math.PI * 2)
     ctx.fill()
     
     ctx.fillStyle = '#FFB6D9'
     ctx.beginPath()
-    ctx.ellipse(centerX - earSpacing, y + 6, 3.5, 11, -0.15, 0, Math.PI * 2)
+    ctx.ellipse(centerX - earSpacing, y + 6 + idleBounce, 3.5, 11, -0.15, 0, Math.PI * 2)
     ctx.fill()
     ctx.beginPath()
-    ctx.ellipse(centerX + earSpacing, y + 6, 3.5, 11, 0.15, 0, Math.PI * 2)
+    ctx.ellipse(centerX + earSpacing, y + 6 + idleBounce, 3.5, 11, 0.15, 0, Math.PI * 2)
     ctx.fill()
     
-    const bodyGradient = ctx.createRadialGradient(centerX, centerY + 2, 0, centerX, centerY + 2, width * 0.5)
+    const bodyGradient = ctx.createRadialGradient(centerX, centerY + 2 + idleBounce, 0, centerX, centerY + 2 + idleBounce, width * 0.5)
     bodyGradient.addColorStop(0, '#FFFFFF')
     bodyGradient.addColorStop(0.7, '#FFF5F7')
     bodyGradient.addColorStop(1, '#FFE5F0')
     
     ctx.fillStyle = bodyGradient
     ctx.beginPath()
-    ctx.arc(centerX, centerY + 4, width * 0.48, 0, Math.PI * 2)
+    ctx.arc(centerX, centerY + 4 + idleBounce, width * 0.48, 0, Math.PI * 2)
     ctx.fill()
     
     ctx.shadowBlur = 0
@@ -327,7 +380,7 @@ export default function BunnyJumper() {
     ctx.lineWidth = 2
     ctx.stroke()
     
-    const eyeY = centerY - 1
+    const eyeY = centerY - 1 + idleBounce
     const eyeSpacing = 9
     
     ctx.fillStyle = '#1A1A2E'
@@ -364,94 +417,127 @@ export default function BunnyJumper() {
     
     ctx.fillStyle = '#FFD6E8'
     ctx.beginPath()
-    ctx.arc(centerX - 13, centerY + 2, 4, 0, Math.PI * 2)
+    ctx.arc(centerX - 13, centerY + 2 + idleBounce, 4, 0, Math.PI * 2)
     ctx.fill()
     ctx.beginPath()
-    ctx.arc(centerX + 13, centerY + 2, 4, 0, Math.PI * 2)
+    ctx.arc(centerX + 13, centerY + 2 + idleBounce, 4, 0, Math.PI * 2)
     ctx.fill()
     
+    ctx.restore()
     ctx.shadowColor = 'transparent'
   }
 
-  const drawPlatform = (ctx: CanvasRenderingContext2D, platform: Platform) => {
+  const drawPlatform = (ctx: CanvasRenderingContext2D, platform: Platform, time: number) => {
     const { x, y, width, height, type, isBreaking } = platform
+    
+    const bobAmount = type === PlatformType.Moving ? Math.sin(time * 2 + x) * 1.5 : Math.sin(time * 1.5 + x * 0.1) * 0.8
+    const drawY = y + bobAmount
     
     if (isBreaking) {
       ctx.globalAlpha = 0.4
     }
     
-    ctx.shadowColor = 'rgba(0, 0, 0, 0.15)'
-    ctx.shadowBlur = 8
-    ctx.shadowOffsetY = 4
+    ctx.shadowColor = 'rgba(0, 0, 0, 0.2)'
+    ctx.shadowBlur = 10
+    ctx.shadowOffsetY = 5
     
     let gradient
     if (type === PlatformType.Moving) {
-      gradient = ctx.createLinearGradient(x, y, x, y + height)
-      gradient.addColorStop(0, '#E9D5FF')
-      gradient.addColorStop(0.5, '#C084FC')
+      gradient = ctx.createLinearGradient(x, drawY, x, drawY + height)
+      gradient.addColorStop(0, '#F3E8FF')
+      gradient.addColorStop(0.3, '#E9D5FF')
+      gradient.addColorStop(0.7, '#C084FC')
       gradient.addColorStop(1, '#A855F7')
       
       ctx.fillStyle = gradient
       ctx.beginPath()
-      ctx.roundRect(x, y, width, height, 12)
+      ctx.roundRect(x, drawY, width, height, 14)
       ctx.fill()
       
-      ctx.strokeStyle = '#F3E8FF'
-      ctx.lineWidth = 3
+      ctx.strokeStyle = '#FAF5FF'
+      ctx.lineWidth = 3.5
       ctx.stroke()
       
       for (let i = 0; i < 3; i++) {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)'
+        const pulse = Math.sin(time * 4 + i) * 0.3 + 0.7
+        ctx.fillStyle = `rgba(255, 255, 255, ${pulse * 0.5})`
         ctx.beginPath()
-        ctx.arc(x + 15 + i * 20, y + height / 2, 3, 0, Math.PI * 2)
+        ctx.arc(x + 15 + i * 20, drawY + height / 2, 3.5, 0, Math.PI * 2)
         ctx.fill()
       }
+      
+      const sparkle = Math.sin(time * 3 + x) * 0.3 + 0.7
+      ctx.strokeStyle = `rgba(255, 255, 255, ${sparkle * 0.4})`
+      ctx.lineWidth = 2
+      ctx.beginPath()
+      ctx.moveTo(x + width - 12, drawY + 5)
+      ctx.lineTo(x + width - 8, drawY + height - 5)
+      ctx.stroke()
     } else if (type === PlatformType.Breakable) {
-      gradient = ctx.createLinearGradient(x, y, x, y + height)
-      gradient.addColorStop(0, '#FECDD3')
-      gradient.addColorStop(0.5, '#FDA4AF')
+      gradient = ctx.createLinearGradient(x, drawY, x, drawY + height)
+      gradient.addColorStop(0, '#FFE4E6')
+      gradient.addColorStop(0.3, '#FECDD3')
+      gradient.addColorStop(0.7, '#FDA4AF')
       gradient.addColorStop(1, '#FB7185')
       
       ctx.fillStyle = gradient
       ctx.beginPath()
-      ctx.roundRect(x, y, width, height, 12)
+      ctx.roundRect(x, drawY, width, height, 14)
       ctx.fill()
       
-      ctx.strokeStyle = '#FFE4E6'
-      ctx.lineWidth = 3
+      ctx.strokeStyle = '#FFF1F2'
+      ctx.lineWidth = 3.5
       ctx.stroke()
       
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)'
-      ctx.lineWidth = 1.5
-      ctx.setLineDash([4, 4])
-      ctx.strokeRect(x + 4, y + 4, width - 8, height - 8)
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)'
+      ctx.lineWidth = 2
+      ctx.setLineDash([5, 5])
+      ctx.strokeRect(x + 5, drawY + 5, width - 10, height - 10)
       ctx.setLineDash([])
+      
+      const crackAlpha = isBreaking ? 0.8 : 0.3
+      ctx.strokeStyle = `rgba(190, 18, 60, ${crackAlpha})`
+      ctx.lineWidth = 1.5
+      ctx.beginPath()
+      ctx.moveTo(x + width * 0.3, drawY + 4)
+      ctx.lineTo(x + width * 0.35, drawY + height - 4)
+      ctx.moveTo(x + width * 0.65, drawY + 4)
+      ctx.lineTo(x + width * 0.6, drawY + height - 4)
+      ctx.stroke()
     } else {
-      gradient = ctx.createLinearGradient(x, y, x, y + height)
-      gradient.addColorStop(0, '#D9F99D')
-      gradient.addColorStop(0.5, '#A3E635')
-      gradient.addColorStop(1, '#84CC16')
+      gradient = ctx.createLinearGradient(x, drawY, x, drawY + height)
+      gradient.addColorStop(0, '#F7FEE7')
+      gradient.addColorStop(0.3, '#ECFCCB')
+      gradient.addColorStop(0.7, '#D9F99D')
+      gradient.addColorStop(1, '#BEF264')
       
       ctx.fillStyle = gradient
       ctx.beginPath()
-      ctx.roundRect(x, y, width, height, 12)
+      ctx.roundRect(x, drawY, width, height, 14)
       ctx.fill()
       
-      ctx.strokeStyle = '#F7FEE7'
-      ctx.lineWidth = 3
+      ctx.strokeStyle = '#FEFCE8'
+      ctx.lineWidth = 3.5
       ctx.stroke()
       
       for (let i = 0; i < 4; i++) {
-        ctx.fillStyle = 'rgba(255, 255, 255, 0.3)'
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)'
         ctx.beginPath()
-        ctx.arc(x + 10 + i * 15, y + height / 2, 2, 0, Math.PI * 2)
+        ctx.arc(x + 12 + i * 18, drawY + height / 2, 2.5, 0, Math.PI * 2)
+        ctx.fill()
+      }
+      
+      for (let i = 0; i < 3; i++) {
+        ctx.fillStyle = 'rgba(132, 204, 22, 0.2)'
+        ctx.beginPath()
+        ctx.arc(x + 20 + i * 20, drawY + height / 2 + 2, 1.5, 0, Math.PI * 2)
         ctx.fill()
       }
     }
     
-    ctx.fillStyle = 'rgba(255, 255, 255, 0.35)'
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.4)'
     ctx.beginPath()
-    ctx.roundRect(x + 5, y + 2, width - 10, height / 2.8, 6)
+    ctx.roundRect(x + 6, drawY + 3, width - 12, height / 3, 8)
     ctx.fill()
     
     ctx.shadowColor = 'transparent'
@@ -459,37 +545,44 @@ export default function BunnyJumper() {
     ctx.globalAlpha = 1
   }
 
-  const drawCarrot = (ctx: CanvasRenderingContext2D, carrot: Collectible) => {
+  const drawCarrot = (ctx: CanvasRenderingContext2D, carrot: Collectible, time: number) => {
     if (carrot.collected) return
     
     const centerX = carrot.x + carrot.width / 2
     const centerY = carrot.y + carrot.height / 2
-    const time = performance.now() / 1000
-    const bounce = Math.sin(time * 3 + centerX) * 2
+    const bounce = Math.sin(time * 3 + centerX) * 3
+    const pulse = Math.sin(time * 4 + centerX) * 0.1 + 1
+    const rotation = Math.sin(time * 2 + centerX) * 0.05
     
-    ctx.shadowColor = 'rgba(249, 115, 22, 0.3)'
-    ctx.shadowBlur = 8
-    ctx.shadowOffsetY = 4
+    ctx.save()
+    ctx.translate(centerX, centerY + bounce)
+    ctx.rotate(rotation)
+    ctx.scale(pulse, pulse)
+    ctx.translate(-centerX, -(centerY + bounce))
+    
+    ctx.shadowColor = 'rgba(249, 115, 22, 0.4)'
+    ctx.shadowBlur = 12
+    ctx.shadowOffsetY = 5
     
     const leafGradient = ctx.createLinearGradient(centerX, carrot.y - 8 + bounce, centerX, carrot.y + 4 + bounce)
-    leafGradient.addColorStop(0, '#BEF264')
-    leafGradient.addColorStop(0.5, '#84CC16')
-    leafGradient.addColorStop(1, '#65A30D')
+    leafGradient.addColorStop(0, '#D9F99D')
+    leafGradient.addColorStop(0.5, '#BEF264')
+    leafGradient.addColorStop(1, '#84CC16')
     
     ctx.fillStyle = leafGradient
     ctx.beginPath()
     ctx.moveTo(centerX - 7, carrot.y + 2 + bounce)
-    ctx.quadraticCurveTo(centerX - 5, carrot.y - 7 + bounce, centerX - 2, carrot.y + 2 + bounce)
+    ctx.quadraticCurveTo(centerX - 5, carrot.y - 8 + bounce, centerX - 2, carrot.y + 2 + bounce)
     ctx.fill()
     
     ctx.beginPath()
     ctx.moveTo(centerX - 2, carrot.y + 2 + bounce)
-    ctx.quadraticCurveTo(centerX + 1, carrot.y - 9 + bounce, centerX + 4, carrot.y + 2 + bounce)
+    ctx.quadraticCurveTo(centerX + 1, carrot.y - 10 + bounce, centerX + 4, carrot.y + 2 + bounce)
     ctx.fill()
     
     ctx.beginPath()
     ctx.moveTo(centerX + 2, carrot.y + 2 + bounce)
-    ctx.quadraticCurveTo(centerX + 5, carrot.y - 6 + bounce, centerX + 8, carrot.y + 2 + bounce)
+    ctx.quadraticCurveTo(centerX + 5, carrot.y - 7 + bounce, centerX + 8, carrot.y + 2 + bounce)
     ctx.fill()
     
     const carrotGradient = ctx.createLinearGradient(centerX - carrot.width / 2, centerY + bounce, centerX + carrot.width / 2, centerY + bounce)
@@ -501,26 +594,34 @@ export default function BunnyJumper() {
     ctx.fillStyle = carrotGradient
     ctx.beginPath()
     ctx.moveTo(centerX, carrot.y + bounce)
-    ctx.lineTo(centerX + carrot.width * 0.28, centerY + bounce)
-    ctx.lineTo(centerX + carrot.width * 0.15, carrot.y + carrot.height - 4 + bounce)
-    ctx.lineTo(centerX - carrot.width * 0.15, carrot.y + carrot.height - 4 + bounce)
-    ctx.lineTo(centerX - carrot.width * 0.28, centerY + bounce)
+    ctx.lineTo(centerX + carrot.width * 0.3, centerY + bounce)
+    ctx.lineTo(centerX + carrot.width * 0.18, carrot.y + carrot.height - 4 + bounce)
+    ctx.lineTo(centerX - carrot.width * 0.18, carrot.y + carrot.height - 4 + bounce)
+    ctx.lineTo(centerX - carrot.width * 0.3, centerY + bounce)
     ctx.closePath()
     ctx.fill()
     
     ctx.strokeStyle = '#C2410C'
-    ctx.lineWidth = 1.5
+    ctx.lineWidth = 2
     ctx.stroke()
     
-    ctx.strokeStyle = 'rgba(251, 146, 60, 0.5)'
-    ctx.lineWidth = 1
+    ctx.strokeStyle = 'rgba(251, 146, 60, 0.6)'
+    ctx.lineWidth = 1.2
     for (let i = 0; i < 3; i++) {
       ctx.beginPath()
-      ctx.moveTo(centerX - 3, carrot.y + 8 + i * 4 + bounce)
-      ctx.lineTo(centerX + 3, carrot.y + 10 + i * 4 + bounce)
+      ctx.moveTo(centerX - 4, carrot.y + 8 + i * 5 + bounce)
+      ctx.lineTo(centerX + 4, carrot.y + 10 + i * 5 + bounce)
       ctx.stroke()
     }
     
+    const glowPulse = Math.sin(time * 6) * 0.2 + 0.3
+    ctx.strokeStyle = `rgba(251, 146, 60, ${glowPulse})`
+    ctx.lineWidth = 3
+    ctx.beginPath()
+    ctx.arc(centerX, centerY + bounce, carrot.width * 0.7, 0, Math.PI * 2)
+    ctx.stroke()
+    
+    ctx.restore()
     ctx.shadowColor = 'transparent'
     ctx.shadowBlur = 0
   }
@@ -531,25 +632,27 @@ export default function BunnyJumper() {
   ) => {
     if (!data) return
 
-    const { player, platforms, collectibles, cameraY } = data
+    const { player, platforms, collectibles, cameraY, collectParticles, playerSquash } = data
+    const time = performance.now() / 1000
 
     const bgGradient = ctx.createLinearGradient(0, 0, 0, GAME_CONFIG.HEIGHT)
-    bgGradient.addColorStop(0, '#FDF4FF')
-    bgGradient.addColorStop(0.3, '#FCE7F3')
-    bgGradient.addColorStop(0.6, '#E0E7FF')
-    bgGradient.addColorStop(1, '#DBEAFE')
+    bgGradient.addColorStop(0, '#E0F2FE')
+    bgGradient.addColorStop(0.3, '#F0F9FF')
+    bgGradient.addColorStop(0.6, '#FCE7F3')
+    bgGradient.addColorStop(1, '#FDF4FF')
     ctx.fillStyle = bgGradient
     ctx.fillRect(0, 0, GAME_CONFIG.WIDTH, GAME_CONFIG.HEIGHT)
     
-    const time = performance.now() / 1000
     const starPositions = [
       [80, 100], [320, 150], [150, 280], [380, 320], [50, 450],
       [250, 520], [100, 650], [350, 700], [180, 820], [290, 900]
     ]
     starPositions.forEach(([sx, sy], i) => {
-      const offsetY = ((cameraY * 0.2 + sy) % (GAME_CONFIG.HEIGHT + 300))
+      const offsetY = ((cameraY * 0.15 + sy) % (GAME_CONFIG.HEIGHT + 300))
       const twinkle = Math.sin(time * 2 + i) * 0.3 + 0.7
-      ctx.fillStyle = `rgba(255, 255, 255, ${twinkle * 0.8})`
+      ctx.fillStyle = `rgba(255, 255, 255, ${twinkle * 0.9})`
+      ctx.shadowColor = `rgba(255, 255, 255, ${twinkle * 0.5})`
+      ctx.shadowBlur = 4
       ctx.beginPath()
       const size = 3 + Math.sin(time + i) * 1
       for (let j = 0; j < 5; j++) {
@@ -563,19 +666,20 @@ export default function BunnyJumper() {
       ctx.closePath()
       ctx.fill()
     })
+    ctx.shadowBlur = 0
     
     const cloudY = [120, 280, 460, 620, 780]
     const cloudX = [60, 220, 340, 100, 300]
     cloudY.forEach((cy, i) => {
-      const offsetY = ((cameraY * 0.25 + cy) % (GAME_CONFIG.HEIGHT + 250))
-      const float = Math.sin(time * 0.5 + i * 2) * 3
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.7)'
-      ctx.shadowColor = 'rgba(255, 255, 255, 0.5)'
-      ctx.shadowBlur = 15
+      const offsetY = ((cameraY * 0.2 + cy) % (GAME_CONFIG.HEIGHT + 250))
+      const float = Math.sin(time * 0.5 + i * 2) * 4
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.75)'
+      ctx.shadowColor = 'rgba(255, 255, 255, 0.6)'
+      ctx.shadowBlur = 18
       ctx.beginPath()
-      ctx.arc(cloudX[i], offsetY + float, 22, 0, Math.PI * 2)
-      ctx.arc(cloudX[i] + 22, offsetY - 2 + float, 30, 0, Math.PI * 2)
-      ctx.arc(cloudX[i] + 48, offsetY + float, 24, 0, Math.PI * 2)
+      ctx.arc(cloudX[i], offsetY + float, 24, 0, Math.PI * 2)
+      ctx.arc(cloudX[i] + 24, offsetY - 2 + float, 32, 0, Math.PI * 2)
+      ctx.arc(cloudX[i] + 52, offsetY + float, 26, 0, Math.PI * 2)
       ctx.fill()
       ctx.shadowBlur = 0
     })
@@ -584,15 +688,31 @@ export default function BunnyJumper() {
     ctx.translate(0, -cameraY)
 
     platforms.forEach((platform) => {
-      drawPlatform(ctx, platform)
+      drawPlatform(ctx, platform, time)
     })
 
     collectibles.forEach((carrot) => {
-      drawCarrot(ctx, carrot)
+      drawCarrot(ctx, carrot, time)
     })
+    
+    collectParticles.forEach((particle) => {
+      const alpha = particle.life / particle.maxLife
+      ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`
+      ctx.shadowColor = `rgba(249, 115, 22, ${alpha * 0.5})`
+      ctx.shadowBlur = 6
+      ctx.beginPath()
+      ctx.arc(particle.x, particle.y, 3 * alpha, 0, Math.PI * 2)
+      ctx.fill()
+      
+      ctx.fillStyle = `rgba(254, 215, 170, ${alpha * 0.8})`
+      ctx.beginPath()
+      ctx.arc(particle.x, particle.y, 1.5 * alpha, 0, Math.PI * 2)
+      ctx.fill()
+    })
+    ctx.shadowBlur = 0
 
-    const isJumping = player.velocity.y < 0
-    drawBunny(ctx, player.x, player.y, player.width, player.height, isJumping)
+    const idleBounce = Math.sin(time * 3) * 1.5
+    drawBunny(ctx, player.x, player.y, player.width, player.height, playerSquash, idleBounce)
 
     ctx.restore()
 
@@ -601,36 +721,45 @@ export default function BunnyJumper() {
     const collectScore = data.carrotCount * GAME_CONFIG.SCORING.CARROT_POINTS
     const displayScore = heightScore + collectScore
 
-    const scoreGradient = ctx.createLinearGradient(10, 10, 10, 80)
-    scoreGradient.addColorStop(0, 'rgba(255, 255, 255, 0.98)')
-    scoreGradient.addColorStop(1, 'rgba(254, 240, 255, 0.95)')
-    ctx.fillStyle = scoreGradient
-    ctx.shadowColor = 'rgba(219, 39, 119, 0.15)'
-    ctx.shadowBlur = 15
-    ctx.shadowOffsetY = 3
+    const hudGradient = ctx.createLinearGradient(GAME_CONFIG.WIDTH / 2 - 120, 12, GAME_CONFIG.WIDTH / 2 + 120, 12)
+    hudGradient.addColorStop(0, 'rgba(255, 240, 245, 0.97)')
+    hudGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.98)')
+    hudGradient.addColorStop(1, 'rgba(252, 231, 243, 0.97)')
+    ctx.fillStyle = hudGradient
+    ctx.shadowColor = 'rgba(219, 39, 119, 0.2)'
+    ctx.shadowBlur = 20
+    ctx.shadowOffsetY = 4
     ctx.beginPath()
-    ctx.roundRect(10, 10, 240, 75, 18)
+    ctx.roundRect(GAME_CONFIG.WIDTH / 2 - 120, 12, 240, 70, 20)
     ctx.fill()
-    ctx.shadowColor = 'transparent'
+    ctx.shadowBlur = 0
+    ctx.shadowOffsetY = 0
     
-    ctx.strokeStyle = 'rgba(236, 72, 153, 0.3)'
-    ctx.lineWidth = 2
+    ctx.strokeStyle = 'rgba(236, 72, 153, 0.25)'
+    ctx.lineWidth = 2.5
     ctx.stroke()
     
-    const scoreTextGradient = ctx.createLinearGradient(0, 20, 0, 60)
-    scoreTextGradient.addColorStop(0, '#DB2777')
-    scoreTextGradient.addColorStop(1, '#BE185D')
-    ctx.fillStyle = scoreTextGradient
+    ctx.font = 'bold 22px Fredoka, sans-serif'
+    const scoreGrad = ctx.createLinearGradient(0, 20, 0, 60)
+    scoreGrad.addColorStop(0, '#EC4899')
+    scoreGrad.addColorStop(1, '#DB2777')
+    ctx.fillStyle = scoreGrad
+    ctx.fillText('分數', GAME_CONFIG.WIDTH / 2 - 105, 40)
+    
     ctx.font = 'bold 32px Fredoka, sans-serif'
-    ctx.fillText(`分數: ${displayScore}`, 28, 52)
+    const numberGrad = ctx.createLinearGradient(0, 50, 0, 75)
+    numberGrad.addColorStop(0, '#DB2777')
+    numberGrad.addColorStop(1, '#BE185D')
+    ctx.fillStyle = numberGrad
+    ctx.fillText(`${displayScore}`, GAME_CONFIG.WIDTH / 2 - 105, 68)
     
     if (data.carrotCount > 0) {
       ctx.font = 'bold 20px Fredoka, sans-serif'
-      const carrotGradient = ctx.createLinearGradient(0, 55, 0, 75)
-      carrotGradient.addColorStop(0, '#F97316')
-      carrotGradient.addColorStop(1, '#EA580C')
-      ctx.fillStyle = carrotGradient
-      ctx.fillText(`🥕 × ${data.carrotCount}`, 28, 73)
+      const carrotGrad = ctx.createLinearGradient(0, 52, 0, 72)
+      carrotGrad.addColorStop(0, '#F97316')
+      carrotGrad.addColorStop(1, '#EA580C')
+      ctx.fillStyle = carrotGrad
+      ctx.fillText(`🥕 × ${data.carrotCount}`, GAME_CONFIG.WIDTH / 2 + 15, 55)
     }
   }
 
