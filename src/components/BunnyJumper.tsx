@@ -256,9 +256,6 @@ export default function BunnyJumper() {
       }
     })
     
-    const currentTime = performance.now() / 1000
-    const timeSinceLand = currentTime - data.playerLandTime
-    if (timeSinceLand < 0.15) {
       data.playerSquash = 1.4 - (timeSinceLand / 0.15) * 0.4
     } else {
       data.playerSquash = 1
@@ -267,10 +264,10 @@ export default function BunnyJumper() {
     collectibles.forEach((carrot) => {
       if (!carrot.collected && checkCollision(player, carrot)) {
         carrot.collected = true
+    collectibles.forEach((carrot) => {
+      if (!carrot.collected && checkCollision(player, carrot)) {
+        carrot.collected = true
         data.carrotCount++
-        
-        for (let i = 0; i < 8; i++) {
-          const angle = (Math.PI * 2 * i) / 8
           data.collectParticles.push({
             x: carrot.x + carrot.width / 2,
             y: carrot.y + carrot.height / 2,
@@ -283,9 +280,9 @@ export default function BunnyJumper() {
       }
     })
     
-    data.collectParticles.forEach((particle, index) => {
-      particle.life -= deltaTime
-      particle.x += particle.vx * deltaTime
+      }
+    })
+    
       particle.y += particle.vy * deltaTime
       particle.vy += 200 * deltaTime
       
@@ -294,6 +291,9 @@ export default function BunnyJumper() {
       }
     })
 
+    data.maxHeight = Math.min(data.maxHeight, player.y)
+
+    if (player.y < data.cameraY + GAME_CONFIG.HEIGHT * 0.4) {
     data.maxHeight = Math.min(data.maxHeight, player.y)
 
     if (player.y < data.cameraY + GAME_CONFIG.HEIGHT * 0.4) {
@@ -328,9 +328,6 @@ export default function BunnyJumper() {
     ctx: CanvasRenderingContext2D, 
     x: number, 
     y: number, 
-    width: number, 
-    height: number, 
-    squashStretch: number,
     idleBounce: number
   ) => {
     const centerX = x + width / 2
@@ -635,28 +632,27 @@ export default function BunnyJumper() {
     const { player, platforms, collectibles, cameraY, collectParticles, playerSquash } = data
     const time = performance.now() / 1000
 
-    const bgGradient = ctx.createLinearGradient(0, 0, 0, GAME_CONFIG.HEIGHT)
+    const { player, platforms, collectibles, cameraY, collectParticles, playerSquash } = data
+    const time = performance.now() / 1000
+
+    bgGradient.addColorStop(0.6, '#FCE7F3')
     bgGradient.addColorStop(0, '#E0F2FE')
     bgGradient.addColorStop(0.3, '#F0F9FF')
     bgGradient.addColorStop(0.6, '#FCE7F3')
     bgGradient.addColorStop(1, '#FDF4FF')
-    ctx.fillStyle = bgGradient
-    ctx.fillRect(0, 0, GAME_CONFIG.WIDTH, GAME_CONFIG.HEIGHT)
-    
     const starPositions = [
       [80, 100], [320, 150], [150, 280], [380, 320], [50, 450],
       [250, 520], [100, 650], [350, 700], [180, 820], [290, 900]
-    ]
     starPositions.forEach(([sx, sy], i) => {
       const offsetY = ((cameraY * 0.15 + sy) % (GAME_CONFIG.HEIGHT + 300))
       const twinkle = Math.sin(time * 2 + i) * 0.3 + 0.7
       ctx.fillStyle = `rgba(255, 255, 255, ${twinkle * 0.9})`
       ctx.shadowColor = `rgba(255, 255, 255, ${twinkle * 0.5})`
-      ctx.shadowBlur = 4
+      const offsetY = ((cameraY * 0.15 + sy) % (GAME_CONFIG.HEIGHT + 300))
       ctx.beginPath()
-      const size = 3 + Math.sin(time + i) * 1
-      for (let j = 0; j < 5; j++) {
-        const angle = (j * 4 * Math.PI / 5) - Math.PI / 2
+      ctx.fillStyle = `rgba(255, 255, 255, ${twinkle * 0.9})`
+      ctx.shadowColor = `rgba(255, 255, 255, ${twinkle * 0.5})`
+      ctx.shadowBlur = 4
         const radius = j % 2 === 0 ? size : size / 2
         const px = sx + Math.cos(angle) * radius
         const py = offsetY + Math.sin(angle) * radius
@@ -670,6 +666,10 @@ export default function BunnyJumper() {
     
     const cloudY = [120, 280, 460, 620, 780]
     const cloudX = [60, 220, 340, 100, 300]
+    ctx.shadowBlur = 0
+      const offsetY = ((cameraY * 0.2 + cy) % (GAME_CONFIG.HEIGHT + 250))
+      const float = Math.sin(time * 0.5 + i * 2) * 4
+    const cloudX = [60, 220, 340, 100, 300]
     cloudY.forEach((cy, i) => {
       const offsetY = ((cameraY * 0.2 + cy) % (GAME_CONFIG.HEIGHT + 250))
       const float = Math.sin(time * 0.5 + i * 2) * 4
@@ -681,10 +681,6 @@ export default function BunnyJumper() {
       ctx.arc(cloudX[i] + 24, offsetY - 2 + float, 32, 0, Math.PI * 2)
       ctx.arc(cloudX[i] + 52, offsetY + float, 26, 0, Math.PI * 2)
       ctx.fill()
-      ctx.shadowBlur = 0
-    })
-
-    ctx.save()
     ctx.translate(0, -cameraY)
 
     platforms.forEach((platform) => {
@@ -692,12 +688,16 @@ export default function BunnyJumper() {
     })
 
     collectibles.forEach((carrot) => {
-      drawCarrot(ctx, carrot, time)
+      drawPlatform(ctx, platform, time)
     })
-    
+
+    collectParticles.forEach((particle) => {
+      drawCarrot(ctx, carrot, time)
+      ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`
+      ctx.shadowColor = `rgba(249, 115, 22, ${alpha * 0.5})`
     collectParticles.forEach((particle) => {
       const alpha = particle.life / particle.maxLife
-      ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`
+      ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`Math.PI * 2)
       ctx.shadowColor = `rgba(249, 115, 22, ${alpha * 0.5})`
       ctx.shadowBlur = 6
       ctx.beginPath()
@@ -714,13 +714,13 @@ export default function BunnyJumper() {
     const idleBounce = Math.sin(time * 3) * 1.5
     drawBunny(ctx, player.x, player.y, player.width, player.height, playerSquash, idleBounce)
 
-    ctx.restore()
-
-    const heightProgress = data.startY - data.maxHeight
-    const heightScore = Math.floor(heightProgress * GAME_CONFIG.SCORING.HEIGHT_FACTOR)
     const collectScore = data.carrotCount * GAME_CONFIG.SCORING.CARROT_POINTS
     const displayScore = heightScore + collectScore
 
+    const hudGradient = ctx.createLinearGradient(GAME_CONFIG.WIDTH / 2 - 120, 12, GAME_CONFIG.WIDTH / 2 + 120, 12)
+    hudGradient.addColorStop(0, 'rgba(255, 240, 245, 0.97)')
+    hudGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.98)')
+orStop(1, 'rgba(252, 231, 243, 0.97)')
     const hudGradient = ctx.createLinearGradient(GAME_CONFIG.WIDTH / 2 - 120, 12, GAME_CONFIG.WIDTH / 2 + 120, 12)
     hudGradient.addColorStop(0, 'rgba(255, 240, 245, 0.97)')
     hudGradient.addColorStop(0.5, 'rgba(255, 255, 255, 0.98)')
@@ -731,14 +731,14 @@ export default function BunnyJumper() {
     ctx.shadowOffsetY = 4
     ctx.beginPath()
     ctx.roundRect(GAME_CONFIG.WIDTH / 2 - 120, 12, 240, 70, 20)
-    ctx.fill()
+    ctx.strokeStyle = 'rgba(236, 72, 153, 0.25)'
     ctx.shadowBlur = 0
     ctx.shadowOffsetY = 0
     
     ctx.strokeStyle = 'rgba(236, 72, 153, 0.25)'
     ctx.lineWidth = 2.5
-    ctx.stroke()
-    
+    scoreGrad.addColorStop(0, '#EC4899')
+    scoreGrad.addColorStop(1, '#DB2777')
     ctx.font = 'bold 22px Fredoka, sans-serif'
     const scoreGrad = ctx.createLinearGradient(0, 20, 0, 60)
     scoreGrad.addColorStop(0, '#EC4899')
@@ -746,41 +746,37 @@ export default function BunnyJumper() {
     ctx.fillStyle = scoreGrad
     ctx.fillText('分數', GAME_CONFIG.WIDTH / 2 - 105, 40)
     
-    ctx.font = 'bold 32px Fredoka, sans-serif'
+    ctx.fillStyle = numberGrad
     const numberGrad = ctx.createLinearGradient(0, 50, 0, 75)
     numberGrad.addColorStop(0, '#DB2777')
     numberGrad.addColorStop(1, '#BE185D')
     ctx.fillStyle = numberGrad
     ctx.fillText(`${displayScore}`, GAME_CONFIG.WIDTH / 2 - 105, 68)
-    
-    if (data.carrotCount > 0) {
-      ctx.font = 'bold 20px Fredoka, sans-serif'
+      carrotGrad.addColorStop(0, '#F97316')
+      carrotGrad.addColorStop(1, '#EA580C')
+      ctx.fillStyle = carrotGrad
       const carrotGrad = ctx.createLinearGradient(0, 52, 0, 72)
       carrotGrad.addColorStop(0, '#F97316')
       carrotGrad.addColorStop(1, '#EA580C')
       ctx.fillStyle = carrotGrad
       ctx.fillText(`🥕 × ${data.carrotCount}`, GAME_CONFIG.WIDTH / 2 + 15, 55)
-    }
+    }h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 animate-gradient-shift">
   }
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-pink-200 via-purple-200 to-blue-200 animate-gradient-shift">
       <div className="relative">
-        <canvas
+        <canvasborder-[10px] border-white rounded-[2rem] shadow-[0_20px_60px_rgba(219,39,119,0.3)]"
           ref={canvasRef}
-          width={GAME_CONFIG.WIDTH}
+          width={GAME_CONFIG.WIDTH}.3), 0 0 0 3px rgba(236, 72, 153, 0.2)'
           height={GAME_CONFIG.HEIGHT}
           className="border-[10px] border-white rounded-[2rem] shadow-[0_20px_60px_rgba(219,39,119,0.3)]"
           style={{
             boxShadow: '0 20px 60px rgba(219, 39, 119, 0.3), 0 0 0 3px rgba(236, 72, 153, 0.2)'
-          }}
+          }}iv className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-pink-50/98 via-purple-50/98 to-blue-50/98 backdrop-blur-sm rounded-[2rem]">
         />
 
-        {gameState === GameState.Menu && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-pink-50/98 via-purple-50/98 to-blue-50/98 backdrop-blur-sm rounded-[2rem]">
-            <div className="text-center space-y-8 px-6">
-              <div className="inline-block animate-bounce-slow">
-                <div className="text-9xl mb-4 filter drop-shadow-lg animate-wiggle">🐰</div>
+        {gameState === GameState.Menu && (b-4 filter drop-shadow-lg animate-wiggle">🐰</div>
               </div>
               <h1 className="text-8xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-4 drop-shadow-sm animate-gradient-x" style={{ fontFamily: 'Fredoka, sans-serif' }}>
                 跳跳兔
@@ -788,45 +784,45 @@ export default function BunnyJumper() {
               <div className="inline-block bg-white/70 px-8 py-4 rounded-3xl backdrop-blur-sm shadow-lg">
                 <p className="text-2xl text-purple-600 font-semibold">
                   跳上平台，收集胡蘿蔔！
-                </p>
+              </h1>
+              <div className="inline-block bg-white/70 px-8 py-4 rounded-3xl backdrop-blur-sm shadow-lg">
+                <p className="text-2xl text-purple-600 font-semibold">
+                  跳上平台，收集胡蘿蔔！span>
+                </p>style={{ animationDelay: '0.2s' }}>💖</span>
                 <div className="flex items-center justify-center gap-3 mt-2 text-3xl">
                   <span className="animate-bounce" style={{ animationDelay: '0s' }}>🥕</span>
                   <span className="animate-bounce" style={{ animationDelay: '0.1s' }}>✨</span>
-                  <span className="animate-bounce" style={{ animationDelay: '0.2s' }}>💖</span>
+                size="lg" 
                 </div>
-              </div>
+                className="gap-3 text-2xl px-12 py-8 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 hover:from-pink-600 hover:via-purple-600 hover:to-pink-600 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 animate-pulse-slow border-4 border-white/50"
               <Button 
                 size="lg" 
-                onClick={startGame} 
+                <span className="font-bold">開始遊戲</span>
                 className="gap-3 text-2xl px-12 py-8 rounded-3xl bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 hover:from-pink-600 hover:via-purple-600 hover:to-pink-600 shadow-xl hover:shadow-2xl transition-all transform hover:scale-105 animate-pulse-slow border-4 border-white/50"
               >
-                <Play size={32} weight="fill" />
-                <span className="font-bold">開始遊戲</span>
-              </Button>
+                <div className="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-3xl backdrop-blur-sm shadow-lg border-4 border-white/60">
+                  <div className="text-xl text-purple-600 mb-2 font-semibold">👑 最高分數 👑</div>
+              </Button> from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
               {bestScore > 0 && (
                 <div className="mt-8 p-6 bg-gradient-to-r from-yellow-50 to-orange-50 rounded-3xl backdrop-blur-sm shadow-lg border-4 border-white/60">
                   <div className="text-xl text-purple-600 mb-2 font-semibold">👑 最高分數 👑</div>
                   <div className="text-5xl font-bold bg-gradient-to-r from-yellow-500 via-orange-500 to-pink-500 bg-clip-text text-transparent">
                     {bestScore}
-                  </div>
-                </div>
+                  </div>="text-lg text-purple-600 font-semibold">✨ 使用 ← → 或 A D 鍵移動 ✨</p>
+              </div>
               )}
               <div className="mt-8 bg-white/50 rounded-2xl p-4 backdrop-blur-sm">
                 <p className="text-lg text-purple-600 font-semibold">✨ 使用 ← → 或 A D 鍵移動 ✨</p>
               </div>
             </div>
-          </div>
-        )}
-
-        {gameState === GameState.GameOver && (
+          <div className="absolute inset-0 flex items-center justify-center p-4">
+            <Card className="p-12 max-w-md mx-4 text-center bg-gradient-to-br from-white via-pink-50 to-purple-50 backdrop-blur-sm border-[6px] border-white shadow-2xl rounded-[2rem]">
+              <div className="text-7xl mb-6 animate-bounce-slow">💫</div>
+        {gameState === GameState.GameOver && (clip-text text-transparent mb-8 animate-gradient-x" style={{ fontFamily: 'Fredoka, sans-serif' }}>
           <div className="absolute inset-0 flex items-center justify-center p-4">
             <Card className="p-12 max-w-md mx-4 text-center bg-gradient-to-br from-white via-pink-50 to-purple-50 backdrop-blur-sm border-[6px] border-white shadow-2xl rounded-[2rem]">
               <div className="text-7xl mb-6 animate-bounce-slow">💫</div>
               <h2 className="text-6xl font-bold bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-8 animate-gradient-x" style={{ fontFamily: 'Fredoka, sans-serif' }}>
-                遊戲結束
-              </h2>
-              <div className="mb-10 space-y-5">
-                <div className="p-8 bg-gradient-to-br from-pink-100 via-purple-100 to-blue-100 rounded-3xl shadow-lg border-4 border-white/70">
                   <p className="text-2xl text-purple-600 mb-3 font-semibold">
                     你的分數
                   </p>
