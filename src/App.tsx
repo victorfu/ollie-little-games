@@ -1,52 +1,39 @@
-import { useMemo, useState } from "react";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import BunnyJumper from "./components/BunnyJumper";
 import GameHub from "./components/GameHub";
 import MeteorGlider from "./components/MeteorGlider";
 import MushroomAdventure from "./components/MushroomAdventure";
 
-type ActiveView = "hub" | "bunny" | "meteor" | "mushroom";
-
 function App() {
-  const [activeView, setActiveView] = useState<ActiveView>("hub");
+  const navigate = useNavigate();
 
-  const view = useMemo(() => {
-    if (activeView === "bunny") {
-      return (
-        <BunnyJumper
-          onExit={() => {
-            setActiveView("hub");
-          }}
-        />
-      );
-    }
-
-    if (activeView === "meteor") {
-      return (
-        <MeteorGlider
-          onExit={() => setActiveView("hub")}
-          onPlayBunny={() => setActiveView("bunny")}
-        />
-      );
-    }
-
-    if (activeView === "mushroom") {
-      return (
-        <MushroomAdventure
-          onExit={() => setActiveView("hub")}
-        />
-      );
-    }
-
-    return (
-      <GameHub
-        onPlayBunny={() => setActiveView("bunny")}
-        onPlayMeteor={() => setActiveView("meteor")}
-        onPlayMushroom={() => setActiveView("mushroom")}
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <GameHub
+            onPlayBunny={() => navigate("/bunny")}
+            onPlayMeteor={() => navigate("/meteor")}
+            onPlayMushroom={() => navigate("/mushroom")}
+          />
+        }
       />
-    );
-  }, [activeView]);
-
-  return view;
+      <Route
+        path="/bunny"
+        element={<BunnyJumper onExit={() => navigate("/")} />}
+      />
+      <Route
+        path="/meteor"
+        element={<MeteorGlider onExit={() => navigate("/")} />}
+      />
+      <Route
+        path="/mushroom"
+        element={<MushroomAdventure onExit={() => navigate("/")} />}
+      />
+      <Route path="*" element={<Navigate to="/" replace />} />
+    </Routes>
+  );
 }
 
 export default App;
