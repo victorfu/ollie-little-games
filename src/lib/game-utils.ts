@@ -1,3 +1,4 @@
+import { GAME_CONFIG } from "./constants";
 import type { GameObject } from "./types";
 
 export function checkCollision(obj1: GameObject, obj2: GameObject): boolean {
@@ -30,12 +31,12 @@ export function generateId(): string {
 }
 
 export function getBestScore(): number {
-  const stored = localStorage.getItem("rabbitJumperBestScore");
+  const stored = localStorage.getItem(GAME_CONFIG.SCORING.BEST_SCORE_KEY);
   if (!stored) return 0;
   const parsed = parseInt(stored, 10);
   return isNaN(parsed) ? 0 : parsed;
 }
 
 export function setBestScore(score: number): void {
-  localStorage.setItem("rabbitJumperBestScore", score.toString());
+  localStorage.setItem(GAME_CONFIG.SCORING.BEST_SCORE_KEY, score.toString());
 }

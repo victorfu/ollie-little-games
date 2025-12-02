@@ -21,7 +21,7 @@ import {
   createCarrot,
   createPowerup,
   selectPlatformType,
-  getGapRange,
+  getGapRangeWithScale,
 } from "@/lib/game-objects";
 
 type CollectParticle = {
@@ -68,6 +68,14 @@ type GameData = {
   collectParticles: CollectParticle[];
   bgStars: BackgroundStar[];
   floatingDecor: FloatingDecor[];
+  gapScale: number;
+};
+
+const POWERUP_DURATIONS_BY_TYPE: Record<PowerupType, number> = {
+  [PowerupType.Flight]: GAME_CONFIG.POWERUP.DURATIONS.FLIGHT,
+  [PowerupType.SuperJump]: GAME_CONFIG.POWERUP.DURATIONS.SUPER_JUMP,
+  [PowerupType.Magnet]: GAME_CONFIG.POWERUP.DURATIONS.MAGNET,
+  [PowerupType.Shield]: GAME_CONFIG.POWERUP.DURATIONS.SHIELD,
 };
 
 export default function BunnyJumper() {
@@ -75,6 +83,9 @@ export default function BunnyJumper() {
   const [gameState, setGameState] = useState<GameState>(GameState.Menu);
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScoreState] = useState(0);
+  const [gapScale, setGapScale] = useState(1.25);
+  const renderedScoreRef = useRef(0);
+  const lastScoreSyncRef = useRef(-Infinity);
   const gameLoopRef = useRef<number | undefined>(undefined);
   const gameDataRef = useRef<GameData | undefined>(undefined);
 
@@ -82,7 +93,7 @@ export default function BunnyJumper() {
     setBestScoreState(getBestScore());
   }, []);
 
-  const initGame = () => {
+  const initGame = (gapScaleValue: number) => {
     const player: Player = {
       x: GAME_CONFIG.WIDTH / 2 - GAME_CONFIG.PLAYER.WIDTH / 2,
       y: GAME_CONFIG.HEIGHT * GAME_CONFIG.PLAYER.START_Y_RATIO,
@@ -104,7 +115,7 @@ export default function BunnyJumper() {
     platforms.push(startPlatform);
 
     for (let i = 1; i < GAME_CONFIG.INITIAL_PLATFORMS; i++) {
-      const gapRange = getGapRange(0);
+      const gapRange = getGapRangeWithScale(0, gapScaleValue);
       const gap = randomInt(gapRange.min, gapRange.max);
       currentY -= gap;
 
@@ -180,11 +191,14 @@ export default function BunnyJumper() {
       collectParticles: [],
       bgStars,
       floatingDecor,
+      gapScale: gapScaleValue,
     };
   };
 
   const startGame = () => {
-    initGame();
+    initGame(gapScale);
+    renderedScoreRef.current = 0;
+    lastScoreSyncRef.current = -Infinity;
     setGameState(GameState.Playing);
     setCurrentScore(0);
   };
@@ -242,7 +256,14 @@ export default function BunnyJumper() {
       );
       const collectScore = data.carrotCount * GAME_CONFIG.SCORING.CARROT_POINTS;
       const totalScore = heightScore + collectScore;
-      setCurrentScore(totalScore);
+      if (
+        totalScore !== renderedScoreRef.current &&
+        time - lastScoreSyncRef.current > 120
+      ) {
+        renderedScoreRef.current = totalScore;
+        lastScoreSyncRef.current = time;
+        setCurrentScore(totalScore);
+      }
 
       // 玩家掉出畫面判定
       if (data.player.y > data.cameraY + GAME_CONFIG.HEIGHT + 100) {
@@ -262,10 +283,8 @@ export default function BunnyJumper() {
             data.collectParticles.push({
               x: data.player.x + GAME_CONFIG.PLAYER.WIDTH / 2,
               y: data.player.y + GAME_CONFIG.PLAYER.HEIGHT / 2,
-              velocity: {
-                x: Math.cos(angle) * 150,
-                y: Math.sin(angle) * 150,
-              },
+              vx: Math.cos(angle) * 150,
+              vy: Math.sin(angle) * 150,
               life: 1.0,
               maxLife: 1.0,
               color: "#60A5FA",
@@ -278,6 +297,8 @@ export default function BunnyJumper() {
             setBestScore(totalScore);
             setBestScoreState(totalScore);
           }
+          renderedScoreRef.current = totalScore;
+          setCurrentScore(totalScore);
           setGameState(GameState.GameOver);
           return;
         }
@@ -293,11 +314,12 @@ export default function BunnyJumper() {
         cancelAnimationFrame(gameLoopRef.current);
       }
     };
-  }, [gameState]);
+  }, [gameState, gapScale]);
 
   const updateGame = (deltaTime: number, data: GameData) => {
     const { player, platforms, collectibles, powerups, keys, activePowerups } =
       data;
+    data.gapScale = gapScale;
     const currentTime = performance.now();
 
     // 檢查並移除過期的道具效果
@@ -342,8 +364,8 @@ export default function BunnyJumper() {
       if (platform.isBreaking && platform.breakTimer !== undefined) {
         platform.breakTimer -= deltaTime * 1000;
         if (platform.breakTimer <= 0) {
-          platform.x = -1000;
-          platform.y = -1000;
+          // Move broken platforms below the recycle line so they respawn quickly.
+          platform.y = data.cameraY + GAME_CONFIG.HEIGHT + 200;
         }
       }
 
@@ -449,13 +471,10 @@ export default function BunnyJumper() {
         powerup.collected = true;
 
         // 啟用道具效果
-        const duration =
-          GAME_CONFIG.POWERUP.DURATIONS[
-            powerup.type.toUpperCase() as keyof typeof GAME_CONFIG.POWERUP.DURATIONS
-          ];
+        const duration = POWERUP_DURATIONS_BY_TYPE[powerup.type];
         if (powerup.type === PowerupType.Shield) {
           data.hasShield = true;
-        } else {
+        } else if (duration > 0) {
           activePowerups.set(powerup.type, currentTime + duration);
         }
 
@@ -513,7 +532,7 @@ export default function BunnyJumper() {
     }
 
     const heightProgress = data.startY - data.maxHeight;
-    const gapRange = getGapRange(heightProgress);
+    const gapRange = getGapRangeWithScale(heightProgress, data.gapScale);
 
     platforms.forEach((platform, index) => {
       if (platform.y > data.cameraY + GAME_CONFIG.HEIGHT + 50) {
@@ -1656,11 +1675,8 @@ export default function BunnyJumper() {
         // 進度環
         if (effect.endTime > 0) {
           const remaining = Math.max(0, effect.endTime - currentTime);
-          const duration =
-            GAME_CONFIG.POWERUP.DURATIONS[
-              effect.type.toUpperCase() as keyof typeof GAME_CONFIG.POWERUP.DURATIONS
-            ];
-          const progress = remaining / duration;
+          const duration = POWERUP_DURATIONS_BY_TYPE[effect.type];
+          const progress = duration > 0 ? remaining / duration : 0;
 
           ctx.shadowBlur = 0;
           ctx.strokeStyle = effect.color;
@@ -2116,6 +2132,49 @@ export default function BunnyJumper() {
             </div>
           </div>
         )}
+
+        <div className="mt-6">
+          <div
+            style={{
+              background: "rgba(255, 255, 255, 0.9)",
+              borderRadius: "16px",
+              padding: "16px 18px",
+              boxShadow:
+                "0 12px 32px rgba(255, 150, 180, 0.12), 0 6px 16px rgba(135, 206, 235, 0.12)",
+              border: "1px solid rgba(255, 200, 210, 0.5)",
+              backdropFilter: "blur(12px)",
+              width: GAME_CONFIG.WIDTH,
+            }}
+          >
+            <div className="flex items-center justify-between mb-3">
+              <div>
+                <p className="text-sm font-semibold text-pink-500">
+                  雲間距 / 難度設定
+                </p>
+                <p className="text-xs text-gray-500">
+                  提高間距會減少平台數量，讓遊戲更具挑戰。
+                </p>
+              </div>
+              <div className="text-sm font-semibold text-gray-700">
+                {gapScale.toFixed(2)}x
+              </div>
+            </div>
+            <input
+              type="range"
+              min={1}
+              max={1.6}
+              step={0.05}
+              value={gapScale}
+              onChange={(e) => setGapScale(parseFloat(e.target.value))}
+              aria-label="雲間距倍率"
+              className="w-full accent-pink-400"
+            />
+            <div className="flex justify-between text-[11px] text-gray-500 mt-1">
+              <span>較多雲 (容易)</span>
+              <span>較少雲 (困難)</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

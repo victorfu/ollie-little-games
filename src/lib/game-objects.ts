@@ -106,20 +106,26 @@ export function getGapRange(heightProgress: number): {
   min: number;
   max: number;
 } {
+  return getGapRangeWithScale(heightProgress, 1);
+}
+
+export function getGapRangeWithScale(
+  heightProgress: number,
+  gapScale: number,
+): { min: number; max: number } {
   if (heightProgress < GAME_CONFIG.DIFFICULTY.EASY.HEIGHT_THRESHOLD) {
-    return {
-      min: GAME_CONFIG.DIFFICULTY.EASY.GAP_Y.MIN,
-      max: GAME_CONFIG.DIFFICULTY.EASY.GAP_Y.MAX,
-    };
+    return scaleRange(GAME_CONFIG.DIFFICULTY.EASY.GAP_Y, gapScale);
   } else if (heightProgress < GAME_CONFIG.DIFFICULTY.MEDIUM.HEIGHT_THRESHOLD) {
-    return {
-      min: GAME_CONFIG.DIFFICULTY.MEDIUM.GAP_Y.MIN,
-      max: GAME_CONFIG.DIFFICULTY.MEDIUM.GAP_Y.MAX,
-    };
+    return scaleRange(GAME_CONFIG.DIFFICULTY.MEDIUM.GAP_Y, gapScale);
   } else {
-    return {
-      min: GAME_CONFIG.DIFFICULTY.HARD.GAP_Y.MIN,
-      max: GAME_CONFIG.DIFFICULTY.HARD.GAP_Y.MAX,
-    };
+    return scaleRange(GAME_CONFIG.DIFFICULTY.HARD.GAP_Y, gapScale);
   }
 }
+
+const scaleRange = (
+  range: { MIN: number; MAX: number },
+  gapScale: number,
+) => ({
+  min: Math.round(range.MIN * gapScale),
+  max: Math.round(range.MAX * gapScale),
+});
