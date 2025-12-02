@@ -87,6 +87,7 @@ export default function MeteorGlider({ onExit, onPlayBunny }: MeteorGliderProps)
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const gameDataRef = useRef<GameData | null>(null);
   const rafRef = useRef<number | null>(null);
+  const renderedScoreRef = useRef(0);
   const [gameState, setGameState] = useState<GameState>("menu");
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
@@ -171,7 +172,11 @@ export default function MeteorGlider({ onExit, onPlayBunny }: MeteorGliderProps)
       updateGame(data, delta);
       renderGame(ctx, data);
 
-      if (Math.abs(data.score - score) > 0.5) setScore(Math.floor(data.score));
+      if (Math.abs(data.score - renderedScoreRef.current) > 0.5) {
+        const next = Math.floor(data.score);
+        renderedScoreRef.current = next;
+        setScore(next);
+      }
       setDashFuelUI(data.dashFuel);
       setDashCooldownUI(Math.max(0, data.dashCooldown));
 
@@ -218,6 +223,7 @@ export default function MeteorGlider({ onExit, onPlayBunny }: MeteorGliderProps)
       input: { left: false, right: false, dashQueued: false, touchDir: 0 },
       lastTime: performance.now(),
     };
+    renderedScoreRef.current = 0;
     setScore(0);
     setDashFuelUI(FUEL_MAX);
     setDashCooldownUI(0);
@@ -228,6 +234,7 @@ export default function MeteorGlider({ onExit, onPlayBunny }: MeteorGliderProps)
     const data = gameDataRef.current;
     if (!data) return;
     const finalScore = Math.floor(data.score);
+    renderedScoreRef.current = finalScore;
     setScore(finalScore);
     if (finalScore > bestScore) {
       setBestScore(finalScore);

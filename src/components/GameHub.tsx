@@ -18,7 +18,6 @@ type GameCard = {
 };
 
 const METEOR_BEST_KEY = "meteor-glider-best";
-
 export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
   const [bunnyBest, setBunnyBest] = useState<number | null>(null);
   const [meteorBest, setMeteorBest] = useState<number | null>(null);
@@ -153,7 +152,11 @@ export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
 
                 <div className="flex items-center gap-3 pt-1">
                   <button
-                    onClick={card.id === "bunny" ? onPlayBunny : onPlayMeteor}
+                    onClick={
+                      card.id === "bunny"
+                        ? onPlayBunny
+                        : onPlayMeteor
+                    }
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 text-white px-4 py-3 text-sm font-semibold shadow-lg transition hover:shadow-xl hover:-translate-y-[2px]"
                   >
                     {card.actionLabel}
