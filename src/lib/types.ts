@@ -2,6 +2,7 @@ export enum PlatformType {
   Static = "static",
   Moving = "moving",
   Breakable = "breakable",
+  Vanishing = "vanishing",
 }
 
 export enum CollectibleType {
@@ -39,6 +40,7 @@ export interface Platform extends GameObject {
   id: string;
   isBreaking?: boolean;
   breakTimer?: number;
+  remainingUses?: number;
   movingData?: {
     baseX: number;
     range: number;

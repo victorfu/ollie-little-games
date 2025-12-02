@@ -409,6 +409,12 @@ export default function BunnyJumper() {
         if (platform.type === PlatformType.Breakable) {
           platform.isBreaking = true;
           platform.breakTimer = GAME_CONFIG.PLATFORM.BREAK_DELAY;
+        } else if (platform.type === PlatformType.Vanishing) {
+          platform.remainingUses = (platform.remainingUses ?? 1) - 1;
+          if (platform.remainingUses <= 0) {
+            platform.y = data.cameraY + GAME_CONFIG.HEIGHT + 200;
+            platform.x = -1000;
+          }
         }
       }
     });
@@ -930,6 +936,30 @@ export default function BunnyJumper() {
 
       if (isBreaking) {
         ctx.globalAlpha = 0.6 + Math.sin(time * 20) * 0.3;
+      }
+    } else if (type === PlatformType.Vanishing) {
+      // 一踩就消失的薄霧雲
+      ctx.shadowColor = "rgba(255, 255, 255, 0.35)";
+      ctx.shadowBlur = 10;
+      const grad = ctx.createLinearGradient(x, drawY - 4, x, drawY + height + 6);
+      grad.addColorStop(0, "rgba(255,255,255,0.85)");
+      grad.addColorStop(1, "rgba(230,240,255,0.65)");
+      ctx.fillStyle = grad;
+
+      ctx.beginPath();
+      ctx.arc(x + 18, drawY + height / 2, 12, 0, Math.PI * 2);
+      ctx.arc(x + width / 2, drawY + height / 2 - 3, 16, 0, Math.PI * 2);
+      ctx.arc(x + width - 18, drawY + height / 2, 12, 0, Math.PI * 2);
+      ctx.fill();
+
+      // 淡淡閃粉，暗示一次性
+      ctx.fillStyle = "rgba(255, 255, 255, 0.65)";
+      for (let i = 0; i < 5; i++) {
+        const sparkleX = x + 10 + Math.random() * (width - 20);
+        const sparkleY = drawY + 4 + Math.random() * (height - 8);
+        ctx.beginPath();
+        ctx.arc(sparkleX, sparkleY, 1.8, 0, Math.PI * 2);
+        ctx.fill();
       }
     } else {
       // 普通白色蓬鬆雲

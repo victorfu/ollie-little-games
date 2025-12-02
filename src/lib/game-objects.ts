@@ -25,6 +25,10 @@ export function createPlatform(
     isBreaking: false,
   };
 
+  if (type === PlatformType.Vanishing) {
+    platform.remainingUses = 1;
+  }
+
   if (type === PlatformType.Moving) {
     const range = randomInt(
       GAME_CONFIG.PLATFORM.MOVING_RANGE.MIN,
@@ -81,7 +85,12 @@ export function createPowerup(x: number, y: number): Powerup {
 }
 
 export function selectPlatformType(heightProgress: number): PlatformType {
-  let distribution: { STATIC: number; MOVING: number; BREAKABLE: number };
+  let distribution: {
+    STATIC: number;
+    MOVING: number;
+    BREAKABLE: number;
+    VANISHING: number;
+  };
 
   if (heightProgress < GAME_CONFIG.DIFFICULTY.EASY.HEIGHT_THRESHOLD) {
     distribution = GAME_CONFIG.DIFFICULTY.EASY.PLATFORM_DISTRIBUTION;
@@ -97,8 +106,10 @@ export function selectPlatformType(heightProgress: number): PlatformType {
     return PlatformType.Static;
   } else if (rand < distribution.STATIC + distribution.MOVING) {
     return PlatformType.Moving;
-  } else {
+  } else if (rand < distribution.STATIC + distribution.MOVING + distribution.BREAKABLE) {
     return PlatformType.Breakable;
+  } else {
+    return PlatformType.Vanishing;
   }
 }
 
