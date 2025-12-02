@@ -1,23 +1,19 @@
-# ✨ Welcome to Your Spark Template!
-You've just launched your brand-new Spark Template Codespace — everything’s fired up and ready for you to explore, build, and create with Spark!
+# Ollie Little Games
 
-This template is your blank canvas. It comes with a minimal setup to help you get started quickly with Spark development.
+A tiny React + TypeScript shelf of browser-sized canvas games. Launch from the in-app hub and jump between three mini experiences without installs.
 
-🚀 What's Inside?
-- A clean, minimal Spark environment
-- Pre-configured for local development
-- Ready to scale with your ideas
-  
-🧠 What Can You Do?
+## Quick start
+- `npm install` once to pull dependencies.
+- `npm run dev` to start Vite and open the hub.
+- `npm run build` for a production bundle; `npm run preview` to serve it.
+- `npm run lint` to check code style.
 
-Right now, this is just a starting point — the perfect place to begin building and testing your Spark applications.
+## Games
+- **Bunny Jumper** – Endless vertical jumper. Bounce off static/moving/breakable/vanishing clouds, dodge gust lanes and critters, collect carrots for combo points, and grab powerups (flight, super jump, magnet, shield). Score = height climbed + carrot bonuses; best stored in `localStorage` under `bunnyJumperBestScore`. Controls: ←/→ or A/D. Difficulty slider adjusts platform gaps.
+- **Meteor Glider** – Glide through falling meteors with a dash meter. Wind pushes the ship, meteors speed up over time, and fuel cells refill dash energy while adding points. States: menu, playing, paused, game over with best score saved to `meteor-glider-best`. Controls: ←/→ or A/D to steer, Space/Shift/K to dash; tap left/right halves or the on-screen Dash button on touch.
+- **森林蘑菇冒險** – Side-scrolling platformer with 10 handcrafted levels. Run, jump, and double-jump (with feather), stomp red mush enemies, collect coins, and pick up powerups (star invincibility, boot speed, feather double jump, heart extra life). Three lives, level bonus when reaching the flag; best saved to `mushroom-adventure-best`. Controls: ←/→ or A/D to move, ↑/W/Space to jump.
 
-🧹 Just Exploring?
-No problem! If you were just checking things out and don’t need to keep this code:
-
-- Simply delete your Spark.
-- Everything will be cleaned up — no traces left behind.
-
-📄 License For Spark Template Resources 
-
-The Spark Template files and resources from GitHub are licensed under the terms of the MIT license, Copyright GitHub, Inc.
+## Project notes
+- Built with Vite, React 19, and plain canvas rendering; styles live in `src/main.css`, `src/index.css`, and `src/styles`.
+- Entry: `src/main.tsx` mounts `App.tsx`, which routes between the hub and each game component.
+- Best scores persist locally only; clearing browser storage resets them.
