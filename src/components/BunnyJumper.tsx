@@ -80,6 +80,10 @@ type GameData = {
   carrotScore: number;
 };
 
+type BunnyJumperProps = {
+  onExit?: () => void;
+};
+
 const POWERUP_DURATIONS_BY_TYPE: Record<PowerupType, number> = {
   [PowerupType.Flight]: GAME_CONFIG.POWERUP.DURATIONS.FLIGHT,
   [PowerupType.SuperJump]: GAME_CONFIG.POWERUP.DURATIONS.SUPER_JUMP,
@@ -87,7 +91,7 @@ const POWERUP_DURATIONS_BY_TYPE: Record<PowerupType, number> = {
   [PowerupType.Shield]: GAME_CONFIG.POWERUP.DURATIONS.SHIELD,
 };
 
-export default function BunnyJumper() {
+export default function BunnyJumper({ onExit }: BunnyJumperProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [gameState, setGameState] = useState<GameState>(GameState.Menu);
   const [currentScore, setCurrentScore] = useState(0);
@@ -1929,12 +1933,21 @@ export default function BunnyJumper() {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen"
+      className="relative flex items-center justify-center min-h-screen"
       style={{
         background:
           "linear-gradient(135deg, #ffeef8 0%, #e8f4fc 50%, #fff5e6 100%)",
       }}
     >
+      {onExit && (
+        <button
+          onClick={onExit}
+          className="absolute left-6 top-6 z-20 rounded-full bg-white/90 px-4 py-2 text-sm font-semibold text-slate-800 shadow-lg backdrop-blur transition hover:-translate-y-0.5 hover:shadow-xl"
+          type="button"
+        >
+          ← Back to games
+        </button>
+      )}
       <div className="relative">
         <canvas
           ref={canvasRef}
