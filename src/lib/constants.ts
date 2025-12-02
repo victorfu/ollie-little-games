@@ -47,24 +47,54 @@ export const GAME_CONFIG = {
     HEIGHT_FACTOR: 0.5,
     CARROT_POINTS: 50,
     BEST_SCORE_KEY: "bunnyJumperBestScore",
+    COMBO_WINDOW_MS: 2500,
   },
 
   DIFFICULTY: {
     EASY: {
       HEIGHT_THRESHOLD: 1500,
       GAP_Y: { MIN: 70, MAX: 110 },
-      PLATFORM_DISTRIBUTION: { STATIC: 0.75, MOVING: 0.15, BREAKABLE: 0.05, VANISHING: 0.05 },
+      PLATFORM_DISTRIBUTION: {
+        STATIC: 0.75,
+        MOVING: 0.15,
+        BREAKABLE: 0.05,
+        VANISHING: 0.05,
+      },
     },
     MEDIUM: {
       HEIGHT_THRESHOLD: 3500,
       GAP_Y: { MIN: 85, MAX: 125 },
-      PLATFORM_DISTRIBUTION: { STATIC: 0.55, MOVING: 0.25, BREAKABLE: 0.1, VANISHING: 0.1 },
+      PLATFORM_DISTRIBUTION: {
+        STATIC: 0.55,
+        MOVING: 0.25,
+        BREAKABLE: 0.1,
+        VANISHING: 0.1,
+      },
     },
     HARD: {
       HEIGHT_THRESHOLD: Infinity,
       GAP_Y: { MIN: 95, MAX: 135 },
-      PLATFORM_DISTRIBUTION: { STATIC: 0.45, MOVING: 0.3, BREAKABLE: 0.15, VANISHING: 0.1 },
+      PLATFORM_DISTRIBUTION: {
+        STATIC: 0.45,
+        MOVING: 0.3,
+        BREAKABLE: 0.15,
+        VANISHING: 0.1,
+      },
     },
+  },
+
+  GUST: {
+    SPAWN_CHANCE: 0.18,
+    HEIGHT: 140,
+    STRENGTH: 220,
+  },
+
+  CRITTER: {
+    SPAWN_CHANCE: 0.16,
+    WIDTH: 28,
+    HEIGHT: 22,
+    BOUNCE_MULTIPLIER: 1.2,
+    KNOCKBACK: 180,
   },
 
   INITIAL_PLATFORMS: 18,

@@ -70,3 +70,17 @@ export interface GameScore {
   carrots: number;
   total: number;
 }
+
+export interface Critter extends GameObject {
+  id: string;
+  stomped: boolean;
+  platformId: string;
+}
+
+export interface Gust {
+  id: string;
+  y: number;
+  height: number;
+  strength: number;
+  direction: 1 | -1;
+}

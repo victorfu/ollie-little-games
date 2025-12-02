@@ -7,6 +7,8 @@ import {
   CollectibleType,
   Powerup,
   PowerupType,
+  Critter,
+  Gust,
 } from "./types";
 
 export function createPlatform(
@@ -81,6 +83,32 @@ export function createPowerup(x: number, y: number): Powerup {
     type: randomType,
     velocity: { x: 0, y: 0 },
     collected: false,
+  };
+}
+
+export function createCritter(platform: Platform): Critter {
+  return {
+    id: generateId(),
+    platformId: platform.id,
+    x:
+      platform.x +
+      platform.width / 2 -
+      GAME_CONFIG.CRITTER.WIDTH / 2,
+    y: platform.y - GAME_CONFIG.CRITTER.HEIGHT - 2,
+    width: GAME_CONFIG.CRITTER.WIDTH,
+    height: GAME_CONFIG.CRITTER.HEIGHT,
+    velocity: { x: 0, y: 0 },
+    stomped: false,
+  };
+}
+
+export function createGust(y: number): Gust {
+  return {
+    id: generateId(),
+    y,
+    height: GAME_CONFIG.GUST.HEIGHT,
+    strength: GAME_CONFIG.GUST.STRENGTH,
+    direction: Math.random() > 0.5 ? 1 : -1,
   };
 }
 

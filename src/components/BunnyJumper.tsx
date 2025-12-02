@@ -8,6 +8,8 @@ import {
   PlatformType,
   Powerup,
   PowerupType,
+  Critter,
+  Gust,
 } from "@/lib/types";
 import {
   checkCollision,
@@ -22,6 +24,8 @@ import {
   createPowerup,
   selectPlatformType,
   getGapRangeWithScale,
+  createCritter,
+  createGust,
 } from "@/lib/game-objects";
 
 type CollectParticle = {
@@ -69,6 +73,11 @@ type GameData = {
   bgStars: BackgroundStar[];
   floatingDecor: FloatingDecor[];
   gapScale: number;
+  gusts: Gust[];
+  critters: Critter[];
+  comboCount: number;
+  lastComboTime: number;
+  carrotScore: number;
 };
 
 const POWERUP_DURATIONS_BY_TYPE: Record<PowerupType, number> = {
@@ -105,6 +114,8 @@ export default function BunnyJumper() {
 
     const platforms: Platform[] = [];
     const collectibles: Collectible[] = [];
+    const critters: Critter[] = [];
+    const gusts: Gust[] = [];
     let currentY = GAME_CONFIG.HEIGHT - 80;
 
     const startPlatform = createPlatform(
@@ -127,6 +138,13 @@ export default function BunnyJumper() {
       const platformType = i < 3 ? PlatformType.Static : selectPlatformType(0);
       const platform = createPlatform(x, currentY, platformType);
       platforms.push(platform);
+
+      if (Math.random() < GAME_CONFIG.CRITTER.SPAWN_CHANCE) {
+        critters.push(createCritter(platform));
+      }
+      if (Math.random() < GAME_CONFIG.GUST.SPAWN_CHANCE) {
+        gusts.push(createGust(platform.y - 40));
+      }
 
       if (Math.random() < GAME_CONFIG.COLLECTIBLE.SPAWN_CHANCE) {
         collectibles.push(
@@ -192,6 +210,11 @@ export default function BunnyJumper() {
       bgStars,
       floatingDecor,
       gapScale: gapScaleValue,
+      gusts,
+      critters,
+      comboCount: 0,
+      lastComboTime: -Infinity,
+      carrotScore: 0,
     };
   };
 
@@ -254,8 +277,7 @@ export default function BunnyJumper() {
       const heightScore = Math.floor(
         heightProgress * GAME_CONFIG.SCORING.HEIGHT_FACTOR,
       );
-      const collectScore = data.carrotCount * GAME_CONFIG.SCORING.CARROT_POINTS;
-      const totalScore = heightScore + collectScore;
+      const totalScore = heightScore + data.carrotScore;
       if (
         totalScore !== renderedScoreRef.current &&
         time - lastScoreSyncRef.current > 120
@@ -317,8 +339,16 @@ export default function BunnyJumper() {
   }, [gameState, gapScale]);
 
   const updateGame = (deltaTime: number, data: GameData) => {
-    const { player, platforms, collectibles, powerups, keys, activePowerups } =
-      data;
+    const {
+      player,
+      platforms,
+      collectibles,
+      powerups,
+      keys,
+      activePowerups,
+      gusts,
+      critters,
+    } = data;
     data.gapScale = gapScale;
     const currentTime = performance.now();
 
@@ -341,6 +371,14 @@ export default function BunnyJumper() {
     if (keys["arrowright"] || keys["d"]) moveX += 1;
 
     player.velocity.x = moveX * GAME_CONFIG.MOVE_SPEED;
+
+    // 風帶影響：經過時給予水平推力
+    const activeGust = gusts.find(
+      (g) => player.y > g.y && player.y < g.y + g.height,
+    );
+    if (activeGust) {
+      player.velocity.x += activeGust.direction * activeGust.strength;
+    }
 
     // 飛行效果：向上飄
     if (isFlying) {
@@ -419,6 +457,47 @@ export default function BunnyJumper() {
       }
     });
 
+    // 小怪踩擊邏輯
+    critters.forEach((critter) => {
+      const platform = platforms.find((p) => p.id === critter.platformId);
+      if (platform) {
+        critter.x =
+          platform.x +
+          platform.width / 2 -
+          GAME_CONFIG.CRITTER.WIDTH / 2;
+        critter.y = platform.y - GAME_CONFIG.CRITTER.HEIGHT - 2;
+      }
+
+      if (critter.stomped) return;
+      if (!checkCollision(player, critter)) return;
+
+      const playerBottom = player.y + player.height;
+      const prevBottom = playerBottom - player.velocity.y * deltaTime;
+      const critterTop = critter.y;
+
+      if (player.velocity.y > 0 && prevBottom <= critterTop) {
+        player.velocity.y =
+          -GAME_CONFIG.JUMP_FORCE * GAME_CONFIG.CRITTER.BOUNCE_MULTIPLIER;
+        player.onGround = true;
+        player.y = critter.y - player.height;
+        data.playerSquash = 1.5;
+        data.playerLandTime = performance.now() / 1000;
+        critter.stomped = true;
+        data.collectParticles.push({
+          x: critter.x + critter.width / 2,
+          y: critter.y,
+          vx: 0,
+          vy: -140,
+          life: 0.6,
+          maxLife: 0.6,
+          color: "#F59E0B",
+        });
+      } else {
+        const knockDir = player.x < critter.x ? -1 : 1;
+        player.velocity.x = knockDir * GAME_CONFIG.CRITTER.KNOCKBACK;
+      }
+    });
+
     const timeSinceLand = performance.now() / 1000 - data.playerLandTime;
     if (player.onGround) {
       data.playerSquash = 1.4;
@@ -452,7 +531,16 @@ export default function BunnyJumper() {
     collectibles.forEach((carrot) => {
       if (!carrot.collected && checkCollision(player, carrot)) {
         carrot.collected = true;
+        const now = performance.now();
+        if (now - data.lastComboTime <= GAME_CONFIG.SCORING.COMBO_WINDOW_MS) {
+          data.comboCount += 1;
+        } else {
+          data.comboCount = 1;
+        }
+        data.lastComboTime = now;
         data.carrotCount++;
+        data.carrotScore +=
+          GAME_CONFIG.SCORING.CARROT_POINTS * data.comboCount;
         const centerX = carrot.x + carrot.width / 2;
         const centerY = carrot.y + carrot.height / 2;
         const colors = ["#FF6B9D", "#FFB347", "#87CEEB", "#DDA0DD", "#98FB98"];
@@ -518,6 +606,12 @@ export default function BunnyJumper() {
     data.powerups = data.powerups.filter(
       (p) => !p.collected && p.y <= data.cameraY + GAME_CONFIG.HEIGHT + 80,
     );
+    data.critters = data.critters.filter(
+      (c) => !c.stomped && c.y <= data.cameraY + GAME_CONFIG.HEIGHT + 80,
+    );
+    data.gusts = data.gusts.filter(
+      (g) => g.y <= data.cameraY + GAME_CONFIG.HEIGHT + 120,
+    );
 
     for (let i = data.collectParticles.length - 1; i >= 0; i--) {
       const particle = data.collectParticles[i];
@@ -542,6 +636,9 @@ export default function BunnyJumper() {
 
     platforms.forEach((platform, index) => {
       if (platform.y > data.cameraY + GAME_CONFIG.HEIGHT + 50) {
+        data.critters = data.critters.filter(
+          (c) => c.platformId !== platform.id,
+        );
         const newY = data.cameraY - randomInt(gapRange.min, gapRange.max);
         const newX = randomInt(
           GAME_CONFIG.MARGIN_X,
@@ -550,6 +647,13 @@ export default function BunnyJumper() {
         const newType = selectPlatformType(heightProgress);
         const newPlatform = createPlatform(newX, newY, newType);
         platforms[index] = newPlatform;
+
+        if (Math.random() < GAME_CONFIG.CRITTER.SPAWN_CHANCE) {
+          data.critters.push(createCritter(newPlatform));
+        }
+        if (Math.random() < GAME_CONFIG.GUST.SPAWN_CHANCE) {
+          data.gusts.push(createGust(newPlatform.y - 40));
+        }
 
         // 生成寶石
         if (Math.random() < GAME_CONFIG.COLLECTIBLE.SPAWN_CHANCE) {
@@ -1070,6 +1174,55 @@ export default function BunnyJumper() {
     ctx.fill();
   };
 
+  const drawGustBand = (ctx: CanvasRenderingContext2D, gust: Gust, time: number) => {
+    const bandY = gust.y + gust.height / 2;
+    const alpha = 0.18 + Math.sin(time * 2) * 0.05;
+    const grad = ctx.createLinearGradient(0, gust.y, 0, gust.y + gust.height);
+    grad.addColorStop(0, `rgba(173, 216, 255, ${alpha})`);
+    grad.addColorStop(1, `rgba(220, 240, 255, ${alpha})`);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, gust.y, GAME_CONFIG.WIDTH, gust.height);
+
+    ctx.fillStyle = "rgba(120, 180, 255, 0.45)";
+    for (let i = 0; i < 6; i++) {
+      const arrowX =
+        ((time * gust.direction * 120 + i * 90) %
+          (GAME_CONFIG.WIDTH + 60)) -
+        30;
+      ctx.beginPath();
+      ctx.moveTo(arrowX, bandY);
+      ctx.lineTo(arrowX - gust.direction * 18, bandY - 8);
+      ctx.lineTo(arrowX - gust.direction * 18, bandY + 8);
+      ctx.closePath();
+      ctx.fill();
+    }
+  };
+
+  const drawCritter = (ctx: CanvasRenderingContext2D, critter: Critter, time: number) => {
+    const wiggle = Math.sin(time * 4 + critter.x * 0.05) * 2;
+    ctx.save();
+    ctx.translate(critter.x + critter.width / 2, critter.y + critter.height / 2 + wiggle);
+    ctx.fillStyle = "#FFD9A0";
+    ctx.beginPath();
+    ctx.ellipse(0, 0, critter.width / 2, critter.height / 2, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#FBBF24";
+    ctx.beginPath();
+    ctx.ellipse(-6, -4, 4, 5, 0, 0, Math.PI * 2);
+    ctx.ellipse(6, -4, 4, 5, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#2D1810";
+    ctx.beginPath();
+    ctx.arc(-6, -3, 2, 0, Math.PI * 2);
+    ctx.arc(6, -3, 2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.fillStyle = "#E85A8F";
+    ctx.beginPath();
+    ctx.arc(0, 4, 3, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  };
+
   // 繪製收集物 - 閃亮寶石
   const drawCollectible = (
     ctx: CanvasRenderingContext2D,
@@ -1346,6 +1499,8 @@ export default function BunnyJumper() {
       playerSquash,
       bgStars,
       floatingDecor,
+      gusts,
+      critters,
     } = data;
 
     ctx.clearRect(0, 0, GAME_CONFIG.WIDTH, GAME_CONFIG.HEIGHT);
@@ -1408,9 +1563,11 @@ export default function BunnyJumper() {
     ctx.save();
     ctx.translate(0, -cameraY);
 
+    gusts.forEach((gust) => drawGustBand(ctx, gust, time));
     platforms.forEach((platform) => drawPlatform(ctx, platform, time));
     collectibles.forEach((item) => drawCollectible(ctx, item, time));
     powerups.forEach((powerup) => drawPowerup(ctx, powerup, time));
+    critters.forEach((critter) => drawCritter(ctx, critter, time));
 
     // 粒子效果
     collectParticles.forEach((particle) => {
@@ -1592,8 +1749,7 @@ export default function BunnyJumper() {
     const heightScore = Math.floor(
       heightProgress * GAME_CONFIG.SCORING.HEIGHT_FACTOR,
     );
-    const collectScore = data.carrotCount * GAME_CONFIG.SCORING.CARROT_POINTS;
-    const displayScore = heightScore + collectScore;
+    const displayScore = heightScore + data.carrotScore;
 
     // 分數面板
     ctx.save();
@@ -1639,6 +1795,28 @@ export default function BunnyJumper() {
     );
 
     ctx.restore();
+
+    // 連擊顯示
+    const comboActive =
+      performance.now() - data.lastComboTime <=
+      GAME_CONFIG.SCORING.COMBO_WINDOW_MS;
+    if (comboActive && data.comboCount > 1) {
+      ctx.save();
+      ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+      ctx.strokeStyle = "rgba(255, 182, 193, 0.6)";
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.roundRect(GAME_CONFIG.WIDTH / 2 - 70, panelY + 70, 140, 32, 10);
+      ctx.fill();
+      ctx.stroke();
+
+      ctx.fillStyle = "#F97316";
+      ctx.font = "bold 16px system-ui, -apple-system, sans-serif";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+      ctx.fillText(`Combo x${data.comboCount}`, GAME_CONFIG.WIDTH / 2, panelY + 86);
+      ctx.restore();
+    }
 
     // 活躍道具效果指示器
     const currentTime = performance.now();
