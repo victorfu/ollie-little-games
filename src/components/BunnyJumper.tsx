@@ -377,7 +377,12 @@ export default function BunnyJumper() {
       (g) => player.y > g.y && player.y < g.y + g.height,
     );
     if (activeGust) {
-      player.velocity.x += activeGust.direction * activeGust.strength;
+      const gustPush = activeGust.direction * activeGust.strength;
+      player.velocity.x = clamp(
+        player.velocity.x + gustPush,
+        -GAME_CONFIG.MOVE_SPEED * 1.8,
+        GAME_CONFIG.MOVE_SPEED * 1.8,
+      );
     }
 
     // 飛行效果：向上飄
@@ -610,7 +615,9 @@ export default function BunnyJumper() {
       (c) => !c.stomped && c.y <= data.cameraY + GAME_CONFIG.HEIGHT + 80,
     );
     data.gusts = data.gusts.filter(
-      (g) => g.y <= data.cameraY + GAME_CONFIG.HEIGHT + 120,
+      (g) =>
+        g.y <= data.cameraY + GAME_CONFIG.HEIGHT + 120 &&
+        g.y >= data.cameraY - 200,
     );
 
     for (let i = data.collectParticles.length - 1; i >= 0; i--) {
@@ -1789,7 +1796,7 @@ export default function BunnyJumper() {
     ctx.fillStyle = "#E8973D";
     ctx.font = "bold 20px system-ui, -apple-system, sans-serif";
     ctx.fillText(
-      `${data.carrotCount}`,
+      `${data.carrotScore}`,
       GAME_CONFIG.WIDTH / 2 + 40,
       panelY + 48,
     );
