@@ -2,8 +2,9 @@ import { useMemo, useState } from "react";
 import BunnyJumper from "./components/BunnyJumper";
 import GameHub from "./components/GameHub";
 import MeteorGlider from "./components/MeteorGlider";
+import MushroomAdventure from "./components/MushroomAdventure";
 
-type ActiveView = "hub" | "bunny" | "meteor";
+type ActiveView = "hub" | "bunny" | "meteor" | "mushroom";
 
 function App() {
   const [activeView, setActiveView] = useState<ActiveView>("hub");
@@ -28,10 +29,19 @@ function App() {
       );
     }
 
+    if (activeView === "mushroom") {
+      return (
+        <MushroomAdventure
+          onExit={() => setActiveView("hub")}
+        />
+      );
+    }
+
     return (
       <GameHub
         onPlayBunny={() => setActiveView("bunny")}
         onPlayMeteor={() => setActiveView("meteor")}
+        onPlayMushroom={() => setActiveView("mushroom")}
       />
     );
   }, [activeView]);

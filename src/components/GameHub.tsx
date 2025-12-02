@@ -4,10 +4,11 @@ import { getBestScore } from "@/lib/game-utils";
 type GameHubProps = {
   onPlayBunny: () => void;
   onPlayMeteor: () => void;
+  onPlayMushroom: () => void;
 };
 
 type GameCard = {
-  id: "bunny" | "meteor";
+  id: "bunny" | "meteor" | "mushroom";
   title: string;
   blurb: string;
   accent: string;
@@ -18,9 +19,11 @@ type GameCard = {
 };
 
 const METEOR_BEST_KEY = "meteor-glider-best";
-export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
+const MUSHROOM_BEST_KEY = "mushroom-adventure-best";
+export default function GameHub({ onPlayBunny, onPlayMeteor, onPlayMushroom }: GameHubProps) {
   const [bunnyBest, setBunnyBest] = useState<number | null>(null);
   const [meteorBest, setMeteorBest] = useState<number | null>(null);
+  const [mushroomBest, setMushroomBest] = useState<number | null>(null);
 
   useEffect(() => {
     setBunnyBest(getBestScore());
@@ -28,6 +31,11 @@ export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
     if (stored) {
       const parsed = parseInt(stored, 10);
       if (!Number.isNaN(parsed)) setMeteorBest(parsed);
+    }
+    const mushStored = localStorage.getItem(MUSHROOM_BEST_KEY);
+    if (mushStored) {
+      const parsed = parseInt(mushStored, 10);
+      if (!Number.isNaN(parsed)) setMushroomBest(parsed);
     }
   }, []);
 
@@ -45,6 +53,18 @@ export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
         meta: "Arcade",
       },
       {
+        id: "mushroom",
+        title: "森林蘑菇冒險",
+        blurb: "像馬力歐的小島闖關：踩蘑菇怪、收集硬幣、衝向旗桿。",
+        accent: "text-emerald-700",
+        status:
+          mushroomBest && mushroomBest > 0 ? `Best: ${mushroomBest}` : "Playable",
+        actionLabel: "Play now",
+        gradient:
+          "linear-gradient(145deg, rgba(217,255,224,0.95), rgba(223,241,255,0.92))",
+        meta: "Platformer",
+      },
+      {
         id: "meteor",
         title: "Meteor Glider",
         blurb:
@@ -58,7 +78,7 @@ export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
         meta: "Arcade",
       },
     ],
-    [bunnyBest, meteorBest],
+    [bunnyBest, meteorBest, mushroomBest],
   );
 
   return (
@@ -137,6 +157,19 @@ export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
                   </div>
                 )}
 
+                {card.id === "mushroom" && (
+                  <div className="flex items-center gap-3 text-sm text-slate-700">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-white/70 px-3 py-1">
+                      <span className="text-lg">🍄</span>
+                      踩怪衝刺
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-full bg-white/70 px-3 py-1">
+                      <span className="text-lg">💰</span>
+                      收集硬幣
+                    </span>
+                  </div>
+                )}
+
                 {card.id === "meteor" && (
                   <div className="flex items-center gap-3 text-sm text-slate-700">
                     <span className="inline-flex items-center gap-1 rounded-full bg-white/70 px-3 py-1">
@@ -155,7 +188,9 @@ export default function GameHub({ onPlayBunny, onPlayMeteor }: GameHubProps) {
                     onClick={
                       card.id === "bunny"
                         ? onPlayBunny
-                        : onPlayMeteor
+                        : card.id === "meteor"
+                          ? onPlayMeteor
+                          : onPlayMushroom
                     }
                     className="inline-flex items-center justify-center gap-2 rounded-full bg-slate-900 text-white px-4 py-3 text-sm font-semibold shadow-lg transition hover:shadow-xl hover:-translate-y-[2px]"
                   >
