@@ -323,33 +323,8 @@ export default function MeteorGlider({ onExit, onPlayBunny }: MeteorGliderProps)
 
     ctx.save();
     ctx.translate(data.playerX, PLAYER_Y);
-    if (data.vx !== 0) ctx.rotate((data.vx / MOVE_SPEED) * 0.2);
-
-    const bodyGrad = ctx.createLinearGradient(0, -20, 0, 20);
-    bodyGrad.addColorStop(0, "#9ed7ff");
-    bodyGrad.addColorStop(1, "#4c8bff");
-    ctx.fillStyle = bodyGrad;
-    ctx.beginPath();
-    ctx.moveTo(0, -28);
-    ctx.lineTo(22, 10);
-    ctx.lineTo(0, 20);
-    ctx.lineTo(-22, 10);
-    ctx.closePath();
-    ctx.fill();
-
-    ctx.fillStyle = "#dcecff";
-    ctx.beginPath();
-    ctx.ellipse(0, 4, 14, 10, 0, 0, Math.PI * 2);
-    ctx.fill();
-
-    if (data.dashActive > 0) {
-      ctx.strokeStyle = "rgba(255,255,255,0.9)";
-      ctx.lineWidth = 3;
-      ctx.beginPath();
-      ctx.moveTo(-26, 6);
-      ctx.lineTo(26, 6);
-      ctx.stroke();
-    }
+    const rotation = (data.vx / MOVE_SPEED) * 0.2;
+    drawCinnamoroll(ctx, 0, 0, data.vx, rotation, data.dashActive > 0);
     ctx.restore();
 
     ctx.restore();
@@ -655,4 +630,118 @@ export default function MeteorGlider({ onExit, onPlayBunny }: MeteorGliderProps)
       </div>
     </div>
   );
+}
+
+function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+  ctx.fill();
+}
+
+function drawCinnamoroll(ctx: CanvasRenderingContext2D, x: number, y: number, vx: number, rotation: number, isDashing: boolean) {
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.rotate(rotation);
+
+  // Scale down slightly to fit hitbox
+  ctx.scale(0.8, 0.8);
+
+  // Dash aura
+  if (isDashing) {
+    ctx.shadowColor = "#fff";
+    ctx.shadowBlur = 20;
+  }
+
+  // Tail (Curly Cinnamon Roll)
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.arc(-14, 6, 8, 0, Math.PI * 2);
+  ctx.fill();
+  // Tail swirl
+  ctx.strokeStyle = "#cbd5e1";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(-14, 6, 4, 0, Math.PI * 1.5);
+  ctx.stroke();
+
+  // Body (White & Round)
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.ellipse(0, 10, 14, 10, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Feet (Tiny white nubs)
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.ellipse(-8, 20, 5, 4, 0, 0, Math.PI * 2);
+  ctx.ellipse(8, 20, 5, 4, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Head (Large White Oval)
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.ellipse(0, -4, 20, 16, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Ears (Long, Floppy, White)
+  // Animate ears based on X velocity (banking)
+  const earAngle = Math.min(0.5, Math.max(-0.5, Math.abs(vx) / 1000));
+  ctx.fillStyle = "#fff";
+  
+  // Left Ear
+  ctx.save();
+  ctx.translate(-16, -10);
+  ctx.rotate(-0.2 - earAngle);
+  ctx.beginPath();
+  ctx.ellipse(-12, 0, 18, 8, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // Right Ear
+  ctx.save();
+  ctx.translate(16, -10);
+  ctx.rotate(0.2 + earAngle);
+  ctx.beginPath();
+  ctx.ellipse(12, 0, 18, 8, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // Face
+  // Eyes (Wide set, blue)
+  ctx.fillStyle = "#3b82f6";
+  ctx.beginPath();
+  ctx.ellipse(-8, -2, 2.5, 3.5, 0, 0, Math.PI * 2);
+  ctx.ellipse(8, -2, 2.5, 3.5, 0, 0, Math.PI * 2);
+  ctx.fill();
+  // Highlights
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.arc(-9, -4, 1, 0, Math.PI * 2);
+  ctx.arc(7, -4, 1, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Blush (Pink)
+  ctx.fillStyle = "rgba(244, 114, 182, 0.5)";
+  ctx.beginPath();
+  ctx.ellipse(-12, 2, 4, 2.5, 0, 0, Math.PI * 2);
+  ctx.ellipse(12, 2, 4, 2.5, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Mouth (Tiny 'w' or smile)
+  ctx.strokeStyle = "#334155";
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(0, 1, 3, 0.2, Math.PI - 0.2);
+  ctx.stroke();
+
+  ctx.restore();
 }
