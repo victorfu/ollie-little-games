@@ -3,11 +3,33 @@ import { useEffect, useRef, useState } from "react";
 type GameState = "menu" | "playing" | "win" | "dead";
 type Platform = { x: number; y: number; w: number; h: number };
 type EnemyType = "normal" | "fast" | "jumper" | "spiked";
-type Enemy = { x: number; y: number; w: number; h: number; dir: 1 | -1; speed: number; alive: boolean; vy?: number; type: EnemyType; jumpTimer?: number };
+type Enemy = {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  dir: 1 | -1;
+  speed: number;
+  alive: boolean;
+  vy?: number;
+  type: EnemyType;
+  jumpTimer?: number;
+  // 行為狀態
+  baseSpeed?: number; // 原始速度
+  isCharging?: boolean; // 是否正在衝刺
+  chargeTimer?: number; // 衝刺/暫停計時器
+  pauseTimer?: number; // spiked 暫停計時器
+};
 type Coin = { x: number; y: number; r: number; taken: boolean };
 type Flag = { x: number; y: number; h: number };
 type PowerType = "star" | "feather" | "boot" | "heart";
-type Powerup = { x: number; y: number; r: number; type: PowerType; taken: boolean };
+type Powerup = {
+  x: number;
+  y: number;
+  r: number;
+  type: PowerType;
+  taken: boolean;
+};
 type Level = {
   platforms: Platform[];
   enemies: Enemy[];
@@ -16,7 +38,13 @@ type Level = {
   flag: Flag;
   sky: { top: string; bottom: string };
 };
-type FloatingText = { x: number; y: number; text: string; life: number; color: string };
+type FloatingText = {
+  x: number;
+  y: number;
+  text: string;
+  life: number;
+  color: string;
+};
 
 const WIDTH = 960;
 const HEIGHT = 540;
@@ -26,7 +54,8 @@ const JUMP_SPEED = 720;
 const BEST_KEY = "mushroom-adventure-best";
 const EXTRA_SECTION_BASE = 2400;
 const EXTRA_SECTION_STEP = 300;
-const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v));
+const clamp = (v: number, min: number, max: number) =>
+  Math.max(min, Math.min(max, v));
 
 export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -38,7 +67,16 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   const [levelIndex, setLevelIndex] = useState(0);
 
   const stateRef = useRef({
-    player: { x: 80, y: HEIGHT - 140, w: 36, h: 48, vx: 0, vy: 0, onGround: false, jumps: 0 },
+    player: {
+      x: 80,
+      y: HEIGHT - 140,
+      w: 36,
+      h: 48,
+      vx: 0,
+      vy: 0,
+      onGround: false,
+      jumps: 0,
+    },
     cameraX: 0,
     platforms: LEVELS[0].platforms,
     enemies: LEVELS[0].enemies.map((e) => ({ ...e })),
@@ -80,13 +118,15 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       const keys = stateRef.current.keys;
       if (e.key === "ArrowLeft" || e.key === "a") keys.left = true;
       if (e.key === "ArrowRight" || e.key === "d") keys.right = true;
-      if (e.key === "ArrowUp" || e.key === "w" || e.key === " ") keys.jump = true;
+      if (e.key === "ArrowUp" || e.key === "w" || e.key === " ")
+        keys.jump = true;
     };
     const onKeyUp = (e: KeyboardEvent) => {
       const keys = stateRef.current.keys;
       if (e.key === "ArrowLeft" || e.key === "a") keys.left = false;
       if (e.key === "ArrowRight" || e.key === "d") keys.right = false;
-      if (e.key === "ArrowUp" || e.key === "w" || e.key === " ") keys.jump = false;
+      if (e.key === "ArrowUp" || e.key === "w" || e.key === " ")
+        keys.jump = false;
     };
     window.addEventListener("keydown", onKeyDown);
     window.addEventListener("keyup", onKeyUp);
@@ -116,7 +156,16 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     const lvl = LEVELS[index];
     stateRef.current = {
       ...stateRef.current,
-      player: { x: 80, y: HEIGHT - 140, w: 36, h: 48, vx: 0, vy: 0, onGround: false, jumps: 0 },
+      player: {
+        x: 80,
+        y: HEIGHT - 140,
+        w: 36,
+        h: 48,
+        vx: 0,
+        vy: 0,
+        onGround: false,
+        jumps: 0,
+      },
       cameraX: 0,
       platforms: lvl.platforms.map((p) => ({ ...p })),
       enemies: lvl.enemies.map((e) => ({ ...e, jumpTimer: Math.random() * 2 })),
@@ -160,10 +209,13 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     const s = stateRef.current;
     const p = s.player;
     const speedBoost = s.speedTimer > 0 ? 0.35 : 0;
-    const move =
-      (s.keys.left ? -1 : 0) + (s.keys.right ? 1 : 0);
+    const move = (s.keys.left ? -1 : 0) + (s.keys.right ? 1 : 0);
     const maxSpeed = 500 * (1 + speedBoost);
-    p.vx = clamp(p.vx * 0.9 + move * BASE_SPEED * (1 + speedBoost) * dt * 10, -maxSpeed, maxSpeed);
+    p.vx = clamp(
+      p.vx * 0.9 + move * BASE_SPEED * (1 + speedBoost) * dt * 10,
+      -maxSpeed,
+      maxSpeed,
+    );
 
     const canDouble = s.featherTimer > 0;
     if (s.keys.jump) {
@@ -216,18 +268,83 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     // enemies
     s.enemies.forEach((e) => {
       if (!e.alive) return;
-      
+
+      // 初始化基礎速度
+      if (e.baseSpeed === undefined) e.baseSpeed = e.speed;
+
       // Gravity
       e.vy = (e.vy || 0) + GRAVITY * dt;
       e.y += e.vy * dt;
-      e.x += e.dir * e.speed * dt;
 
-      // Jumper Logic
+      // 計算玩家距離
+      const distToPlayer = Math.abs(p.x + p.w / 2 - (e.x + e.w / 2));
+      const playerDirection = p.x + p.w / 2 > e.x + e.w / 2 ? 1 : -1;
+
+      // === 不同怪物的獨特行為 ===
+
+      // Normal: 基本巡邏
+      if (e.type === "normal") {
+        e.x += e.dir * e.speed * dt;
+      }
+
+      // Fast: 偵測到玩家時加速衝刺
+      if (e.type === "fast") {
+        const detectRange = 250;
+        if (distToPlayer < detectRange) {
+          // 偵測到玩家，朝玩家方向衝刺
+          e.isCharging = true;
+          e.dir = playerDirection as 1 | -1;
+          e.speed = e.baseSpeed * 2.5; // 2.5倍速衝刺
+        } else {
+          e.isCharging = false;
+          e.speed = e.baseSpeed;
+        }
+        e.x += e.dir * e.speed * dt;
+      }
+
+      // Jumper: 跳躍並追蹤玩家方向
       if (e.type === "jumper") {
         e.jumpTimer = (e.jumpTimer || 0) - dt;
-        if (e.jumpTimer <= 0 && e.vy === 0) { // Only jump if on ground
-           e.vy = -600;
-           e.jumpTimer = 1.5 + Math.random() * 1.5;
+        if (e.jumpTimer <= 0 && e.vy === 0) {
+          e.vy = -650;
+          e.jumpTimer = 1.0 + Math.random() * 1.0;
+          // 跳躍時朝玩家方向
+          if (distToPlayer < 400) {
+            e.dir = playerDirection as 1 | -1;
+          }
+        }
+        e.x += e.dir * e.speed * dt;
+      }
+
+      // Spiked: 暫停後突然衝刺
+      if (e.type === "spiked") {
+        e.pauseTimer = e.pauseTimer ?? 0;
+        e.chargeTimer = e.chargeTimer ?? 0;
+
+        if (e.isCharging) {
+          // 正在衝刺
+          e.chargeTimer -= dt;
+          e.speed = e.baseSpeed * 3; // 3倍速衝刺
+          e.x += e.dir * e.speed * dt;
+
+          if (e.chargeTimer <= 0) {
+            e.isCharging = false;
+            e.pauseTimer = 1.5 + Math.random(); // 暫停1.5-2.5秒
+            e.speed = e.baseSpeed;
+          }
+        } else {
+          // 暫停中
+          e.pauseTimer -= dt;
+          if (e.pauseTimer <= 0 && distToPlayer < 300) {
+            // 開始衝刺
+            e.isCharging = true;
+            e.chargeTimer = 0.8; // 衝刺0.8秒
+            e.dir = playerDirection as 1 | -1;
+          } else if (e.pauseTimer <= 0) {
+            // 沒偵測到玩家，緩慢移動
+            e.x += e.dir * (e.baseSpeed * 0.3) * dt;
+          }
+          // 暫停時不移動（或非常慢）
         }
       }
 
@@ -235,23 +352,23 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       // Platform collision
       for (const plat of s.platforms) {
         if (aabb(e, plat)) {
-           // Check if landing from above (allow some overlap tolerance)
-           const prevY = e.y - e.vy * dt;
-           if (prevY + e.h <= plat.y + 16 && e.vy >= 0) {
-             e.y = plat.y - e.h;
-             e.vy = 0;
-             onGround = true;
+          // Check if landing from above (allow some overlap tolerance)
+          const prevY = e.y - e.vy * dt;
+          if (prevY + e.h <= plat.y + 16 && e.vy >= 0) {
+            e.y = plat.y - e.h;
+            e.vy = 0;
+            onGround = true;
 
-             // Edge detection (Turn around if at edge)
-             if (e.dir === -1 && e.x < plat.x) {
-               e.x = plat.x;
-               e.dir = 1;
-             } else if (e.dir === 1 && e.x + e.w > plat.x + plat.w) {
-               e.x = plat.x + plat.w - e.w;
-               e.dir = -1;
-             }
-             break;
-           }
+            // Edge detection (Turn around if at edge)
+            if (e.dir === -1 && e.x < plat.x) {
+              e.x = plat.x;
+              e.dir = 1;
+            } else if (e.dir === 1 && e.x + e.w > plat.x + plat.w) {
+              e.x = plat.x + plat.w - e.w;
+              e.dir = -1;
+            }
+            break;
+          }
         }
       }
 
@@ -294,11 +411,27 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
         s.score += 20;
         let msg = "";
         let color = "#fff";
-        if (pu.type === "star") { s.invincibleTimer = 8; msg = "無敵!"; color = "#facc15"; }
-        if (pu.type === "boot") { s.speedTimer = 8; msg = "加速!"; color = "#22c55e"; }
-        if (pu.type === "feather") { s.featherTimer = 10; msg = "二段跳!"; color = "#a855f7"; }
-        if (pu.type === "heart") { s.lives += 1; msg = "生命+1"; color = "#ef4444"; }
-        
+        if (pu.type === "star") {
+          s.invincibleTimer = 8;
+          msg = "無敵!";
+          color = "#facc15";
+        }
+        if (pu.type === "boot") {
+          s.speedTimer = 8;
+          msg = "加速!";
+          color = "#22c55e";
+        }
+        if (pu.type === "feather") {
+          s.featherTimer = 10;
+          msg = "二段跳!";
+          color = "#a855f7";
+        }
+        if (pu.type === "heart") {
+          s.lives += 1;
+          msg = "生命+1";
+          color = "#ef4444";
+        }
+
         s.floatingTexts.push({
           x: pu.x,
           y: pu.y - 20,
@@ -324,7 +457,11 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     s.featherTimer = Math.max(0, s.featherTimer - dt);
 
     // camera
-    s.cameraX = clamp(p.x - WIDTH / 2 + p.w / 2, 0, Math.max(0, s.flag.x - 200));
+    s.cameraX = clamp(
+      p.x - WIDTH / 2 + p.w / 2,
+      0,
+      Math.max(0, s.flag.x - 200),
+    );
 
     // win
     if (p.x > s.flag.x - 24) {
@@ -350,9 +487,21 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       setGameState("dead");
     } else {
       const lvl = LEVELS[s.levelIndex];
-      s.player = { x: 80, y: HEIGHT - 140, w: 36, h: 48, vx: 0, vy: 0, onGround: false, jumps: 0 };
+      s.player = {
+        x: 80,
+        y: HEIGHT - 140,
+        w: 36,
+        h: 48,
+        vx: 0,
+        vy: 0,
+        onGround: false,
+        jumps: 0,
+      };
       s.cameraX = 0;
-      s.enemies = lvl.enemies.map((e) => ({ ...e, jumpTimer: Math.random() * 2 }));
+      s.enemies = lvl.enemies.map((e) => ({
+        ...e,
+        jumpTimer: Math.random() * 2,
+      }));
     }
   };
 
@@ -439,10 +588,17 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     ctx.fill();
 
     // player
-    drawHero(ctx, s.player, s.invincibleTimer > 0, s.featherTimer > 0, s.keys.left ? -1 : s.keys.right ? 1 : 0, s.player.vy);
+    drawHero(
+      ctx,
+      s.player,
+      s.invincibleTimer > 0,
+      s.featherTimer > 0,
+      s.keys.left ? -1 : s.keys.right ? 1 : 0,
+      s.player.vy,
+    );
 
     // floating texts
-    s.floatingTexts.forEach(ft => {
+    s.floatingTexts.forEach((ft) => {
       ctx.save();
       ctx.globalAlpha = Math.min(1, ft.life);
       ctx.fillStyle = ft.color;
@@ -466,9 +622,12 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     ctx.fillText(`生命: ${s.lives}`, 150, 38);
     ctx.fillText(`關卡: ${s.levelIndex + 1}/${LEVELS.length}`, 240, 38);
     ctx.fillText(`最佳: ${best}`, 380, 38);
-    if (s.invincibleTimer > 0) ctx.fillText(`星星 ${s.invincibleTimer.toFixed(1)}s`, 520, 38);
-    if (s.featherTimer > 0) ctx.fillText(`二段跳 ${s.featherTimer.toFixed(1)}s`, 650, 38);
-    if (s.speedTimer > 0) ctx.fillText(`加速 ${s.speedTimer.toFixed(1)}s`, 800, 38);
+    if (s.invincibleTimer > 0)
+      ctx.fillText(`星星 ${s.invincibleTimer.toFixed(1)}s`, 520, 38);
+    if (s.featherTimer > 0)
+      ctx.fillText(`二段跳 ${s.featherTimer.toFixed(1)}s`, 650, 38);
+    if (s.speedTimer > 0)
+      ctx.fillText(`加速 ${s.speedTimer.toFixed(1)}s`, 800, 38);
   };
 
   const startGame = () => {
@@ -480,9 +639,16 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     if (gameState === "menu") {
       return (
         <Overlay>
-          <h2 className="text-3xl font-bold text-emerald-800 mb-2">森林蘑菇冒險</h2>
-          <p className="text-slate-700 mb-2">可愛橫向平台闖關，踩蘑菇怪、收硬幣、衝旗桿。</p>
-          <p className="text-slate-600 mb-4 text-sm">操作：← → 移動，↑/W/空白鍵 跳躍，踩怪可得分，星星無敵、羽毛二段跳、靴子加速、愛心補生命。</p>
+          <h2 className="text-3xl font-bold text-emerald-800 mb-2">
+            森林蘑菇冒險
+          </h2>
+          <p className="text-slate-700 mb-2">
+            可愛橫向平台闖關，踩蘑菇怪、收硬幣、衝旗桿。
+          </p>
+          <p className="text-slate-600 mb-4 text-sm">
+            操作：← → 移動，↑/W/空白鍵
+            跳躍，踩怪可得分，星星無敵、羽毛二段跳、靴子加速、愛心補生命。
+          </p>
           <div className="flex gap-3 justify-center">
             <button
               onClick={startGame}
@@ -498,7 +664,9 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     if (gameState === "win") {
       return (
         <Overlay>
-          <h2 className="text-3xl font-bold text-emerald-800 mb-2">全部通關！</h2>
+          <h2 className="text-3xl font-bold text-emerald-800 mb-2">
+            全部通關！
+          </h2>
           <p className="text-slate-700 mb-2">總分 {score}</p>
           <p className="text-xs text-slate-600 mb-4">最佳：{best}</p>
           <div className="flex gap-3 justify-center">
@@ -593,11 +761,23 @@ function Overlay({ children }: { children: React.ReactNode }) {
   );
 }
 
-function aabb(a: { x: number; y: number; w: number; h: number }, b: { x: number; y: number; w: number; h: number }) {
-  return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y;
+function aabb(
+  a: { x: number; y: number; w: number; h: number },
+  b: { x: number; y: number; w: number; h: number },
+) {
+  return (
+    a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y
+  );
 }
 
-function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: number, h: number, r: number) {
+function roundRect(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  r: number,
+) {
   ctx.beginPath();
   ctx.moveTo(x + r, y);
   ctx.lineTo(x + w - r, y);
@@ -612,7 +792,14 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
   ctx.fill();
 }
 
-function drawHero(ctx: CanvasRenderingContext2D, p: { x: number; y: number; w: number; h: number }, inv: boolean, feather: boolean, dir: number, vy: number) {
+function drawHero(
+  ctx: CanvasRenderingContext2D,
+  p: { x: number; y: number; w: number; h: number },
+  inv: boolean,
+  feather: boolean,
+  dir: number,
+  vy: number,
+) {
   ctx.save();
   ctx.translate(p.x + p.w / 2, p.y + p.h / 2);
 
@@ -621,7 +808,7 @@ function drawHero(ctx: CanvasRenderingContext2D, p: { x: number; y: number; w: n
   const scaleX = 1 - stretch * 0.5;
   const scaleY = 1 + stretch;
   ctx.scale(scaleX, scaleY);
-  
+
   // Bobbing animation (idle)
   if (Math.abs(vy) < 50) {
     const bob = Math.sin(Date.now() / 150) * 2;
@@ -635,7 +822,9 @@ function drawHero(ctx: CanvasRenderingContext2D, p: { x: number; y: number; w: n
 
   // Aura
   if (inv || feather) {
-    ctx.fillStyle = inv ? "rgba(250, 204, 21, 0.4)" : "rgba(168, 85, 247, 0.28)";
+    ctx.fillStyle = inv
+      ? "rgba(250, 204, 21, 0.4)"
+      : "rgba(168, 85, 247, 0.28)";
     ctx.beginPath();
     ctx.ellipse(0, 0, 36, 30, 0, 0, Math.PI * 2);
     ctx.fill();
@@ -678,7 +867,7 @@ function drawHero(ctx: CanvasRenderingContext2D, p: { x: number; y: number; w: n
   // Animate ears based on Y velocity
   const earAngle = Math.min(0.5, Math.max(-0.5, vy / 1000));
   ctx.fillStyle = "#fff";
-  
+
   // Left Ear
   ctx.save();
   ctx.translate(-16, -10);
@@ -731,30 +920,43 @@ function drawHero(ctx: CanvasRenderingContext2D, p: { x: number; y: number; w: n
 function drawPowerup(ctx: CanvasRenderingContext2D, pu: Powerup) {
   ctx.save();
   ctx.translate(pu.x, pu.y);
-  
+
   // Float animation
   const floatY = Math.sin(Date.now() / 200) * 3;
   ctx.translate(0, floatY);
 
   // Glow
-  const color = pu.type === "star" ? "#facc15" : pu.type === "feather" ? "#a855f7" : pu.type === "boot" ? "#22c55e" : "#ef4444";
+  const color =
+    pu.type === "star"
+      ? "#facc15"
+      : pu.type === "feather"
+      ? "#a855f7"
+      : pu.type === "boot"
+      ? "#22c55e"
+      : "#ef4444";
   ctx.shadowColor = color;
   ctx.shadowBlur = 15;
-  
+
   ctx.fillStyle = "#fff";
   ctx.beginPath();
   ctx.arc(0, 0, pu.r, 0, Math.PI * 2);
   ctx.fill();
-  
+
   ctx.shadowBlur = 0;
   ctx.fillStyle = color;
-  
+
   if (pu.type === "star") {
     // Draw Star
     ctx.beginPath();
-    for(let i=0; i<5; i++) {
-        ctx.lineTo(Math.cos((18+i*72)/180*Math.PI)*10, -Math.sin((18+i*72)/180*Math.PI)*10);
-        ctx.lineTo(Math.cos((54+i*72)/180*Math.PI)*4, -Math.sin((54+i*72)/180*Math.PI)*4);
+    for (let i = 0; i < 5; i++) {
+      ctx.lineTo(
+        Math.cos(((18 + i * 72) / 180) * Math.PI) * 10,
+        -Math.sin(((18 + i * 72) / 180) * Math.PI) * 10,
+      );
+      ctx.lineTo(
+        Math.cos(((54 + i * 72) / 180) * Math.PI) * 4,
+        -Math.sin(((54 + i * 72) / 180) * Math.PI) * 4,
+      );
     }
     ctx.closePath();
     ctx.fill();
@@ -779,7 +981,7 @@ function drawPowerup(ctx: CanvasRenderingContext2D, pu: Powerup) {
   } else {
     // Draw Feather
     ctx.beginPath();
-    ctx.ellipse(0, 0, 4, 10, Math.PI/4, 0, Math.PI*2);
+    ctx.ellipse(0, 0, 4, 10, Math.PI / 4, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -789,6 +991,22 @@ function drawPowerup(ctx: CanvasRenderingContext2D, pu: Powerup) {
 function drawMushroomEnemy(ctx: CanvasRenderingContext2D, e: Enemy) {
   ctx.save();
   ctx.translate(e.x + e.w / 2, e.y + e.h / 2);
+
+  // 衝刺視覺效果
+  if (e.isCharging) {
+    // 衝刺時的殘影/拖尾效果
+    ctx.globalAlpha = 0.3;
+    ctx.fillStyle = e.type === "fast" ? "#3b82f6" : "#9333ea";
+    for (let i = 1; i <= 3; i++) {
+      ctx.beginPath();
+      ctx.arc(-e.dir * i * 8, 0, 16 - i * 2, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    // 衝刺時整體放大
+    ctx.scale(1.15, 1.15);
+  }
 
   // Stem
   ctx.fillStyle = "#fef3c7";
@@ -811,11 +1029,20 @@ function drawMushroomEnemy(ctx: CanvasRenderingContext2D, e: Enemy) {
   if (e.type === "spiked") {
     ctx.fillStyle = "#e9d5ff";
     ctx.beginPath();
-    ctx.moveTo(0, -20); ctx.lineTo(-4, -28); ctx.lineTo(4, -28); ctx.fill();
+    ctx.moveTo(0, -20);
+    ctx.lineTo(-4, -28);
+    ctx.lineTo(4, -28);
+    ctx.fill();
     ctx.beginPath();
-    ctx.moveTo(-14, -14); ctx.lineTo(-20, -20); ctx.lineTo(-10, -22); ctx.fill();
+    ctx.moveTo(-14, -14);
+    ctx.lineTo(-20, -20);
+    ctx.lineTo(-10, -22);
+    ctx.fill();
     ctx.beginPath();
-    ctx.moveTo(14, -14); ctx.lineTo(20, -20); ctx.lineTo(10, -22); ctx.fill();
+    ctx.moveTo(14, -14);
+    ctx.lineTo(20, -20);
+    ctx.lineTo(10, -22);
+    ctx.fill();
   }
 
   // Spots
@@ -826,27 +1053,40 @@ function drawMushroomEnemy(ctx: CanvasRenderingContext2D, e: Enemy) {
   ctx.arc(0, -14, 3, 0, Math.PI * 2);
   ctx.fill();
 
-  // Eyes (Angry if spiked)
+  // Eyes (Angry if spiked or charging)
   ctx.fillStyle = "#0f172a";
   ctx.beginPath();
-  if (e.type === "spiked") {
-     // Angry eyes
-     ctx.moveTo(-8, 4); ctx.lineTo(-4, 8); ctx.lineTo(-8, 8);
-     ctx.moveTo(8, 4); ctx.lineTo(4, 8); ctx.lineTo(8, 8);
+  if (e.type === "spiked" || e.isCharging) {
+    // Angry eyes for spiked or charging enemies
+    ctx.moveTo(-8, 4);
+    ctx.lineTo(-4, 8);
+    ctx.lineTo(-8, 8);
+    ctx.moveTo(8, 4);
+    ctx.lineTo(4, 8);
+    ctx.lineTo(8, 8);
+    ctx.fill();
+    // 衝刺時添加紅色瞳孔
+    if (e.isCharging) {
+      ctx.fillStyle = "#ef4444";
+      ctx.beginPath();
+      ctx.arc(-6, 6, 1.5, 0, Math.PI * 2);
+      ctx.arc(6, 6, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+    }
   } else {
-     ctx.arc(-6, 6, 2, 0, Math.PI * 2);
-     ctx.arc(6, 6, 2, 0, Math.PI * 2);
+    ctx.arc(-6, 6, 2, 0, Math.PI * 2);
+    ctx.arc(6, 6, 2, 0, Math.PI * 2);
+    ctx.fill();
   }
-  ctx.fill();
 
   // Wings for Jumper
   if (e.type === "jumper") {
     ctx.fillStyle = "#fff";
     ctx.beginPath();
-    ctx.ellipse(-22, -4, 8, 4, -0.2, 0, Math.PI*2);
+    ctx.ellipse(-22, -4, 8, 4, -0.2, 0, Math.PI * 2);
     ctx.fill();
     ctx.beginPath();
-    ctx.ellipse(22, -4, 8, 4, 0.2, 0, Math.PI*2);
+    ctx.ellipse(22, -4, 8, 4, 0.2, 0, Math.PI * 2);
     ctx.fill();
   }
 
@@ -869,18 +1109,45 @@ function extendLevel(base: Level, idx: number): Level {
 
   // Patterns
   const patterns = [
-    // Pattern 0: Flat run with enemies
+    // Pattern 0: Flat run with enemies (增加地面敵人)
     (x: number, y: number, diff: number) => {
       const enemies: Enemy[] = [];
-      // More enemies on higher difficulty
-      const count = 1 + Math.floor(Math.random() * (1 + diff * 0.5)); 
-      for(let i=0; i<count; i++) {
-        enemies.push({ x: x + 100 + i * 80, y: y - 32, w: 36, h: 32, dir: -1, speed: 100, alive: true, type: "normal" });
+      // 大幅增加敵人數量
+      const count = 2 + Math.floor(Math.random() * (2 + diff * 0.8));
+      const types: EnemyType[] = [
+        "normal",
+        "normal",
+        "fast",
+        "jumper",
+        "spiked",
+      ];
+      for (let i = 0; i < count; i++) {
+        // 根據難度選擇敵人類型
+        let type: EnemyType = "normal";
+        if (diff >= 1 && Math.random() < 0.4) type = "fast";
+        if (diff >= 2 && Math.random() < 0.3) type = "jumper";
+        if (diff >= 3 && Math.random() < 0.2) type = "spiked";
+
+        const speed = 80 + diff * 15 + Math.random() * 30;
+        enemies.push({
+          x: x + 80 + i * 100,
+          y: y - 32,
+          w: 36,
+          h: 32,
+          dir: (Math.random() > 0.5 ? 1 : -1) as 1 | -1,
+          speed,
+          alive: true,
+          type,
+        });
       }
       return {
-        plats: [{ x, y, w: 400, h: 16 }],
+        plats: [{ x, y, w: 500, h: 16 }],
         enemies,
-        coins: [{ x: x + 100, y: y - 40, r: 10, taken: false }, { x: x + 300, y: y - 40, r: 10, taken: false }]
+        coins: [
+          { x: x + 100, y: y - 40, r: 10, taken: false },
+          { x: x + 250, y: y - 40, r: 10, taken: false },
+          { x: x + 400, y: y - 40, r: 10, taken: false },
+        ],
       };
     },
     // Pattern 1: Stairs up
@@ -888,36 +1155,82 @@ function extendLevel(base: Level, idx: number): Level {
       plats: [
         { x, y, w: 120, h: 16 },
         { x: x + 160, y: y - 60, w: 120, h: 16 },
-        { x: x + 320, y: y - 120, w: 120, h: 16 }
+        { x: x + 320, y: y - 120, w: 120, h: 16 },
       ],
-      enemies: [{ x: x + 360, y: y - 120 - 32, w: 36, h: 32, dir: 1, speed: 80, alive: true, type: diff > 2 ? "jumper" : "normal" }],
-      coins: [{ x: x + 60, y: y - 40, r: 10, taken: false }, { x: x + 220, y: y - 100, r: 10, taken: false }, { x: x + 380, y: y - 160, r: 10, taken: false }]
+      enemies: [
+        {
+          x: x + 360,
+          y: y - 120 - 32,
+          w: 36,
+          h: 32,
+          dir: 1,
+          speed: 80,
+          alive: true,
+          type: diff > 2 ? "jumper" : "normal",
+        },
+      ],
+      coins: [
+        { x: x + 60, y: y - 40, r: 10, taken: false },
+        { x: x + 220, y: y - 100, r: 10, taken: false },
+        { x: x + 380, y: y - 160, r: 10, taken: false },
+      ],
     }),
     // Pattern 2: Gap jump
     (x: number, y: number, diff: number) => ({
       plats: [
         { x, y, w: 100, h: 16 },
-        { x: x + 250, y: y, w: 100, h: 16 }
+        { x: x + 250, y: y, w: 100, h: 16 },
       ],
-      enemies: diff > 1 ? [{ x: x + 270, y: y - 32, w: 36, h: 32, dir: 1, speed: 120, alive: true, type: "fast" }] : [],
-      coins: [{ x: x + 175, y: y - 60, r: 10, taken: false }]
+      enemies:
+        diff > 1
+          ? [
+              {
+                x: x + 270,
+                y: y - 32,
+                w: 36,
+                h: 32,
+                dir: 1,
+                speed: 120,
+                alive: true,
+                type: "fast",
+              },
+            ]
+          : [],
+      coins: [{ x: x + 175, y: y - 60, r: 10, taken: false }],
     }),
     // Pattern 3: Tunnel (low ceiling)
     (x: number, y: number, diff: number) => ({
       plats: [
         { x, y, w: 400, h: 16 },
-        { x, y: y - 100, w: 400, h: 40 } // Ceiling
+        { x, y: y - 100, w: 400, h: 40 }, // Ceiling
       ],
-      enemies: [{ x: x + 200, y: y - 32, w: 36, h: 32, dir: 1, speed: 120, alive: true, type: diff > 3 ? "spiked" : "fast" }],
-      coins: [{ x: x + 50, y: y - 30, r: 10, taken: false }, { x: x + 350, y: y - 30, r: 10, taken: false }]
-    })
+      enemies: [
+        {
+          x: x + 200,
+          y: y - 32,
+          w: 36,
+          h: 32,
+          dir: 1,
+          speed: 120,
+          alive: true,
+          type: diff > 3 ? "spiked" : "fast",
+        },
+      ],
+      coins: [
+        { x: x + 50, y: y - 30, r: 10, taken: false },
+        { x: x + 350, y: y - 30, r: 10, taken: false },
+      ],
+    }),
   ];
 
   const platforms = base.platforms.map((p, i) =>
     i === 0 ? { ...p, w: Math.max(p.w, newFlagX + 400) } : { ...p },
   );
-  
-  const enemies: Enemy[] = base.enemies.map((e) => ({ ...e, type: "normal" as EnemyType }));
+
+  const enemies: Enemy[] = base.enemies.map((e) => ({
+    ...e,
+    type: "normal" as EnemyType,
+  }));
   const coins: Coin[] = base.coins.map((c) => ({ ...c }));
   const powerups: Powerup[] = base.powerups.map((p) => ({ ...p }));
 
@@ -932,35 +1245,45 @@ function extendLevel(base: Level, idx: number): Level {
     // Level 3+: All patterns
     const availablePatterns = Math.min(patterns.length, idx + 1);
     const patIdx = Math.floor(Math.random() * availablePatterns);
-    
+
     const pat = patterns[patIdx](currentX, currentY, idx);
-    
+
     // Add pattern elements
-    pat.plats.forEach(p => platforms.push(p as Platform));
-    pat.enemies.forEach(e => {
-        // Randomize enemy type based on level index (difficulty)
-        let type: EnemyType = "normal";
-        const roll = Math.random();
-        if (idx >= 1 && roll < 0.3) type = "fast";
-        if (idx >= 2 && roll < 0.2) type = "jumper";
-        if (idx >= 3 && roll < 0.15) type = "spiked";
-        // Override if pattern specified a type, otherwise use random
-        if (e.type === "normal" && type !== "normal") e.type = type;
-        
-        enemies.push(e as Enemy);
+    pat.plats.forEach((p) => platforms.push(p as Platform));
+    pat.enemies.forEach((e) => {
+      // Randomize enemy type based on level index (difficulty)
+      let type: EnemyType = "normal";
+      const roll = Math.random();
+      if (idx >= 1 && roll < 0.3) type = "fast";
+      if (idx >= 2 && roll < 0.2) type = "jumper";
+      if (idx >= 3 && roll < 0.15) type = "spiked";
+      // Override if pattern specified a type, otherwise use random
+      if (e.type === "normal" && type !== "normal") e.type = type;
+
+      enemies.push(e as Enemy);
     });
-    pat.coins.forEach(c => coins.push(c as Coin));
+    pat.coins.forEach((c) => coins.push(c as Coin));
 
     // Chance for powerup
     if (Math.random() < 0.25) {
       const types: PowerType[] = ["boot", "feather", "star", "heart"];
       const type = types[Math.floor(Math.random() * types.length)];
-      powerups.push({ x: currentX + 50, y: currentY - 80, r: 14, type, taken: false });
+      powerups.push({
+        x: currentX + 50,
+        y: currentY - 80,
+        r: 14,
+        type,
+        taken: false,
+      });
     }
 
     currentX += 450;
     // Randomize Y slightly for next segment, keep within bounds
-    currentY = clamp(currentY + (Math.random() > 0.5 ? 40 : -40), HEIGHT - 300, HEIGHT - 100);
+    currentY = clamp(
+      currentY + (Math.random() > 0.5 ? 40 : -40),
+      HEIGHT - 300,
+      HEIGHT - 100,
+    );
   }
 
   return {
@@ -983,7 +1306,36 @@ const BASE_LEVELS: Level[] = [
       { x: 680, y: HEIGHT - 180, w: 160, h: 16 },
     ],
     enemies: [
-      { x: 260, y: HEIGHT - 72, w: 36, h: 32, dir: -1, speed: 70, alive: true, type: "normal" },
+      {
+        x: 260,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 70,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 450,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 80,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 650,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 90,
+        alive: true,
+        type: "fast",
+      },
     ],
     coins: [
       { x: 160, y: HEIGHT - 200, r: 10, taken: false },
@@ -1003,15 +1355,65 @@ const BASE_LEVELS: Level[] = [
       { x: 1120, y: HEIGHT - 130, w: 160, h: 16 },
     ],
     enemies: [
-      { x: 300, y: HEIGHT - 74, w: 36, h: 32, dir: 1, speed: 80, alive: true, type: "normal" },
-      { x: 880, y: HEIGHT - 212, w: 36, h: 32, dir: -1, speed: 70, alive: true, type: "normal" },
+      {
+        x: 300,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 80,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 500,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 90,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 750,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 85,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1000,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 75,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 880,
+        y: HEIGHT - 212,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 70,
+        alive: true,
+        type: "normal",
+      },
     ],
     coins: [
       { x: 250, y: HEIGHT - 210, r: 10, taken: false },
       { x: 520, y: HEIGHT - 280, r: 10, taken: false },
       { x: 1120, y: HEIGHT - 170, r: 10, taken: false },
     ],
-    powerups: [{ x: 980, y: HEIGHT - 220, r: 14, type: "feather", taken: false }],
+    powerups: [
+      { x: 980, y: HEIGHT - 220, r: 14, type: "feather", taken: false },
+    ],
     flag: { x: 1280, y: HEIGHT - 180, h: 180 },
   },
   {
@@ -1025,8 +1427,76 @@ const BASE_LEVELS: Level[] = [
       { x: 1300, y: HEIGHT - 150, w: 160, h: 16 },
     ],
     enemies: [
-      { x: 560, y: HEIGHT - 252, w: 36, h: 32, dir: 1, speed: 90, alive: true, type: "normal" },
-      { x: 1320, y: HEIGHT - 182, w: 36, h: 32, dir: -1, speed: 100, alive: true, type: "normal" },
+      {
+        x: 200,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 85,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 400,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 100,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 650,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 80,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 900,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 90,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1150,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 95,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 560,
+        y: HEIGHT - 252,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 90,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1320,
+        y: HEIGHT - 182,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 100,
+        alive: true,
+        type: "fast",
+      },
     ],
     coins: [
       { x: 320, y: HEIGHT - 200, r: 10, taken: false },
@@ -1048,8 +1518,76 @@ const BASE_LEVELS: Level[] = [
       { x: 1520, y: HEIGHT - 130, w: 180, h: 16 },
     ],
     enemies: [
-      { x: 540, y: HEIGHT - 72, w: 36, h: 32, dir: -1, speed: 110, alive: true, type: "normal" },
-      { x: 1300, y: HEIGHT - 212, w: 36, h: 32, dir: 1, speed: 100, alive: true, type: "normal" },
+      {
+        x: 180,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 90,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 380,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 110,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 540,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 100,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 850,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 95,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1100,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 105,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1400,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 100,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 1300,
+        y: HEIGHT - 212,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 100,
+        alive: true,
+        type: "jumper",
+      },
     ],
     coins: [
       { x: 280, y: HEIGHT - 240, r: 10, taken: false },
@@ -1073,9 +1611,106 @@ const BASE_LEVELS: Level[] = [
       { x: 1960, y: HEIGHT - 160, w: 160, h: 16 },
     ],
     enemies: [
-      { x: 620, y: HEIGHT - 232, w: 36, h: 32, dir: -1, speed: 120, alive: true, type: "normal" },
-      { x: 1420, y: HEIGHT - 272, w: 36, h: 32, dir: 1, speed: 120, alive: true, type: "normal" },
-      { x: 1980, y: HEIGHT - 192, w: 36, h: 32, dir: -1, speed: 100, alive: true, type: "normal" },
+      {
+        x: 200,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 95,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 400,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 115,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 700,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 100,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1000,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 110,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1300,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 105,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1550,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 120,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 1850,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 100,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 620,
+        y: HEIGHT - 232,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 120,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 1420,
+        y: HEIGHT - 272,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 120,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1980,
+        y: HEIGHT - 192,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 100,
+        alive: true,
+        type: "spiked",
+      },
     ],
     coins: [
       { x: 560, y: HEIGHT - 240, r: 10, taken: false },
@@ -1100,9 +1735,116 @@ const BASE_LEVELS: Level[] = [
       { x: 2300, y: HEIGHT - 200, w: 180, h: 16 },
     ],
     enemies: [
-      { x: 280, y: HEIGHT - 72, w: 36, h: 32, dir: -1, speed: 90, alive: true, type: "normal" },
-      { x: 960, y: HEIGHT - 252, w: 36, h: 32, dir: 1, speed: 110, alive: true, type: "normal" },
-      { x: 1760, y: HEIGHT - 212, w: 36, h: 32, dir: -1, speed: 120, alive: true, type: "normal" },
+      {
+        x: 180,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 100,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 400,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 120,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 650,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 95,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 950,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 110,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1200,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 105,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1500,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 125,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 1800,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 100,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 2100,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 115,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 280,
+        y: HEIGHT - 152,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 90,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 960,
+        y: HEIGHT - 252,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 110,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 1760,
+        y: HEIGHT - 212,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 120,
+        alive: true,
+        type: "jumper",
+      },
     ],
     coins: [
       { x: 620, y: HEIGHT - 220, r: 10, taken: false },
@@ -1110,7 +1852,9 @@ const BASE_LEVELS: Level[] = [
       { x: 1740, y: HEIGHT - 220, r: 10, taken: false },
       { x: 2020, y: HEIGHT - 280, r: 10, taken: false },
     ],
-    powerups: [{ x: 1320, y: HEIGHT - 320, r: 14, type: "feather", taken: false }],
+    powerups: [
+      { x: 1320, y: HEIGHT - 320, r: 14, type: "feather", taken: false },
+    ],
     flag: { x: 2520, y: HEIGHT - 180, h: 180 },
   },
   {
@@ -1128,9 +1872,126 @@ const BASE_LEVELS: Level[] = [
       { x: 2500, y: HEIGHT - 260, w: 140, h: 16 },
     ],
     enemies: [
-      { x: 360, y: HEIGHT - 232, w: 36, h: 32, dir: 1, speed: 120, alive: true, type: "normal" },
-      { x: 1480, y: HEIGHT - 252, w: 36, h: 32, dir: -1, speed: 130, alive: true, type: "normal" },
-      { x: 2260, y: HEIGHT - 252, w: 36, h: 32, dir: 1, speed: 140, alive: true, type: "normal" },
+      {
+        x: 200,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 105,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 450,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 130,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 750,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 100,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1050,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 120,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1350,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 110,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1600,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 135,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 1900,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 105,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 2150,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 125,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 2400,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 115,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 360,
+        y: HEIGHT - 232,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 120,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1480,
+        y: HEIGHT - 252,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 130,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 2260,
+        y: HEIGHT - 252,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 140,
+        alive: true,
+        type: "fast",
+      },
     ],
     coins: [
       { x: 320, y: HEIGHT - 240, r: 10, taken: false },
@@ -1156,9 +2017,126 @@ const BASE_LEVELS: Level[] = [
       { x: 2560, y: HEIGHT - 160, w: 160, h: 16 },
     ],
     enemies: [
-      { x: 380, y: HEIGHT - 192, w: 36, h: 32, dir: -1, speed: 120, alive: true, type: "normal" },
-      { x: 1220, y: HEIGHT - 222, w: 36, h: 32, dir: 1, speed: 140, alive: true, type: "normal" },
-      { x: 2020, y: HEIGHT - 272, w: 36, h: 32, dir: -1, speed: 150, alive: true, type: "normal" },
+      {
+        x: 200,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 110,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 480,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 140,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 800,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 105,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1100,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 130,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1400,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 115,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1650,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 145,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 1950,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 110,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 2200,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 135,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 2450,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 120,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 380,
+        y: HEIGHT - 192,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 120,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1220,
+        y: HEIGHT - 222,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 140,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 2020,
+        y: HEIGHT - 272,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 150,
+        alive: true,
+        type: "fast",
+      },
     ],
     coins: [
       { x: 360, y: HEIGHT - 200, r: 10, taken: false },
@@ -1166,7 +2144,9 @@ const BASE_LEVELS: Level[] = [
       { x: 1720, y: HEIGHT - 240, r: 10, taken: false },
       { x: 2280, y: HEIGHT - 240, r: 10, taken: false },
     ],
-    powerups: [{ x: 1340, y: HEIGHT - 280, r: 14, type: "feather", taken: false }],
+    powerups: [
+      { x: 1340, y: HEIGHT - 280, r: 14, type: "feather", taken: false },
+    ],
     flag: { x: 2800, y: HEIGHT - 180, h: 180 },
   },
   {
@@ -1185,9 +2165,136 @@ const BASE_LEVELS: Level[] = [
       { x: 3000, y: HEIGHT - 160, w: 180, h: 16 },
     ],
     enemies: [
-      { x: 760, y: HEIGHT - 232, w: 36, h: 32, dir: -1, speed: 130, alive: true, type: "normal" },
-      { x: 1620, y: HEIGHT - 252, w: 36, h: 32, dir: 1, speed: 150, alive: true, type: "normal" },
-      { x: 2460, y: HEIGHT - 292, w: 36, h: 32, dir: -1, speed: 160, alive: true, type: "normal" },
+      {
+        x: 220,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 115,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 520,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 150,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 850,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 110,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1150,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 140,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1450,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 120,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1750,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 155,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 2050,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 115,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 2350,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 145,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 2650,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 125,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 2900,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 130,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 760,
+        y: HEIGHT - 232,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 130,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1620,
+        y: HEIGHT - 252,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 150,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 2460,
+        y: HEIGHT - 292,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 160,
+        alive: true,
+        type: "jumper",
+      },
     ],
     coins: [
       { x: 720, y: HEIGHT - 240, r: 10, taken: false },
@@ -1214,10 +2321,148 @@ const BASE_LEVELS: Level[] = [
       { x: 3040, y: HEIGHT - 200, w: 180, h: 16 },
     ],
     enemies: [
-      { x: 440, y: HEIGHT - 222, w: 36, h: 32, dir: 1, speed: 140, alive: true, type: "normal" },
-      { x: 1100, y: HEIGHT - 252, w: 36, h: 32, dir: -1, speed: 160, alive: true, type: "normal" },
-      { x: 2220, y: HEIGHT - 272, w: 36, h: 32, dir: 1, speed: 170, alive: true, type: "normal" },
-      { x: 2780, y: HEIGHT - 272, w: 36, h: 32, dir: -1, speed: 180, alive: true, type: "normal" },
+      // 地面怪物 - 最終關卡最具挑戰性
+      {
+        x: 250,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 120,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 550,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 160,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 900,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 115,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 1200,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 150,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1500,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 125,
+        alive: true,
+        type: "normal",
+      },
+      {
+        x: 1800,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 165,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 2100,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 120,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 2400,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 155,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 2700,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 130,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 3000,
+        y: HEIGHT - 72,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 140,
+        alive: true,
+        type: "jumper",
+      },
+      // 平台怪物
+      {
+        x: 440,
+        y: HEIGHT - 222,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 140,
+        alive: true,
+        type: "spiked",
+      },
+      {
+        x: 1100,
+        y: HEIGHT - 252,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 160,
+        alive: true,
+        type: "fast",
+      },
+      {
+        x: 2220,
+        y: HEIGHT - 272,
+        w: 36,
+        h: 32,
+        dir: 1,
+        speed: 170,
+        alive: true,
+        type: "jumper",
+      },
+      {
+        x: 2780,
+        y: HEIGHT - 272,
+        w: 36,
+        h: 32,
+        dir: -1,
+        speed: 180,
+        alive: true,
+        type: "spiked",
+      },
     ],
     coins: [
       { x: 420, y: HEIGHT - 230, r: 10, taken: false },
@@ -1225,7 +2470,9 @@ const BASE_LEVELS: Level[] = [
       { x: 1920, y: HEIGHT - 240, r: 10, taken: false },
       { x: 2760, y: HEIGHT - 280, r: 10, taken: false },
     ],
-    powerups: [{ x: 1680, y: HEIGHT - 300, r: 14, type: "feather", taken: false }],
+    powerups: [
+      { x: 1680, y: HEIGHT - 300, r: 14, type: "feather", taken: false },
+    ],
     flag: { x: 3300, y: HEIGHT - 180, h: 180 },
   },
 ];
