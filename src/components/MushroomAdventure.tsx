@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 type GameState = "menu" | "playing" | "win" | "dead";
 type Platform = { x: number; y: number; w: number; h: number };
-type Enemy = { x: number; y: number; w: number; h: number; dir: 1 | -1; speed: number; alive: boolean };
+type Enemy = { x: number; y: number; w: number; h: number; dir: 1 | -1; speed: number; alive: boolean; vy?: number };
 type Coin = { x: number; y: number; r: number; taken: boolean };
 type Flag = { x: number; y: number; h: number };
 type PowerType = "star" | "feather" | "boot" | "heart";
@@ -15,6 +15,7 @@ type Level = {
   flag: Flag;
   sky: { top: string; bottom: string };
 };
+type FloatingText = { x: number; y: number; text: string; life: number; color: string };
 
 const WIDTH = 960;
 const HEIGHT = 540;
@@ -22,6 +23,8 @@ const GRAVITY = 1800;
 const BASE_SPEED = 320;
 const JUMP_SPEED = 720;
 const BEST_KEY = "mushroom-adventure-best";
+const EXTRA_SECTION_BASE = 2400;
+const EXTRA_SECTION_STEP = 300;
 const clamp = (v: number, min: number, max: number) => Math.max(min, Math.min(max, v));
 
 export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
@@ -45,6 +48,10 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     invincibleTimer: 0,
     speedTimer: 0,
     featherTimer: 0,
+    score: 0,
+    lives: 3,
+    levelIndex: 0,
+    floatingTexts: [] as FloatingText[],
   });
 
   useEffect(() => {
@@ -107,6 +114,7 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   const loadLevel = (index: number) => {
     const lvl = LEVELS[index];
     stateRef.current = {
+      ...stateRef.current,
       player: { x: 80, y: HEIGHT - 140, w: 36, h: 48, vx: 0, vy: 0, onGround: false, jumps: 0 },
       cameraX: 0,
       platforms: lvl.platforms.map((p) => ({ ...p })),
@@ -114,15 +122,18 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       coins: lvl.coins.map((c) => ({ ...c })),
       powerups: lvl.powerups.map((p) => ({ ...p })),
       flag: lvl.flag,
-      keys: { left: false, right: false, jump: false },
       invincibleTimer: 0,
       speedTimer: 0,
       featherTimer: 0,
+      levelIndex: index,
+      floatingTexts: [],
     };
     setLevelIndex(index);
   };
 
   const resetGame = () => {
+    stateRef.current.score = 0;
+    stateRef.current.lives = 3;
     loadLevel(0);
     setScore(0);
     setLives(3);
@@ -130,12 +141,13 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   };
 
   const nextLevel = () => {
-    const next = levelIndex + 1;
+    const next = stateRef.current.levelIndex + 1;
     if (next >= LEVELS.length) {
       setGameState("win");
-      if (score > best) {
-        setBest(score);
-        localStorage.setItem(BEST_KEY, String(score));
+      setScore(stateRef.current.score);
+      if (stateRef.current.score > best) {
+        setBest(stateRef.current.score);
+        localStorage.setItem(BEST_KEY, String(stateRef.current.score));
       }
     } else {
       loadLevel(next);
@@ -149,7 +161,8 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     const speedBoost = s.speedTimer > 0 ? 0.35 : 0;
     const move =
       (s.keys.left ? -1 : 0) + (s.keys.right ? 1 : 0);
-    p.vx = clamp(p.vx * 0.9 + move * BASE_SPEED * (1 + speedBoost) * dt * 10, -500, 500);
+    const maxSpeed = 500 * (1 + speedBoost);
+    p.vx = clamp(p.vx * 0.9 + move * BASE_SPEED * (1 + speedBoost) * dt * 10, -maxSpeed, maxSpeed);
 
     const canDouble = s.featherTimer > 0;
     if (s.keys.jump) {
@@ -202,16 +215,48 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     // enemies
     s.enemies.forEach((e) => {
       if (!e.alive) return;
+      
+      // Gravity
+      e.vy = (e.vy || 0) + GRAVITY * dt;
+      e.y += e.vy * dt;
       e.x += e.dir * e.speed * dt;
-      const edgeLeft = e.x < 0;
-      const edgeRight = e.x + e.w > s.flag.x + 120;
-      if (edgeLeft || edgeRight) e.dir *= -1;
+
+      let onGround = false;
+      // Platform collision
+      for (const plat of s.platforms) {
+        if (aabb(e, plat)) {
+           // Check if landing from above (allow some overlap tolerance)
+           const prevY = e.y - e.vy * dt;
+           if (prevY + e.h <= plat.y + 16 && e.vy >= 0) {
+             e.y = plat.y - e.h;
+             e.vy = 0;
+             onGround = true;
+
+             // Edge detection (Turn around if at edge)
+             if (e.dir === -1 && e.x < plat.x) {
+               e.x = plat.x;
+               e.dir = 1;
+             } else if (e.dir === 1 && e.x + e.w > plat.x + plat.w) {
+               e.x = plat.x + plat.w - e.w;
+               e.dir = -1;
+             }
+             break;
+           }
+        }
+      }
+
+      // Kill if fell off world
+      if (e.y > HEIGHT + 100) {
+        e.alive = false;
+        return;
+      }
+
       if (aabb(p, e)) {
         const stomp = p.vy > 120 && p.y + p.h - e.y < 26;
         if (stomp || s.invincibleTimer > 0) {
           e.alive = false;
           p.vy = -JUMP_SPEED * 0.6;
-          setScore((sc) => sc + 50);
+          s.score += 50;
         } else {
           hitPlayer();
         }
@@ -225,7 +270,7 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       const dy = p.y + p.h / 2 - c.y;
       if (dx * dx + dy * dy <= (c.r + 12) * (c.r + 12)) {
         c.taken = true;
-        setScore((sc) => sc + 10);
+        s.score += 10;
       }
     });
 
@@ -236,13 +281,33 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       const dy = p.y + p.h / 2 - pu.y;
       if (dx * dx + dy * dy <= (pu.r + 14) * (pu.r + 14)) {
         pu.taken = true;
-        setScore((sc) => sc + 20);
-        if (pu.type === "star") s.invincibleTimer = 8;
-        if (pu.type === "boot") s.speedTimer = 8;
-        if (pu.type === "feather") s.featherTimer = 10;
-        if (pu.type === "heart") setLives((l) => l + 1);
+        s.score += 20;
+        let msg = "";
+        let color = "#fff";
+        if (pu.type === "star") { s.invincibleTimer = 8; msg = "無敵!"; color = "#facc15"; }
+        if (pu.type === "boot") { s.speedTimer = 8; msg = "加速!"; color = "#22c55e"; }
+        if (pu.type === "feather") { s.featherTimer = 10; msg = "二段跳!"; color = "#a855f7"; }
+        if (pu.type === "heart") { s.lives += 1; msg = "生命+1"; color = "#ef4444"; }
+        
+        s.floatingTexts.push({
+          x: pu.x,
+          y: pu.y - 20,
+          text: msg,
+          life: 1.5,
+          color,
+        });
       }
     });
+
+    // floating texts
+    for (let i = s.floatingTexts.length - 1; i >= 0; i--) {
+      const ft = s.floatingTexts[i];
+      ft.life -= dt;
+      ft.y -= 20 * dt;
+      if (ft.life <= 0) {
+        s.floatingTexts.splice(i, 1);
+      }
+    }
 
     s.invincibleTimer = Math.max(0, s.invincibleTimer - dt);
     s.speedTimer = Math.max(0, s.speedTimer - dt);
@@ -254,7 +319,7 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     // win
     if (p.x > s.flag.x - 24) {
       const bonus = 150 + Math.max(0, 200 - Math.floor(p.y));
-      setScore((sc) => sc + bonus);
+      s.score += bonus;
       nextLevel();
       return;
     }
@@ -268,18 +333,17 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   const hitPlayer = () => {
     const s = stateRef.current;
     if (s.invincibleTimer > 0) return;
-    setLives((l) => {
-      const next = l - 1;
-      if (next <= 0) {
-        setGameState("dead");
-      } else {
-        const lvl = LEVELS[levelIndex];
-        stateRef.current.player = { x: 80, y: HEIGHT - 140, w: 36, h: 48, vx: 0, vy: 0, onGround: false, jumps: 0 };
-        stateRef.current.cameraX = 0;
-        stateRef.current.enemies = lvl.enemies.map((e) => ({ ...e }));
-      }
-      return next;
-    });
+    s.lives -= 1;
+    if (s.lives <= 0) {
+      setScore(s.score);
+      setLives(0);
+      setGameState("dead");
+    } else {
+      const lvl = LEVELS[s.levelIndex];
+      s.player = { x: 80, y: HEIGHT - 140, w: 36, h: 48, vx: 0, vy: 0, onGround: false, jumps: 0 };
+      s.cameraX = 0;
+      s.enemies = lvl.enemies.map((e) => ({ ...e }));
+    }
   };
 
   const render = () => {
@@ -288,7 +352,7 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const s = stateRef.current;
-    const lvl = LEVELS[levelIndex];
+    const lvl = LEVELS[s.levelIndex];
     ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
     const sky = ctx.createLinearGradient(0, 0, 0, HEIGHT);
@@ -300,8 +364,8 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     // clouds
     ctx.save();
     ctx.fillStyle = "rgba(255,255,255,0.8)";
-    drawCloud(ctx, 120, 90 - (levelIndex % 3) * 10);
-    drawCloud(ctx, 380, 60 + (levelIndex % 2) * 12);
+    drawCloud(ctx, 120, 90 - (s.levelIndex % 3) * 10);
+    drawCloud(ctx, 380, 60 + (s.levelIndex % 2) * 12);
     drawCloud(ctx, 700, 110);
     ctx.restore();
 
@@ -344,47 +408,13 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     // powerups
     s.powerups.forEach((pu) => {
       if (pu.taken) return;
-      ctx.save();
-      ctx.translate(pu.x, pu.y);
-      ctx.scale(1.1, 1.1);
-      ctx.beginPath();
-      ctx.fillStyle =
-        pu.type === "star"
-          ? "#facc15"
-          : pu.type === "feather"
-            ? "#a855f7"
-            : pu.type === "boot"
-              ? "#22c55e"
-              : "#ef4444";
-      ctx.arc(0, 0, pu.r, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "#fff";
-      ctx.font = "14px system-ui";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText(
-        pu.type === "star" ? "★" : pu.type === "feather" ? "羽" : pu.type === "boot" ? "靴" : "♥",
-        0,
-        1,
-      );
-      ctx.restore();
+      drawPowerup(ctx, pu);
     });
 
     // enemies
     s.enemies.forEach((e) => {
       if (!e.alive) return;
-      ctx.fillStyle = "#f87171";
-      roundRect(ctx, e.x, e.y, e.w, e.h, 8);
-      ctx.fillStyle = "#fff";
-      ctx.beginPath();
-      ctx.arc(e.x + 10, e.y + 12, 5, 0, Math.PI * 2);
-      ctx.arc(e.x + 26, e.y + 12, 5, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = "#111";
-      ctx.beginPath();
-      ctx.arc(e.x + 10, e.y + 12, 2, 0, Math.PI * 2);
-      ctx.arc(e.x + 26, e.y + 12, 2, 0, Math.PI * 2);
-      ctx.fill();
+      drawMushroomEnemy(ctx, e);
     });
 
     // flag
@@ -399,7 +429,21 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     ctx.fill();
 
     // player
-    drawHero(ctx, s.player, s.invincibleTimer > 0, s.featherTimer > 0);
+    drawHero(ctx, s.player, s.invincibleTimer > 0, s.featherTimer > 0, s.keys.left ? -1 : s.keys.right ? 1 : 0, s.player.vy);
+
+    // floating texts
+    s.floatingTexts.forEach(ft => {
+      ctx.save();
+      ctx.globalAlpha = Math.min(1, ft.life);
+      ctx.fillStyle = ft.color;
+      ctx.strokeStyle = "#000";
+      ctx.lineWidth = 2;
+      ctx.font = "bold 16px system-ui";
+      ctx.textAlign = "center";
+      ctx.strokeText(ft.text, ft.x, ft.y);
+      ctx.fillText(ft.text, ft.x, ft.y);
+      ctx.restore();
+    });
 
     ctx.restore();
 
@@ -408,9 +452,9 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     ctx.fillRect(12, 12, WIDTH - 24, 54);
     ctx.fillStyle = "#0f172a";
     ctx.font = "16px system-ui";
-    ctx.fillText(`分數: ${score}`, 24, 38);
-    ctx.fillText(`生命: ${lives}`, 150, 38);
-    ctx.fillText(`關卡: ${levelIndex + 1}/${LEVELS.length}`, 240, 38);
+    ctx.fillText(`分數: ${s.score}`, 24, 38);
+    ctx.fillText(`生命: ${s.lives}`, 150, 38);
+    ctx.fillText(`關卡: ${s.levelIndex + 1}/${LEVELS.length}`, 240, 38);
     ctx.fillText(`最佳: ${best}`, 380, 38);
     if (s.invincibleTimer > 0) ctx.fillText(`星星 ${s.invincibleTimer.toFixed(1)}s`, 520, 38);
     if (s.featherTimer > 0) ctx.fillText(`二段跳 ${s.featherTimer.toFixed(1)}s`, 650, 38);
@@ -558,47 +602,208 @@ function roundRect(ctx: CanvasRenderingContext2D, x: number, y: number, w: numbe
   ctx.fill();
 }
 
-function drawHero(ctx: CanvasRenderingContext2D, p: { x: number; y: number; w: number; h: number }, inv: boolean, feather: boolean) {
+function drawHero(ctx: CanvasRenderingContext2D, p: { x: number; y: number; w: number; h: number }, inv: boolean, feather: boolean, dir: number, vy: number) {
   ctx.save();
   ctx.translate(p.x + p.w / 2, p.y + p.h / 2);
-  const aura = inv ? "rgba(250, 204, 21, 0.4)" : feather ? "rgba(168, 85, 247, 0.28)" : "rgba(255,255,255,0)";
+
+  // Squash and Stretch
+  const stretch = Math.min(0.3, Math.abs(vy) / 1500);
+  const scaleX = 1 - stretch * 0.5;
+  const scaleY = 1 + stretch;
+  ctx.scale(scaleX, scaleY);
+  
+  // Bobbing animation (idle)
+  if (Math.abs(vy) < 50) {
+    const bob = Math.sin(Date.now() / 150) * 2;
+    ctx.translate(0, bob);
+  }
+
+  // Facing
+  if (dir !== 0) {
+    ctx.scale(dir, 1);
+  }
+
+  // Aura
   if (inv || feather) {
-    ctx.fillStyle = aura;
+    ctx.fillStyle = inv ? "rgba(250, 204, 21, 0.4)" : "rgba(168, 85, 247, 0.28)";
     ctx.beginPath();
-    ctx.ellipse(0, 4, 24, 28, 0, 0, Math.PI * 2);
+    ctx.ellipse(0, 0, 36, 30, 0, 0, Math.PI * 2);
     ctx.fill();
   }
 
-  const bodyGrad = ctx.createLinearGradient(0, -20, 0, 30);
-  bodyGrad.addColorStop(0, "#93c5fd");
-  bodyGrad.addColorStop(1, "#3b82f6");
-  ctx.fillStyle = bodyGrad;
+  // --- Cinnamoroll Style Hero ---
+
+  // Tail (Curly Cinnamon Roll)
+  ctx.fillStyle = "#fff";
   ctx.beginPath();
-  ctx.ellipse(0, 6, 18, 22, 0, 0, Math.PI * 2);
+  ctx.arc(-14, 6, 8, 0, Math.PI * 2);
+  ctx.fill();
+  // Tail swirl
+  ctx.strokeStyle = "#cbd5e1";
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(-14, 6, 4, 0, Math.PI * 1.5);
+  ctx.stroke();
+
+  // Body (White & Round)
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.ellipse(0, 10, 14, 10, 0, 0, Math.PI * 2);
   ctx.fill();
 
-  const headGrad = ctx.createLinearGradient(0, -34, 0, -4);
-  headGrad.addColorStop(0, "#dbeafe");
-  headGrad.addColorStop(1, "#bfdbfe");
-  ctx.fillStyle = headGrad;
+  // Feet (Tiny white nubs)
+  ctx.fillStyle = "#fff";
   ctx.beginPath();
-  ctx.ellipse(0, -18, 16, 16, 0, 0, Math.PI * 2);
+  ctx.ellipse(-8, 20, 5, 4, 0, 0, Math.PI * 2);
+  ctx.ellipse(8, 20, 5, 4, 0, 0, Math.PI * 2);
   ctx.fill();
 
+  // Head (Large White Oval)
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.ellipse(0, -4, 20, 16, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Ears (Long, Floppy, White)
+  // Animate ears based on Y velocity
+  const earAngle = Math.min(0.5, Math.max(-0.5, vy / 1000));
+  ctx.fillStyle = "#fff";
+  
+  // Left Ear
+  ctx.save();
+  ctx.translate(-16, -10);
+  ctx.rotate(-0.2 - earAngle);
+  ctx.beginPath();
+  ctx.ellipse(-12, 0, 18, 8, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // Right Ear
+  ctx.save();
+  ctx.translate(16, -10);
+  ctx.rotate(0.2 + earAngle);
+  ctx.beginPath();
+  ctx.ellipse(12, 0, 18, 8, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.restore();
+
+  // Face
+  // Eyes (Wide set, blue)
+  ctx.fillStyle = "#3b82f6";
+  ctx.beginPath();
+  ctx.ellipse(-8, -2, 2.5, 3.5, 0, 0, Math.PI * 2);
+  ctx.ellipse(8, -2, 2.5, 3.5, 0, 0, Math.PI * 2);
+  ctx.fill();
+  // Highlights
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.arc(-9, -4, 1, 0, Math.PI * 2);
+  ctx.arc(7, -4, 1, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Blush (Pink)
+  ctx.fillStyle = "rgba(244, 114, 182, 0.5)";
+  ctx.beginPath();
+  ctx.ellipse(-12, 2, 4, 2.5, 0, 0, Math.PI * 2);
+  ctx.ellipse(12, 2, 4, 2.5, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Mouth (Tiny 'w' or smile)
+  ctx.strokeStyle = "#334155";
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(0, 1, 3, 0.2, Math.PI - 0.2);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+function drawPowerup(ctx: CanvasRenderingContext2D, pu: Powerup) {
+  ctx.save();
+  ctx.translate(pu.x, pu.y);
+  
+  // Float animation
+  const floatY = Math.sin(Date.now() / 200) * 3;
+  ctx.translate(0, floatY);
+
+  // Glow
+  const color = pu.type === "star" ? "#facc15" : pu.type === "feather" ? "#a855f7" : pu.type === "boot" ? "#22c55e" : "#ef4444";
+  ctx.shadowColor = color;
+  ctx.shadowBlur = 15;
+  
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.arc(0, 0, pu.r, 0, Math.PI * 2);
+  ctx.fill();
+  
+  ctx.shadowBlur = 0;
+  ctx.fillStyle = color;
+  
+  if (pu.type === "star") {
+    // Draw Star
+    ctx.beginPath();
+    for(let i=0; i<5; i++) {
+        ctx.lineTo(Math.cos((18+i*72)/180*Math.PI)*10, -Math.sin((18+i*72)/180*Math.PI)*10);
+        ctx.lineTo(Math.cos((54+i*72)/180*Math.PI)*4, -Math.sin((54+i*72)/180*Math.PI)*4);
+    }
+    ctx.closePath();
+    ctx.fill();
+  } else if (pu.type === "heart") {
+    // Draw Heart
+    ctx.beginPath();
+    ctx.moveTo(0, 4);
+    ctx.bezierCurveTo(-6, -4, -12, 4, 0, 12);
+    ctx.bezierCurveTo(12, 4, 6, -4, 0, 4);
+    ctx.fill();
+  } else if (pu.type === "boot") {
+    // Draw Boot
+    ctx.beginPath();
+    ctx.moveTo(-4, -6);
+    ctx.lineTo(4, -6);
+    ctx.lineTo(4, 4);
+    ctx.lineTo(8, 4);
+    ctx.quadraticCurveTo(8, 8, 4, 8);
+    ctx.lineTo(-4, 8);
+    ctx.closePath();
+    ctx.fill();
+  } else {
+    // Draw Feather
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 4, 10, Math.PI/4, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+function drawMushroomEnemy(ctx: CanvasRenderingContext2D, e: Enemy) {
+  ctx.save();
+  ctx.translate(e.x + e.w / 2, e.y + e.h / 2);
+
+  // Stem
+  ctx.fillStyle = "#fef3c7";
+  roundRect(ctx, -10, 0, 20, 16, 4);
+
+  // Cap
+  ctx.fillStyle = "#ef4444";
+  ctx.beginPath();
+  ctx.arc(0, 0, 20, Math.PI, 0); // top half
+  ctx.bezierCurveTo(20, 10, -20, 10, -20, 0);
+  ctx.fill();
+
+  // Spots
+  ctx.fillStyle = "#fff";
+  ctx.beginPath();
+  ctx.arc(-10, -8, 4, 0, Math.PI * 2);
+  ctx.arc(10, -6, 3, 0, Math.PI * 2);
+  ctx.arc(0, -14, 3, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Eyes
   ctx.fillStyle = "#0f172a";
   ctx.beginPath();
-  ctx.arc(-6, -20, 2.8, 0, Math.PI * 2);
-  ctx.arc(6, -20, 2.8, 0, Math.PI * 2);
-  ctx.fill();
-
-  ctx.fillStyle = "#f97316";
-  ctx.fillRect(-14, -6, 28, 8);
-  ctx.fillRect(4, 0, 10, 12);
-
-  ctx.fillStyle = "#1e3a8a";
-  ctx.beginPath();
-  ctx.ellipse(-8, 22, 8, 6, 0, 0, Math.PI * 2);
-  ctx.ellipse(8, 22, 8, 6, 0, 0, Math.PI * 2);
+  ctx.arc(-6, 6, 2, 0, Math.PI * 2);
+  ctx.arc(6, 6, 2, 0, Math.PI * 2);
   ctx.fill();
 
   ctx.restore();
@@ -613,7 +818,92 @@ function drawCloud(ctx: CanvasRenderingContext2D, x: number, y: number) {
   ctx.fill();
 }
 
-const LEVELS: Level[] = [
+function extendLevel(base: Level, idx: number): Level {
+  const extraOffset = base.flag.x + 200;
+  const extraLength = EXTRA_SECTION_BASE + EXTRA_SECTION_STEP * idx;
+  const newFlagX = extraOffset + extraLength;
+
+  // Patterns
+  const patterns = [
+    // Pattern 0: Flat run with enemies
+    (x: number, y: number) => ({
+      plats: [{ x, y, w: 400, h: 16 }],
+      enemies: [{ x: x + 200, y: y - 32, w: 36, h: 32, dir: -1, speed: 100, alive: true }],
+      coins: [{ x: x + 100, y: y - 40, r: 10, taken: false }, { x: x + 300, y: y - 40, r: 10, taken: false }]
+    }),
+    // Pattern 1: Stairs up
+    (x: number, y: number) => ({
+      plats: [
+        { x, y, w: 120, h: 16 },
+        { x: x + 160, y: y - 60, w: 120, h: 16 },
+        { x: x + 320, y: y - 120, w: 120, h: 16 }
+      ],
+      enemies: [{ x: x + 360, y: y - 120 - 32, w: 36, h: 32, dir: 1, speed: 80, alive: true }],
+      coins: [{ x: x + 60, y: y - 40, r: 10, taken: false }, { x: x + 220, y: y - 100, r: 10, taken: false }, { x: x + 380, y: y - 160, r: 10, taken: false }]
+    }),
+    // Pattern 2: Gap jump
+    (x: number, y: number) => ({
+      plats: [
+        { x, y, w: 100, h: 16 },
+        { x: x + 250, y: y, w: 100, h: 16 }
+      ],
+      enemies: [],
+      coins: [{ x: x + 175, y: y - 60, r: 10, taken: false }]
+    }),
+    // Pattern 3: Tunnel (low ceiling)
+    (x: number, y: number) => ({
+      plats: [
+        { x, y, w: 400, h: 16 },
+        { x, y: y - 100, w: 400, h: 40 } // Ceiling
+      ],
+      enemies: [{ x: x + 200, y: y - 32, w: 36, h: 32, dir: 1, speed: 120, alive: true }],
+      coins: [{ x: x + 50, y: y - 30, r: 10, taken: false }, { x: x + 350, y: y - 30, r: 10, taken: false }]
+    })
+  ];
+
+  const platforms = base.platforms.map((p, i) =>
+    i === 0 ? { ...p, w: Math.max(p.w, newFlagX + 400) } : { ...p },
+  );
+  
+  const enemies: Enemy[] = base.enemies.map((e) => ({ ...e }));
+  const coins: Coin[] = base.coins.map((c) => ({ ...c }));
+  const powerups: Powerup[] = base.powerups.map((p) => ({ ...p }));
+
+  let currentX = extraOffset;
+  let currentY = HEIGHT - 160;
+
+  while (currentX < newFlagX - 200) {
+    const patIdx = Math.floor(Math.random() * patterns.length);
+    const pat = patterns[patIdx](currentX, currentY);
+    
+    // Add pattern elements
+    pat.plats.forEach(p => platforms.push(p as Platform));
+    pat.enemies.forEach(e => enemies.push(e as Enemy));
+    pat.coins.forEach(c => coins.push(c as Coin));
+
+    // Chance for powerup
+    if (Math.random() < 0.3) {
+      const types: PowerType[] = ["boot", "feather", "star", "heart"];
+      const type = types[Math.floor(Math.random() * types.length)];
+      powerups.push({ x: currentX + 50, y: currentY - 80, r: 14, type, taken: false });
+    }
+
+    currentX += 450;
+    // Randomize Y slightly for next segment, keep within bounds
+    currentY = clamp(currentY + (Math.random() > 0.5 ? 40 : -40), HEIGHT - 300, HEIGHT - 100);
+  }
+
+  return {
+    ...base,
+    platforms,
+    enemies,
+    coins,
+    powerups,
+    flag: { ...base.flag, x: newFlagX },
+  };
+}
+
+const BASE_LEVELS: Level[] = [
   {
     sky: { top: "#c8f7e1", bottom: "#e8f3ff" },
     platforms: [
@@ -869,3 +1159,5 @@ const LEVELS: Level[] = [
     flag: { x: 3300, y: HEIGHT - 180, h: 180 },
   },
 ];
+
+const LEVELS = BASE_LEVELS.map((lvl, index) => extendLevel(lvl, index));
