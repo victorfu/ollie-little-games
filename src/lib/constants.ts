@@ -99,3 +99,31 @@ export const GAME_CONFIG = {
 
   INITIAL_PLATFORMS: 18,
 } as const;
+
+// === 森林蘑菇冒險設定 ===
+export const MUSHROOM_CONFIG = {
+  COMBO_WINDOW_MS: 2000, // 連擊判定時間窗口（毫秒）
+  MAX_PARTICLES: 50, // 粒子數量上限
+  SETTINGS_KEY: "mushroom-adventure-settings",
+  BEST_SCORE_KEY: "mushroom-adventure-best",
+
+  DEFAULT_SETTINGS: {
+    difficultyScale: 1.0,
+    enemyMultiplier: 1,
+    powerupFrequency: 1.0,
+    enableParticles: true,
+  },
+
+  // 連擊分數計算
+  STOMP_BASE_SCORE: 50,
+  COMBO_BONUS_PER_HIT: 25,
+
+  // 螢幕震動
+  SHAKE_INTENSITY: 8,
+  SHAKE_DURATION: 0.3,
+
+  // 粒子效果
+  PARTICLE_COUNT_MIN: 8,
+  PARTICLE_COUNT_MAX: 12,
+  PARTICLE_LIFE: 0.8,
+} as const;

@@ -84,3 +84,11 @@ export interface Gust {
   strength: number;
   direction: 1 | -1;
 }
+
+// === 森林蘑菇冒險設定 ===
+export interface MushroomSettings {
+  difficultyScale: number; // 0.7 - 1.5，影響敵人速度
+  enemyMultiplier: number; // 1, 1.5, 2，敵人數量倍率
+  powerupFrequency: number; // 0.5 - 2.0，道具生成頻率
+  enableParticles: boolean; // 是否開啟粒子特效
+}

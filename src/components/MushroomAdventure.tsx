@@ -1,8 +1,20 @@
 import { useEffect, useRef, useState } from "react";
+import { MUSHROOM_CONFIG } from "@/lib/constants";
+import { MushroomSettings } from "@/lib/types";
 
-type GameState = "menu" | "playing" | "win" | "dead";
+type GameState = "menu" | "settings" | "playing" | "win" | "dead";
 type Platform = { x: number; y: number; w: number; h: number };
 type EnemyType = "normal" | "fast" | "jumper" | "spiked";
+type Particle = {
+  x: number;
+  y: number;
+  vx: number;
+  vy: number;
+  life: number;
+  maxLife: number;
+  color: string;
+  size: number;
+};
 type Enemy = {
   x: number;
   y: number;
@@ -51,11 +63,25 @@ const HEIGHT = 540;
 const GRAVITY = 1800;
 const BASE_SPEED = 320;
 const JUMP_SPEED = 720;
-const BEST_KEY = "mushroom-adventure-best";
 const EXTRA_SECTION_BASE = 2400;
 const EXTRA_SECTION_STEP = 300;
 const clamp = (v: number, min: number, max: number) =>
   Math.max(min, Math.min(max, v));
+
+// 設定持久化函式
+const loadSettings = (): MushroomSettings => {
+  try {
+    const stored = localStorage.getItem(MUSHROOM_CONFIG.SETTINGS_KEY);
+    if (stored) {
+      return { ...MUSHROOM_CONFIG.DEFAULT_SETTINGS, ...JSON.parse(stored) };
+    }
+  } catch {}
+  return { ...MUSHROOM_CONFIG.DEFAULT_SETTINGS };
+};
+
+const saveSettings = (settings: MushroomSettings) => {
+  localStorage.setItem(MUSHROOM_CONFIG.SETTINGS_KEY, JSON.stringify(settings));
+};
 
 export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -65,6 +91,7 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   const [best, setBest] = useState(0);
   const [lives, setLives] = useState(3);
   const [levelIndex, setLevelIndex] = useState(0);
+  const [settings, setSettings] = useState<MushroomSettings>(loadSettings);
 
   const stateRef = useRef({
     player: {
@@ -91,10 +118,17 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     lives: 3,
     levelIndex: 0,
     floatingTexts: [] as FloatingText[],
+    // 連擊系統
+    comboCount: 0,
+    lastStompTime: 0,
+    // 粒子系統
+    particles: [] as Particle[],
+    // 螢幕震動
+    screenShake: { intensity: 0, duration: 0 },
   });
 
   useEffect(() => {
-    const stored = localStorage.getItem(BEST_KEY);
+    const stored = localStorage.getItem(MUSHROOM_CONFIG.BEST_SCORE_KEY);
     if (stored) {
       const parsed = parseInt(stored, 10);
       if (!Number.isNaN(parsed)) setBest(parsed);
@@ -168,7 +202,11 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       },
       cameraX: 0,
       platforms: lvl.platforms.map((p) => ({ ...p })),
-      enemies: lvl.enemies.map((e) => ({ ...e, jumpTimer: Math.random() * 2 })),
+      enemies: lvl.enemies.map((e) => ({
+        ...e,
+        jumpTimer: Math.random() * 2,
+        speed: e.speed * settings.difficultyScale, // 套用難度倍率
+      })),
       coins: lvl.coins.map((c) => ({ ...c })),
       powerups: lvl.powerups.map((p) => ({ ...p })),
       flag: lvl.flag,
@@ -177,6 +215,11 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       featherTimer: 0,
       levelIndex: index,
       floatingTexts: [],
+      // 重置連擊和粒子
+      comboCount: 0,
+      lastStompTime: 0,
+      particles: [],
+      screenShake: { intensity: 0, duration: 0 },
     };
     setLevelIndex(index);
   };
@@ -197,7 +240,10 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       setScore(stateRef.current.score);
       if (stateRef.current.score > best) {
         setBest(stateRef.current.score);
-        localStorage.setItem(BEST_KEY, String(stateRef.current.score));
+        localStorage.setItem(
+          MUSHROOM_CONFIG.BEST_SCORE_KEY,
+          String(stateRef.current.score),
+        );
       }
     } else {
       loadLevel(next);
@@ -383,7 +429,80 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
         if ((stomp && e.type !== "spiked") || s.invincibleTimer > 0) {
           e.alive = false;
           p.vy = -JUMP_SPEED * 0.6;
-          s.score += e.type === "spiked" ? 100 : 50;
+
+          // 連擊系統
+          const now = performance.now();
+          if (now - s.lastStompTime <= MUSHROOM_CONFIG.COMBO_WINDOW_MS) {
+            s.comboCount += 1;
+          } else {
+            s.comboCount = 1;
+          }
+          s.lastStompTime = now;
+
+          // 計算分數：基礎分 + 連擊加成
+          const baseScore =
+            e.type === "spiked" ? 100 : MUSHROOM_CONFIG.STOMP_BASE_SCORE;
+          const comboBonus =
+            (s.comboCount - 1) * MUSHROOM_CONFIG.COMBO_BONUS_PER_HIT;
+          const totalScore = baseScore + comboBonus;
+          s.score += totalScore;
+
+          // 顯示連擊文字
+          if (s.comboCount >= 2) {
+            s.floatingTexts.push({
+              x: e.x + e.w / 2,
+              y: e.y - 30,
+              text: `連擊 ×${s.comboCount}！+${totalScore}`,
+              life: 1.5,
+              color:
+                s.comboCount >= 5
+                  ? "#f59e0b"
+                  : s.comboCount >= 3
+                  ? "#22c55e"
+                  : "#3b82f6",
+            });
+          }
+
+          // 產生粒子效果
+          if (
+            settings.enableParticles &&
+            s.particles.length < MUSHROOM_CONFIG.MAX_PARTICLES
+          ) {
+            const particleCount =
+              MUSHROOM_CONFIG.PARTICLE_COUNT_MIN +
+              Math.floor(
+                Math.random() *
+                  (MUSHROOM_CONFIG.PARTICLE_COUNT_MAX -
+                    MUSHROOM_CONFIG.PARTICLE_COUNT_MIN),
+              );
+            const colors = [
+              "#ef4444",
+              "#f59e0b",
+              "#22c55e",
+              "#3b82f6",
+              "#a855f7",
+            ];
+            for (
+              let i = 0;
+              i < particleCount &&
+              s.particles.length < MUSHROOM_CONFIG.MAX_PARTICLES;
+              i++
+            ) {
+              const angle =
+                (Math.PI * 2 * i) / particleCount + Math.random() * 0.5;
+              const speed = 100 + Math.random() * 150;
+              s.particles.push({
+                x: e.x + e.w / 2,
+                y: e.y + e.h / 2,
+                vx: Math.cos(angle) * speed,
+                vy: Math.sin(angle) * speed - 100,
+                life: MUSHROOM_CONFIG.PARTICLE_LIFE,
+                maxLife: MUSHROOM_CONFIG.PARTICLE_LIFE,
+                color: colors[Math.floor(Math.random() * colors.length)],
+                size: 4 + Math.random() * 4,
+              });
+            }
+          }
         } else {
           hitPlayer();
         }
@@ -398,6 +517,30 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       if (dx * dx + dy * dy <= (c.r + 12) * (c.r + 12)) {
         c.taken = true;
         s.score += 10;
+
+        // 金幣粒子效果
+        if (
+          settings.enableParticles &&
+          s.particles.length < MUSHROOM_CONFIG.MAX_PARTICLES
+        ) {
+          for (
+            let i = 0;
+            i < 5 && s.particles.length < MUSHROOM_CONFIG.MAX_PARTICLES;
+            i++
+          ) {
+            const angle = (Math.PI * 2 * i) / 5;
+            s.particles.push({
+              x: c.x,
+              y: c.y,
+              vx: Math.cos(angle) * 80,
+              vy: Math.sin(angle) * 80 - 50,
+              life: 0.5,
+              maxLife: 0.5,
+              color: "#f59e0b",
+              size: 3 + Math.random() * 2,
+            });
+          }
+        }
       }
     });
 
@@ -439,8 +582,44 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
           life: 1.5,
           color,
         });
+
+        // 道具粒子效果
+        if (
+          settings.enableParticles &&
+          s.particles.length < MUSHROOM_CONFIG.MAX_PARTICLES
+        ) {
+          for (
+            let i = 0;
+            i < 8 && s.particles.length < MUSHROOM_CONFIG.MAX_PARTICLES;
+            i++
+          ) {
+            const angle = (Math.PI * 2 * i) / 8;
+            s.particles.push({
+              x: pu.x,
+              y: pu.y,
+              vx: Math.cos(angle) * 100,
+              vy: Math.sin(angle) * 100 - 60,
+              life: 0.6,
+              maxLife: 0.6,
+              color,
+              size: 4 + Math.random() * 3,
+            });
+          }
+        }
       }
     });
+
+    // 更新粒子
+    for (let i = s.particles.length - 1; i >= 0; i--) {
+      const particle = s.particles[i];
+      particle.life -= dt;
+      particle.x += particle.vx * dt;
+      particle.y += particle.vy * dt;
+      particle.vy += GRAVITY * 0.5 * dt; // 粒子受輕微重力影響
+      if (particle.life <= 0) {
+        s.particles.splice(i, 1);
+      }
+    }
 
     // floating texts
     for (let i = s.floatingTexts.length - 1; i >= 0; i--) {
@@ -449,6 +628,14 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       ft.y -= 20 * dt;
       if (ft.life <= 0) {
         s.floatingTexts.splice(i, 1);
+      }
+    }
+
+    // 更新螢幕震動
+    if (s.screenShake.duration > 0) {
+      s.screenShake.duration -= dt;
+      if (s.screenShake.duration <= 0) {
+        s.screenShake.intensity = 0;
       }
     }
 
@@ -480,6 +667,16 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
   const hitPlayer = () => {
     const s = stateRef.current;
     if (s.invincibleTimer > 0) return;
+
+    // 觸發螢幕震動
+    s.screenShake = {
+      intensity: MUSHROOM_CONFIG.SHAKE_INTENSITY,
+      duration: MUSHROOM_CONFIG.SHAKE_DURATION,
+    };
+
+    // 重置連擊
+    s.comboCount = 0;
+
     s.lives -= 1;
     if (s.lives <= 0) {
       setScore(s.score);
@@ -501,6 +698,7 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       s.enemies = lvl.enemies.map((e) => ({
         ...e,
         jumpTimer: Math.random() * 2,
+        speed: e.speed * settings.difficultyScale, // 套用難度倍率
       }));
     }
   };
@@ -512,7 +710,17 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     if (!ctx) return;
     const s = stateRef.current;
     const lvl = LEVELS[s.levelIndex];
-    ctx.clearRect(0, 0, WIDTH, HEIGHT);
+
+    ctx.save();
+
+    // 螢幕震動效果
+    if (s.screenShake.duration > 0) {
+      const shakeX = (Math.random() - 0.5) * s.screenShake.intensity * 2;
+      const shakeY = (Math.random() - 0.5) * s.screenShake.intensity * 2;
+      ctx.translate(shakeX, shakeY);
+    }
+
+    ctx.clearRect(-10, -10, WIDTH + 20, HEIGHT + 20);
 
     const sky = ctx.createLinearGradient(0, 0, 0, HEIGHT);
     sky.addColorStop(0, lvl.sky.top);
@@ -520,18 +728,55 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     ctx.fillStyle = sky;
     ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-    // clouds
+    // clouds - 視差滾動 (0.2 速率)
     ctx.save();
     ctx.fillStyle = "rgba(255,255,255,0.8)";
-    drawCloud(ctx, 120, 90 - (s.levelIndex % 3) * 10);
-    drawCloud(ctx, 380, 60 + (s.levelIndex % 2) * 12);
-    drawCloud(ctx, 700, 110);
+    const cloudParallax = s.cameraX * 0.2;
+    drawCloud(ctx, 120 - (cloudParallax % 300), 90 - (s.levelIndex % 3) * 10);
+    drawCloud(ctx, 380 - (cloudParallax % 400), 60 + (s.levelIndex % 2) * 12);
+    drawCloud(ctx, 700 - (cloudParallax % 500), 110);
+    drawCloud(ctx, 1000 - (cloudParallax % 600), 80);
     ctx.restore();
 
     ctx.save();
     ctx.translate(-s.cameraX, 0);
 
-    // hills
+    // hills - 視差滾動 (0.4 速率，創造層次感)
+    ctx.save();
+    const hillParallax = s.cameraX * 0.4;
+    ctx.fillStyle = "rgba(82, 160, 120, 0.25)";
+    ctx.beginPath();
+    ctx.ellipse(
+      260 + hillParallax * 0.6,
+      HEIGHT - 20,
+      180,
+      90,
+      0,
+      0,
+      Math.PI * 2,
+    );
+    ctx.ellipse(
+      740 + hillParallax * 0.6,
+      HEIGHT - 10,
+      220,
+      100,
+      0,
+      0,
+      Math.PI * 2,
+    );
+    ctx.ellipse(
+      1200 + hillParallax * 0.6,
+      HEIGHT - 15,
+      200,
+      95,
+      0,
+      0,
+      Math.PI * 2,
+    );
+    ctx.fill();
+    ctx.restore();
+
+    // 前景山丘
     ctx.fillStyle = "rgba(82, 160, 120, 0.35)";
     ctx.beginPath();
     ctx.ellipse(260, HEIGHT - 20, 180, 90, 0, 0, Math.PI * 2);
@@ -611,6 +856,23 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
       ctx.restore();
     });
 
+    // 繪製粒子
+    s.particles.forEach((particle) => {
+      ctx.save();
+      ctx.globalAlpha = particle.life / particle.maxLife;
+      ctx.fillStyle = particle.color;
+      ctx.beginPath();
+      ctx.arc(
+        particle.x,
+        particle.y,
+        particle.size * (particle.life / particle.maxLife),
+        0,
+        Math.PI * 2,
+      );
+      ctx.fill();
+      ctx.restore();
+    });
+
     ctx.restore();
 
     // HUD
@@ -622,17 +884,39 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
     ctx.fillText(`生命: ${s.lives}`, 150, 38);
     ctx.fillText(`關卡: ${s.levelIndex + 1}/${LEVELS.length}`, 240, 38);
     ctx.fillText(`最佳: ${best}`, 380, 38);
+
+    // 連擊顯示
+    if (s.comboCount >= 2) {
+      const comboColor =
+        s.comboCount >= 5
+          ? "#f59e0b"
+          : s.comboCount >= 3
+          ? "#22c55e"
+          : "#3b82f6";
+      ctx.fillStyle = comboColor;
+      ctx.font = "bold 18px system-ui";
+      ctx.fillText(`連擊 ×${s.comboCount}`, 500, 40);
+    }
+
     if (s.invincibleTimer > 0)
-      ctx.fillText(`星星 ${s.invincibleTimer.toFixed(1)}s`, 520, 38);
+      ctx.fillText(`星星 ${s.invincibleTimer.toFixed(1)}s`, 620, 38);
     if (s.featherTimer > 0)
-      ctx.fillText(`二段跳 ${s.featherTimer.toFixed(1)}s`, 650, 38);
+      ctx.fillText(`二段跳 ${s.featherTimer.toFixed(1)}s`, 740, 38);
     if (s.speedTimer > 0)
-      ctx.fillText(`加速 ${s.speedTimer.toFixed(1)}s`, 800, 38);
+      ctx.fillText(`加速 ${s.speedTimer.toFixed(1)}s`, 870, 38);
+
+    ctx.restore(); // 結束螢幕震動 save
   };
 
   const startGame = () => {
     resetGame();
     setGameState("playing");
+  };
+
+  const handleSaveSettings = (newSettings: MushroomSettings) => {
+    setSettings(newSettings);
+    saveSettings(newSettings);
+    setGameState("menu");
   };
 
   const overlay = () => {
@@ -643,21 +927,37 @@ export default function MushroomAdventure({ onExit }: { onExit?: () => void }) {
             森林蘑菇冒險
           </h2>
           <p className="text-slate-700 mb-2">
-            可愛橫向平台闖關，踩蘑菇怪、收硬幣、衝旗桿。
+            可愛橫向平台闘關，踩蘑菇怪、收硬幣、衝旗桿。
           </p>
           <p className="text-slate-600 mb-4 text-sm">
             操作：← → 移動，↑/W/空白鍵
             跳躍，踩怪可得分，星星無敵、羽毛二段跳、靴子加速、愛心補生命。
           </p>
-          <div className="flex gap-3 justify-center">
+          <div className="flex gap-3 justify-center flex-wrap">
             <button
               onClick={startGame}
-              className="rounded-full bg-emerald-500 text-white px-4 py-2 font-semibold shadow"
+              className="rounded-full bg-emerald-500 text-white px-4 py-2 font-semibold shadow hover:bg-emerald-600 transition"
             >
-              開始
+              開始遊戲
+            </button>
+            <button
+              onClick={() => setGameState("settings")}
+              className="rounded-full bg-slate-100 text-slate-700 px-4 py-2 font-semibold shadow hover:bg-slate-200 transition"
+            >
+              ⚙️ 設定
             </button>
           </div>
         </Overlay>
+      );
+    }
+
+    if (gameState === "settings") {
+      return (
+        <SettingsOverlay
+          settings={settings}
+          onSave={handleSaveSettings}
+          onCancel={() => setGameState("menu")}
+        />
       );
     }
 
@@ -756,6 +1056,169 @@ function Overlay({ children }: { children: React.ReactNode }) {
     <div className="absolute inset-0 flex items-center justify-center bg-slate-900/30 backdrop-blur">
       <div className="rounded-3xl bg-white/95 border border-white/60 shadow-2xl px-6 py-6 text-center max-w-md">
         {children}
+      </div>
+    </div>
+  );
+}
+
+function SettingsOverlay({
+  settings,
+  onSave,
+  onCancel,
+}: {
+  settings: MushroomSettings;
+  onSave: (s: MushroomSettings) => void;
+  onCancel: () => void;
+}) {
+  const [localSettings, setLocalSettings] =
+    useState<MushroomSettings>(settings);
+
+  const difficultyLabel = (value: number) => {
+    if (value <= 0.8) return "簡單";
+    if (value <= 1.1) return "普通";
+    if (value <= 1.3) return "困難";
+    return "地獄";
+  };
+
+  const enemyLabel = (value: number) => {
+    if (value <= 1) return "正常";
+    if (value <= 1.5) return "較多";
+    return "超多";
+  };
+
+  return (
+    <div className="absolute inset-0 flex items-center justify-center bg-slate-900/30 backdrop-blur">
+      <div className="rounded-3xl bg-white/95 border border-white/60 shadow-2xl px-6 py-6 max-w-md w-full mx-4">
+        <h2 className="text-2xl font-bold text-emerald-800 mb-4 text-center">
+          ⚙️ 遊戲設定
+        </h2>
+
+        {/* 難度滑桿 */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            遊戲難度：
+            <span className="text-emerald-600 font-bold">
+              {difficultyLabel(localSettings.difficultyScale)}
+            </span>
+          </label>
+          <input
+            type="range"
+            min="0.7"
+            max="1.5"
+            step="0.1"
+            value={localSettings.difficultyScale}
+            onChange={(e) =>
+              setLocalSettings({
+                ...localSettings,
+                difficultyScale: parseFloat(e.target.value),
+              })
+            }
+            className="w-full h-2 bg-emerald-200 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+          />
+          <div className="flex justify-between text-xs text-slate-500 mt-1">
+            <span>簡單</span>
+            <span>普通</span>
+            <span>困難</span>
+            <span>地獄</span>
+          </div>
+        </div>
+
+        {/* 敵人數量 */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            敵人數量：
+            <span className="text-emerald-600 font-bold">
+              {enemyLabel(localSettings.enemyMultiplier)}
+            </span>
+          </label>
+          <div className="flex gap-2">
+            {[1, 1.5, 2].map((val) => (
+              <button
+                key={val}
+                onClick={() =>
+                  setLocalSettings({ ...localSettings, enemyMultiplier: val })
+                }
+                className={`flex-1 py-2 rounded-lg font-medium transition ${
+                  localSettings.enemyMultiplier === val
+                    ? "bg-emerald-500 text-white"
+                    : "bg-slate-100 text-slate-700 hover:bg-slate-200"
+                }`}
+              >
+                {val === 1 ? "×1" : val === 1.5 ? "×1.5" : "×2"}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 道具頻率 */}
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-slate-700 mb-2">
+            道具頻率：
+            <span className="text-emerald-600 font-bold">
+              {(localSettings.powerupFrequency * 100).toFixed(0)}%
+            </span>
+          </label>
+          <input
+            type="range"
+            min="0.5"
+            max="2.0"
+            step="0.25"
+            value={localSettings.powerupFrequency}
+            onChange={(e) =>
+              setLocalSettings({
+                ...localSettings,
+                powerupFrequency: parseFloat(e.target.value),
+              })
+            }
+            className="w-full h-2 bg-emerald-200 rounded-lg appearance-none cursor-pointer accent-emerald-500"
+          />
+          <div className="flex justify-between text-xs text-slate-500 mt-1">
+            <span>50%</span>
+            <span>100%</span>
+            <span>150%</span>
+            <span>200%</span>
+          </div>
+        </div>
+
+        {/* 粒子特效開關 */}
+        <div className="mb-6">
+          <label className="flex items-center justify-between cursor-pointer">
+            <span className="text-sm font-medium text-slate-700">粒子特效</span>
+            <div className="relative">
+              <input
+                type="checkbox"
+                checked={localSettings.enableParticles}
+                onChange={(e) =>
+                  setLocalSettings({
+                    ...localSettings,
+                    enableParticles: e.target.checked,
+                  })
+                }
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-emerald-500"></div>
+            </div>
+          </label>
+          <p className="text-xs text-slate-500 mt-1">
+            開啟後踩敵人和收集道具會有爆炸粒子效果
+          </p>
+        </div>
+
+        {/* 按鈕 */}
+        <div className="flex gap-3">
+          <button
+            onClick={onCancel}
+            className="flex-1 py-2 rounded-full bg-slate-100 text-slate-700 font-semibold hover:bg-slate-200 transition"
+          >
+            取消
+          </button>
+          <button
+            onClick={() => onSave(localSettings)}
+            className="flex-1 py-2 rounded-full bg-emerald-500 text-white font-semibold hover:bg-emerald-600 transition"
+          >
+            儲存
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -1264,6 +1727,34 @@ function extendLevel(base: Level, idx: number): Level {
     });
     pat.coins.forEach((c) => coins.push(c as Coin));
 
+    // Add ground-level enemies to prevent "just run through" strategy
+    // Spawn chance increases with difficulty level
+    const groundEnemyChance = Math.min(0.25 + idx * 0.1, 0.5); // 25% at level 0, up to 50% at level 3+
+    if (Math.random() < groundEnemyChance) {
+      // Spawn 1-2 ground enemies per segment
+      const groundEnemyCount = 1 + (idx >= 2 && Math.random() < 0.4 ? 1 : 0);
+      for (let g = 0; g < groundEnemyCount; g++) {
+        // Randomize enemy type based on difficulty
+        let groundType: EnemyType = "normal";
+        const groundRoll = Math.random();
+        if (idx >= 1 && groundRoll < 0.35) groundType = "fast";
+        if (idx >= 2 && groundRoll < 0.25) groundType = "jumper";
+        if (idx >= 3 && groundRoll < 0.18) groundType = "spiked";
+
+        const groundSpeed = 70 + idx * 10 + Math.random() * 25;
+        enemies.push({
+          x: currentX + 120 + g * 180, // Spread enemies with 180px gap
+          y: HEIGHT - 72, // Ground level (same as BASE_LEVELS enemies)
+          w: 36,
+          h: 32,
+          dir: (Math.random() > 0.5 ? 1 : -1) as 1 | -1,
+          speed: groundSpeed,
+          alive: true,
+          type: groundType,
+        });
+      }
+    }
+
     // Chance for powerup
     if (Math.random() < 0.25) {
       const types: PowerType[] = ["boot", "feather", "star", "heart"];
@@ -1279,10 +1770,11 @@ function extendLevel(base: Level, idx: number): Level {
 
     currentX += 450;
     // Randomize Y slightly for next segment, keep within bounds
+    // Expanded range to allow patterns closer to ground (HEIGHT - 60)
     currentY = clamp(
-      currentY + (Math.random() > 0.5 ? 40 : -40),
+      currentY + (Math.random() > 0.5 ? 50 : -50),
       HEIGHT - 300,
-      HEIGHT - 100,
+      HEIGHT - 60,
     );
   }
 
