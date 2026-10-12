@@ -1,0 +1,4156 @@
+{
+  "generator": "Codex built-in imagegen",
+  "model": null,
+  "actions": [
+    "idle",
+    "walk",
+    "run",
+    "slash",
+    "thrust",
+    "block",
+    "hurt",
+    "fall"
+  ],
+  "characters": [
+    {
+      "id": "ember_knight_male",
+      "sourceFile": "generated/animations/sheets/ember_knight_male.png",
+      "sourceSha256": "dadc988d1aaf9656496dbccee7a92d5a961a39c2c13b86631ed05eea868b148d",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/ember_knight_male/idle.gif",
+              "poster": "/characters/animations/48/ember_knight_male/idle-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/idle-0.png",
+                "/characters/animations/48/ember_knight_male/idle-1.png",
+                "/characters/animations/48/ember_knight_male/idle-2.png",
+                "/characters/animations/48/ember_knight_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "13ccc801079542dc2d1787ec7a63a0bf152bce875015b5cd42708822dae5151c"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/ember_knight_male/walk.gif",
+              "poster": "/characters/animations/48/ember_knight_male/walk-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/walk-0.png",
+                "/characters/animations/48/ember_knight_male/walk-1.png",
+                "/characters/animations/48/ember_knight_male/walk-2.png",
+                "/characters/animations/48/ember_knight_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "67e392f447bb9824d080f1ff22e6765db20aa7dcc1c2c50205e9d9335ca382e8"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/ember_knight_male/run.gif",
+              "poster": "/characters/animations/48/ember_knight_male/run-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/run-0.png",
+                "/characters/animations/48/ember_knight_male/run-1.png",
+                "/characters/animations/48/ember_knight_male/run-2.png",
+                "/characters/animations/48/ember_knight_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "aa06fa6b772c1b244deb02d5de8df8b7d235bebd5cba62fa826b2ef5a465a32e"
+            },
+            {
+              "id": "slash",
+              "label": "揮劍",
+              "gif": "/characters/animations/48/ember_knight_male/slash.gif",
+              "poster": "/characters/animations/48/ember_knight_male/slash-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/slash-0.png",
+                "/characters/animations/48/ember_knight_male/slash-1.png",
+                "/characters/animations/48/ember_knight_male/slash-2.png",
+                "/characters/animations/48/ember_knight_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "17095b53d25f0acb0a71d4a3aa98b9f9e1dcec9161a41458e5f14bec940a7f63"
+            },
+            {
+              "id": "thrust",
+              "label": "突刺",
+              "gif": "/characters/animations/48/ember_knight_male/thrust.gif",
+              "poster": "/characters/animations/48/ember_knight_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/thrust-0.png",
+                "/characters/animations/48/ember_knight_male/thrust-1.png",
+                "/characters/animations/48/ember_knight_male/thrust-2.png",
+                "/characters/animations/48/ember_knight_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "fad548e23673638eb7f183df2f3e5082a2c84c9755f0e72f565e4054adb602f9"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/ember_knight_male/block.gif",
+              "poster": "/characters/animations/48/ember_knight_male/block-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/block-0.png",
+                "/characters/animations/48/ember_knight_male/block-1.png",
+                "/characters/animations/48/ember_knight_male/block-2.png",
+                "/characters/animations/48/ember_knight_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "b8af4d50f8318fa3b41f5a5d33d2f71466d4679e0fa17127acba0a7701f4c5a9"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/ember_knight_male/hurt.gif",
+              "poster": "/characters/animations/48/ember_knight_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/hurt-0.png",
+                "/characters/animations/48/ember_knight_male/hurt-1.png",
+                "/characters/animations/48/ember_knight_male/hurt-2.png",
+                "/characters/animations/48/ember_knight_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "5b63e42445471ce77a1660e65a9de61c50c6795b849c9fd67976cfbb0276851a"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/ember_knight_male/fall.gif",
+              "poster": "/characters/animations/48/ember_knight_male/fall-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_male/fall-0.png",
+                "/characters/animations/48/ember_knight_male/fall-1.png",
+                "/characters/animations/48/ember_knight_male/fall-2.png",
+                "/characters/animations/48/ember_knight_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "1af104f05e0599c1203af7b8a71d3933e5e947cf300770b97275504e9db10079"
+            }
+          ],
+          "sheet": "/characters/animations/48/ember_knight_male/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/ember_knight_male/idle.gif",
+              "poster": "/characters/animations/96/ember_knight_male/idle-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/idle-0.png",
+                "/characters/animations/96/ember_knight_male/idle-1.png",
+                "/characters/animations/96/ember_knight_male/idle-2.png",
+                "/characters/animations/96/ember_knight_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "6bc2441189dbc3b3a9ede122d7e694866bde9205d323eabc3817a1cecfbedea5"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/ember_knight_male/walk.gif",
+              "poster": "/characters/animations/96/ember_knight_male/walk-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/walk-0.png",
+                "/characters/animations/96/ember_knight_male/walk-1.png",
+                "/characters/animations/96/ember_knight_male/walk-2.png",
+                "/characters/animations/96/ember_knight_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "be7923cd79f95a4bca44332fde77272c3777a4972a0f8c3dba3ef3237ccfc46c"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/ember_knight_male/run.gif",
+              "poster": "/characters/animations/96/ember_knight_male/run-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/run-0.png",
+                "/characters/animations/96/ember_knight_male/run-1.png",
+                "/characters/animations/96/ember_knight_male/run-2.png",
+                "/characters/animations/96/ember_knight_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "788e34d026e56cd898c4387e04a85dfc3eb37f3c392bb6df51a721cab8b52445"
+            },
+            {
+              "id": "slash",
+              "label": "揮劍",
+              "gif": "/characters/animations/96/ember_knight_male/slash.gif",
+              "poster": "/characters/animations/96/ember_knight_male/slash-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/slash-0.png",
+                "/characters/animations/96/ember_knight_male/slash-1.png",
+                "/characters/animations/96/ember_knight_male/slash-2.png",
+                "/characters/animations/96/ember_knight_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "99a3ffbd6b8b41ba7637b5633385f0f2e5455cf54ebe2c4a2e65a7033793ceca"
+            },
+            {
+              "id": "thrust",
+              "label": "突刺",
+              "gif": "/characters/animations/96/ember_knight_male/thrust.gif",
+              "poster": "/characters/animations/96/ember_knight_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/thrust-0.png",
+                "/characters/animations/96/ember_knight_male/thrust-1.png",
+                "/characters/animations/96/ember_knight_male/thrust-2.png",
+                "/characters/animations/96/ember_knight_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "ee04627c20dcf9929ba793e73e0fa76416e8d073d688124e929ca5e095e11059"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/ember_knight_male/block.gif",
+              "poster": "/characters/animations/96/ember_knight_male/block-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/block-0.png",
+                "/characters/animations/96/ember_knight_male/block-1.png",
+                "/characters/animations/96/ember_knight_male/block-2.png",
+                "/characters/animations/96/ember_knight_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "accb9bb654c1600760a963435b25f8d9bd848377d197103b97bcb3e72c00eb4c"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/ember_knight_male/hurt.gif",
+              "poster": "/characters/animations/96/ember_knight_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/hurt-0.png",
+                "/characters/animations/96/ember_knight_male/hurt-1.png",
+                "/characters/animations/96/ember_knight_male/hurt-2.png",
+                "/characters/animations/96/ember_knight_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "857cfc21b030400f210e8151076d53c7a0fcdf50fe4fc3a645a04835003e99a3"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/ember_knight_male/fall.gif",
+              "poster": "/characters/animations/96/ember_knight_male/fall-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_male/fall-0.png",
+                "/characters/animations/96/ember_knight_male/fall-1.png",
+                "/characters/animations/96/ember_knight_male/fall-2.png",
+                "/characters/animations/96/ember_knight_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "583f6b1a1a47bbf55d6d2e2b703bdfcda056ebad9f3ecf98c5a220abeb13b7ad"
+            }
+          ],
+          "sheet": "/characters/animations/96/ember_knight_male/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "ember_knight_female",
+      "sourceFile": "generated/animations/sheets/ember_knight_female.png",
+      "sourceSha256": "dbaf0d92fd014318bc404b88de1236bff46b3462ea9fa1117c2e87bec9770dd7",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/ember_knight_female/idle.gif",
+              "poster": "/characters/animations/48/ember_knight_female/idle-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/idle-0.png",
+                "/characters/animations/48/ember_knight_female/idle-1.png",
+                "/characters/animations/48/ember_knight_female/idle-2.png",
+                "/characters/animations/48/ember_knight_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "392431204be66aed6de49232925cb0ca2e4be2859ae24dcda667f4c8387e2013"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/ember_knight_female/walk.gif",
+              "poster": "/characters/animations/48/ember_knight_female/walk-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/walk-0.png",
+                "/characters/animations/48/ember_knight_female/walk-1.png",
+                "/characters/animations/48/ember_knight_female/walk-2.png",
+                "/characters/animations/48/ember_knight_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "7571cd137e9a6ecd2437ebcbf8ac337b429c3402c12a2816636bac1c7b2f429e"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/ember_knight_female/run.gif",
+              "poster": "/characters/animations/48/ember_knight_female/run-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/run-0.png",
+                "/characters/animations/48/ember_knight_female/run-1.png",
+                "/characters/animations/48/ember_knight_female/run-2.png",
+                "/characters/animations/48/ember_knight_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "19897778fef1058b3907a5b124fd1944449b594c3d1f6f76c4ab7b8932b5feaa"
+            },
+            {
+              "id": "slash",
+              "label": "揮劍",
+              "gif": "/characters/animations/48/ember_knight_female/slash.gif",
+              "poster": "/characters/animations/48/ember_knight_female/slash-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/slash-0.png",
+                "/characters/animations/48/ember_knight_female/slash-1.png",
+                "/characters/animations/48/ember_knight_female/slash-2.png",
+                "/characters/animations/48/ember_knight_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "8270095eacde9345596f0ef8190b178582c05d9e236a3cebe5f529539654eb08"
+            },
+            {
+              "id": "thrust",
+              "label": "突刺",
+              "gif": "/characters/animations/48/ember_knight_female/thrust.gif",
+              "poster": "/characters/animations/48/ember_knight_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/thrust-0.png",
+                "/characters/animations/48/ember_knight_female/thrust-1.png",
+                "/characters/animations/48/ember_knight_female/thrust-2.png",
+                "/characters/animations/48/ember_knight_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "7c59ed7a318fa31d63a92ab27ab5b9c080dad977cc08b069ddba17c5faeadeee"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/ember_knight_female/block.gif",
+              "poster": "/characters/animations/48/ember_knight_female/block-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/block-0.png",
+                "/characters/animations/48/ember_knight_female/block-1.png",
+                "/characters/animations/48/ember_knight_female/block-2.png",
+                "/characters/animations/48/ember_knight_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "48cbcf77f0a9c58f4e98b3af3db06ca173c2c50eacbfcbce6f8095b3975ac89d"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/ember_knight_female/hurt.gif",
+              "poster": "/characters/animations/48/ember_knight_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/hurt-0.png",
+                "/characters/animations/48/ember_knight_female/hurt-1.png",
+                "/characters/animations/48/ember_knight_female/hurt-2.png",
+                "/characters/animations/48/ember_knight_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "e41be70053b53f4075c676a3043e812db33947c8e40736cbc836621d5c27376b"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/ember_knight_female/fall.gif",
+              "poster": "/characters/animations/48/ember_knight_female/fall-0.png",
+              "frames": [
+                "/characters/animations/48/ember_knight_female/fall-0.png",
+                "/characters/animations/48/ember_knight_female/fall-1.png",
+                "/characters/animations/48/ember_knight_female/fall-2.png",
+                "/characters/animations/48/ember_knight_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "27e9be854597dbbbcb41f0de2a577170b543e8d14c8d6d2101c4723bd66055b7"
+            }
+          ],
+          "sheet": "/characters/animations/48/ember_knight_female/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/ember_knight_female/idle.gif",
+              "poster": "/characters/animations/96/ember_knight_female/idle-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/idle-0.png",
+                "/characters/animations/96/ember_knight_female/idle-1.png",
+                "/characters/animations/96/ember_knight_female/idle-2.png",
+                "/characters/animations/96/ember_knight_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "217087fb7c63b23b4c4283efaecca7503f9409c5672a8d483c9002d88d9dd35a"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/ember_knight_female/walk.gif",
+              "poster": "/characters/animations/96/ember_knight_female/walk-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/walk-0.png",
+                "/characters/animations/96/ember_knight_female/walk-1.png",
+                "/characters/animations/96/ember_knight_female/walk-2.png",
+                "/characters/animations/96/ember_knight_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "928709bfe3be61608121fbf2d14dcb18f98a0c201706cd38054b25ae926a66b4"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/ember_knight_female/run.gif",
+              "poster": "/characters/animations/96/ember_knight_female/run-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/run-0.png",
+                "/characters/animations/96/ember_knight_female/run-1.png",
+                "/characters/animations/96/ember_knight_female/run-2.png",
+                "/characters/animations/96/ember_knight_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "c8a0b10cd0a4026e8c537f81bbe6419699a38026b77b5c5c1b59b895d30cd3e0"
+            },
+            {
+              "id": "slash",
+              "label": "揮劍",
+              "gif": "/characters/animations/96/ember_knight_female/slash.gif",
+              "poster": "/characters/animations/96/ember_knight_female/slash-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/slash-0.png",
+                "/characters/animations/96/ember_knight_female/slash-1.png",
+                "/characters/animations/96/ember_knight_female/slash-2.png",
+                "/characters/animations/96/ember_knight_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "518023b6eed364411283cf2ea2cec766f8049ba85f1929ec0b07066b0e2f3934"
+            },
+            {
+              "id": "thrust",
+              "label": "突刺",
+              "gif": "/characters/animations/96/ember_knight_female/thrust.gif",
+              "poster": "/characters/animations/96/ember_knight_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/thrust-0.png",
+                "/characters/animations/96/ember_knight_female/thrust-1.png",
+                "/characters/animations/96/ember_knight_female/thrust-2.png",
+                "/characters/animations/96/ember_knight_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "e029d2aafc3ab117f71b98ab7ac8792a010da319cda7db4b32b654a98c10dfe4"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/ember_knight_female/block.gif",
+              "poster": "/characters/animations/96/ember_knight_female/block-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/block-0.png",
+                "/characters/animations/96/ember_knight_female/block-1.png",
+                "/characters/animations/96/ember_knight_female/block-2.png",
+                "/characters/animations/96/ember_knight_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "faa38b2859ffae707001a4e31627c5098f11b4066ec8af0974ed98490ef7d58d"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/ember_knight_female/hurt.gif",
+              "poster": "/characters/animations/96/ember_knight_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/hurt-0.png",
+                "/characters/animations/96/ember_knight_female/hurt-1.png",
+                "/characters/animations/96/ember_knight_female/hurt-2.png",
+                "/characters/animations/96/ember_knight_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "0fc0e53967f53044d0607629eabc0bee39a68ffaf9d5eb8cbd1227e8e4b61546"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/ember_knight_female/fall.gif",
+              "poster": "/characters/animations/96/ember_knight_female/fall-0.png",
+              "frames": [
+                "/characters/animations/96/ember_knight_female/fall-0.png",
+                "/characters/animations/96/ember_knight_female/fall-1.png",
+                "/characters/animations/96/ember_knight_female/fall-2.png",
+                "/characters/animations/96/ember_knight_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "c54a4a9ad9fd11659d51aaa43d14f7db1aae9b0af185ce6fce4751618bca0fd5"
+            }
+          ],
+          "sheet": "/characters/animations/96/ember_knight_female/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "martial_artist_male",
+      "sourceFile": "generated/animations/sheets/martial_artist_male.png",
+      "sourceSha256": "8197fd1eb7e122c1cdd2d5627cb8dc7b1c7f0d74cd9bf01fadaf425b6ebe3947",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/martial_artist_male/idle.gif",
+              "poster": "/characters/animations/48/martial_artist_male/idle-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/idle-0.png",
+                "/characters/animations/48/martial_artist_male/idle-1.png",
+                "/characters/animations/48/martial_artist_male/idle-2.png",
+                "/characters/animations/48/martial_artist_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "953278f9ce8f70cde361189ac8e4082c7d6b819203d433c6930229a0913fdac8"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/martial_artist_male/walk.gif",
+              "poster": "/characters/animations/48/martial_artist_male/walk-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/walk-0.png",
+                "/characters/animations/48/martial_artist_male/walk-1.png",
+                "/characters/animations/48/martial_artist_male/walk-2.png",
+                "/characters/animations/48/martial_artist_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "54d178f4c8def6baaab0c2202f017aba7a07fedfa56cbe4a50b4cf06b67b1d2e"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/martial_artist_male/run.gif",
+              "poster": "/characters/animations/48/martial_artist_male/run-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/run-0.png",
+                "/characters/animations/48/martial_artist_male/run-1.png",
+                "/characters/animations/48/martial_artist_male/run-2.png",
+                "/characters/animations/48/martial_artist_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "fc4b157f0bcebf3788ac811bd7500e442388b5130e8724680cb37a3911bdafcc"
+            },
+            {
+              "id": "slash",
+              "label": "勾拳",
+              "gif": "/characters/animations/48/martial_artist_male/slash.gif",
+              "poster": "/characters/animations/48/martial_artist_male/slash-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/slash-0.png",
+                "/characters/animations/48/martial_artist_male/slash-1.png",
+                "/characters/animations/48/martial_artist_male/slash-2.png",
+                "/characters/animations/48/martial_artist_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "6567177fadb8368df31650da6c647dcb098a6115d605ddfc7ab7c2a6bbd21b1e"
+            },
+            {
+              "id": "thrust",
+              "label": "直拳",
+              "gif": "/characters/animations/48/martial_artist_male/thrust.gif",
+              "poster": "/characters/animations/48/martial_artist_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/thrust-0.png",
+                "/characters/animations/48/martial_artist_male/thrust-1.png",
+                "/characters/animations/48/martial_artist_male/thrust-2.png",
+                "/characters/animations/48/martial_artist_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "be05f9edb22e7c3a5925f553de7b214e919856bce5e84dec7651847763689524"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/martial_artist_male/block.gif",
+              "poster": "/characters/animations/48/martial_artist_male/block-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/block-0.png",
+                "/characters/animations/48/martial_artist_male/block-1.png",
+                "/characters/animations/48/martial_artist_male/block-2.png",
+                "/characters/animations/48/martial_artist_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "e859192eb607f421553b80b53613f2ea4e33d1f4b101589c76161b10304bcbd7"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/martial_artist_male/hurt.gif",
+              "poster": "/characters/animations/48/martial_artist_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/hurt-0.png",
+                "/characters/animations/48/martial_artist_male/hurt-1.png",
+                "/characters/animations/48/martial_artist_male/hurt-2.png",
+                "/characters/animations/48/martial_artist_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "f6d4940ef697a01e593b733b43e2c2cec049f0065439a73424255aa94062ade1"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/martial_artist_male/fall.gif",
+              "poster": "/characters/animations/48/martial_artist_male/fall-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_male/fall-0.png",
+                "/characters/animations/48/martial_artist_male/fall-1.png",
+                "/characters/animations/48/martial_artist_male/fall-2.png",
+                "/characters/animations/48/martial_artist_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "9efee02c3e1741ce7b61f6762a6c999ac93032c0c2ed9c24fba0ffaa47f04c75"
+            }
+          ],
+          "sheet": "/characters/animations/48/martial_artist_male/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/martial_artist_male/idle.gif",
+              "poster": "/characters/animations/96/martial_artist_male/idle-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/idle-0.png",
+                "/characters/animations/96/martial_artist_male/idle-1.png",
+                "/characters/animations/96/martial_artist_male/idle-2.png",
+                "/characters/animations/96/martial_artist_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "cc334793f939aff91461f64499086a0e138d5d4cc656572c700ce43ebacbed7f"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/martial_artist_male/walk.gif",
+              "poster": "/characters/animations/96/martial_artist_male/walk-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/walk-0.png",
+                "/characters/animations/96/martial_artist_male/walk-1.png",
+                "/characters/animations/96/martial_artist_male/walk-2.png",
+                "/characters/animations/96/martial_artist_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "11124ecda2da21c54e59ddf9becbfe0979a1fa9df747af27460fdcfc69388402"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/martial_artist_male/run.gif",
+              "poster": "/characters/animations/96/martial_artist_male/run-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/run-0.png",
+                "/characters/animations/96/martial_artist_male/run-1.png",
+                "/characters/animations/96/martial_artist_male/run-2.png",
+                "/characters/animations/96/martial_artist_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "046bb946b977c5b997ec277f99d65a8ccbfc465d1d2be47daf534ecefaff8d95"
+            },
+            {
+              "id": "slash",
+              "label": "勾拳",
+              "gif": "/characters/animations/96/martial_artist_male/slash.gif",
+              "poster": "/characters/animations/96/martial_artist_male/slash-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/slash-0.png",
+                "/characters/animations/96/martial_artist_male/slash-1.png",
+                "/characters/animations/96/martial_artist_male/slash-2.png",
+                "/characters/animations/96/martial_artist_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "5ded9b5b2887d8928412716597a47e525ef58ce480ccf39efa4935cf69470345"
+            },
+            {
+              "id": "thrust",
+              "label": "直拳",
+              "gif": "/characters/animations/96/martial_artist_male/thrust.gif",
+              "poster": "/characters/animations/96/martial_artist_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/thrust-0.png",
+                "/characters/animations/96/martial_artist_male/thrust-1.png",
+                "/characters/animations/96/martial_artist_male/thrust-2.png",
+                "/characters/animations/96/martial_artist_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "c38f9b1e9dd46f35c59517da52ee27c0a1bbe199931a4c4ddc78d49843e84246"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/martial_artist_male/block.gif",
+              "poster": "/characters/animations/96/martial_artist_male/block-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/block-0.png",
+                "/characters/animations/96/martial_artist_male/block-1.png",
+                "/characters/animations/96/martial_artist_male/block-2.png",
+                "/characters/animations/96/martial_artist_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "375b7f14d60550298eb07624eb8eb3fb038f689fb2f64237c543c9a3884eefe8"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/martial_artist_male/hurt.gif",
+              "poster": "/characters/animations/96/martial_artist_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/hurt-0.png",
+                "/characters/animations/96/martial_artist_male/hurt-1.png",
+                "/characters/animations/96/martial_artist_male/hurt-2.png",
+                "/characters/animations/96/martial_artist_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "17e530f244b8b2244ed47c6fffae54c9d174b4d195a223df3276c8f8140d4ecb"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/martial_artist_male/fall.gif",
+              "poster": "/characters/animations/96/martial_artist_male/fall-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_male/fall-0.png",
+                "/characters/animations/96/martial_artist_male/fall-1.png",
+                "/characters/animations/96/martial_artist_male/fall-2.png",
+                "/characters/animations/96/martial_artist_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "e7d769ae64738ac06de382bf335b505704bdd3a882393a91e5105cfac1e78cf7"
+            }
+          ],
+          "sheet": "/characters/animations/96/martial_artist_male/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "martial_artist_female",
+      "sourceFile": "generated/animations/sheets/martial_artist_female.png",
+      "sourceSha256": "f6ff9126785e7cbfa9c3e51077f98aeb2ac173b2c1525c26fce498920b72518f",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/martial_artist_female/idle.gif",
+              "poster": "/characters/animations/48/martial_artist_female/idle-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/idle-0.png",
+                "/characters/animations/48/martial_artist_female/idle-1.png",
+                "/characters/animations/48/martial_artist_female/idle-2.png",
+                "/characters/animations/48/martial_artist_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "4fdd37d9d9c325cd48c6c0031ab939356cbfd5b3edb07d80a399001ca3e8db29"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/martial_artist_female/walk.gif",
+              "poster": "/characters/animations/48/martial_artist_female/walk-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/walk-0.png",
+                "/characters/animations/48/martial_artist_female/walk-1.png",
+                "/characters/animations/48/martial_artist_female/walk-2.png",
+                "/characters/animations/48/martial_artist_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "6e4244d3fba6bbb460ddb13711652249936511b6aa15c598f12b01927011c77d"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/martial_artist_female/run.gif",
+              "poster": "/characters/animations/48/martial_artist_female/run-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/run-0.png",
+                "/characters/animations/48/martial_artist_female/run-1.png",
+                "/characters/animations/48/martial_artist_female/run-2.png",
+                "/characters/animations/48/martial_artist_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "a41146c6f038de43d161efa245bc5e29fba8c4484f0ac6903117a93c5fa6b48d"
+            },
+            {
+              "id": "slash",
+              "label": "勾拳",
+              "gif": "/characters/animations/48/martial_artist_female/slash.gif",
+              "poster": "/characters/animations/48/martial_artist_female/slash-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/slash-0.png",
+                "/characters/animations/48/martial_artist_female/slash-1.png",
+                "/characters/animations/48/martial_artist_female/slash-2.png",
+                "/characters/animations/48/martial_artist_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "9876e1cd1ebaabba843106c6cdb775e48eb798d6f9b1a2f8af999631a2f23e4a"
+            },
+            {
+              "id": "thrust",
+              "label": "直拳",
+              "gif": "/characters/animations/48/martial_artist_female/thrust.gif",
+              "poster": "/characters/animations/48/martial_artist_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/thrust-0.png",
+                "/characters/animations/48/martial_artist_female/thrust-1.png",
+                "/characters/animations/48/martial_artist_female/thrust-2.png",
+                "/characters/animations/48/martial_artist_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "6c94e324ddc5a71c5eec5119cd6304ed061bd4ba5a9005fd80219c45568794a1"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/martial_artist_female/block.gif",
+              "poster": "/characters/animations/48/martial_artist_female/block-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/block-0.png",
+                "/characters/animations/48/martial_artist_female/block-1.png",
+                "/characters/animations/48/martial_artist_female/block-2.png",
+                "/characters/animations/48/martial_artist_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "fc783edee6cb1783d3c0696d433e2774b3cb93f7668198e08bbfb50da45f267b"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/martial_artist_female/hurt.gif",
+              "poster": "/characters/animations/48/martial_artist_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/hurt-0.png",
+                "/characters/animations/48/martial_artist_female/hurt-1.png",
+                "/characters/animations/48/martial_artist_female/hurt-2.png",
+                "/characters/animations/48/martial_artist_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "90727b6e8283dfaf8b41cd825d609fde612560c3d521d37062b391fa7cfaa8ad"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/martial_artist_female/fall.gif",
+              "poster": "/characters/animations/48/martial_artist_female/fall-0.png",
+              "frames": [
+                "/characters/animations/48/martial_artist_female/fall-0.png",
+                "/characters/animations/48/martial_artist_female/fall-1.png",
+                "/characters/animations/48/martial_artist_female/fall-2.png",
+                "/characters/animations/48/martial_artist_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "02b60e101fbdab6c9d20b96f62655028b4c83f9a61457e170e8364cdeea9a6d5"
+            }
+          ],
+          "sheet": "/characters/animations/48/martial_artist_female/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/martial_artist_female/idle.gif",
+              "poster": "/characters/animations/96/martial_artist_female/idle-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/idle-0.png",
+                "/characters/animations/96/martial_artist_female/idle-1.png",
+                "/characters/animations/96/martial_artist_female/idle-2.png",
+                "/characters/animations/96/martial_artist_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "e1eddda25de8ea40eb74b1de2b7635b40ca330b8a1ba1ac85c75fc7d113a6c44"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/martial_artist_female/walk.gif",
+              "poster": "/characters/animations/96/martial_artist_female/walk-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/walk-0.png",
+                "/characters/animations/96/martial_artist_female/walk-1.png",
+                "/characters/animations/96/martial_artist_female/walk-2.png",
+                "/characters/animations/96/martial_artist_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "c4b817174fb87198ca7d8eb482065f31e30067f315c23878e06c93aca564844a"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/martial_artist_female/run.gif",
+              "poster": "/characters/animations/96/martial_artist_female/run-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/run-0.png",
+                "/characters/animations/96/martial_artist_female/run-1.png",
+                "/characters/animations/96/martial_artist_female/run-2.png",
+                "/characters/animations/96/martial_artist_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "2ab35888e82e606dd263e849943f2c5501f5d5a214015264eaf5187148dae904"
+            },
+            {
+              "id": "slash",
+              "label": "勾拳",
+              "gif": "/characters/animations/96/martial_artist_female/slash.gif",
+              "poster": "/characters/animations/96/martial_artist_female/slash-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/slash-0.png",
+                "/characters/animations/96/martial_artist_female/slash-1.png",
+                "/characters/animations/96/martial_artist_female/slash-2.png",
+                "/characters/animations/96/martial_artist_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "9e7a3ce2654fed1bea6f1e3d08248b9b9084f9a700ce814fabf63fd14ac5259a"
+            },
+            {
+              "id": "thrust",
+              "label": "直拳",
+              "gif": "/characters/animations/96/martial_artist_female/thrust.gif",
+              "poster": "/characters/animations/96/martial_artist_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/thrust-0.png",
+                "/characters/animations/96/martial_artist_female/thrust-1.png",
+                "/characters/animations/96/martial_artist_female/thrust-2.png",
+                "/characters/animations/96/martial_artist_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "4837d0e4eb2306c2d0cb5cb0d39b0c6b1715d28c59ca2d5b81db4c5880bd3feb"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/martial_artist_female/block.gif",
+              "poster": "/characters/animations/96/martial_artist_female/block-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/block-0.png",
+                "/characters/animations/96/martial_artist_female/block-1.png",
+                "/characters/animations/96/martial_artist_female/block-2.png",
+                "/characters/animations/96/martial_artist_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "477479e5d763627923cec97c9af44a3efb91c0defdece467f31e0bfa8833cc94"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/martial_artist_female/hurt.gif",
+              "poster": "/characters/animations/96/martial_artist_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/hurt-0.png",
+                "/characters/animations/96/martial_artist_female/hurt-1.png",
+                "/characters/animations/96/martial_artist_female/hurt-2.png",
+                "/characters/animations/96/martial_artist_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "73778ba040dfedc965174b5d4fc3372c0ed4b51bf50dea57ad29f423d88172f5"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/martial_artist_female/fall.gif",
+              "poster": "/characters/animations/96/martial_artist_female/fall-0.png",
+              "frames": [
+                "/characters/animations/96/martial_artist_female/fall-0.png",
+                "/characters/animations/96/martial_artist_female/fall-1.png",
+                "/characters/animations/96/martial_artist_female/fall-2.png",
+                "/characters/animations/96/martial_artist_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "b767a76e40b248cb709475161ae930024b47677e4b9f6263dac2fbb8f69315e8"
+            }
+          ],
+          "sheet": "/characters/animations/96/martial_artist_female/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "moon_witch_male",
+      "sourceFile": "generated/animations/sheets/moon_witch_male.png",
+      "sourceSha256": "d6c464b45b5ba1477aa4caff97c865c5b82aebef5e203b99ab076abc2d4ae2db",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/moon_witch_male/idle.gif",
+              "poster": "/characters/animations/48/moon_witch_male/idle-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/idle-0.png",
+                "/characters/animations/48/moon_witch_male/idle-1.png",
+                "/characters/animations/48/moon_witch_male/idle-2.png",
+                "/characters/animations/48/moon_witch_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "a9b8424459a3b03021fdc7795b0362c247546161256bce8ed76b43c79b766c6b"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/moon_witch_male/walk.gif",
+              "poster": "/characters/animations/48/moon_witch_male/walk-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/walk-0.png",
+                "/characters/animations/48/moon_witch_male/walk-1.png",
+                "/characters/animations/48/moon_witch_male/walk-2.png",
+                "/characters/animations/48/moon_witch_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "67df51f15e8a8a7adeee8d17bf34fc8dff67401c880b82f111d2fa3e7ba6255c"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/moon_witch_male/run.gif",
+              "poster": "/characters/animations/48/moon_witch_male/run-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/run-0.png",
+                "/characters/animations/48/moon_witch_male/run-1.png",
+                "/characters/animations/48/moon_witch_male/run-2.png",
+                "/characters/animations/48/moon_witch_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "7f9db9b876771f28dc6144b044168ea1e6e5e69a8abb1a806f63e1fbca37ad8c"
+            },
+            {
+              "id": "slash",
+              "label": "月光揮擊",
+              "gif": "/characters/animations/48/moon_witch_male/slash.gif",
+              "poster": "/characters/animations/48/moon_witch_male/slash-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/slash-0.png",
+                "/characters/animations/48/moon_witch_male/slash-1.png",
+                "/characters/animations/48/moon_witch_male/slash-2.png",
+                "/characters/animations/48/moon_witch_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "7dc4c4e402b2793d67c9b5e4fd69015f9d1ec16a6f9ec5060e5e66d795e90843"
+            },
+            {
+              "id": "thrust",
+              "label": "月光彈",
+              "gif": "/characters/animations/48/moon_witch_male/thrust.gif",
+              "poster": "/characters/animations/48/moon_witch_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/thrust-0.png",
+                "/characters/animations/48/moon_witch_male/thrust-1.png",
+                "/characters/animations/48/moon_witch_male/thrust-2.png",
+                "/characters/animations/48/moon_witch_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "317d66895151ce014cf92b5a37a99e6ecfae41abc88aec48aa73fd0923aaa887"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/moon_witch_male/block.gif",
+              "poster": "/characters/animations/48/moon_witch_male/block-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/block-0.png",
+                "/characters/animations/48/moon_witch_male/block-1.png",
+                "/characters/animations/48/moon_witch_male/block-2.png",
+                "/characters/animations/48/moon_witch_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "ff98912fcf68f311b13b402bcd9bb8353341eb9c4576d9fab107b70dbff564d5"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/moon_witch_male/hurt.gif",
+              "poster": "/characters/animations/48/moon_witch_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/hurt-0.png",
+                "/characters/animations/48/moon_witch_male/hurt-1.png",
+                "/characters/animations/48/moon_witch_male/hurt-2.png",
+                "/characters/animations/48/moon_witch_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "a3f9d113d7dccc05c21cd8aafc0e15ed8fa7fc8b2a937cafe19860764e37a2b9"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/moon_witch_male/fall.gif",
+              "poster": "/characters/animations/48/moon_witch_male/fall-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_male/fall-0.png",
+                "/characters/animations/48/moon_witch_male/fall-1.png",
+                "/characters/animations/48/moon_witch_male/fall-2.png",
+                "/characters/animations/48/moon_witch_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "afc8211206059f1578429a3cdab6fa1fff4d30f189f51197d6721f9a145acdcc"
+            }
+          ],
+          "sheet": "/characters/animations/48/moon_witch_male/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/moon_witch_male/idle.gif",
+              "poster": "/characters/animations/96/moon_witch_male/idle-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/idle-0.png",
+                "/characters/animations/96/moon_witch_male/idle-1.png",
+                "/characters/animations/96/moon_witch_male/idle-2.png",
+                "/characters/animations/96/moon_witch_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "38cd11662d145de784c9b342076f5ee4a96fcd7c7578463b0d58f1f301c45aff"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/moon_witch_male/walk.gif",
+              "poster": "/characters/animations/96/moon_witch_male/walk-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/walk-0.png",
+                "/characters/animations/96/moon_witch_male/walk-1.png",
+                "/characters/animations/96/moon_witch_male/walk-2.png",
+                "/characters/animations/96/moon_witch_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "d3aa810c4c25324864bbef0e10bc3f2aa6f3fb9aee5f92286a0fdb986881786f"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/moon_witch_male/run.gif",
+              "poster": "/characters/animations/96/moon_witch_male/run-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/run-0.png",
+                "/characters/animations/96/moon_witch_male/run-1.png",
+                "/characters/animations/96/moon_witch_male/run-2.png",
+                "/characters/animations/96/moon_witch_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "466e8c8ddc16c74b8a7df1bfb37236593a2f052cf40e6fc57c94a0c07d7d8fac"
+            },
+            {
+              "id": "slash",
+              "label": "月光揮擊",
+              "gif": "/characters/animations/96/moon_witch_male/slash.gif",
+              "poster": "/characters/animations/96/moon_witch_male/slash-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/slash-0.png",
+                "/characters/animations/96/moon_witch_male/slash-1.png",
+                "/characters/animations/96/moon_witch_male/slash-2.png",
+                "/characters/animations/96/moon_witch_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "fe24edf0baa9566a4a61344705bf295a027eb9363b3ca3ad3f1afce03d522974"
+            },
+            {
+              "id": "thrust",
+              "label": "月光彈",
+              "gif": "/characters/animations/96/moon_witch_male/thrust.gif",
+              "poster": "/characters/animations/96/moon_witch_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/thrust-0.png",
+                "/characters/animations/96/moon_witch_male/thrust-1.png",
+                "/characters/animations/96/moon_witch_male/thrust-2.png",
+                "/characters/animations/96/moon_witch_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "754fa5cddc161669087f2b41ded8acacd47a7f8fdeb339dffab7d236e743d4f8"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/moon_witch_male/block.gif",
+              "poster": "/characters/animations/96/moon_witch_male/block-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/block-0.png",
+                "/characters/animations/96/moon_witch_male/block-1.png",
+                "/characters/animations/96/moon_witch_male/block-2.png",
+                "/characters/animations/96/moon_witch_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "a988cb5ed598230c3cf5cfc7489615649633fbaac863036a17880303e6975748"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/moon_witch_male/hurt.gif",
+              "poster": "/characters/animations/96/moon_witch_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/hurt-0.png",
+                "/characters/animations/96/moon_witch_male/hurt-1.png",
+                "/characters/animations/96/moon_witch_male/hurt-2.png",
+                "/characters/animations/96/moon_witch_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "b1bbc4d877f6f28b4fecf20ea5679cd944d4dc379cd3c2b425ff9bc7e16f23e6"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/moon_witch_male/fall.gif",
+              "poster": "/characters/animations/96/moon_witch_male/fall-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_male/fall-0.png",
+                "/characters/animations/96/moon_witch_male/fall-1.png",
+                "/characters/animations/96/moon_witch_male/fall-2.png",
+                "/characters/animations/96/moon_witch_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "e105924b8df28d66133d16fc383d54d0d8d20ef82ee87b3e3f100f2d431f6b98"
+            }
+          ],
+          "sheet": "/characters/animations/96/moon_witch_male/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "moon_witch_female",
+      "sourceFile": "generated/animations/sheets/moon_witch_female.png",
+      "sourceSha256": "73ebcffb7f5a739f0fb66aadb0b32a92fd89048c6d8bc8e99d4a301588bedb81",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/moon_witch_female/idle.gif",
+              "poster": "/characters/animations/48/moon_witch_female/idle-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/idle-0.png",
+                "/characters/animations/48/moon_witch_female/idle-1.png",
+                "/characters/animations/48/moon_witch_female/idle-2.png",
+                "/characters/animations/48/moon_witch_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "b1b5846167357bb27193f1cd136b474246d870a33f4bcf311507320cd46ad171"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/moon_witch_female/walk.gif",
+              "poster": "/characters/animations/48/moon_witch_female/walk-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/walk-0.png",
+                "/characters/animations/48/moon_witch_female/walk-1.png",
+                "/characters/animations/48/moon_witch_female/walk-2.png",
+                "/characters/animations/48/moon_witch_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "a38822f5e37b6791f5906e1e1686ca853451be71d6edab819c00345dc9caf58a"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/moon_witch_female/run.gif",
+              "poster": "/characters/animations/48/moon_witch_female/run-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/run-0.png",
+                "/characters/animations/48/moon_witch_female/run-1.png",
+                "/characters/animations/48/moon_witch_female/run-2.png",
+                "/characters/animations/48/moon_witch_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "ae99648600e802480cade6fb7138dbdefa5abc6172d4b1ab104bf19dbd0aaae6"
+            },
+            {
+              "id": "slash",
+              "label": "月光揮擊",
+              "gif": "/characters/animations/48/moon_witch_female/slash.gif",
+              "poster": "/characters/animations/48/moon_witch_female/slash-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/slash-0.png",
+                "/characters/animations/48/moon_witch_female/slash-1.png",
+                "/characters/animations/48/moon_witch_female/slash-2.png",
+                "/characters/animations/48/moon_witch_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "ff1cd7136d7e87676dab1e27235c5c735d02e15ade607740d97471e0b8aba059"
+            },
+            {
+              "id": "thrust",
+              "label": "月光彈",
+              "gif": "/characters/animations/48/moon_witch_female/thrust.gif",
+              "poster": "/characters/animations/48/moon_witch_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/thrust-0.png",
+                "/characters/animations/48/moon_witch_female/thrust-1.png",
+                "/characters/animations/48/moon_witch_female/thrust-2.png",
+                "/characters/animations/48/moon_witch_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "15d61f48cdb47ca214020aabceb079cca6dc1d3eabfbae2156436f37362afa37"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/moon_witch_female/block.gif",
+              "poster": "/characters/animations/48/moon_witch_female/block-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/block-0.png",
+                "/characters/animations/48/moon_witch_female/block-1.png",
+                "/characters/animations/48/moon_witch_female/block-2.png",
+                "/characters/animations/48/moon_witch_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "9689d86218f9c77bdc54065caf9fc9d317e60ac0ff70ee737f19422cde8b4a4c"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/moon_witch_female/hurt.gif",
+              "poster": "/characters/animations/48/moon_witch_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/hurt-0.png",
+                "/characters/animations/48/moon_witch_female/hurt-1.png",
+                "/characters/animations/48/moon_witch_female/hurt-2.png",
+                "/characters/animations/48/moon_witch_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "6fd0b34e831cef9ac624ac10e7c0746ed9d2a2ba5d254822016a4c0ffea6fea9"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/moon_witch_female/fall.gif",
+              "poster": "/characters/animations/48/moon_witch_female/fall-0.png",
+              "frames": [
+                "/characters/animations/48/moon_witch_female/fall-0.png",
+                "/characters/animations/48/moon_witch_female/fall-1.png",
+                "/characters/animations/48/moon_witch_female/fall-2.png",
+                "/characters/animations/48/moon_witch_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "890c73c2bd318c698c9ef049356c7d2106e8c599d1d14ea3a4bc3f76200f5953"
+            }
+          ],
+          "sheet": "/characters/animations/48/moon_witch_female/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/moon_witch_female/idle.gif",
+              "poster": "/characters/animations/96/moon_witch_female/idle-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/idle-0.png",
+                "/characters/animations/96/moon_witch_female/idle-1.png",
+                "/characters/animations/96/moon_witch_female/idle-2.png",
+                "/characters/animations/96/moon_witch_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "63ad96e797f5359326681c4f5eb41cadcc2e5387fc7ef31fdb42dd01e15f809d"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/moon_witch_female/walk.gif",
+              "poster": "/characters/animations/96/moon_witch_female/walk-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/walk-0.png",
+                "/characters/animations/96/moon_witch_female/walk-1.png",
+                "/characters/animations/96/moon_witch_female/walk-2.png",
+                "/characters/animations/96/moon_witch_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "b5e3728c70995c37c1644b7f104dafce180c5ae3a54f576f86203b82fd0b2256"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/moon_witch_female/run.gif",
+              "poster": "/characters/animations/96/moon_witch_female/run-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/run-0.png",
+                "/characters/animations/96/moon_witch_female/run-1.png",
+                "/characters/animations/96/moon_witch_female/run-2.png",
+                "/characters/animations/96/moon_witch_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "da26dc5cf2a91b1b10f6bbc0bec321b8a38ce3158c69f09c79c7bf3dffb276b1"
+            },
+            {
+              "id": "slash",
+              "label": "月光揮擊",
+              "gif": "/characters/animations/96/moon_witch_female/slash.gif",
+              "poster": "/characters/animations/96/moon_witch_female/slash-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/slash-0.png",
+                "/characters/animations/96/moon_witch_female/slash-1.png",
+                "/characters/animations/96/moon_witch_female/slash-2.png",
+                "/characters/animations/96/moon_witch_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "03b4cfd270159e3d8e1a6b5193d0c024b1d607b5d4791150fd92e6ea234656dd"
+            },
+            {
+              "id": "thrust",
+              "label": "月光彈",
+              "gif": "/characters/animations/96/moon_witch_female/thrust.gif",
+              "poster": "/characters/animations/96/moon_witch_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/thrust-0.png",
+                "/characters/animations/96/moon_witch_female/thrust-1.png",
+                "/characters/animations/96/moon_witch_female/thrust-2.png",
+                "/characters/animations/96/moon_witch_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "e963f39e3d139b4acd7da91aea809fdf523dc5db6b259d68c7a94f2b873fb73d"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/moon_witch_female/block.gif",
+              "poster": "/characters/animations/96/moon_witch_female/block-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/block-0.png",
+                "/characters/animations/96/moon_witch_female/block-1.png",
+                "/characters/animations/96/moon_witch_female/block-2.png",
+                "/characters/animations/96/moon_witch_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "6cb5adf624862b7fbbeed38dacfae28dd7017cc4394d8218e46a8a0a42fddfeb"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/moon_witch_female/hurt.gif",
+              "poster": "/characters/animations/96/moon_witch_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/hurt-0.png",
+                "/characters/animations/96/moon_witch_female/hurt-1.png",
+                "/characters/animations/96/moon_witch_female/hurt-2.png",
+                "/characters/animations/96/moon_witch_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "68a408ec0cee524524704fddd8d94182ed9b1933db50844ce583c990a9ba60f7"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/moon_witch_female/fall.gif",
+              "poster": "/characters/animations/96/moon_witch_female/fall-0.png",
+              "frames": [
+                "/characters/animations/96/moon_witch_female/fall-0.png",
+                "/characters/animations/96/moon_witch_female/fall-1.png",
+                "/characters/animations/96/moon_witch_female/fall-2.png",
+                "/characters/animations/96/moon_witch_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "76dbf31a5e83eb39e2452d748b5e1caf28f118aaec81e9f933ea6cc9b7293b89"
+            }
+          ],
+          "sheet": "/characters/animations/96/moon_witch_female/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "forest_ranger_male",
+      "sourceFile": "generated/animations/sheets/forest_ranger_male.png",
+      "sourceSha256": "9b4d67c20f87996086a9f3c2fbeba90908529681d88c76c954239cae076f41d5",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/forest_ranger_male/idle.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/idle-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/idle-0.png",
+                "/characters/animations/48/forest_ranger_male/idle-1.png",
+                "/characters/animations/48/forest_ranger_male/idle-2.png",
+                "/characters/animations/48/forest_ranger_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "845a333018c6992baf049feee6c2bc177386ff3e3cac60007fdf0490e5a89baa"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/forest_ranger_male/walk.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/walk-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/walk-0.png",
+                "/characters/animations/48/forest_ranger_male/walk-1.png",
+                "/characters/animations/48/forest_ranger_male/walk-2.png",
+                "/characters/animations/48/forest_ranger_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "f659c13c5215d01c94fcd18f93918c40fc085e83054578ece1858b848e8aa429"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/forest_ranger_male/run.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/run-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/run-0.png",
+                "/characters/animations/48/forest_ranger_male/run-1.png",
+                "/characters/animations/48/forest_ranger_male/run-2.png",
+                "/characters/animations/48/forest_ranger_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "442a82eddfb21e26f386c913d636f799a3819b0a79f7c8bedf0861b190b4152c"
+            },
+            {
+              "id": "slash",
+              "label": "射箭",
+              "gif": "/characters/animations/48/forest_ranger_male/slash.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/slash-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/slash-0.png",
+                "/characters/animations/48/forest_ranger_male/slash-1.png",
+                "/characters/animations/48/forest_ranger_male/slash-2.png",
+                "/characters/animations/48/forest_ranger_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "6a73e95ad92b820a4118834464e87cf4cb56df7a72bfeb2a07483eb02f869b57"
+            },
+            {
+              "id": "thrust",
+              "label": "蓄力射擊",
+              "gif": "/characters/animations/48/forest_ranger_male/thrust.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/thrust-0.png",
+                "/characters/animations/48/forest_ranger_male/thrust-1.png",
+                "/characters/animations/48/forest_ranger_male/thrust-2.png",
+                "/characters/animations/48/forest_ranger_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "b4eaaa04f8882c9ef44659a65751f2c8491aa984051e6e5ed8ea20e8ba1046a8"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/forest_ranger_male/block.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/block-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/block-0.png",
+                "/characters/animations/48/forest_ranger_male/block-1.png",
+                "/characters/animations/48/forest_ranger_male/block-2.png",
+                "/characters/animations/48/forest_ranger_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "e1342e7964ace73f0e1089c1bad0d57f76338aa90b0ea2da11637927e821877d"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/forest_ranger_male/hurt.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/hurt-0.png",
+                "/characters/animations/48/forest_ranger_male/hurt-1.png",
+                "/characters/animations/48/forest_ranger_male/hurt-2.png",
+                "/characters/animations/48/forest_ranger_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "e42faf61147cb540ca0b7cda6bdb4ea0ab4995730de94a0e47e01b2d0618a3ac"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/forest_ranger_male/fall.gif",
+              "poster": "/characters/animations/48/forest_ranger_male/fall-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_male/fall-0.png",
+                "/characters/animations/48/forest_ranger_male/fall-1.png",
+                "/characters/animations/48/forest_ranger_male/fall-2.png",
+                "/characters/animations/48/forest_ranger_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "7299fb9424a1ad98c957b9231c719b073a4cafeaab4856655df224cb67699dde"
+            }
+          ],
+          "sheet": "/characters/animations/48/forest_ranger_male/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/forest_ranger_male/idle.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/idle-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/idle-0.png",
+                "/characters/animations/96/forest_ranger_male/idle-1.png",
+                "/characters/animations/96/forest_ranger_male/idle-2.png",
+                "/characters/animations/96/forest_ranger_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "8a79a532b149d3995227cbee9967ea1e5d06bad3da90eb868e5bc51c8c3bd345"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/forest_ranger_male/walk.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/walk-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/walk-0.png",
+                "/characters/animations/96/forest_ranger_male/walk-1.png",
+                "/characters/animations/96/forest_ranger_male/walk-2.png",
+                "/characters/animations/96/forest_ranger_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "a783c0ac38560bd7b83a0f321ef30303cf988ad7d5b84949e140ef9cde6d0ee0"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/forest_ranger_male/run.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/run-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/run-0.png",
+                "/characters/animations/96/forest_ranger_male/run-1.png",
+                "/characters/animations/96/forest_ranger_male/run-2.png",
+                "/characters/animations/96/forest_ranger_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "eb833af3b8792240f38af98c5904a2ba9ae77e68055b52090bbdaecf9f83f4e2"
+            },
+            {
+              "id": "slash",
+              "label": "射箭",
+              "gif": "/characters/animations/96/forest_ranger_male/slash.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/slash-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/slash-0.png",
+                "/characters/animations/96/forest_ranger_male/slash-1.png",
+                "/characters/animations/96/forest_ranger_male/slash-2.png",
+                "/characters/animations/96/forest_ranger_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "7115ff4c14b8456b81a5878740c95255b61ba73f4e6ce31ecd3acae595b60fa1"
+            },
+            {
+              "id": "thrust",
+              "label": "蓄力射擊",
+              "gif": "/characters/animations/96/forest_ranger_male/thrust.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/thrust-0.png",
+                "/characters/animations/96/forest_ranger_male/thrust-1.png",
+                "/characters/animations/96/forest_ranger_male/thrust-2.png",
+                "/characters/animations/96/forest_ranger_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "7c33662d81c148fa5ce24a4d2db529907c8129fd1871d5b5374a38b554d71ba1"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/forest_ranger_male/block.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/block-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/block-0.png",
+                "/characters/animations/96/forest_ranger_male/block-1.png",
+                "/characters/animations/96/forest_ranger_male/block-2.png",
+                "/characters/animations/96/forest_ranger_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "96454b5e2969a7abc00cc6203f9db1dc77455121080672f89314937963bab80d"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/forest_ranger_male/hurt.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/hurt-0.png",
+                "/characters/animations/96/forest_ranger_male/hurt-1.png",
+                "/characters/animations/96/forest_ranger_male/hurt-2.png",
+                "/characters/animations/96/forest_ranger_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "0b83fcaf889c2abe8dba7fd76def361dae4f4305846a7b16ddd13a47cf28816f"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/forest_ranger_male/fall.gif",
+              "poster": "/characters/animations/96/forest_ranger_male/fall-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_male/fall-0.png",
+                "/characters/animations/96/forest_ranger_male/fall-1.png",
+                "/characters/animations/96/forest_ranger_male/fall-2.png",
+                "/characters/animations/96/forest_ranger_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "672b8bcc9431da92c0855280be876a81ed0702f9e604834245fcfe2ea0e73df0"
+            }
+          ],
+          "sheet": "/characters/animations/96/forest_ranger_male/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "forest_ranger_female",
+      "sourceFile": "generated/animations/sheets/forest_ranger_female.png",
+      "sourceSha256": "9f7687f6752cd90b032a0e3fd3fc476457f5f12fe7488eaf139a98a1641f0ae3",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/forest_ranger_female/idle.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/idle-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/idle-0.png",
+                "/characters/animations/48/forest_ranger_female/idle-1.png",
+                "/characters/animations/48/forest_ranger_female/idle-2.png",
+                "/characters/animations/48/forest_ranger_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "c3904a255d59ae7986c545ce076fde5b41fa081ecc0f65396c61af80e19e0c59"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/forest_ranger_female/walk.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/walk-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/walk-0.png",
+                "/characters/animations/48/forest_ranger_female/walk-1.png",
+                "/characters/animations/48/forest_ranger_female/walk-2.png",
+                "/characters/animations/48/forest_ranger_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "5020a67fdb307cc34b0a9be097afac6a0f843de98ea9ef8438f4562f80096be6"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/forest_ranger_female/run.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/run-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/run-0.png",
+                "/characters/animations/48/forest_ranger_female/run-1.png",
+                "/characters/animations/48/forest_ranger_female/run-2.png",
+                "/characters/animations/48/forest_ranger_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "5a29498cf9c6703cc1ba5172b2d013e69fe4f623fe74f695ac2326594a8a16b5"
+            },
+            {
+              "id": "slash",
+              "label": "射箭",
+              "gif": "/characters/animations/48/forest_ranger_female/slash.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/slash-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/slash-0.png",
+                "/characters/animations/48/forest_ranger_female/slash-1.png",
+                "/characters/animations/48/forest_ranger_female/slash-2.png",
+                "/characters/animations/48/forest_ranger_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "d9c3e60fd581350c20007e4b9ddd7d0f7b38eed0e02be1ba6fb402e571df29d4"
+            },
+            {
+              "id": "thrust",
+              "label": "蓄力射擊",
+              "gif": "/characters/animations/48/forest_ranger_female/thrust.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/thrust-0.png",
+                "/characters/animations/48/forest_ranger_female/thrust-1.png",
+                "/characters/animations/48/forest_ranger_female/thrust-2.png",
+                "/characters/animations/48/forest_ranger_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "43646f8d9f274995dc900c949286f83e63d3a64148cac23289e77c75d61ec9a5"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/forest_ranger_female/block.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/block-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/block-0.png",
+                "/characters/animations/48/forest_ranger_female/block-1.png",
+                "/characters/animations/48/forest_ranger_female/block-2.png",
+                "/characters/animations/48/forest_ranger_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "8806ae7c4584b83392abab4d7acce6fdd44de4e8c71028b9c9e036ae8071a0e6"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/forest_ranger_female/hurt.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/hurt-0.png",
+                "/characters/animations/48/forest_ranger_female/hurt-1.png",
+                "/characters/animations/48/forest_ranger_female/hurt-2.png",
+                "/characters/animations/48/forest_ranger_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "804d0acb881990cb6b13932bbb78316c2c0a4195652471e728af5d1ff382bc5b"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/forest_ranger_female/fall.gif",
+              "poster": "/characters/animations/48/forest_ranger_female/fall-0.png",
+              "frames": [
+                "/characters/animations/48/forest_ranger_female/fall-0.png",
+                "/characters/animations/48/forest_ranger_female/fall-1.png",
+                "/characters/animations/48/forest_ranger_female/fall-2.png",
+                "/characters/animations/48/forest_ranger_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "c04ba7097ec7fd171373c10618be1f7012c853adcb9091ff74937bb72b05144e"
+            }
+          ],
+          "sheet": "/characters/animations/48/forest_ranger_female/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/forest_ranger_female/idle.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/idle-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/idle-0.png",
+                "/characters/animations/96/forest_ranger_female/idle-1.png",
+                "/characters/animations/96/forest_ranger_female/idle-2.png",
+                "/characters/animations/96/forest_ranger_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "84ca702e54d5d2b25ffbdace83df3d87b3fb03ccd7533f2c0a4db3af181cd6e6"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/forest_ranger_female/walk.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/walk-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/walk-0.png",
+                "/characters/animations/96/forest_ranger_female/walk-1.png",
+                "/characters/animations/96/forest_ranger_female/walk-2.png",
+                "/characters/animations/96/forest_ranger_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "3157b9861baea0658dcfafa38a2222179868781c5951279014d3487b5d49da31"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/forest_ranger_female/run.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/run-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/run-0.png",
+                "/characters/animations/96/forest_ranger_female/run-1.png",
+                "/characters/animations/96/forest_ranger_female/run-2.png",
+                "/characters/animations/96/forest_ranger_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "c988a88dfd0db2e9125e332a6b1d5b6b246a2041d75063e356f28670073635c8"
+            },
+            {
+              "id": "slash",
+              "label": "射箭",
+              "gif": "/characters/animations/96/forest_ranger_female/slash.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/slash-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/slash-0.png",
+                "/characters/animations/96/forest_ranger_female/slash-1.png",
+                "/characters/animations/96/forest_ranger_female/slash-2.png",
+                "/characters/animations/96/forest_ranger_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "76bd3d8ef51d4bdad25cfa8d6902f100471792eb497a23515a261179a9387456"
+            },
+            {
+              "id": "thrust",
+              "label": "蓄力射擊",
+              "gif": "/characters/animations/96/forest_ranger_female/thrust.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/thrust-0.png",
+                "/characters/animations/96/forest_ranger_female/thrust-1.png",
+                "/characters/animations/96/forest_ranger_female/thrust-2.png",
+                "/characters/animations/96/forest_ranger_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "44ddc3bd31d65a0bfa147588c48d87cb1db80544d98bc118c38b13be54b6fbcc"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/forest_ranger_female/block.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/block-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/block-0.png",
+                "/characters/animations/96/forest_ranger_female/block-1.png",
+                "/characters/animations/96/forest_ranger_female/block-2.png",
+                "/characters/animations/96/forest_ranger_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "a71166712f65f876d433c1fd583f9140f1d5532011fd3cf63fad3a26873c21b8"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/forest_ranger_female/hurt.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/hurt-0.png",
+                "/characters/animations/96/forest_ranger_female/hurt-1.png",
+                "/characters/animations/96/forest_ranger_female/hurt-2.png",
+                "/characters/animations/96/forest_ranger_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "733264089ec7695b55c2a8178b3cbefe5ec0328cfaf809eee151c535a26a6ee2"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/forest_ranger_female/fall.gif",
+              "poster": "/characters/animations/96/forest_ranger_female/fall-0.png",
+              "frames": [
+                "/characters/animations/96/forest_ranger_female/fall-0.png",
+                "/characters/animations/96/forest_ranger_female/fall-1.png",
+                "/characters/animations/96/forest_ranger_female/fall-2.png",
+                "/characters/animations/96/forest_ranger_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "034a44cf41367b386e5d7c34351e8cad0d69a57335fa344f0b853aaa22d4f41b"
+            }
+          ],
+          "sheet": "/characters/animations/96/forest_ranger_female/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "sun_cleric_male",
+      "sourceFile": "generated/animations/sheets/sun_cleric_male.png",
+      "sourceSha256": "9a7681c874eeedcb385fd967f24df00c17333d375114c032de27d8b94eef86c0",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/sun_cleric_male/idle.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/idle-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/idle-0.png",
+                "/characters/animations/48/sun_cleric_male/idle-1.png",
+                "/characters/animations/48/sun_cleric_male/idle-2.png",
+                "/characters/animations/48/sun_cleric_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "92a23248ab5b20eccd9a3f4dffee0239d3e232f4ab4d7808351311f158c49645"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/sun_cleric_male/walk.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/walk-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/walk-0.png",
+                "/characters/animations/48/sun_cleric_male/walk-1.png",
+                "/characters/animations/48/sun_cleric_male/walk-2.png",
+                "/characters/animations/48/sun_cleric_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "ed23a12dff5a475488dfc20dd9580f9f3783ab6209a3d220cc7406f8fd621250"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/sun_cleric_male/run.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/run-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/run-0.png",
+                "/characters/animations/48/sun_cleric_male/run-1.png",
+                "/characters/animations/48/sun_cleric_male/run-2.png",
+                "/characters/animations/48/sun_cleric_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "1739a4a2d9fd12dc82e14547fa34bfe9b668f8e3bdef1275f212eee1b2712f5a"
+            },
+            {
+              "id": "slash",
+              "label": "日光揮擊",
+              "gif": "/characters/animations/48/sun_cleric_male/slash.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/slash-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/slash-0.png",
+                "/characters/animations/48/sun_cleric_male/slash-1.png",
+                "/characters/animations/48/sun_cleric_male/slash-2.png",
+                "/characters/animations/48/sun_cleric_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "75d46683fc14c668c4b34ce8e505e8c7130d6d61bbae225ae178a659fcafdc85"
+            },
+            {
+              "id": "thrust",
+              "label": "日光彈",
+              "gif": "/characters/animations/48/sun_cleric_male/thrust.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/thrust-0.png",
+                "/characters/animations/48/sun_cleric_male/thrust-1.png",
+                "/characters/animations/48/sun_cleric_male/thrust-2.png",
+                "/characters/animations/48/sun_cleric_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "adbd801e27b1e2164f1dafc159cdd90a97ae700cfb4184466dc07b7544e4963e"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/sun_cleric_male/block.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/block-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/block-0.png",
+                "/characters/animations/48/sun_cleric_male/block-1.png",
+                "/characters/animations/48/sun_cleric_male/block-2.png",
+                "/characters/animations/48/sun_cleric_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "cf7e361f45b13c7da85ea204cc02c632d0b749f4fe5c80b4c14d82e55588ff9b"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/sun_cleric_male/hurt.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/hurt-0.png",
+                "/characters/animations/48/sun_cleric_male/hurt-1.png",
+                "/characters/animations/48/sun_cleric_male/hurt-2.png",
+                "/characters/animations/48/sun_cleric_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "aa8dbfb268b50a1df4029baf5498ae1bb73856b2c9da5ef71f5c748b27115a7d"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/sun_cleric_male/fall.gif",
+              "poster": "/characters/animations/48/sun_cleric_male/fall-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_male/fall-0.png",
+                "/characters/animations/48/sun_cleric_male/fall-1.png",
+                "/characters/animations/48/sun_cleric_male/fall-2.png",
+                "/characters/animations/48/sun_cleric_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "d26e7d664958daac58de323d49a745d09e618d205b5ce8bd50ef345c2a136a90"
+            }
+          ],
+          "sheet": "/characters/animations/48/sun_cleric_male/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/sun_cleric_male/idle.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/idle-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/idle-0.png",
+                "/characters/animations/96/sun_cleric_male/idle-1.png",
+                "/characters/animations/96/sun_cleric_male/idle-2.png",
+                "/characters/animations/96/sun_cleric_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "ba23cc80cc6895d0e43d15e242088bba5d1e5a3a3f287bbb816e4418e6160051"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/sun_cleric_male/walk.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/walk-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/walk-0.png",
+                "/characters/animations/96/sun_cleric_male/walk-1.png",
+                "/characters/animations/96/sun_cleric_male/walk-2.png",
+                "/characters/animations/96/sun_cleric_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "a88ccbaec673ed99a3657330b9ef54fc351e88f5375e6431af116059f21a5282"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/sun_cleric_male/run.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/run-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/run-0.png",
+                "/characters/animations/96/sun_cleric_male/run-1.png",
+                "/characters/animations/96/sun_cleric_male/run-2.png",
+                "/characters/animations/96/sun_cleric_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "5e79c006e4aed8a5207da8dd61659f6e8a3e27031e7a1a41b48ba5026111ccbd"
+            },
+            {
+              "id": "slash",
+              "label": "日光揮擊",
+              "gif": "/characters/animations/96/sun_cleric_male/slash.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/slash-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/slash-0.png",
+                "/characters/animations/96/sun_cleric_male/slash-1.png",
+                "/characters/animations/96/sun_cleric_male/slash-2.png",
+                "/characters/animations/96/sun_cleric_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "f71170fa5f0c7e850fa7405e2fa7e823be86904413b6509f0a4bd13de3640af5"
+            },
+            {
+              "id": "thrust",
+              "label": "日光彈",
+              "gif": "/characters/animations/96/sun_cleric_male/thrust.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/thrust-0.png",
+                "/characters/animations/96/sun_cleric_male/thrust-1.png",
+                "/characters/animations/96/sun_cleric_male/thrust-2.png",
+                "/characters/animations/96/sun_cleric_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "334c00d47dc907b1c884b4cfc71a3d2da66e733de588fa8b1c1a3d75315bfa4c"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/sun_cleric_male/block.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/block-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/block-0.png",
+                "/characters/animations/96/sun_cleric_male/block-1.png",
+                "/characters/animations/96/sun_cleric_male/block-2.png",
+                "/characters/animations/96/sun_cleric_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "2000796d3d1439f1f071a593d807f03e3d17a13832f614e3895df765296a2cdd"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/sun_cleric_male/hurt.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/hurt-0.png",
+                "/characters/animations/96/sun_cleric_male/hurt-1.png",
+                "/characters/animations/96/sun_cleric_male/hurt-2.png",
+                "/characters/animations/96/sun_cleric_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "7fbdb4ab81ba65e992349b166e861b6e667aa059c9e2c4d10fa33a754c178969"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/sun_cleric_male/fall.gif",
+              "poster": "/characters/animations/96/sun_cleric_male/fall-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_male/fall-0.png",
+                "/characters/animations/96/sun_cleric_male/fall-1.png",
+                "/characters/animations/96/sun_cleric_male/fall-2.png",
+                "/characters/animations/96/sun_cleric_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "09b3120c4a1b8bf7f11ce1b0549f92d66c1b107963fa9897b3f4d8b15a606fa4"
+            }
+          ],
+          "sheet": "/characters/animations/96/sun_cleric_male/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "sun_cleric_female",
+      "sourceFile": "generated/animations/sheets/sun_cleric_female.png",
+      "sourceSha256": "8203dbaf5f8128f16067af510956ffd9b700e4ab2d1317dddf61e77a58296594",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/sun_cleric_female/idle.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/idle-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/idle-0.png",
+                "/characters/animations/48/sun_cleric_female/idle-1.png",
+                "/characters/animations/48/sun_cleric_female/idle-2.png",
+                "/characters/animations/48/sun_cleric_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "9b327ecda52b353a73b83ca10418385e54b96211165f0ff46da06c5676e50e49"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/sun_cleric_female/walk.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/walk-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/walk-0.png",
+                "/characters/animations/48/sun_cleric_female/walk-1.png",
+                "/characters/animations/48/sun_cleric_female/walk-2.png",
+                "/characters/animations/48/sun_cleric_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "5476cdb6978b78f8dafd76c906605fa3c3479c358a7bed00dd67b1d59aff92d6"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/sun_cleric_female/run.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/run-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/run-0.png",
+                "/characters/animations/48/sun_cleric_female/run-1.png",
+                "/characters/animations/48/sun_cleric_female/run-2.png",
+                "/characters/animations/48/sun_cleric_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "5334d3d383fcc565347f79d10e6a371ae388bc22b8e61d5b8d98265d252b64d2"
+            },
+            {
+              "id": "slash",
+              "label": "日光揮擊",
+              "gif": "/characters/animations/48/sun_cleric_female/slash.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/slash-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/slash-0.png",
+                "/characters/animations/48/sun_cleric_female/slash-1.png",
+                "/characters/animations/48/sun_cleric_female/slash-2.png",
+                "/characters/animations/48/sun_cleric_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "45d3154d13ee59c89105bbcb6c5439cc76faeaf43ede73ae8dddf34a616bb14b"
+            },
+            {
+              "id": "thrust",
+              "label": "日光彈",
+              "gif": "/characters/animations/48/sun_cleric_female/thrust.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/thrust-0.png",
+                "/characters/animations/48/sun_cleric_female/thrust-1.png",
+                "/characters/animations/48/sun_cleric_female/thrust-2.png",
+                "/characters/animations/48/sun_cleric_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "9c1993b45134644ce009891fbc532edb3163fd8d0287db4ea8650eecf2cab9b3"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/sun_cleric_female/block.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/block-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/block-0.png",
+                "/characters/animations/48/sun_cleric_female/block-1.png",
+                "/characters/animations/48/sun_cleric_female/block-2.png",
+                "/characters/animations/48/sun_cleric_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "fa6cd5bdc354d3bb17048633a686af7f65fb58452feef1d0df5eab421359cc48"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/sun_cleric_female/hurt.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/hurt-0.png",
+                "/characters/animations/48/sun_cleric_female/hurt-1.png",
+                "/characters/animations/48/sun_cleric_female/hurt-2.png",
+                "/characters/animations/48/sun_cleric_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "51ffdf124b485b86ee91bfc6607a14716bade3c4a2ac5db5333b370c3c264172"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/sun_cleric_female/fall.gif",
+              "poster": "/characters/animations/48/sun_cleric_female/fall-0.png",
+              "frames": [
+                "/characters/animations/48/sun_cleric_female/fall-0.png",
+                "/characters/animations/48/sun_cleric_female/fall-1.png",
+                "/characters/animations/48/sun_cleric_female/fall-2.png",
+                "/characters/animations/48/sun_cleric_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "abb7cf823743c541f3ecc96abddf589fdf7a3e79c12d5c13e9379a10a766ccdf"
+            }
+          ],
+          "sheet": "/characters/animations/48/sun_cleric_female/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/sun_cleric_female/idle.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/idle-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/idle-0.png",
+                "/characters/animations/96/sun_cleric_female/idle-1.png",
+                "/characters/animations/96/sun_cleric_female/idle-2.png",
+                "/characters/animations/96/sun_cleric_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "c40c643963b9dab5eb1c39014e7150e1925bb6b11f5a20eaa2f6269e5f26e57b"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/sun_cleric_female/walk.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/walk-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/walk-0.png",
+                "/characters/animations/96/sun_cleric_female/walk-1.png",
+                "/characters/animations/96/sun_cleric_female/walk-2.png",
+                "/characters/animations/96/sun_cleric_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "8ad3501dc1ba47899452d97eed2d388d7a911a4d2e8817878e5a476db4dd0388"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/sun_cleric_female/run.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/run-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/run-0.png",
+                "/characters/animations/96/sun_cleric_female/run-1.png",
+                "/characters/animations/96/sun_cleric_female/run-2.png",
+                "/characters/animations/96/sun_cleric_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "1f179d211bec1e8b1cb5f9628e6062338f75ca1c68dc3a9cd108d16e4f9e4bc1"
+            },
+            {
+              "id": "slash",
+              "label": "日光揮擊",
+              "gif": "/characters/animations/96/sun_cleric_female/slash.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/slash-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/slash-0.png",
+                "/characters/animations/96/sun_cleric_female/slash-1.png",
+                "/characters/animations/96/sun_cleric_female/slash-2.png",
+                "/characters/animations/96/sun_cleric_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "f4485d6860d4b37caadcf33b6ec0fe3465b330b37421b1945c4d5300f8674c2b"
+            },
+            {
+              "id": "thrust",
+              "label": "日光彈",
+              "gif": "/characters/animations/96/sun_cleric_female/thrust.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/thrust-0.png",
+                "/characters/animations/96/sun_cleric_female/thrust-1.png",
+                "/characters/animations/96/sun_cleric_female/thrust-2.png",
+                "/characters/animations/96/sun_cleric_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "9f6b5f6a2b05fbb59ee0cb6993e5d2128ae7d85a87ffc085a0fc0443ad8a1753"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/sun_cleric_female/block.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/block-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/block-0.png",
+                "/characters/animations/96/sun_cleric_female/block-1.png",
+                "/characters/animations/96/sun_cleric_female/block-2.png",
+                "/characters/animations/96/sun_cleric_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "caaa0e24563c5e457d7653b9f257509d8649260c99b82eb4b214a50a81b32d7f"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/sun_cleric_female/hurt.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/hurt-0.png",
+                "/characters/animations/96/sun_cleric_female/hurt-1.png",
+                "/characters/animations/96/sun_cleric_female/hurt-2.png",
+                "/characters/animations/96/sun_cleric_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "2a7d3096aae740a2a482421e377b0df2af9e8a847ee88c6623710c871d00dd26"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/sun_cleric_female/fall.gif",
+              "poster": "/characters/animations/96/sun_cleric_female/fall-0.png",
+              "frames": [
+                "/characters/animations/96/sun_cleric_female/fall-0.png",
+                "/characters/animations/96/sun_cleric_female/fall-1.png",
+                "/characters/animations/96/sun_cleric_female/fall-2.png",
+                "/characters/animations/96/sun_cleric_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "e14043b096e655e56afed5e1c35722c3d0296e6edbc283ed0fba1c76245bd00d"
+            }
+          ],
+          "sheet": "/characters/animations/96/sun_cleric_female/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "shadow_rogue_male",
+      "sourceFile": "generated/animations/sheets/shadow_rogue_male.png",
+      "sourceSha256": "fd46f148713cb2590948c1712314e1d5cda41172904b42a6711c4423908d3968",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/shadow_rogue_male/idle.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/idle-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/idle-0.png",
+                "/characters/animations/48/shadow_rogue_male/idle-1.png",
+                "/characters/animations/48/shadow_rogue_male/idle-2.png",
+                "/characters/animations/48/shadow_rogue_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "7244dfed22540c0707aebb2e365d3f321f38d6085d13b6c981fd58f7e67a204c"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/shadow_rogue_male/walk.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/walk-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/walk-0.png",
+                "/characters/animations/48/shadow_rogue_male/walk-1.png",
+                "/characters/animations/48/shadow_rogue_male/walk-2.png",
+                "/characters/animations/48/shadow_rogue_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "8144c2d7cf052dceef882746c9bf73dc8371c823ff4a4f747ea1233d5b44f900"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/shadow_rogue_male/run.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/run-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/run-0.png",
+                "/characters/animations/48/shadow_rogue_male/run-1.png",
+                "/characters/animations/48/shadow_rogue_male/run-2.png",
+                "/characters/animations/48/shadow_rogue_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "49a790583bb67847f336835c8dcd2dc0594730714150390af26d084994d027f7"
+            },
+            {
+              "id": "slash",
+              "label": "雙刃斬",
+              "gif": "/characters/animations/48/shadow_rogue_male/slash.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/slash-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/slash-0.png",
+                "/characters/animations/48/shadow_rogue_male/slash-1.png",
+                "/characters/animations/48/shadow_rogue_male/slash-2.png",
+                "/characters/animations/48/shadow_rogue_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "3d4b39aaafd5602dcab212ff4aedcf2e81d5dab8e463686c4ae2d57fac65e54f"
+            },
+            {
+              "id": "thrust",
+              "label": "匕首突刺",
+              "gif": "/characters/animations/48/shadow_rogue_male/thrust.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/thrust-0.png",
+                "/characters/animations/48/shadow_rogue_male/thrust-1.png",
+                "/characters/animations/48/shadow_rogue_male/thrust-2.png",
+                "/characters/animations/48/shadow_rogue_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "43bfe7b9e09225322e5452cdedb4b1dbdf8ea12e5b6be84724891e4d521f11bc"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/shadow_rogue_male/block.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/block-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/block-0.png",
+                "/characters/animations/48/shadow_rogue_male/block-1.png",
+                "/characters/animations/48/shadow_rogue_male/block-2.png",
+                "/characters/animations/48/shadow_rogue_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "a3be5e0ca15e826dee8da4177ebb20f8ed1b9a0a45a5c5fd2bdf495a86a20f07"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/shadow_rogue_male/hurt.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/hurt-0.png",
+                "/characters/animations/48/shadow_rogue_male/hurt-1.png",
+                "/characters/animations/48/shadow_rogue_male/hurt-2.png",
+                "/characters/animations/48/shadow_rogue_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "3b9dfdabbb6a8b7673e5fd72f6e33b716077772fbd420e02d093687b90c06a00"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/shadow_rogue_male/fall.gif",
+              "poster": "/characters/animations/48/shadow_rogue_male/fall-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_male/fall-0.png",
+                "/characters/animations/48/shadow_rogue_male/fall-1.png",
+                "/characters/animations/48/shadow_rogue_male/fall-2.png",
+                "/characters/animations/48/shadow_rogue_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "fefb342e0a4dcafa24ca34c10041ae032c00c17788401419f8f68869201884cf"
+            }
+          ],
+          "sheet": "/characters/animations/48/shadow_rogue_male/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/shadow_rogue_male/idle.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/idle-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/idle-0.png",
+                "/characters/animations/96/shadow_rogue_male/idle-1.png",
+                "/characters/animations/96/shadow_rogue_male/idle-2.png",
+                "/characters/animations/96/shadow_rogue_male/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "6caa304e25e81e548240dae24a6756743708548a848cd0bc81d0bdac60a32bd0"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/shadow_rogue_male/walk.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/walk-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/walk-0.png",
+                "/characters/animations/96/shadow_rogue_male/walk-1.png",
+                "/characters/animations/96/shadow_rogue_male/walk-2.png",
+                "/characters/animations/96/shadow_rogue_male/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "69b87097eb3d13d5c0da0298d495c316928a38d1468c58e896fb5928f45a8976"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/shadow_rogue_male/run.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/run-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/run-0.png",
+                "/characters/animations/96/shadow_rogue_male/run-1.png",
+                "/characters/animations/96/shadow_rogue_male/run-2.png",
+                "/characters/animations/96/shadow_rogue_male/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "56d84e35a4fe1a62f4178f4289dfe462233e2925a14c5ab03c8aa1c1945be495"
+            },
+            {
+              "id": "slash",
+              "label": "雙刃斬",
+              "gif": "/characters/animations/96/shadow_rogue_male/slash.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/slash-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/slash-0.png",
+                "/characters/animations/96/shadow_rogue_male/slash-1.png",
+                "/characters/animations/96/shadow_rogue_male/slash-2.png",
+                "/characters/animations/96/shadow_rogue_male/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "5cea9f6f9b6f6bf654a1d91e631f1e4229c4fa263dced3670bc56775321fa8ac"
+            },
+            {
+              "id": "thrust",
+              "label": "匕首突刺",
+              "gif": "/characters/animations/96/shadow_rogue_male/thrust.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/thrust-0.png",
+                "/characters/animations/96/shadow_rogue_male/thrust-1.png",
+                "/characters/animations/96/shadow_rogue_male/thrust-2.png",
+                "/characters/animations/96/shadow_rogue_male/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "9115e6489f1329f0f71b60cb2ac30c57c73ef0e03ad014519c3f642a2298a953"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/shadow_rogue_male/block.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/block-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/block-0.png",
+                "/characters/animations/96/shadow_rogue_male/block-1.png",
+                "/characters/animations/96/shadow_rogue_male/block-2.png",
+                "/characters/animations/96/shadow_rogue_male/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "90eb90a5292c2486f696d7c2c84bd9fb71b129790fa8eebb15e45e4023c1a03b"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/shadow_rogue_male/hurt.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/hurt-0.png",
+                "/characters/animations/96/shadow_rogue_male/hurt-1.png",
+                "/characters/animations/96/shadow_rogue_male/hurt-2.png",
+                "/characters/animations/96/shadow_rogue_male/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "e8897386951e95d4c318f63bed940d301684117a2b68bc579efdb339e121b345"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/shadow_rogue_male/fall.gif",
+              "poster": "/characters/animations/96/shadow_rogue_male/fall-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_male/fall-0.png",
+                "/characters/animations/96/shadow_rogue_male/fall-1.png",
+                "/characters/animations/96/shadow_rogue_male/fall-2.png",
+                "/characters/animations/96/shadow_rogue_male/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "16044a29563c732b85a5676585de854e1d89420216fe833d30bc648562ba7138"
+            }
+          ],
+          "sheet": "/characters/animations/96/shadow_rogue_male/sheet.png"
+        }
+      }
+    },
+    {
+      "id": "shadow_rogue_female",
+      "sourceFile": "generated/animations/sheets/shadow_rogue_female.png",
+      "sourceSha256": "5b083d892ec7bf40c77a11d5e5464acfe0faf25045debfbf04ed1b7947c874fd",
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/48/shadow_rogue_female/idle.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/idle-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/idle-0.png",
+                "/characters/animations/48/shadow_rogue_female/idle-1.png",
+                "/characters/animations/48/shadow_rogue_female/idle-2.png",
+                "/characters/animations/48/shadow_rogue_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "f108683caa25dadf9de4ad283b8d67a104c170be93d3fc57e7687e3374eec6a1"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/48/shadow_rogue_female/walk.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/walk-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/walk-0.png",
+                "/characters/animations/48/shadow_rogue_female/walk-1.png",
+                "/characters/animations/48/shadow_rogue_female/walk-2.png",
+                "/characters/animations/48/shadow_rogue_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "1f34a151ed1160077fda2854cc7048d469a5fa65cee620134d546c046a23e382"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/48/shadow_rogue_female/run.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/run-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/run-0.png",
+                "/characters/animations/48/shadow_rogue_female/run-1.png",
+                "/characters/animations/48/shadow_rogue_female/run-2.png",
+                "/characters/animations/48/shadow_rogue_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "06a8a8e41280a4cfc5e85c1d62a0211911f61e9c7a9ea51066b0935bba96018c"
+            },
+            {
+              "id": "slash",
+              "label": "雙刃斬",
+              "gif": "/characters/animations/48/shadow_rogue_female/slash.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/slash-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/slash-0.png",
+                "/characters/animations/48/shadow_rogue_female/slash-1.png",
+                "/characters/animations/48/shadow_rogue_female/slash-2.png",
+                "/characters/animations/48/shadow_rogue_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "38f321dd4425fbfb39fef6579493791a2451e5359c7ab797b4ca4eb6ed25907e"
+            },
+            {
+              "id": "thrust",
+              "label": "匕首突刺",
+              "gif": "/characters/animations/48/shadow_rogue_female/thrust.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/thrust-0.png",
+                "/characters/animations/48/shadow_rogue_female/thrust-1.png",
+                "/characters/animations/48/shadow_rogue_female/thrust-2.png",
+                "/characters/animations/48/shadow_rogue_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "7f5695f0f85e3fbfa42d6494d720923238c275c5d62d4f590a7c043fcf37b418"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/48/shadow_rogue_female/block.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/block-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/block-0.png",
+                "/characters/animations/48/shadow_rogue_female/block-1.png",
+                "/characters/animations/48/shadow_rogue_female/block-2.png",
+                "/characters/animations/48/shadow_rogue_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "a98d576cfaa326a2d44b7580cb5fb9fed67eb5fb88ebcb216df33695e7f897e2"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/48/shadow_rogue_female/hurt.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/hurt-0.png",
+                "/characters/animations/48/shadow_rogue_female/hurt-1.png",
+                "/characters/animations/48/shadow_rogue_female/hurt-2.png",
+                "/characters/animations/48/shadow_rogue_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "04f20d8d37e72f3674d930f68526cfd5892448e899189546ba9c6cf894f9abdc"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/48/shadow_rogue_female/fall.gif",
+              "poster": "/characters/animations/48/shadow_rogue_female/fall-0.png",
+              "frames": [
+                "/characters/animations/48/shadow_rogue_female/fall-0.png",
+                "/characters/animations/48/shadow_rogue_female/fall-1.png",
+                "/characters/animations/48/shadow_rogue_female/fall-2.png",
+                "/characters/animations/48/shadow_rogue_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "5f137078954265ba6afc30629e15a0f1c7280cddabb675a07031fdc18b9c3c41"
+            }
+          ],
+          "sheet": "/characters/animations/48/shadow_rogue_female/sheet.png"
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/characters/animations/96/shadow_rogue_female/idle.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/idle-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/idle-0.png",
+                "/characters/animations/96/shadow_rogue_female/idle-1.png",
+                "/characters/animations/96/shadow_rogue_female/idle-2.png",
+                "/characters/animations/96/shadow_rogue_female/idle-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "d85dc3411ee69ddeb873f768559706528828d612d7154f0d966fac8eab8680bb"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/characters/animations/96/shadow_rogue_female/walk.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/walk-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/walk-0.png",
+                "/characters/animations/96/shadow_rogue_female/walk-1.png",
+                "/characters/animations/96/shadow_rogue_female/walk-2.png",
+                "/characters/animations/96/shadow_rogue_female/walk-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "2c27ef5c755786df7f91b7a69955fde0c47446008c543338774c6aecc93ada53"
+            },
+            {
+              "id": "run",
+              "label": "跑步",
+              "gif": "/characters/animations/96/shadow_rogue_female/run.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/run-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/run-0.png",
+                "/characters/animations/96/shadow_rogue_female/run-1.png",
+                "/characters/animations/96/shadow_rogue_female/run-2.png",
+                "/characters/animations/96/shadow_rogue_female/run-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "ef46d380af951c58e87ee02f6146ae2cd0f7e92a4532271bb560a581c2be09eb"
+            },
+            {
+              "id": "slash",
+              "label": "雙刃斬",
+              "gif": "/characters/animations/96/shadow_rogue_female/slash.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/slash-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/slash-0.png",
+                "/characters/animations/96/shadow_rogue_female/slash-1.png",
+                "/characters/animations/96/shadow_rogue_female/slash-2.png",
+                "/characters/animations/96/shadow_rogue_female/slash-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "d8b9ee833fbaa533de1fb947100dc4e20fcf152738a331feec16f316e0ede9e8"
+            },
+            {
+              "id": "thrust",
+              "label": "匕首突刺",
+              "gif": "/characters/animations/96/shadow_rogue_female/thrust.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/thrust-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/thrust-0.png",
+                "/characters/animations/96/shadow_rogue_female/thrust-1.png",
+                "/characters/animations/96/shadow_rogue_female/thrust-2.png",
+                "/characters/animations/96/shadow_rogue_female/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "30df39368e395e35938293c0b3140cd7c09c9e3b76006dbe66b3f16bd1be7c58"
+            },
+            {
+              "id": "block",
+              "label": "防禦",
+              "gif": "/characters/animations/96/shadow_rogue_female/block.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/block-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/block-0.png",
+                "/characters/animations/96/shadow_rogue_female/block-1.png",
+                "/characters/animations/96/shadow_rogue_female/block-2.png",
+                "/characters/animations/96/shadow_rogue_female/block-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "e6930079f9be95fe5de5ea6168b2388d8f65b462fd236643773181a8f907fd7c"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/characters/animations/96/shadow_rogue_female/hurt.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/hurt-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/hurt-0.png",
+                "/characters/animations/96/shadow_rogue_female/hurt-1.png",
+                "/characters/animations/96/shadow_rogue_female/hurt-2.png",
+                "/characters/animations/96/shadow_rogue_female/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "12fcf3981e013a4b8a5618bc7d34bc5cce82bd07fb3ddd479afa8ed6b7b9445b"
+            },
+            {
+              "id": "fall",
+              "label": "倒地",
+              "gif": "/characters/animations/96/shadow_rogue_female/fall.gif",
+              "poster": "/characters/animations/96/shadow_rogue_female/fall-0.png",
+              "frames": [
+                "/characters/animations/96/shadow_rogue_female/fall-0.png",
+                "/characters/animations/96/shadow_rogue_female/fall-1.png",
+                "/characters/animations/96/shadow_rogue_female/fall-2.png",
+                "/characters/animations/96/shadow_rogue_female/fall-3.png"
+              ],
+              "frameCount": 4,
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "b78e6772b5574c373ef9f505e72708001cf3f874ac79e7dc47163e5f04c55769"
+            }
+          ],
+          "sheet": "/characters/animations/96/shadow_rogue_female/sheet.png"
+        }
+      }
+    }
+  ]
+}

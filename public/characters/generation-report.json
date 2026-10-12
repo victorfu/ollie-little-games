@@ -1,0 +1,462 @@
+{
+  "generator": "Codex built-in imagegen",
+  "model": "not exposed by tool",
+  "variants": [
+    {
+      "id": "ember_knight_male",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        6,
+        2,
+        42,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "ember_knight_male",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        12,
+        4,
+        83,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "ember_knight_female",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        6,
+        2,
+        41,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "ember_knight_female",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        13,
+        4,
+        82,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "martial_artist_male",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        2,
+        38,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "martial_artist_male",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        20,
+        4,
+        75,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "martial_artist_female",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        2,
+        38,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "martial_artist_female",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        20,
+        4,
+        76,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "moon_witch_male",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        5,
+        2,
+        43,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "moon_witch_male",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        4,
+        86,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "moon_witch_female",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        2,
+        2,
+        45,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "moon_witch_female",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        5,
+        4,
+        90,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "forest_ranger_male",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        5,
+        2,
+        42,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "forest_ranger_male",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        4,
+        85,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "forest_ranger_female",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        5,
+        2,
+        43,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "forest_ranger_female",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        4,
+        86,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "sun_cleric_male",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        7,
+        2,
+        40,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "sun_cleric_male",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        15,
+        4,
+        81,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "sun_cleric_female",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        5,
+        2,
+        43,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "sun_cleric_female",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        4,
+        85,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "shadow_rogue_male",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        5,
+        2,
+        43,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "shadow_rogue_male",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        10,
+        4,
+        85,
+        92
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "shadow_rogue_female",
+      "size": [
+        48,
+        48
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        6,
+        2,
+        41,
+        46
+      ],
+      "manualPixelCleanup": false
+    },
+    {
+      "id": "shadow_rogue_female",
+      "size": [
+        96,
+        96
+      ],
+      "colors": 24,
+      "alpha": [
+        0,
+        255
+      ],
+      "bounds": [
+        13,
+        4,
+        82,
+        92
+      ],
+      "manualPixelCleanup": false
+    }
+  ]
+}

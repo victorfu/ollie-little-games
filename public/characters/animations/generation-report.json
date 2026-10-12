@@ -1,0 +1,1437 @@
+{
+  "characters": [
+    {
+      "id": "ember_knight_male",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -118,
+        -222,
+        146,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            41,
+            227
+          ],
+          "mainAreas": [
+            21759,
+            21002,
+            20789,
+            20896
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            247,
+            438
+          ],
+          "mainAreas": [
+            21788,
+            21256,
+            21104,
+            21330
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            464,
+            650
+          ],
+          "mainAreas": [
+            21882,
+            20742,
+            21101,
+            21348
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            663,
+            885
+          ],
+          "mainAreas": [
+            24332,
+            24134,
+            21244,
+            21305
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            912,
+            1101
+          ],
+          "mainAreas": [
+            21723,
+            20705,
+            20065,
+            21256
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1130,
+            1319
+          ],
+          "mainAreas": [
+            21739,
+            21263,
+            19750,
+            21547
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1342,
+            1545
+          ],
+          "mainAreas": [
+            22158,
+            20709,
+            20349,
+            21650
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1559,
+            1742
+          ],
+          "mainAreas": [
+            20951,
+            19678,
+            18431,
+            16144
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ember_knight_female",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -106,
+        -203,
+        141,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            17,
+            219
+          ],
+          "mainAreas": [
+            23291,
+            23703,
+            23740,
+            23648
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            237,
+            437
+          ],
+          "mainAreas": [
+            24293,
+            24092,
+            23641,
+            23550
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            459,
+            641
+          ],
+          "mainAreas": [
+            22966,
+            21679,
+            20820,
+            21758
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            654,
+            856
+          ],
+          "mainAreas": [
+            23974,
+            20810,
+            22368,
+            23019
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            877,
+            1069
+          ],
+          "mainAreas": [
+            23658,
+            21286,
+            22693,
+            22882
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1092,
+            1285
+          ],
+          "mainAreas": [
+            23776,
+            22473,
+            22601,
+            22959
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1303,
+            1498
+          ],
+          "mainAreas": [
+            24198,
+            21962,
+            21841,
+            23714
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1521,
+            1720
+          ],
+          "mainAreas": [
+            24861,
+            20197,
+            18777,
+            14076
+          ]
+        }
+      ]
+    },
+    {
+      "id": "martial_artist_male",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -120,
+        -212,
+        126,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            25,
+            237
+          ],
+          "mainAreas": [
+            22117,
+            22156,
+            22266,
+            21973
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            256,
+            468
+          ],
+          "mainAreas": [
+            20994,
+            19123,
+            20433,
+            18649
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            483,
+            688
+          ],
+          "mainAreas": [
+            21524,
+            21991,
+            20618,
+            21477
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            704,
+            910
+          ],
+          "mainAreas": [
+            21520,
+            23254,
+            27927,
+            21603
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            928,
+            1132
+          ],
+          "mainAreas": [
+            21298,
+            22493,
+            23521,
+            21372
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1148,
+            1352
+          ],
+          "mainAreas": [
+            21306,
+            20364,
+            19862,
+            21298
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1372,
+            1574
+          ],
+          "mainAreas": [
+            21082,
+            19977,
+            17823,
+            21112
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1581,
+            1759
+          ],
+          "mainAreas": [
+            16482,
+            15699,
+            15013,
+            11691
+          ]
+        }
+      ]
+    },
+    {
+      "id": "martial_artist_female",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -108,
+        -203,
+        140,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            22,
+            225
+          ],
+          "mainAreas": [
+            19811,
+            20395,
+            20060,
+            20113
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            240,
+            442
+          ],
+          "mainAreas": [
+            20140,
+            19852,
+            20197,
+            19485
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            459,
+            656
+          ],
+          "mainAreas": [
+            22909,
+            20724,
+            21652,
+            20419
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            681,
+            884
+          ],
+          "mainAreas": [
+            20139,
+            22303,
+            23355,
+            20253
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            902,
+            1104
+          ],
+          "mainAreas": [
+            20186,
+            22480,
+            22768,
+            20119
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1124,
+            1327
+          ],
+          "mainAreas": [
+            20032,
+            19695,
+            18657,
+            20080
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1346,
+            1548
+          ],
+          "mainAreas": [
+            20014,
+            21213,
+            19029,
+            20089
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1564,
+            1755
+          ],
+          "mainAreas": [
+            19266,
+            17107,
+            17424,
+            13948
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moon_witch_male",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -124,
+        -216,
+        128,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            9,
+            212
+          ],
+          "mainAreas": [
+            24246,
+            24322,
+            24069,
+            24190
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            226,
+            436
+          ],
+          "mainAreas": [
+            26383,
+            25855,
+            25747,
+            24754
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            451,
+            658
+          ],
+          "mainAreas": [
+            24628,
+            24613,
+            24316,
+            25133
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            660,
+            876
+          ],
+          "mainAreas": [
+            24712,
+            26240,
+            29267,
+            24058
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            892,
+            1096
+          ],
+          "mainAreas": [
+            24462,
+            24233,
+            26336,
+            23524
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1113,
+            1318
+          ],
+          "mainAreas": [
+            24603,
+            24629,
+            27815,
+            23973
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1336,
+            1539
+          ],
+          "mainAreas": [
+            24338,
+            22794,
+            20731,
+            24161
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1556,
+            1753
+          ],
+          "mainAreas": [
+            23764,
+            20429,
+            17139,
+            14846
+          ]
+        }
+      ]
+    },
+    {
+      "id": "moon_witch_female",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -132,
+        -209,
+        128,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            14,
+            219
+          ],
+          "mainAreas": [
+            24817,
+            24165,
+            24349,
+            24298
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            233,
+            437
+          ],
+          "mainAreas": [
+            23220,
+            23216,
+            23884,
+            22879
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            453,
+            654
+          ],
+          "mainAreas": [
+            24102,
+            22694,
+            23965,
+            23246
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            669,
+            878
+          ],
+          "mainAreas": [
+            25777,
+            25068,
+            29605,
+            24957
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            891,
+            1098
+          ],
+          "mainAreas": [
+            25261,
+            25913,
+            27082,
+            24426
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1109,
+            1316
+          ],
+          "mainAreas": [
+            25811,
+            23744,
+            29533,
+            25030
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1331,
+            1538
+          ],
+          "mainAreas": [
+            25357,
+            23286,
+            23380,
+            25385
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1556,
+            1758
+          ],
+          "mainAreas": [
+            25024,
+            20818,
+            19879,
+            18904
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forest_ranger_male",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -110,
+        -213,
+        135,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            20,
+            212
+          ],
+          "mainAreas": [
+            21466,
+            21071,
+            21154,
+            21100
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            231,
+            444
+          ],
+          "mainAreas": [
+            22733,
+            23504,
+            22772,
+            22697
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            455,
+            662
+          ],
+          "mainAreas": [
+            23655,
+            22331,
+            22263,
+            22328
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            674,
+            879
+          ],
+          "mainAreas": [
+            22064,
+            23707,
+            25054,
+            22187
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            898,
+            1103
+          ],
+          "mainAreas": [
+            22985,
+            24502,
+            24374,
+            21915
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1120,
+            1321
+          ],
+          "mainAreas": [
+            22830,
+            21128,
+            21483,
+            22160
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1337,
+            1543
+          ],
+          "mainAreas": [
+            23938,
+            22846,
+            22650,
+            21705
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1559,
+            1759
+          ],
+          "mainAreas": [
+            22516,
+            20595,
+            18307,
+            16750
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forest_ranger_female",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -119,
+        -205,
+        139,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            30,
+            235
+          ],
+          "mainAreas": [
+            24350,
+            23762,
+            24305,
+            24201
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            250,
+            448
+          ],
+          "mainAreas": [
+            24305,
+            23881,
+            24173,
+            23160
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            464,
+            661
+          ],
+          "mainAreas": [
+            24669,
+            24849,
+            24171,
+            24658
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            677,
+            881
+          ],
+          "mainAreas": [
+            24919,
+            26476,
+            26995,
+            23715
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            900,
+            1102
+          ],
+          "mainAreas": [
+            24920,
+            26491,
+            25500,
+            23777
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1121,
+            1324
+          ],
+          "mainAreas": [
+            25017,
+            22445,
+            22500,
+            24171
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1342,
+            1545
+          ],
+          "mainAreas": [
+            24957,
+            22950,
+            23776,
+            24387
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1561,
+            1756
+          ],
+          "mainAreas": [
+            24391,
+            20130,
+            20690,
+            16144
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sun_cleric_male",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -118,
+        -218,
+        135,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            21,
+            218
+          ],
+          "mainAreas": [
+            21384,
+            21113,
+            21535,
+            20690
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            233,
+            430
+          ],
+          "mainAreas": [
+            20517,
+            20520,
+            19980,
+            20472
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            458,
+            647
+          ],
+          "mainAreas": [
+            22467,
+            20908,
+            21330,
+            21467
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            662,
+            880
+          ],
+          "mainAreas": [
+            21977,
+            19143,
+            25937,
+            20508
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            903,
+            1098
+          ],
+          "mainAreas": [
+            20595,
+            22699,
+            23297,
+            20203
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1118,
+            1317
+          ],
+          "mainAreas": [
+            20364,
+            20103,
+            31942,
+            20278
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1340,
+            1534
+          ],
+          "mainAreas": [
+            20118,
+            20656,
+            18283,
+            20231
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1553,
+            1745
+          ],
+          "mainAreas": [
+            20476,
+            18628,
+            18945,
+            16698
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sun_cleric_female",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -118,
+        -223,
+        158,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            22,
+            214
+          ],
+          "mainAreas": [
+            23443,
+            23119,
+            23314,
+            22954
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            241,
+            435
+          ],
+          "mainAreas": [
+            24652,
+            23824,
+            24436,
+            23423
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            465,
+            659
+          ],
+          "mainAreas": [
+            24765,
+            23477,
+            23214,
+            22494
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            656,
+            879
+          ],
+          "mainAreas": [
+            24335,
+            25169,
+            27001,
+            23128
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            908,
+            1098
+          ],
+          "mainAreas": [
+            23416,
+            22478,
+            24929,
+            23053
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1115,
+            1320
+          ],
+          "mainAreas": [
+            23542,
+            22377,
+            28307,
+            23224
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1350,
+            1540
+          ],
+          "mainAreas": [
+            23743,
+            23017,
+            20484,
+            23187
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1571,
+            1755
+          ],
+          "mainAreas": [
+            22213,
+            19942,
+            18750,
+            17812
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shadow_rogue_male",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -117,
+        -216,
+        137,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            15,
+            231
+          ],
+          "mainAreas": [
+            22452,
+            22475,
+            22539,
+            22243
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            246,
+            452
+          ],
+          "mainAreas": [
+            20797,
+            20116,
+            20993,
+            20481
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            469,
+            660
+          ],
+          "mainAreas": [
+            20472,
+            19758,
+            20420,
+            20438
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            675,
+            881
+          ],
+          "mainAreas": [
+            21312,
+            21443,
+            25552,
+            20978
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            896,
+            1102
+          ],
+          "mainAreas": [
+            21257,
+            22685,
+            20053,
+            20846
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1118,
+            1324
+          ],
+          "mainAreas": [
+            21217,
+            20453,
+            20757,
+            20722
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1340,
+            1546
+          ],
+          "mainAreas": [
+            21295,
+            22970,
+            19671,
+            21328
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1560,
+            1758
+          ],
+          "mainAreas": [
+            19631,
+            18504,
+            16694,
+            14714
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shadow_rogue_female",
+      "sourceSize": [
+        887,
+        1774
+      ],
+      "sharedBounds": [
+        -119,
+        -211,
+        138,
+        0
+      ],
+      "rows": [
+        {
+          "action": "idle",
+          "sourceRow": [
+            26,
+            226
+          ],
+          "mainAreas": [
+            20862,
+            20945,
+            20805,
+            20727
+          ]
+        },
+        {
+          "action": "walk",
+          "sourceRow": [
+            245,
+            445
+          ],
+          "mainAreas": [
+            20445,
+            20086,
+            20096,
+            19612
+          ]
+        },
+        {
+          "action": "run",
+          "sourceRow": [
+            463,
+            653
+          ],
+          "mainAreas": [
+            19330,
+            19199,
+            19734,
+            19926
+          ]
+        },
+        {
+          "action": "slash",
+          "sourceRow": [
+            663,
+            874
+          ],
+          "mainAreas": [
+            20407,
+            20648,
+            23059,
+            20298
+          ]
+        },
+        {
+          "action": "thrust",
+          "sourceRow": [
+            895,
+            1090
+          ],
+          "mainAreas": [
+            20232,
+            20595,
+            20057,
+            19936
+          ]
+        },
+        {
+          "action": "block",
+          "sourceRow": [
+            1110,
+            1308
+          ],
+          "mainAreas": [
+            20590,
+            20176,
+            19890,
+            20411
+          ]
+        },
+        {
+          "action": "hurt",
+          "sourceRow": [
+            1329,
+            1529
+          ],
+          "mainAreas": [
+            20439,
+            21422,
+            18271,
+            20360
+          ]
+        },
+        {
+          "action": "fall",
+          "sourceRow": [
+            1548,
+            1751
+          ],
+          "mainAreas": [
+            21735,
+            19252,
+            17936,
+            14769
+          ]
+        }
+      ]
+    }
+  ],
+  "gifs": 192,
+  "framesPerAction": 4,
+  "colorsPerCharacter": 24,
+  "disposal": 2,
+  "loop": 0
+}

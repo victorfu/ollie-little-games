@@ -1,0 +1,93 @@
+{
+  "version": 7,
+  "generator": "Codex built-in imagegen",
+  "model": null,
+  "classes": [
+    {
+      "id": "ember_knight",
+      "nameEn": "Hearthkeeper",
+      "nameZh": "守火人",
+      "tagline": "熱血、可靠",
+      "summary": "栗棕髮與綠眼，奶白古銅鎧甲搭配暗紅短披風。男女皆採成熟堅定的護衛氣質；右手持劍、左手持火燈盾。",
+      "tags": [
+        "重甲",
+        "近戰",
+        "劍盾"
+      ],
+      "visualIdentity": "栗棕髮與綠眼；男性為成熟下顎與短鬍鬚，女性為杏眼、俐落眉線與成熟橢圓下顎，保留半編髮。"
+    },
+    {
+      "id": "martial_artist",
+      "nameEn": "Stonebreaker",
+      "nameZh": "碎岩者",
+      "tagline": "堅定、俐落",
+      "summary": "小麥膚色、短黑髮與銀色挑染，濃眉和俐落方臉。深靛藍無袖練功服、青綠腰帶與石灰色重拳套，體格健壯。",
+      "tags": [
+        "格鬥",
+        "近戰",
+        "拳套"
+      ],
+      "visualIdentity": "較方的下顎、濃直眉、短黑髮銀挑染、小麥膚色；以健壯輪廓區別守火人。"
+    },
+    {
+      "id": "moon_witch",
+      "nameEn": "Lamplighter",
+      "nameZh": "掌燈人",
+      "tagline": "神祕但親切",
+      "summary": "銀白直髮與細長紫眼，配戴古銅圓框眼鏡。男性留短山羊鬍，女性為俐落齊瀏海；保留梅紫法袍與月牙杖。",
+      "tags": [
+        "法術",
+        "遠程",
+        "月牙杖"
+      ],
+      "visualIdentity": "窄長臉、銀白直髮、半瞇紫眼、圓框眼鏡；男性另有短山羊鬍。"
+    },
+    {
+      "id": "forest_ranger",
+      "nameEn": "Windgleaner",
+      "nameZh": "拾風者",
+      "tagline": "輕巧、敏捷",
+      "summary": "銅紅捲髮、雀斑與上揚眉眼，表情活潑自信。男性有淡紅鬍渣，苔綠兜帽與棕色皮甲搭配木弓箭袋。",
+      "tags": [
+        "輕甲",
+        "遠程",
+        "弓箭"
+      ],
+      "visualIdentity": "銅紅捲髮、鼻頰雀斑、高顴骨與不對稱笑容；男性有鬍渣。"
+    },
+    {
+      "id": "sun_cleric",
+      "nameEn": "Dawnwarden",
+      "nameZh": "晨光使",
+      "tagline": "溫暖、明亮",
+      "summary": "深棕膚色、淡金捲髮與暖棕眼。男性以濃眉、短鬍鬚與沉穩姿態呈現守護者氣質；奶白金邊長袍配日輪杖與聖典。",
+      "tags": [
+        "輔助",
+        "法術",
+        "太陽杖"
+      ],
+      "visualIdentity": "深棕膚色、淡金緊捲髮、較寬鼻型與飽滿嘴唇；男性短鬍鬚、女性圓潤臉頰。"
+    },
+    {
+      "id": "shadow_rogue",
+      "nameEn": "Shadowborrower",
+      "nameZh": "借影人",
+      "tagline": "低重心、敏捷",
+      "summary": "不對稱藍黑短髮、細長銀灰眼與俐落尖臉。圍巾降至頸部露出表情，暗梅紫皮裝搭配雙匕首。",
+      "tags": [
+        "輕甲",
+        "近戰",
+        "雙匕首"
+      ],
+      "visualIdentity": "菱形尖臉、銳利灰眼、不對稱藍黑髮與嘴角微笑；圍巾不再遮臉。"
+    }
+  ],
+  "retiredClasses": [
+    "frost_wolf_knight"
+  ],
+  "artStyle": "Normal storybook fantasy illustrations preserved; cute large-headed chibi HD illustrations and matching 48x48 / 96x96 Q-version pixel sprites",
+  "styleAnchor": "ember_knight_female",
+  "handedness": {
+    "ember_knight": "anatomical right hand sword (viewer left), anatomical left arm shield (viewer right)"
+  }
+}

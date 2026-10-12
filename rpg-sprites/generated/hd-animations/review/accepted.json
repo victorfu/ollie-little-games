@@ -1,0 +1,38 @@
+[
+  {
+    "source": "rpg-sprites/generated/hd-animations/sheets/chibi/forest_ranger_female-1.png",
+    "beforeSha256": "4f635762c08b1c1f1ea62c50c00461a28658ca55ce4787e8c9dcc3e82490bca7",
+    "afterSha256": "31e415f2d9c00e0b6cefd2e755de1adc83934c252251eec7ea3a234bb7c2af1a"
+  },
+  {
+    "source": "rpg-sprites/generated/hd-animations/sheets/original/forest_ranger_female-1.png",
+    "beforeSha256": "85121c1a24fcd05f90327f271c6ace200b230f75ab92231adb6081a8cc521f99",
+    "afterSha256": "5cfd30edf012a8637a504b8c63a219718ede235146b67e088f9197b0391e870f"
+  },
+  {
+    "source": "rpg-sprites/generated/hd-animations/sheets/original/forest_ranger_male-1.png",
+    "beforeSha256": "c9703c315f76d61befb66f5a21ebae1c9324f2b4ccfd8868c177e427d6a37a62",
+    "afterSha256": "9fffd62ef6f941498c5f1f9079ac064bd89e0c26650a887e153f220b503b05f6"
+  },
+  {
+    "source": "rpg-sprites/generated/hd-animations/sheets/original/forest_ranger_male-2.png",
+    "beforeSha256": "3aa2ffede00191f45a684adb1feeed1eb4b914e8fe651448a5d4fc7e9251c0d8",
+    "afterSha256": "04fa66b7717a6fd8793b17446905819cd4ce2d919364b49d1526efe8a728a0e8"
+  },
+  {
+    "source": "rpg-sprites/generated/hd-animations/sheets/original/ember_knight_female-2.png",
+    "beforeSha256": "f20977c1a0aedc3d18cf66a48799eba6c4d0cb06456163fad1044214be2665b7",
+    "afterSha256": "dce15f301964f683ebb19402d0da0f2b4c2cf6a3be221043bf96a2376bbf88d7"
+  },
+  {
+    "source": "rpg-sprites/generated/hd-animations/sheets/chibi/moon_witch_female-1.png",
+    "beforeSha256": "030d973c67da144aa5314b3483b01d1bed3bee4a7e9b8e6ef854b71ab65ff580",
+    "afterSha256": "a2224cc4a55fe05178bfa518e3e4b3b53c8dcc66e76507346cf55c0b38336574",
+    "supersededAfterSha256": "f82ef3c17a81070d2159fc22e862476a9d93ec3b4cf3de0851e8620e2ea22a6a",
+    "revision": 2,
+    "promptFile": "prompts/chibi-moon_witch_female-run-v2.txt",
+    "inputFile": "inputs/moon_witch_female-chibi-run-v2.png",
+    "rowGap": 40,
+    "baseFile": "inputs/moon_witch_female-chibi-before-v2.png"
+  }
+]

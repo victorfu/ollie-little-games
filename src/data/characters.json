@@ -1,0 +1,1310 @@
+[
+  {
+    "id": "ember_knight_male",
+    "classId": "ember_knight",
+    "gender": "male",
+    "genderLabel": "男",
+    "nameEn": "Hearthkeeper",
+    "nameZh": "守火人",
+    "tagline": "熱血、可靠",
+    "summary": "栗棕髮與綠眼，奶白古銅鎧甲搭配暗紅短披風。男女皆採成熟堅定的護衛氣質；右手持劍、左手持火燈盾。",
+    "tags": [
+      "重甲",
+      "近戰",
+      "劍盾"
+    ],
+    "image": "/characters/ember_knight_male.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/ember_knight_male.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#3e0d2a",
+        "#392e32",
+        "#5f3330",
+        "#4e454c",
+        "#894e40",
+        "#c83839",
+        "#eb4a0c",
+        "#a15f47",
+        "#73a04b",
+        "#f35344",
+        "#be785a",
+        "#d38d38",
+        "#a67e7b",
+        "#fda203",
+        "#adcd63",
+        "#f4b349",
+        "#a7a2a8",
+        "#eb9f78",
+        "#fbd163",
+        "#f9b18c",
+        "#fcd0ac",
+        "#dfd4d1",
+        "#fcf39c",
+        "#fbf4ed"
+      ],
+      "sourceFile": "generated/masters/chibi/ember_knight_male.png",
+      "sourceSha256": "bfbb1d5f5be165d12b93878d75c829eb05314a41952b04b402cab49f09fd30ee",
+      "sha256": "fa680e8cd43bc80119589cb70d83305ac795bd24a7b92cf69ef9ba621c7c1f9c"
+    },
+    "chibiImage": "/characters/chibi/ember_knight_male.png",
+    "chibiSize": [
+      1199,
+      1312
+    ],
+    "chibiSourceFile": "generated/chibi/ember_knight_male.png",
+    "chibiSha256": "4f629d9b7c39cfb0afb8aa70b6184f97157396cceb9872e95fcd399336445141",
+    "originalImage": "/characters/originals/ember_knight_male.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/ember_knight_male.png",
+    "originalSha256": "38d03c4d0bca4bb06cee4cb3673ff1fedcea1a94b58b06b4db7369e9e9c3ec05",
+    "colors": [
+      "#3e0d2a",
+      "#492d2f",
+      "#4f454d",
+      "#714037",
+      "#ac2632",
+      "#935644",
+      "#e83c0a",
+      "#ac682c",
+      "#ce3a3a",
+      "#6a9647",
+      "#f77902",
+      "#84ac4e",
+      "#f35444",
+      "#ce8936",
+      "#be785a",
+      "#f3b249",
+      "#a5a1a9",
+      "#b8cc6d",
+      "#eda37d",
+      "#fad266",
+      "#fcd1ac",
+      "#dfd6d3",
+      "#fcfab2",
+      "#fcf5ee"
+    ],
+    "sourceFile": "generated/masters/chibi/ember_knight_male.png",
+    "sourceSha256": "bfbb1d5f5be165d12b93878d75c829eb05314a41952b04b402cab49f09fd30ee",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "bacda339d9067951466d940934cbca52451f0546121c6b47fa708a6dfa54bd6d"
+  },
+  {
+    "id": "ember_knight_female",
+    "classId": "ember_knight",
+    "gender": "female",
+    "genderLabel": "女",
+    "nameEn": "Hearthkeeper",
+    "nameZh": "守火人",
+    "tagline": "熱血、可靠",
+    "summary": "栗棕髮與綠眼，奶白古銅鎧甲搭配暗紅短披風。男女皆採成熟堅定的護衛氣質；右手持劍、左手持火燈盾。",
+    "tags": [
+      "重甲",
+      "近戰",
+      "劍盾"
+    ],
+    "image": "/characters/ember_knight_female.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/ember_knight_female.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#3c0728",
+        "#312028",
+        "#5c2929",
+        "#483c47",
+        "#376933",
+        "#763c35",
+        "#574b54",
+        "#b2490d",
+        "#955241",
+        "#cb2d38",
+        "#549848",
+        "#c28236",
+        "#fb7e07",
+        "#be7256",
+        "#fa5045",
+        "#7dbc57",
+        "#918e90",
+        "#f2b244",
+        "#ed9d78",
+        "#c8e274",
+        "#c4bab9",
+        "#fbd669",
+        "#fbdfc5",
+        "#f3eeea"
+      ],
+      "sourceFile": "generated/masters/chibi/ember_knight_female.png",
+      "sourceSha256": "24622e9aa3315edeb8e159fcc56ad25f29f5c52e0367be4423243df5a06ad2e2",
+      "sha256": "d971720ab20f667b637b813dd7596e873fcfd4a49388c770db39b1c0802ae05b"
+    },
+    "chibiImage": "/characters/chibi/ember_knight_female.png",
+    "chibiSize": [
+      1145,
+      1374
+    ],
+    "chibiSourceFile": "generated/chibi/ember_knight_female.png",
+    "chibiSha256": "45b19df3720831384e5053a09d631c9ea6976974aa85e9f2f38312359d90a087",
+    "originalImage": "/characters/originals/ember_knight_female.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/ember_knight_female.png",
+    "originalSha256": "f37af82f3ab8d0cbfa478aaa25a742a214b8488e58130a1cb3da2deadc5a9560",
+    "colors": [
+      "#3b0827",
+      "#33242b",
+      "#662e2b",
+      "#544751",
+      "#9c551d",
+      "#8f4e3e",
+      "#cc2f39",
+      "#b06947",
+      "#fd6e03",
+      "#78b756",
+      "#bf7357",
+      "#f85045",
+      "#918f90",
+      "#fcbb0f",
+      "#edab40",
+      "#ea9872",
+      "#fac554",
+      "#c3b2aa",
+      "#c8e276",
+      "#fabba0",
+      "#fce47b",
+      "#e5dedd",
+      "#fce2c9",
+      "#fbf8f3"
+    ],
+    "sourceFile": "generated/masters/chibi/ember_knight_female.png",
+    "sourceSha256": "24622e9aa3315edeb8e159fcc56ad25f29f5c52e0367be4423243df5a06ad2e2",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "9aa006b0e024cc72d69d3a66cd4a84f5b9c14ac5997d5e39606f1e0d253e6a1e"
+  },
+  {
+    "id": "martial_artist_male",
+    "classId": "martial_artist",
+    "gender": "male",
+    "genderLabel": "男",
+    "nameEn": "Stonebreaker",
+    "nameZh": "碎岩者",
+    "tagline": "堅定、俐落",
+    "summary": "小麥膚色、短黑髮與銀色挑染，濃眉和俐落方臉。深靛藍無袖練功服、青綠腰帶與石灰色重拳套，體格健壯。",
+    "tags": [
+      "格鬥",
+      "近戰",
+      "拳套"
+    ],
+    "image": "/characters/martial_artist_male.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/martial_artist_male.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#350825",
+        "#3d1d2b",
+        "#2f204e",
+        "#4a343a",
+        "#20585b",
+        "#74362f",
+        "#3e376e",
+        "#685154",
+        "#2c687d",
+        "#524f8d",
+        "#338085",
+        "#ab5d40",
+        "#82696a",
+        "#3f97a3",
+        "#de8049",
+        "#a98c7d",
+        "#5abaa0",
+        "#c29169",
+        "#ef995b",
+        "#c8a993",
+        "#fcba78",
+        "#d9c2b7",
+        "#f9e3ca",
+        "#fcf3ed"
+      ],
+      "sourceFile": "generated/masters/chibi/martial_artist_male.png",
+      "sourceSha256": "ea3fb4e018c6cee225d96d682089a972b7ad2409466183d9eb4459dd4394dba0",
+      "sha256": "bb70e807e1890c0c9c0ddb2139d45f045205a7b46ad3b20ecc90ccba8189326b"
+    },
+    "chibiImage": "/characters/chibi/martial_artist_male.png",
+    "chibiSize": [
+      1024,
+      1536
+    ],
+    "chibiSourceFile": "generated/chibi/martial_artist_male.png",
+    "chibiSha256": "916ac14ad0da689ddb2448bc9ccbe4b02700229364ef651c1093b52d9f557bb3",
+    "originalImage": "/characters/originals/martial_artist_male.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/martial_artist_male.png",
+    "originalSha256": "afe296628d17504045c1d301dee1fabffb2d2f94d1dfb81438559388f97462dc",
+    "colors": [
+      "#360826",
+      "#3b1e29",
+      "#292e56",
+      "#49353a",
+      "#623030",
+      "#8c3726",
+      "#403973",
+      "#246367",
+      "#685154",
+      "#2f7085",
+      "#54508e",
+      "#9b5a42",
+      "#816869",
+      "#3e96a3",
+      "#a08177",
+      "#d87a46",
+      "#50b99e",
+      "#ba9474",
+      "#72c2ab",
+      "#ed975c",
+      "#ccb19e",
+      "#fcb978",
+      "#f5dfc7",
+      "#fdf1e2"
+    ],
+    "sourceFile": "generated/masters/chibi/martial_artist_male.png",
+    "sourceSha256": "ea3fb4e018c6cee225d96d682089a972b7ad2409466183d9eb4459dd4394dba0",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "a10bce114f4b373e72e3e77ee99abd512667c35c0b5032520b6b66b2bacf7bdf"
+  },
+  {
+    "id": "martial_artist_female",
+    "classId": "martial_artist",
+    "gender": "female",
+    "genderLabel": "女",
+    "nameEn": "Stonebreaker",
+    "nameZh": "碎岩者",
+    "tagline": "堅定、俐落",
+    "summary": "小麥膚色、短黑髮與銀色挑染，濃眉和俐落方臉。深靛藍無袖練功服、青綠腰帶與石灰色重拳套，體格健壯。",
+    "tags": [
+      "格鬥",
+      "近戰",
+      "拳套"
+    ],
+    "image": "/characters/martial_artist_female.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/martial_artist_female.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#310827",
+        "#34172d",
+        "#552b29",
+        "#463640",
+        "#794032",
+        "#424275",
+        "#665157",
+        "#377777",
+        "#a75c22",
+        "#555894",
+        "#a76b52",
+        "#61ae6e",
+        "#8f7876",
+        "#d18b21",
+        "#52a5a1",
+        "#df9060",
+        "#af9a93",
+        "#f4a571",
+        "#fbd24a",
+        "#c5b0a8",
+        "#aff094",
+        "#fcc38a",
+        "#ecdcd2",
+        "#fcfbfa"
+      ],
+      "sourceFile": "generated/masters/chibi/martial_artist_female.png",
+      "sourceSha256": "5ece5a82af5ba23ee9c3f79dca79f9f365716b1a1953c62c7491c21a62b20ef1",
+      "sha256": "c77331e9f2de34fec345048ad4b082ba7b8d35ae7e6eeb167af6bf95719b7517"
+    },
+    "chibiImage": "/characters/chibi/martial_artist_female.png",
+    "chibiSize": [
+      1024,
+      1536
+    ],
+    "chibiSourceFile": "generated/chibi/martial_artist_female.png",
+    "chibiSha256": "08af60799785e9826d852cb37501790eae9dd15973f94e3a2095bab69de31fc3",
+    "originalImage": "/characters/originals/martial_artist_female.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/martial_artist_female.png",
+    "originalSha256": "2f9c7a7ad82580490d5f10fa4c0f9c8512547d14c51fb5d5c3252ba5c98e55fb",
+    "colors": [
+      "#310c28",
+      "#27413c",
+      "#46333e",
+      "#7a402d",
+      "#434174",
+      "#2f6a70",
+      "#655056",
+      "#ab621b",
+      "#489962",
+      "#575a96",
+      "#3d8688",
+      "#806c6b",
+      "#b66542",
+      "#53a5a1",
+      "#e09d27",
+      "#a8928c",
+      "#ec9f6a",
+      "#bfa9a2",
+      "#fcd24a",
+      "#bbef90",
+      "#fcc087",
+      "#fbcc92",
+      "#ebd8cc",
+      "#f8f4f2"
+    ],
+    "sourceFile": "generated/masters/chibi/martial_artist_female.png",
+    "sourceSha256": "5ece5a82af5ba23ee9c3f79dca79f9f365716b1a1953c62c7491c21a62b20ef1",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "fccbf5002ed813c4f18beb5594c6d6956618cf3954089bba067e723d3ba41db8"
+  },
+  {
+    "id": "moon_witch_male",
+    "classId": "moon_witch",
+    "gender": "male",
+    "genderLabel": "男",
+    "nameEn": "Lamplighter",
+    "nameZh": "掌燈人",
+    "tagline": "神祕但親切",
+    "summary": "銀白直髮與細長紫眼，配戴古銅圓框眼鏡。男性留短山羊鬍，女性為俐落齊瀏海；保留梅紫法袍與月牙杖。",
+    "tags": [
+      "法術",
+      "遠程",
+      "月牙杖"
+    ],
+    "image": "/characters/moon_witch_male.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/moon_witch_male.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#350529",
+        "#491c2e",
+        "#0908b1",
+        "#552b51",
+        "#794031",
+        "#7b4369",
+        "#223bd9",
+        "#995d43",
+        "#b87346",
+        "#8b47aa",
+        "#976d81",
+        "#5561d3",
+        "#e39c37",
+        "#4f7efb",
+        "#d69662",
+        "#b584a0",
+        "#66a9fc",
+        "#f9c257",
+        "#81d0fb",
+        "#fbd181",
+        "#d2bac4",
+        "#fae5c8",
+        "#c3edfb",
+        "#faf4ec"
+      ],
+      "sourceFile": "generated/masters/chibi/moon_witch_male.png",
+      "sourceSha256": "81f3551cd780a3f8b730e980c596005eebe8888d24fdda293e48f4fd89c3a1cd",
+      "sha256": "2ff220664d8aa1af076f3449ace73a5b67352a30af909b77cb7954be65418cdb"
+    },
+    "chibiImage": "/characters/chibi/moon_witch_male.png",
+    "chibiSize": [
+      1024,
+      1536
+    ],
+    "chibiSourceFile": "generated/chibi/moon_witch_male.png",
+    "chibiSha256": "b196b36c94faf7ce0fd061510796197ad25c6de6330bc0558d186a2b56c6c46f",
+    "originalImage": "/characters/originals/moon_witch_male.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/moon_witch_male.png",
+    "originalSha256": "460aa7ed81f799c24e7d9ac52efc3c6286a8aa540a8d2f93d775093ce336a3ea",
+    "colors": [
+      "#370729",
+      "#4e244d",
+      "#673228",
+      "#050bb9",
+      "#623454",
+      "#645765",
+      "#7e456b",
+      "#97593e",
+      "#3245ca",
+      "#b87551",
+      "#a35dbb",
+      "#df9946",
+      "#af7d9c",
+      "#558efc",
+      "#e1a976",
+      "#fac251",
+      "#70b7fd",
+      "#c7b2bd",
+      "#fbd181",
+      "#e3c7c4",
+      "#9aeafc",
+      "#fce7ca",
+      "#d8ebfc",
+      "#fbf4ec"
+    ],
+    "sourceFile": "generated/masters/chibi/moon_witch_male.png",
+    "sourceSha256": "81f3551cd780a3f8b730e980c596005eebe8888d24fdda293e48f4fd89c3a1cd",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "3eda744472801abd5bb53c218a18c5dd3c771030a25f1bc319c8579945b2bc9f"
+  },
+  {
+    "id": "moon_witch_female",
+    "classId": "moon_witch",
+    "gender": "female",
+    "genderLabel": "女",
+    "nameEn": "Lamplighter",
+    "nameZh": "掌燈人",
+    "tagline": "神祕但親切",
+    "summary": "銀白直髮與細長紫眼，配戴古銅圓框眼鏡。男性留短山羊鬍，女性為俐落齊瀏海；保留梅紫法袍與月牙杖。",
+    "tags": [
+      "法術",
+      "遠程",
+      "月牙杖"
+    ],
+    "image": "/characters/moon_witch_female.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/moon_witch_female.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#421231",
+        "#442961",
+        "#5a2c4d",
+        "#82423a",
+        "#31329e",
+        "#7c416c",
+        "#5f27af",
+        "#a55d3e",
+        "#b36e5e",
+        "#cc8142",
+        "#4769e0",
+        "#7f39e0",
+        "#a28094",
+        "#5882ec",
+        "#e29a52",
+        "#be9ba1",
+        "#f7bc67",
+        "#d387cf",
+        "#d2bdc0",
+        "#fcde84",
+        "#f3c8a9",
+        "#efe1e1",
+        "#fce8d1",
+        "#f7f6f0"
+      ],
+      "sourceFile": "generated/masters/chibi/moon_witch_female.png",
+      "sourceSha256": "19ef34fe72b008aa182f16acf3936c5cae819e2ee21babf33cc66ec2fb594d98",
+      "sha256": "a1a1a6b0ab21cf964d43143f5071056ea774ecf46d1e198f23c3a7eeec79ebf5"
+    },
+    "chibiImage": "/characters/chibi/moon_witch_female.png",
+    "chibiSize": [
+      1241,
+      1268
+    ],
+    "chibiSourceFile": "generated/chibi/moon_witch_female.png",
+    "chibiSha256": "504311f40dce4c54df52c5a20f61691f2057587c241348b5363965c6d3332c5a",
+    "originalImage": "/characters/originals/moon_witch_female.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/moon_witch_female.png",
+    "originalSha256": "07283285e89c147d46428f1cafeccb1d0d4055f447d2016ebce48fd4e080190e",
+    "colors": [
+      "#3f0f30",
+      "#4f203b",
+      "#40225e",
+      "#733732",
+      "#613456",
+      "#8f4c40",
+      "#7e416e",
+      "#b0673e",
+      "#4360d9",
+      "#9952a3",
+      "#547ceb",
+      "#dd944c",
+      "#d18b6e",
+      "#ad8c9a",
+      "#bb6dbe",
+      "#c9a7a7",
+      "#f7bc66",
+      "#d5c1c4",
+      "#fcdb84",
+      "#f0caac",
+      "#f7b7eb",
+      "#f4e4da",
+      "#ddeffc",
+      "#fbf5ec"
+    ],
+    "sourceFile": "generated/masters/chibi/moon_witch_female.png",
+    "sourceSha256": "19ef34fe72b008aa182f16acf3936c5cae819e2ee21babf33cc66ec2fb594d98",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "c354d8f5b1b27a1556d9f0abd30eb7fcfab51b26b248b96f916a463f811a7141"
+  },
+  {
+    "id": "forest_ranger_male",
+    "classId": "forest_ranger",
+    "gender": "male",
+    "genderLabel": "男",
+    "nameEn": "Windgleaner",
+    "nameZh": "拾風者",
+    "tagline": "輕巧、敏捷",
+    "summary": "銅紅捲髮、雀斑與上揚眉眼，表情活潑自信。男性有淡紅鬍渣，苔綠兜帽與棕色皮甲搭配木弓箭袋。",
+    "tags": [
+      "輕甲",
+      "遠程",
+      "弓箭"
+    ],
+    "image": "/characters/forest_ranger_male.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/forest_ranger_male.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#350928",
+        "#432229",
+        "#3d4b3a",
+        "#603532",
+        "#8c281d",
+        "#525e44",
+        "#926213",
+        "#834e3e",
+        "#677d4e",
+        "#c4442a",
+        "#9b6049",
+        "#83975d",
+        "#ec663f",
+        "#cc934b",
+        "#a0ab67",
+        "#f88c5a",
+        "#ecb65c",
+        "#d6b47b",
+        "#f9a67d",
+        "#d2b1a8",
+        "#f9cb6d",
+        "#fbcf8a",
+        "#faccab",
+        "#fbf1e6"
+      ],
+      "sourceFile": "generated/masters/chibi/forest_ranger_male.png",
+      "sourceSha256": "dc30fe740e5c9d5c33dedb05417960b0f62e77b43a86709c6fdee2408b91723c",
+      "sha256": "bea891cae91cb3eab2ea7b406011e6e6072885c13dc53b176308c7c6bd93104c"
+    },
+    "chibiImage": "/characters/chibi/forest_ranger_male.png",
+    "chibiSize": [
+      1024,
+      1536
+    ],
+    "chibiSourceFile": "generated/chibi/forest_ranger_male.png",
+    "chibiSha256": "941aee3639e680cbfd42a8d30d12471edcf598f928517e5e149e40b6d1cec0c0",
+    "originalImage": "/characters/originals/forest_ranger_male.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/forest_ranger_male.png",
+    "originalSha256": "fbccf3818c019db3e1b247a212945c436e108a8d51a631e58e8f49c9113378e6",
+    "colors": [
+      "#360928",
+      "#2f372e",
+      "#57312f",
+      "#8d291d",
+      "#495741",
+      "#926215",
+      "#814d3d",
+      "#65794d",
+      "#bf432a",
+      "#9a5e48",
+      "#778c57",
+      "#ec653d",
+      "#8ca162",
+      "#cc8e4b",
+      "#f78c5a",
+      "#d3b17a",
+      "#b9a2a7",
+      "#f2be60",
+      "#fba47c",
+      "#fbd284",
+      "#fccca7",
+      "#edcdc3",
+      "#fdf2e4",
+      "#fdfbf8"
+    ],
+    "sourceFile": "generated/masters/chibi/forest_ranger_male.png",
+    "sourceSha256": "dc30fe740e5c9d5c33dedb05417960b0f62e77b43a86709c6fdee2408b91723c",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "718de954634797bf44d385fbdac6059ae789506729b577595f925bf7fff40891"
+  },
+  {
+    "id": "forest_ranger_female",
+    "classId": "forest_ranger",
+    "gender": "female",
+    "genderLabel": "女",
+    "nameEn": "Windgleaner",
+    "nameZh": "拾風者",
+    "tagline": "輕巧、敏捷",
+    "summary": "銅紅捲髮、雀斑與上揚眉眼，表情活潑自信。男性有淡紅鬍渣，苔綠兜帽與棕色皮甲搭配木弓箭袋。",
+    "tags": [
+      "輕甲",
+      "遠程",
+      "弓箭"
+    ],
+    "image": "/characters/forest_ranger_female.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/forest_ranger_female.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#3e1125",
+        "#582929",
+        "#872926",
+        "#545a3d",
+        "#7a443e",
+        "#a44939",
+        "#788051",
+        "#d7573c",
+        "#899359",
+        "#bc7843",
+        "#9e7572",
+        "#9aa069",
+        "#f5744e",
+        "#dd8e5c",
+        "#e8a23f",
+        "#bace5b",
+        "#d4b579",
+        "#fbcb60",
+        "#fbb191",
+        "#e0c8b7",
+        "#fbd990",
+        "#fcd6ba",
+        "#f4e3d2",
+        "#faf2ea"
+      ],
+      "sourceFile": "generated/masters/chibi/forest_ranger_female.png",
+      "sourceSha256": "29192abdf167c70eb90c86fe2c668bf072bffbf8a24e8fbb47a862e5d3b7de19",
+      "sha256": "e8fb5c1b1daf0d8a579230c2498b9a5d305dce66ac6035087e2616114fb70d20"
+    },
+    "chibiImage": "/characters/chibi/forest_ranger_female.png",
+    "chibiSize": [
+      1024,
+      1536
+    ],
+    "chibiSourceFile": "generated/chibi/forest_ranger_female.png",
+    "chibiSha256": "b175a00461549b0570f0ed2e7f9b106acc2cf137b4cdb4e0d994764908d9ebb1",
+    "originalImage": "/characters/originals/forest_ranger_female.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/forest_ranger_female.png",
+    "originalSha256": "f47e265a00065ee52c848f3c50210a50124a52fe7e9a60614c20868a6c0cf130",
+    "colors": [
+      "#3f1126",
+      "#353524",
+      "#5c2326",
+      "#812a26",
+      "#5b5141",
+      "#89493d",
+      "#aa382f",
+      "#a35c43",
+      "#788051",
+      "#d5563c",
+      "#c37e44",
+      "#969d62",
+      "#f5744e",
+      "#e0954e",
+      "#bb958d",
+      "#bdd25c",
+      "#d5ba76",
+      "#fccb60",
+      "#faae8f",
+      "#fbc1a4",
+      "#e0c9ba",
+      "#fbd890",
+      "#fcd9bc",
+      "#f9efe3"
+    ],
+    "sourceFile": "generated/masters/chibi/forest_ranger_female.png",
+    "sourceSha256": "29192abdf167c70eb90c86fe2c668bf072bffbf8a24e8fbb47a862e5d3b7de19",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "f17a039f148b87087fe7c00e2be6501bdcc4c65943e9f47510681ac2d0658c1b"
+  },
+  {
+    "id": "sun_cleric_male",
+    "classId": "sun_cleric",
+    "gender": "male",
+    "genderLabel": "男",
+    "nameEn": "Dawnwarden",
+    "nameZh": "晨光使",
+    "tagline": "溫暖、明亮",
+    "summary": "深棕膚色、淡金捲髮與暖棕眼。男性以濃眉、短鬍鬚與沉穩姿態呈現守護者氣質；奶白金邊長袍配日輪杖與聖典。",
+    "tags": [
+      "輔助",
+      "法術",
+      "太陽杖"
+    ],
+    "image": "/characters/sun_cleric_male.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/sun_cleric_male.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#330521",
+        "#2b183e",
+        "#58282b",
+        "#303d76",
+        "#734240",
+        "#394a8b",
+        "#994e36",
+        "#1f47b8",
+        "#795a69",
+        "#4b61a8",
+        "#ca6e26",
+        "#b36c46",
+        "#2675ef",
+        "#9b7f7d",
+        "#4d7ae1",
+        "#ec9b35",
+        "#2babf2",
+        "#df8f5a",
+        "#fac558",
+        "#c6aca9",
+        "#43e0fc",
+        "#fcd481",
+        "#efdaba",
+        "#fcf4e9"
+      ],
+      "sourceFile": "generated/masters/chibi/sun_cleric_male.png",
+      "sourceSha256": "684d26d43352f465421396ff1bd155a711a3f34e8c6edccf604f9a3bf2e1dd05",
+      "sha256": "60c19db7b4b2f4d93bea8375bc579e426c0b88498cdcf5193b15ac886cbd86e7"
+    },
+    "chibiImage": "/characters/chibi/sun_cleric_male.png",
+    "chibiSize": [
+      1024,
+      1536
+    ],
+    "chibiSourceFile": "generated/chibi/sun_cleric_male.png",
+    "chibiSha256": "8fdcf9ad15ef3e7a6933b284491a768b6b9f27992b32a8e1a2e7f1af20ebd572",
+    "originalImage": "/characters/originals/sun_cleric_male.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/sun_cleric_male.png",
+    "originalSha256": "67e3afaaba999a7cae923b063db50e4b48e1fa04f604d309e748e855cffaf65b",
+    "colors": [
+      "#2f0320",
+      "#3e1026",
+      "#292553",
+      "#5c2d32",
+      "#203483",
+      "#35437e",
+      "#9b4722",
+      "#7e4841",
+      "#214eba",
+      "#a45a3f",
+      "#815e62",
+      "#4b61a9",
+      "#c0794c",
+      "#2874ed",
+      "#e48a2b",
+      "#e08f59",
+      "#40b0f1",
+      "#b99d98",
+      "#fcc64f",
+      "#f6c269",
+      "#fcd37f",
+      "#e4cec8",
+      "#fdeda2",
+      "#fcf4e8"
+    ],
+    "sourceFile": "generated/masters/chibi/sun_cleric_male.png",
+    "sourceSha256": "684d26d43352f465421396ff1bd155a711a3f34e8c6edccf604f9a3bf2e1dd05",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "8627072dae6d4ab445f43b53d591cce2ea921700d72ce183e1e42efd89293d70"
+  },
+  {
+    "id": "sun_cleric_female",
+    "classId": "sun_cleric",
+    "gender": "female",
+    "genderLabel": "女",
+    "nameEn": "Dawnwarden",
+    "nameZh": "晨光使",
+    "tagline": "溫暖、明亮",
+    "summary": "深棕膚色、淡金捲髮與暖棕眼。男性以濃眉、短鬍鬚與沉穩姿態呈現守護者氣質；奶白金邊長袍配日輪杖與聖典。",
+    "tags": [
+      "輔助",
+      "法術",
+      "太陽杖"
+    ],
+    "image": "/characters/sun_cleric_female.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/sun_cleric_female.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#350728",
+        "#401031",
+        "#312b5b",
+        "#632d2f",
+        "#884531",
+        "#40487d",
+        "#a65938",
+        "#846269",
+        "#52649c",
+        "#c27847",
+        "#667db3",
+        "#3e72f7",
+        "#d7875c",
+        "#f19b31",
+        "#a59598",
+        "#4ca2f5",
+        "#e6a46a",
+        "#fcc552",
+        "#60d6fe",
+        "#fcd66e",
+        "#fbd390",
+        "#e9d9cf",
+        "#fbecad",
+        "#fcf6eb"
+      ],
+      "sourceFile": "generated/masters/chibi/sun_cleric_female.png",
+      "sourceSha256": "8829a7b369768de04b4fba699db739a517a865a89c1b2e3c92515e2cbdbc23d5",
+      "sha256": "acfcbee8cbda48690ed7b856d0f4895818b7fd91af88618b23a657c3d2e1e720"
+    },
+    "chibiImage": "/characters/chibi/sun_cleric_female.png",
+    "chibiSize": [
+      1205,
+      1305
+    ],
+    "chibiSourceFile": "generated/chibi/sun_cleric_female.png",
+    "chibiSha256": "a3f93dea8d350509b14858482d8dd389b1f073c16573e57088cdf007c3c4f5b6",
+    "originalImage": "/characters/originals/sun_cleric_female.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/sun_cleric_female.png",
+    "originalSha256": "8559872052a4e385c33ea9873956a06e47fdb3ca21f06fbfbd6babb0ec2e5ea7",
+    "colors": [
+      "#370929",
+      "#2d1f4b",
+      "#501e2e",
+      "#863821",
+      "#3c427d",
+      "#874736",
+      "#7d595e",
+      "#b16034",
+      "#4e609a",
+      "#bf794d",
+      "#647bb3",
+      "#ee9630",
+      "#4a72fd",
+      "#d7875d",
+      "#3d9efc",
+      "#e6a168",
+      "#fbc350",
+      "#61c1f6",
+      "#f5c77b",
+      "#cebcbb",
+      "#fcd591",
+      "#fae7aa",
+      "#edddd1",
+      "#fcf6ea"
+    ],
+    "sourceFile": "generated/masters/chibi/sun_cleric_female.png",
+    "sourceSha256": "8829a7b369768de04b4fba699db739a517a865a89c1b2e3c92515e2cbdbc23d5",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "6723483fdc5ffe8c50c3fcfca265bb7b800b86ae029c20b1a999586ecf7ea563"
+  },
+  {
+    "id": "shadow_rogue_male",
+    "classId": "shadow_rogue",
+    "gender": "male",
+    "genderLabel": "男",
+    "nameEn": "Shadowborrower",
+    "nameZh": "借影人",
+    "tagline": "低重心、敏捷",
+    "summary": "不對稱藍黑短髮、細長銀灰眼與俐落尖臉。圍巾降至頸部露出表情，暗梅紫皮裝搭配雙匕首。",
+    "tags": [
+      "輕甲",
+      "近戰",
+      "雙匕首"
+    ],
+    "image": "/characters/shadow_rogue_male.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/shadow_rogue_male.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#30082b",
+        "#2f2034",
+        "#40394f",
+        "#63383e",
+        "#bd1219",
+        "#5b4e5b",
+        "#7f4c4c",
+        "#56557b",
+        "#965d58",
+        "#e43932",
+        "#c36445",
+        "#a67364",
+        "#7c7ba9",
+        "#da9440",
+        "#c08769",
+        "#d59979",
+        "#a9a0a8",
+        "#f5ba51",
+        "#f5aa8b",
+        "#fadc7c",
+        "#c9c2cd",
+        "#f9c6a8",
+        "#fce0c1",
+        "#f3f1f2"
+      ],
+      "sourceFile": "generated/masters/chibi/shadow_rogue_male.png",
+      "sourceSha256": "04d1c195a54501dad89e40dcab7f218f3a3890b07f05441122151ab48b9cb3b1",
+      "sha256": "abe69d60798fd71e964b708f642c97841620a885db56c6c9641276408808c0e4"
+    },
+    "chibiImage": "/characters/chibi/shadow_rogue_male.png",
+    "chibiSize": [
+      1142,
+      1377
+    ],
+    "chibiSourceFile": "generated/chibi/shadow_rogue_male.png",
+    "chibiSha256": "a60057b2225272675401bb2527294dfb7563d896708f8c6c7ad0df74bfd5ced4",
+    "originalImage": "/characters/originals/shadow_rogue_male.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/shadow_rogue_male.png",
+    "originalSha256": "7d87a39c12cb35ee6a95bf18d914a61bf16c3545cef2033d2ed99e3505c004be",
+    "colors": [
+      "#30082c",
+      "#302033",
+      "#3f384e",
+      "#60373e",
+      "#b8131b",
+      "#564b5a",
+      "#8a5245",
+      "#57567c",
+      "#864e5b",
+      "#9f695d",
+      "#ce624d",
+      "#8e8390",
+      "#d19045",
+      "#7b7cb0",
+      "#be8769",
+      "#f3ba58",
+      "#baaaad",
+      "#efa484",
+      "#fbde78",
+      "#fabd9e",
+      "#cac3cc",
+      "#dad2de",
+      "#fcdec1",
+      "#f7f4f3"
+    ],
+    "sourceFile": "generated/masters/chibi/shadow_rogue_male.png",
+    "sourceSha256": "04d1c195a54501dad89e40dcab7f218f3a3890b07f05441122151ab48b9cb3b1",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "e49af9d39ed023a3357e2b9bdcdd8202508421f1369565c678e4c6683a71c892"
+  },
+  {
+    "id": "shadow_rogue_female",
+    "classId": "shadow_rogue",
+    "gender": "female",
+    "genderLabel": "女",
+    "nameEn": "Shadowborrower",
+    "nameZh": "借影人",
+    "tagline": "低重心、敏捷",
+    "summary": "不對稱藍黑短髮、細長銀灰眼與俐落尖臉。圍巾降至頸部露出表情，暗梅紫皮裝搭配雙匕首。",
+    "tags": [
+      "輕甲",
+      "近戰",
+      "雙匕首"
+    ],
+    "image": "/characters/shadow_rogue_female.png",
+    "size": [
+      48,
+      48
+    ],
+    "pivot": [
+      24,
+      46
+    ],
+    "pixel96": {
+      "image": "/characters/96/shadow_rogue_female.png",
+      "size": [
+        96,
+        96
+      ],
+      "pivot": [
+        48,
+        92
+      ],
+      "colors": [
+        "#2f112f",
+        "#3e0932",
+        "#332844",
+        "#4a2b3e",
+        "#732f39",
+        "#434363",
+        "#5a4453",
+        "#924840",
+        "#c23840",
+        "#aa5e43",
+        "#636794",
+        "#b05061",
+        "#d07f34",
+        "#e0875d",
+        "#9e95a1",
+        "#f2a63f",
+        "#f9ca5a",
+        "#b9b0b7",
+        "#f8a991",
+        "#fded84",
+        "#fbc6af",
+        "#d9d6dc",
+        "#fcdfc6",
+        "#faf9fa"
+      ],
+      "sourceFile": "generated/masters/chibi/shadow_rogue_female.png",
+      "sourceSha256": "fd62b55547b80abb3e88ce6cbb6ab8628b29c4d65c7ca4ab966117703fcd6bcd",
+      "sha256": "dd501403193886cfab3090b02366c04c64235f894a40f28c710bb59958261320"
+    },
+    "chibiImage": "/characters/chibi/shadow_rogue_female.png",
+    "chibiSize": [
+      1213,
+      1297
+    ],
+    "chibiSourceFile": "generated/chibi/shadow_rogue_female.png",
+    "chibiSha256": "ce3c89da7f76e7c6fb6f81a7c13f8b8274cceb22a6e40151491a9e4929967037",
+    "originalImage": "/characters/originals/shadow_rogue_female.png",
+    "originalSize": [
+      1024,
+      1536
+    ],
+    "originalSourceFile": "generated/illustrations/shadow_rogue_female.png",
+    "originalSha256": "bf3dd4633d73a0d196d4fb421634cbf98565a091e68257f3d6d2807cceaf1df0",
+    "colors": [
+      "#3b0a31",
+      "#322541",
+      "#532b3b",
+      "#424263",
+      "#5a4453",
+      "#843b3d",
+      "#c5353e",
+      "#a85d42",
+      "#ae485b",
+      "#626793",
+      "#986673",
+      "#d25255",
+      "#dc8733",
+      "#918596",
+      "#d88855",
+      "#ec796c",
+      "#aea1ac",
+      "#f6ba4f",
+      "#f8a28a",
+      "#fdeb76",
+      "#cec9d1",
+      "#fac3ab",
+      "#fddfc6",
+      "#f8f8f9"
+    ],
+    "sourceFile": "generated/masters/chibi/shadow_rogue_female.png",
+    "sourceSha256": "fd62b55547b80abb3e88ce6cbb6ab8628b29c4d65c7ca4ab966117703fcd6bcd",
+    "status": "generated-chibi-pixel",
+    "generationModel": null,
+    "sha256": "ef694fca2aee726cb3eef746cf6ff934efcd1ee6e081aa9864e1c450ffd3d6ec"
+  }
+]

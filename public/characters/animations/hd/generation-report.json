@@ -1,0 +1,5151 @@
+{
+  "characters": [
+    {
+      "id": "ember_knight_male",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_male-0.png",
+          "sourceSha256": "287b40b9db22e7fd78d16555331d766d2ce2c936f5d17138f4b83f05a50eb516",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -215,
+            -435,
+            189,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                10,
+                443
+              ],
+              "mainAreas": [
+                91403,
+                92635,
+                90007,
+                91587
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                448,
+                876
+              ],
+              "mainAreas": [
+                90153,
+                91858,
+                92022,
+                93079
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_male-1.png",
+          "sourceSha256": "3c6c4b95ed3b780b00ecaead6eec98498b2bfa138d5645f4bb6096d1d1b1e270",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -246,
+            -437,
+            247,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                10,
+                437
+              ],
+              "mainAreas": [
+                99791,
+                96615,
+                98602,
+                95087
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                437,
+                872
+              ],
+              "mainAreas": [
+                90971,
+                104155,
+                99565,
+                84470
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_male-2.png",
+          "sourceSha256": "210de920dab03b8af7b99be39a6716a7352555e3f4d150f10956fc90f604c839",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -246,
+            -437,
+            339,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                442
+              ],
+              "mainAreas": [
+                94949,
+                103650,
+                96781,
+                92648
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                448,
+                877
+              ],
+              "mainAreas": [
+                93239,
+                98284,
+                104424,
+                94188
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_male-3.png",
+          "sourceSha256": "e3ff0614a04cfab4c65f8257ba0060d9cb71847d0060cdee31b7243495fe1503",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -281,
+            -461,
+            211,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                10,
+                469
+              ],
+              "mainAreas": [
+                110294,
+                108236,
+                91448,
+                108330
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                867
+              ],
+              "mainAreas": [
+                93355,
+                84262,
+                72172,
+                74603
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -281,
+        -461,
+        339,
+        2
+      ],
+      "outputScale": 0.8,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            -2,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            -1,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "ember_knight_male",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_male-0.png",
+          "sourceSha256": "63961acd08e06efd57377ddb2568018d82787fef2cb169cecc6fdaef89890e63",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -201,
+            -448,
+            164,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                4,
+                450
+              ],
+              "mainAreas": [
+                65652,
+                67756,
+                66390,
+                66068
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                450,
+                863
+              ],
+              "mainAreas": [
+                61674,
+                59536,
+                64568,
+                57633
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_male-1.png",
+          "sourceSha256": "8805d6998df0cb4c663ad5b39ad4ec50195ba04cd9ce0e26eeddc7b4b1dac647",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -224,
+            -497,
+            228,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                16,
+                426
+              ],
+              "mainAreas": [
+                74608,
+                75051,
+                72154,
+                75260
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                375,
+                870
+              ],
+              "mainAreas": [
+                84428,
+                85010,
+                81024,
+                80907
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_male-2.png",
+          "sourceSha256": "7164ae28f4e636084d68b14d9177cb6ed1494713eb115e8701a4a7c8b2a106b5",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -243,
+            -438,
+            360,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                443
+              ],
+              "mainAreas": [
+                67108,
+                70154,
+                71129,
+                64146
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                450,
+                883
+              ],
+              "mainAreas": [
+                67085,
+                71796,
+                77296,
+                63882
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_male-3.png",
+          "sourceSha256": "35131aad8709f4120bd4c1f3bf8d2047564b165279ad8ef0533e3724d11f1b53",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -243,
+            -472,
+            252,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                482
+              ],
+              "mainAreas": [
+                82431,
+                93268,
+                80032,
+                92365
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                467,
+                882
+              ],
+              "mainAreas": [
+                75713,
+                57854,
+                56289,
+                43189
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -243,
+        -497,
+        360,
+        2
+      ],
+      "outputScale": 0.8225538971807629,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "ember_knight_female",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_female-0.png",
+          "sourceSha256": "cb5154b4a51570daf806e2c2d44cadffc35c7a39a184829a0354cdeb782dc74b",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -199,
+            -456,
+            176,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                6,
+                460
+              ],
+              "mainAreas": [
+                102036,
+                103839,
+                102182,
+                101492
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                462,
+                869
+              ],
+              "mainAreas": [
+                87322,
+                87109,
+                89176,
+                87095
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_female-1.png",
+          "sourceSha256": "732725c07a88935d36331dd64a5b0681045822fdad76cecba67a7822486b8a43",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -228,
+            -438,
+            230,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                433
+              ],
+              "mainAreas": [
+                100134,
+                96175,
+                95532,
+                96549
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                439,
+                875
+              ],
+              "mainAreas": [
+                90786,
+                101565,
+                97137,
+                88337
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_female-2.png",
+          "sourceSha256": "64579b7fb6eff60cae70203cdff47533dc5d15a2ee953d299d802cc34b17f838",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -229,
+            -431,
+            318,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                441
+              ],
+              "mainAreas": [
+                98746,
+                104134,
+                95098,
+                97209
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                454,
+                883
+              ],
+              "mainAreas": [
+                98685,
+                95839,
+                101338,
+                98790
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/ember_knight_female-3.png",
+          "sourceSha256": "78d56bd8f357b9b6a36f5664a3609186717fd560ba1414c866cedd35df5b0973",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -291,
+            -452,
+            220,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                459
+              ],
+              "mainAreas": [
+                104577,
+                108180,
+                100259,
+                105552
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                460,
+                872
+              ],
+              "mainAreas": [
+                100648,
+                91943,
+                81470,
+                67082
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -291,
+        -456,
+        318,
+        2
+      ],
+      "outputScale": 0.8144499178981938,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -1,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            -2,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "ember_knight_female",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_female-0.png",
+          "sourceSha256": "2cbd78e7dd89ff34b65b29b51b5663e5c3134078bed5835e3671b970afa0374a",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -225,
+            -443,
+            182,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                448
+              ],
+              "mainAreas": [
+                55990,
+                57965,
+                56797,
+                57002
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                451,
+                867
+              ],
+              "mainAreas": [
+                52802,
+                52715,
+                52741,
+                51486
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_female-1.png",
+          "sourceSha256": "e75779ba5283b873df484a113a47d61834a2de05a619287b8ff36fd4802aa8b2",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -210,
+            -447,
+            245,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                10,
+                428
+              ],
+              "mainAreas": [
+                67179,
+                66122,
+                66312,
+                65364
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                431,
+                876
+              ],
+              "mainAreas": [
+                64592,
+                72896,
+                68262,
+                61103
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_female-2.png",
+          "sourceSha256": "dce15f301964f683ebb19402d0da0f2b4c2cf6a3be221043bf96a2376bbf88d7",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -221,
+            -443,
+            339,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                6,
+                447
+              ],
+              "mainAreas": [
+                63134,
+                62786,
+                64977,
+                64510
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                448,
+                881
+              ],
+              "mainAreas": [
+                63179,
+                60900,
+                70591,
+                63295
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/ember_knight_female-3.png",
+          "sourceSha256": "afb85267378e828da9c5a2fc0b21c3d70863317f7fca86d71c7f41b74660ee81",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -249,
+            -468,
+            215,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                478
+              ],
+              "mainAreas": [
+                77024,
+                76174,
+                68016,
+                80075
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                460,
+                869
+              ],
+              "mainAreas": [
+                67498,
+                60139,
+                62806,
+                51189
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -249,
+        -468,
+        339,
+        2
+      ],
+      "outputScale": 0.8435374149659864,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            37,
+            0
+          ],
+          [
+            61,
+            0
+          ],
+          [
+            78,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "martial_artist_male",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_male-0.png",
+          "sourceSha256": "f4592e781d31b968e3bf17fdfbd7b66493e22a25c51c057a045d136383cb238e",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -151,
+            -434,
+            170,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                440
+              ],
+              "mainAreas": [
+                76246,
+                77335,
+                76869,
+                76463
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                448,
+                873
+              ],
+              "mainAreas": [
+                78850,
+                75446,
+                76875,
+                74399
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_male-1.png",
+          "sourceSha256": "0d9bb22cb29b34ba8647face037f05b9f29980ea834fd1061b23be4328194dc6",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -230,
+            -431,
+            290,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                440
+              ],
+              "mainAreas": [
+                84401,
+                78836,
+                83262,
+                78206
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                449,
+                870
+              ],
+              "mainAreas": [
+                72996,
+                82588,
+                102733,
+                73417
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_male-2.png",
+          "sourceSha256": "c19715d6f9fb025032a0305ca9a2e8bd16ee44b37f0b969f9ff61d253e10c744",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -234,
+            -435,
+            250,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                441
+              ],
+              "mainAreas": [
+                73102,
+                82894,
+                93500,
+                73348
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                883
+              ],
+              "mainAreas": [
+                72883,
+                86927,
+                77323,
+                72962
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_male-3.png",
+          "sourceSha256": "93d92bb57518d54a9633139bdeba3939dd6c5849db127f0c617d560ebca2a87e",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -227,
+            -477,
+            216,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                486
+              ],
+              "mainAreas": [
+                89341,
+                93027,
+                83495,
+                91133
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                479,
+                878
+              ],
+              "mainAreas": [
+                79381,
+                74381,
+                66773,
+                51809
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -234,
+        -477,
+        290,
+        2
+      ],
+      "outputScale": 0.9465648854961832,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            -8,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -3,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "martial_artist_male",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_male-0.png",
+          "sourceSha256": "620e5c42233ced5be165d89b2666b75a8ee3386d582046220fcc696e504467d7",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -163,
+            -438,
+            185,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                3,
+                439
+              ],
+              "mainAreas": [
+                58574,
+                58935,
+                58502,
+                58494
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                449,
+                875
+              ],
+              "mainAreas": [
+                61919,
+                46915,
+                61426,
+                49487
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_male-1.png",
+          "sourceSha256": "c8a4e5a2a2107681680b849769e67bfcaf8671833b5b545835c08248a287c442",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -212,
+            -436,
+            286,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                434
+              ],
+              "mainAreas": [
+                69616,
+                68882,
+                72118,
+                61648
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                440,
+                874
+              ],
+              "mainAreas": [
+                66302,
+                71405,
+                88129,
+                65064
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_male-2.png",
+          "sourceSha256": "fff0c076944abf3e696949977548af808a12de513a3f088167de0e68910f9223",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -229,
+            -444,
+            333,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                449
+              ],
+              "mainAreas": [
+                70017,
+                74095,
+                77707,
+                69704
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                447,
+                886
+              ],
+              "mainAreas": [
+                69521,
+                70602,
+                65020,
+                69274
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_male-3.png",
+          "sourceSha256": "9e8c4af21f20f04d38c7fc2b1efc4bde14760bdba83b3f2c6c56f3942086f3ac",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -226,
+            -472,
+            216,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                482
+              ],
+              "mainAreas": [
+                71880,
+                76672,
+                61883,
+                75262
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                470,
+                868
+              ],
+              "mainAreas": [
+                69610,
+                57356,
+                52134,
+                39388
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -229,
+        -472,
+        333,
+        2
+      ],
+      "outputScale": 0.8825622775800712,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            4,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "martial_artist_female",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_female-0.png",
+          "sourceSha256": "171b6ff3fb39eb5456390c4ef1b06803874fc00a2c5a58737dd758a420eec228",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -162,
+            -445,
+            152,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                451
+              ],
+              "mainAreas": [
+                76472,
+                80587,
+                77141,
+                76060
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                449,
+                876
+              ],
+              "mainAreas": [
+                75754,
+                70541,
+                75905,
+                70127
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_female-1.png",
+          "sourceSha256": "fe643b5d49908890ee26fda351e5794b53e1e9eaf6dd786aa8930020863f8e55",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -200,
+            -432,
+            249,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                438
+              ],
+              "mainAreas": [
+                77367,
+                73990,
+                78351,
+                74169
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                447,
+                877
+              ],
+              "mainAreas": [
+                77642,
+                84774,
+                97882,
+                71276
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_female-2.png",
+          "sourceSha256": "3a9e1742cacb7cf5dbdf80ea986a2cfe3514eb221e5d78a99cd92b125ea5207c",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -207,
+            -446,
+            239,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                4,
+                448
+              ],
+              "mainAreas": [
+                82475,
+                90174,
+                101303,
+                81710
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                447,
+                886
+              ],
+              "mainAreas": [
+                81841,
+                80662,
+                86653,
+                81067
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/martial_artist_female-3.png",
+          "sourceSha256": "c3901033fb892f44af8611042fe861a8a6172d584db796161fa3f116e350ce9c",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -246,
+            -438,
+            210,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                17,
+                453
+              ],
+              "mainAreas": [
+                83578,
+                88972,
+                77473,
+                83078
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                461,
+                858
+              ],
+              "mainAreas": [
+                79825,
+                67095,
+                70588,
+                51478
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -246,
+        -446,
+        249,
+        2
+      ],
+      "outputScale": 1.0,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            -3,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            12,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            15,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "martial_artist_female",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_female-0.png",
+          "sourceSha256": "5c494e44290b45e716118dc6d6607df029ac8f2e79a62ff4475ba94f0b31f14f",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -139,
+            -473,
+            193,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                3,
+                474
+              ],
+              "mainAreas": [
+                60383,
+                60934,
+                61582,
+                61464
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                458,
+                875
+              ],
+              "mainAreas": [
+                47692,
+                45718,
+                47606,
+                46570
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_female-1.png",
+          "sourceSha256": "bc025761a5544b63398d0ae3ccb13f4669a0343003ec5cbd3ea4c06e39894be1",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -208,
+            -433,
+            213,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                443
+              ],
+              "mainAreas": [
+                64396,
+                58393,
+                59267,
+                60993
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                448,
+                865
+              ],
+              "mainAreas": [
+                54287,
+                59765,
+                68028,
+                53341
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_female-2.png",
+          "sourceSha256": "96a298860028130ddb12d74c2f6bc958aaeb24818961427c7ff6289866e830ce",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -214,
+            -443,
+            236,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                5,
+                445
+              ],
+              "mainAreas": [
+                57961,
+                61135,
+                68483,
+                59115
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                444,
+                885
+              ],
+              "mainAreas": [
+                57543,
+                60649,
+                56706,
+                59230
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/martial_artist_female-3.png",
+          "sourceSha256": "4dc65a7fdcf9090c57ff39fe72c7d2175b5c5bb252b6476f77861ab9830053ed",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -220,
+            -475,
+            210,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                486
+              ],
+              "mainAreas": [
+                65318,
+                68266,
+                59259,
+                67528
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                491,
+                877
+              ],
+              "mainAreas": [
+                51438,
+                45103,
+                41877,
+                30718
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -220,
+        -475,
+        236,
+        2
+      ],
+      "outputScale": 1.0,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            28,
+            0
+          ],
+          [
+            28,
+            0
+          ],
+          [
+            29,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "moon_witch_male",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_male-0.png",
+          "sourceSha256": "19f85f947fe12033f07a4e5ec515b71951d9fac3547c009057f481bf8ba2053b",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -191,
+            -432,
+            189,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                438
+              ],
+              "mainAreas": [
+                93858,
+                96127,
+                93736,
+                93414
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                450,
+                873
+              ],
+              "mainAreas": [
+                85759,
+                86185,
+                88136,
+                83425
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_male-1.png",
+          "sourceSha256": "2ea4391f01a91b1d1ce6e8ca4a87c44816bc7b5033fbe869fefff41dce49db5b",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -284,
+            -443,
+            277,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                444
+              ],
+              "mainAreas": [
+                93927,
+                92637,
+                95496,
+                90616
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                432,
+                873
+              ],
+              "mainAreas": [
+                90349,
+                88062,
+                109519,
+                85136
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_male-2.png",
+          "sourceSha256": "2c2fd3ba819959aaadab1d154130293daacc4b9d3a0d70bf7b0a646292217dd2",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -256,
+            -431,
+            282,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                442
+              ],
+              "mainAreas": [
+                91024,
+                90325,
+                112016,
+                91242
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                444,
+                872
+              ],
+              "mainAreas": [
+                83905,
+                90244,
+                116300,
+                82602
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_male-3.png",
+          "sourceSha256": "220d0829757eb4fa93a07c5b3a8c89c3934ea9975a83ccba68a277abef0aa939",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -240,
+            -443,
+            217,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                10,
+                451
+              ],
+              "mainAreas": [
+                99930,
+                103757,
+                92010,
+                96965
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                457,
+                872
+              ],
+              "mainAreas": [
+                103660,
+                87790,
+                90253,
+                66445
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -284,
+        -443,
+        282,
+        2
+      ],
+      "outputScale": 0.8763250883392226,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            -9,
+            0
+          ],
+          [
+            -20,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "moon_witch_male",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_male-0.png",
+          "sourceSha256": "26cb08d4255b5f4606f82eb9b90b422fcfc14f9f1f480d14c76522cc0953f4f3",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -165,
+            -449,
+            218,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                6,
+                453
+              ],
+              "mainAreas": [
+                77868,
+                82322,
+                82930,
+                80385
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                870
+              ],
+              "mainAreas": [
+                72544,
+                72716,
+                72665,
+                67281
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_male-1.png",
+          "sourceSha256": "2d726d782bb07994f381929b9a6b9de4cb2b77e71f5cb24da9adef04852a7971",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -214,
+            -457,
+            264,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                428
+              ],
+              "mainAreas": [
+                73279,
+                71171,
+                71098,
+                67438
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                428,
+                878
+              ],
+              "mainAreas": [
+                73793,
+                69785,
+                71926,
+                69168
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_male-2.png",
+          "sourceSha256": "95623fa46174d51f4e319e68499b996b9d1110e6767852380dcaec4ce64f95f3",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -226,
+            -437,
+            285,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                4,
+                439
+              ],
+              "mainAreas": [
+                70296,
+                84299,
+                87270,
+                71022
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                447,
+                875
+              ],
+              "mainAreas": [
+                67654,
+                71198,
+                105588,
+                67893
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_male-3.png",
+          "sourceSha256": "4f15d063019009d82a3b9d3c8c2e51df4601b6e4b5c05c2166941558da0b4609",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -219,
+            -471,
+            232,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                478
+              ],
+              "mainAreas": [
+                85956,
+                84962,
+                72487,
+                85976
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                458,
+                873
+              ],
+              "mainAreas": [
+                77637,
+                67240,
+                54618,
+                45055
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -226,
+        -471,
+        285,
+        2
+      ],
+      "outputScale": 0.9706457925636007,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            25,
+            0
+          ],
+          [
+            -4,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "moon_witch_female",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_female-0.png",
+          "sourceSha256": "30b2d030b94e72a67d8e947b938d119a47962b38c9cc76a58d65abcd78b0ced2",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -201,
+            -434,
+            212,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                5,
+                437
+              ],
+              "mainAreas": [
+                102887,
+                105998,
+                102838,
+                102421
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                446,
+                874
+              ],
+              "mainAreas": [
+                102197,
+                103254,
+                100721,
+                101012
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_female-1.png",
+          "sourceSha256": "a2224cc4a55fe05178bfa518e3e4b3b53c8dcc66e76507346cf55c0b38336574",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            920
+          ],
+          "sharedBounds": [
+            -216,
+            -435,
+            277,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                5,
+                438
+              ],
+              "mainAreas": [
+                91545,
+                88940,
+                89124,
+                87454
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                485,
+                918
+              ],
+              "mainAreas": [
+                101769,
+                115411,
+                121900,
+                98194
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_female-2.png",
+          "sourceSha256": "1a540bd84a9280ae7a5f9e87ddaf09de6a41acf3dd5d4edc1b7ca02adefc2e63",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -218,
+            -427,
+            282,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                437
+              ],
+              "mainAreas": [
+                94837,
+                94209,
+                106513,
+                92550
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                449,
+                872
+              ],
+              "mainAreas": [
+                95622,
+                92492,
+                131185,
+                94380
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/moon_witch_female-3.png",
+          "sourceSha256": "3c9ea1613e38237d10f418e4bd3d5a21c5417e8d1d3a479355327a413db3cb50",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -268,
+            -472,
+            215,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                5,
+                475
+              ],
+              "mainAreas": [
+                115959,
+                115699,
+                94945,
+                118838
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                467,
+                875
+              ],
+              "mainAreas": [
+                101538,
+                86132,
+                76419,
+                64244
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -268,
+        -472,
+        282,
+        2
+      ],
+      "outputScale": 0.9018181818181819,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            -5,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "moon_witch_female",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_female-0.png",
+          "sourceSha256": "5cffde7f0c0e9b150293688562f1b0c879d3ad7f84dbc2650066f330d753ccfd",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -176,
+            -448,
+            176,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                4,
+                450
+              ],
+              "mainAreas": [
+                67994,
+                74828,
+                70057,
+                70768
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                878
+              ],
+              "mainAreas": [
+                65291,
+                66946,
+                65823,
+                63575
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_female-1.png",
+          "sourceSha256": "7f06cee27affb22c220560245ce96db3888c2b5d1f5cc1b1c27391c94a74dbfc",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -227,
+            -456,
+            304,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                3,
+                432
+              ],
+              "mainAreas": [
+                64769,
+                69463,
+                67369,
+                66267
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                425,
+                879
+              ],
+              "mainAreas": [
+                68456,
+                66288,
+                87253,
+                66818
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_female-2.png",
+          "sourceSha256": "ea00e2166c707d4a50e8cfc4aa0c75b4b984aeabef6424fd4dd71e2eb56916c4",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -207,
+            -456,
+            268,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                3,
+                440
+              ],
+              "mainAreas": [
+                68250,
+                72814,
+                82633,
+                67982
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                430,
+                884
+              ],
+              "mainAreas": [
+                68429,
+                67891,
+                95550,
+                67969
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/moon_witch_female-3.png",
+          "sourceSha256": "23e719388dbd70fd9b9239c876ad288a0268ef8060abe1357acd0bb395e412fe",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -218,
+            -454,
+            218,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                2,
+                454
+              ],
+              "mainAreas": [
+                73021,
+                75826,
+                71750,
+                74085
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                458,
+                872
+              ],
+              "mainAreas": [
+                72568,
+                61146,
+                54265,
+                44984
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -227,
+        -456,
+        304,
+        2
+      ],
+      "outputScale": 0.9340866290018832,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            21,
+            0
+          ],
+          [
+            22,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "forest_ranger_male",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_male-0.png",
+          "sourceSha256": "94127018bfd0d683acd257ac04b2608d228ccc64fba2eadbbb243e33ba08653d",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -193,
+            -445,
+            189,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                451
+              ],
+              "mainAreas": [
+                85692,
+                88205,
+                86470,
+                86787
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                455,
+                873
+              ],
+              "mainAreas": [
+                83681,
+                77472,
+                82602,
+                77737
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_male-1.png",
+          "sourceSha256": "98349ae78ad201a4428f4c73275be5b34ed3fe5774596906604fd2879b5f6f5c",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -232,
+            -439,
+            320,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                441
+              ],
+              "mainAreas": [
+                87103,
+                84690,
+                84332,
+                79070
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                437,
+                874
+              ],
+              "mainAreas": [
+                83527,
+                88005,
+                83553,
+                79725
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_male-2.png",
+          "sourceSha256": "ce76cb66bc324b9aa172cd53d09b10c40b00b65b0103a9b53b593a6fb1192ecc",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -230,
+            -432,
+            284,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                435
+              ],
+              "mainAreas": [
+                78709,
+                96535,
+                94801,
+                79671
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                444,
+                874
+              ],
+              "mainAreas": [
+                79220,
+                86653,
+                83672,
+                80366
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_male-3.png",
+          "sourceSha256": "a010b39683055ea4aeb66ea689d4b2ba60db78c57e214cab518027c506fc2bb9",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -239,
+            -453,
+            217,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                18,
+                469
+              ],
+              "mainAreas": [
+                94156,
+                100665,
+                82598,
+                97111
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                864
+              ],
+              "mainAreas": [
+                92765,
+                80704,
+                77910,
+                62178
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -239,
+        -453,
+        320,
+        2
+      ],
+      "outputScale": 0.8872987477638641,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            39,
+            0
+          ],
+          [
+            30,
+            0
+          ],
+          [
+            49,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            -6,
+            0
+          ],
+          [
+            -9,
+            0
+          ],
+          [
+            -34,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "forest_ranger_male",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_male-0.png",
+          "sourceSha256": "ff1621808067261e96a2aecc4062fafb02d411a230c53a230178b3e8be8a7426",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -159,
+            -438,
+            165,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                443
+              ],
+              "mainAreas": [
+                61470,
+                62154,
+                63188,
+                63489
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                870
+              ],
+              "mainAreas": [
+                62000,
+                58980,
+                62401,
+                60789
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_male-1.png",
+          "sourceSha256": "9fffd62ef6f941498c5f1f9079ac064bd89e0c26650a887e153f220b503b05f6",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -242,
+            -466,
+            332,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                438
+              ],
+              "mainAreas": [
+                77276,
+                69370,
+                76959,
+                67206
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                403,
+                867
+              ],
+              "mainAreas": [
+                64470,
+                71238,
+                72528,
+                66896
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_male-2.png",
+          "sourceSha256": "04fa66b7717a6fd8793b17446905819cd4ce2d919364b49d1526efe8a728a0e8",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -223,
+            -453,
+            299,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                4,
+                455
+              ],
+              "mainAreas": [
+                70225,
+                83820,
+                81316,
+                75410
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                435,
+                873
+              ],
+              "mainAreas": [
+                69390,
+                71510,
+                75421,
+                70520
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_male-3.png",
+          "sourceSha256": "a265bfe39e06db0855bcf11ae4766ba3a838ceaafb7d5a133d17c4b1c3ed7b7f",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -237,
+            -446,
+            211,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                455
+              ],
+              "mainAreas": [
+                80665,
+                77423,
+                69725,
+                74470
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                456,
+                871
+              ],
+              "mainAreas": [
+                70594,
+                65102,
+                55650,
+                50835
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -242,
+        -466,
+        332,
+        2
+      ],
+      "outputScale": 0.8641114982578397,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            10,
+            0
+          ],
+          [
+            16,
+            0
+          ],
+          [
+            15,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "forest_ranger_female",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_female-0.png",
+          "sourceSha256": "b3f98c500dfe02e4e0610ab37af70805e5fa7674f137731f12961527c87e9689",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -165,
+            -431,
+            193,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                438
+              ],
+              "mainAreas": [
+                90123,
+                91771,
+                89886,
+                89479
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                445,
+                874
+              ],
+              "mainAreas": [
+                86336,
+                86526,
+                88236,
+                83762
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_female-1.png",
+          "sourceSha256": "31e415f2d9c00e0b6cefd2e755de1adc83934c252251eec7ea3a234bb7c2af1a",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -235,
+            -439,
+            280,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                3,
+                440
+              ],
+              "mainAreas": [
+                92388,
+                85730,
+                92176,
+                86301
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                443,
+                871
+              ],
+              "mainAreas": [
+                87828,
+                92216,
+                86110,
+                86588
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_female-2.png",
+          "sourceSha256": "ea74c0d43ccbf8fed888ddec3aa9dbcfde5dae67a91fe962dbb9dd739ba3ba8b",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -213,
+            -431,
+            278,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                437
+              ],
+              "mainAreas": [
+                93258,
+                93090,
+                92111,
+                90911
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                455,
+                861
+              ],
+              "mainAreas": [
+                90582,
+                89373,
+                83003,
+                91299
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/forest_ranger_female-3.png",
+          "sourceSha256": "3c1620094b09b715fdaafeb899fbe001156bdd19b01a96bb7843f0c9f0d6c09a",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -258,
+            -466,
+            217,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                471
+              ],
+              "mainAreas": [
+                103189,
+                95613,
+                95229,
+                107652
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                455,
+                871
+              ],
+              "mainAreas": [
+                94872,
+                84485,
+                80391,
+                60888
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -258,
+        -466,
+        280,
+        2
+      ],
+      "outputScale": 0.9219330855018587,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            -11,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "forest_ranger_female",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_female-0.png",
+          "sourceSha256": "df75476793ead3bc76884693407b377ac7f4711805a329f055eab5b1b8a300a8",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -170,
+            -462,
+            208,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                467
+              ],
+              "mainAreas": [
+                56953,
+                57464,
+                57687,
+                56919
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                465,
+                878
+              ],
+              "mainAreas": [
+                48422,
+                42594,
+                47420,
+                46090
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_female-1.png",
+          "sourceSha256": "5cfd30edf012a8637a504b8c63a219718ede235146b67e088f9197b0391e870f",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -203,
+            -433,
+            315,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                429
+              ],
+              "mainAreas": [
+                54888,
+                51148,
+                53366,
+                48747
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                443,
+                874
+              ],
+              "mainAreas": [
+                58388,
+                61939,
+                60201,
+                59749
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_female-2.png",
+          "sourceSha256": "737dce99b56b6b30b93b5bbad1bdfaa366eed810dd9a2786f6ebc3046543dbb1",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -193,
+            -453,
+            295,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                2,
+                453
+              ],
+              "mainAreas": [
+                55255,
+                59835,
+                57885,
+                54716
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                437,
+                877
+              ],
+              "mainAreas": [
+                51432,
+                60393,
+                57648,
+                52109
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/forest_ranger_female-3.png",
+          "sourceSha256": "d18ab219c70354a85ab52c8112e5df52aac5773e2b9062fb20b92f569414f6d8",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -282,
+            -485,
+            212,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                6,
+                489
+              ],
+              "mainAreas": [
+                79056,
+                80634,
+                76423,
+                80013
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                473,
+                871
+              ],
+              "mainAreas": [
+                70426,
+                60597,
+                63892,
+                46029
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -282,
+        -485,
+        315,
+        2
+      ],
+      "outputScale": 0.830820770519263,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            33,
+            0
+          ],
+          [
+            65,
+            0
+          ],
+          [
+            91,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sun_cleric_male",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_male-0.png",
+          "sourceSha256": "35407c382f96fb7c47875b3511b5f3e0d97a0bdc862b82c90e3fe719cdcb3f5f",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -205,
+            -435,
+            173,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                444
+              ],
+              "mainAreas": [
+                94999,
+                95069,
+                95743,
+                96194
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                872
+              ],
+              "mainAreas": [
+                88700,
+                88174,
+                89347,
+                84819
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_male-1.png",
+          "sourceSha256": "bdd6f882b841b954a7ff973c296de94a10945a8cbe72915d6b6f5eeccd2ed9ff",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -214,
+            -441,
+            272,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                15,
+                433
+              ],
+              "mainAreas": [
+                97019,
+                86980,
+                94471,
+                89020
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                431,
+                870
+              ],
+              "mainAreas": [
+                86980,
+                96539,
+                105687,
+                84366
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_male-2.png",
+          "sourceSha256": "1e595ef9740d101844bf2cbb774a8752b502fa54879a03e501664cb95fed21d2",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -264,
+            -432,
+            256,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                17,
+                443
+              ],
+              "mainAreas": [
+                93560,
+                109673,
+                106033,
+                92699
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                448,
+                878
+              ],
+              "mainAreas": [
+                91747,
+                100704,
+                129298,
+                90098
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_male-3.png",
+          "sourceSha256": "add5d319964c793f68964a7b764fa33c2b723a99b375a2970acc984a4581a77d",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -233,
+            -421,
+            200,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                21,
+                440
+              ],
+              "mainAreas": [
+                92504,
+                91307,
+                83930,
+                90482
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                456,
+                853
+              ],
+              "mainAreas": [
+                89933,
+                71558,
+                65349,
+                56457
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -264,
+        -441,
+        272,
+        2
+      ],
+      "outputScale": 0.9253731343283582,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            7,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            -19,
+            0
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            -20,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sun_cleric_male",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_male-0.png",
+          "sourceSha256": "6d36bbb09fe27f2c8ffbf7ef8cf4c141d8dda82417f05d77ec91f86fd5be4755",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -201,
+            -445,
+            210,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                452
+              ],
+              "mainAreas": [
+                76368,
+                81678,
+                79170,
+                80234
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                455,
+                871
+              ],
+              "mainAreas": [
+                69997,
+                65729,
+                69443,
+                66249
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_male-1.png",
+          "sourceSha256": "f0a46bac06b8212965de057a2605aeaebc5580ad32b30d044fa257a6d2be8988",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -224,
+            -484,
+            257,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                427
+              ],
+              "mainAreas": [
+                78576,
+                83674,
+                85068,
+                70698
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                389,
+                869
+              ],
+              "mainAreas": [
+                75800,
+                93032,
+                108471,
+                76070
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_male-2.png",
+          "sourceSha256": "0ee13d7f1e4b614ea1ca5b07f0ecfc2fc8e433e1b336b4b05131fd59f7ba914e",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -210,
+            -446,
+            367,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                6,
+                443
+              ],
+              "mainAreas": [
+                75750,
+                93323,
+                82103,
+                63606
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                438,
+                882
+              ],
+              "mainAreas": [
+                74714,
+                81662,
+                124190,
+                73402
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_male-3.png",
+          "sourceSha256": "93858ffaa1da0c6fc8bdc9cd9d44f6ac67cda3d44372563b1430ef8cd1474399",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -298,
+            -467,
+            215,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                472
+              ],
+              "mainAreas": [
+                92313,
+                85473,
+                82129,
+                94779
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                475,
+                871
+              ],
+              "mainAreas": [
+                75812,
+                67031,
+                64456,
+                41462
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -298,
+        -484,
+        367,
+        2
+      ],
+      "outputScale": 0.7458646616541353,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            27,
+            0
+          ],
+          [
+            41,
+            0
+          ],
+          [
+            60,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sun_cleric_female",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_female-0.png",
+          "sourceSha256": "10974835b3026c0ef2cbd5ff015a523f68c6bb78a4e1d40bf8bee2dc21733e2a",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -198,
+            -444,
+            225,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                4,
+                446
+              ],
+              "mainAreas": [
+                107380,
+                111777,
+                110299,
+                110893
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                452,
+                872
+              ],
+              "mainAreas": [
+                95255,
+                95089,
+                99232,
+                91902
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_female-1.png",
+          "sourceSha256": "8d5c8476b21e55a119c40916d994fcae05277766f4f65a67c45bf2fa611eaf13",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -242,
+            -448,
+            260,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                15,
+                429
+              ],
+              "mainAreas": [
+                99873,
+                92444,
+                93802,
+                99046
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                420,
+                866
+              ],
+              "mainAreas": [
+                98806,
+                99669,
+                111230,
+                90315
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_female-2.png",
+          "sourceSha256": "4f2cf1e9b876ab262dd055627d204d99e339ccde831b7ee077c49c9b738c1e16",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -265,
+            -456,
+            294,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                8,
+                436
+              ],
+              "mainAreas": [
+                98330,
+                115130,
+                122632,
+                100212
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                426,
+                880
+              ],
+              "mainAreas": [
+                98662,
+                116266,
+                141000,
+                98703
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/sun_cleric_female-3.png",
+          "sourceSha256": "c5c27b664a55f961f1b123bdfcbbd96a3e4711c9881361cf13ed0976ae7a9c9b",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -257,
+            -441,
+            227,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                451
+              ],
+              "mainAreas": [
+                117476,
+                119033,
+                92889,
+                108614
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                455,
+                873
+              ],
+              "mainAreas": [
+                104965,
+                85173,
+                78099,
+                65907
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -265,
+        -456,
+        294,
+        2
+      ],
+      "outputScale": 0.8872987477638641,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            11,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            13,
+            0
+          ],
+          [
+            24,
+            0
+          ],
+          [
+            31,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "sun_cleric_female",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_female-0.png",
+          "sourceSha256": "cd126e7b21a8a5bb096902a980a24bb1e7c75e4b80c5317bc9786497bd527548",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -189,
+            -439,
+            184,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                10,
+                447
+              ],
+              "mainAreas": [
+                74648,
+                76709,
+                76074,
+                75725
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                450,
+                864
+              ],
+              "mainAreas": [
+                67962,
+                70616,
+                70239,
+                65830
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_female-1.png",
+          "sourceSha256": "ec6e3061e50b1c53e53838e4c111a94486c60f5e9ab02f412c7b386f80f12025",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -221,
+            -485,
+            248,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                419
+              ],
+              "mainAreas": [
+                75280,
+                65862,
+                72698,
+                73881
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                395,
+                878
+              ],
+              "mainAreas": [
+                85196,
+                89106,
+                99368,
+                77884
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_female-2.png",
+          "sourceSha256": "cffa865eb51df4c5a71674bfec964cf2b97083ecdab9d5ad1aafb4305aa63824",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -259,
+            -457,
+            342,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                442
+              ],
+              "mainAreas": [
+                81004,
+                93647,
+                94647,
+                77633
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                428,
+                883
+              ],
+              "mainAreas": [
+                82461,
+                97197,
+                119036,
+                77091
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/sun_cleric_female-3.png",
+          "sourceSha256": "addf90586927025f48bb115733bc3f597659e5cbbc6c8306513d5ad9fdc6b8fd",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -242,
+            -437,
+            232,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                12,
+                447
+              ],
+              "mainAreas": [
+                95321,
+                92539,
+                80792,
+                91459
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                462,
+                871
+              ],
+              "mainAreas": [
+                80909,
+                64086,
+                55807,
+                45259
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -259,
+        -485,
+        342,
+        2
+      ],
+      "outputScale": 0.8252911813643927,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            19,
+            0
+          ],
+          [
+            42,
+            0
+          ],
+          [
+            59,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "shadow_rogue_male",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_male-0.png",
+          "sourceSha256": "c6d961e210e57c9e3a65661df6365fe4373a944387c3ca32419e4ed8c2c9f755",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -199,
+            -461,
+            223,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                470
+              ],
+              "mainAreas": [
+                90060,
+                91849,
+                90595,
+                92177
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                471,
+                875
+              ],
+              "mainAreas": [
+                73083,
+                68480,
+                70620,
+                69663
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_male-1.png",
+          "sourceSha256": "c98c1cf7f19633850b62a5d47da58ead9ba22d8b279d27f576121add401b697c",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -230,
+            -428,
+            228,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                435
+              ],
+              "mainAreas": [
+                84661,
+                83683,
+                88761,
+                80995
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                445,
+                871
+              ],
+              "mainAreas": [
+                79405,
+                88316,
+                101467,
+                81082
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_male-2.png",
+          "sourceSha256": "0ad0d5178b13420055b03bc3469a358b91d0619c7b5c368f595faed0ce02078d",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -246,
+            -439,
+            331,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                6,
+                443
+              ],
+              "mainAreas": [
+                88574,
+                86837,
+                96678,
+                85655
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                447,
+                884
+              ],
+              "mainAreas": [
+                88915,
+                101128,
+                88326,
+                85901
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_male-3.png",
+          "sourceSha256": "6c012847cff26a48e650a194027eae2c5564d256be5d7398b21aa97afa22303d",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -241,
+            -448,
+            254,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                455
+              ],
+              "mainAreas": [
+                95514,
+                93675,
+                82465,
+                94638
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                459,
+                868
+              ],
+              "mainAreas": [
+                88397,
+                78935,
+                69432,
+                57706
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -246,
+        -461,
+        331,
+        2
+      ],
+      "outputScale": 0.8596187175043327,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            10,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            14,
+            0
+          ],
+          [
+            25,
+            0
+          ],
+          [
+            18,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "shadow_rogue_male",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_male-0.png",
+          "sourceSha256": "fbc49f12af28428bfb3e8432ea7d12319efa16ca4f372f9d4c6daf95213a2ae5",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -176,
+            -491,
+            217,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                496
+              ],
+              "mainAreas": [
+                67770,
+                69093,
+                68202,
+                67175
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                487,
+                877
+              ],
+              "mainAreas": [
+                46962,
+                45012,
+                48712,
+                45438
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_male-1.png",
+          "sourceSha256": "46ce8589c54b2838a88f66163ad9fef3b277fef18086f466a2be3b219500b421",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -214,
+            -447,
+            225,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                16,
+                428
+              ],
+              "mainAreas": [
+                59190,
+                61749,
+                63215,
+                56796
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                419,
+                864
+              ],
+              "mainAreas": [
+                59666,
+                64916,
+                71199,
+                67305
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_male-2.png",
+          "sourceSha256": "26fac74b7fd318fe0a3e764b5e7adc4ab1f2c10aac23988d8e9481fb38e26824",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -219,
+            -438,
+            308,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                5,
+                441
+              ],
+              "mainAreas": [
+                54185,
+                54772,
+                59897,
+                56131
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                447,
+                882
+              ],
+              "mainAreas": [
+                54113,
+                57248,
+                57492,
+                55139
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_male-3.png",
+          "sourceSha256": "22cecd40b9acab13d2af7f91ad15a057b8a7c225b33c42f052ba47bc16f1429f",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -250,
+            -486,
+            256,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                15,
+                499
+              ],
+              "mainAreas": [
+                74428,
+                80280,
+                67658,
+                74036
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                478,
+                861
+              ],
+              "mainAreas": [
+                63263,
+                57925,
+                43933,
+                40425
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -250,
+        -491,
+        308,
+        2
+      ],
+      "outputScale": 0.8888888888888888,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            13,
+            0
+          ],
+          [
+            17,
+            0
+          ],
+          [
+            17,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "shadow_rogue_female",
+      "style": "chibi",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_female-0.png",
+          "sourceSha256": "b10ac9ec7e369b321063375686c01774afb624822ca801d2b818ec3009bdc1d8",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -215,
+            -454,
+            196,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                459
+              ],
+              "mainAreas": [
+                92197,
+                94771,
+                93555,
+                93182
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                460,
+                878
+              ],
+              "mainAreas": [
+                82800,
+                79113,
+                83736,
+                78853
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_female-1.png",
+          "sourceSha256": "ccaf0b3af6e066039a5ab588fdb35af4d8d18233d05c9650f830488bdf6d6609",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -218,
+            -425,
+            217,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                16,
+                432
+              ],
+              "mainAreas": [
+                83569,
+                82943,
+                87933,
+                82793
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                447,
+                870
+              ],
+              "mainAreas": [
+                89993,
+                92969,
+                95129,
+                86042
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_female-2.png",
+          "sourceSha256": "e44382905db08de94b1fffb43ce1b5e1321121053f639893ffbc38213485bdfb",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -211,
+            -431,
+            301,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                13,
+                442
+              ],
+              "mainAreas": [
+                84378,
+                90481,
+                92102,
+                86923
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                453,
+                880
+              ],
+              "mainAreas": [
+                84420,
+                85829,
+                82884,
+                86313
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/chibi/shadow_rogue_female-3.png",
+          "sourceSha256": "9bf5a87a682ce70bdd3270e87ce3a88254705be080902cb57541b04495868c34",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -266,
+            -469,
+            233,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                476
+              ],
+              "mainAreas": [
+                111637,
+                104293,
+                93963,
+                110228
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                464,
+                870
+              ],
+              "mainAreas": [
+                86473,
+                75200,
+                83367,
+                62944
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -266,
+        -469,
+        301,
+        2
+      ],
+      "outputScale": 0.8747795414462081,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            -4,
+            0
+          ],
+          [
+            -5,
+            0
+          ]
+        ],
+        "run": [
+          [
+            0,
+            0
+          ],
+          [
+            -5,
+            0
+          ],
+          [
+            -12,
+            0
+          ],
+          [
+            -5,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "id": "shadow_rogue_female",
+      "style": "original",
+      "sources": [
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_female-0.png",
+          "sourceSha256": "99cf6567354421be1606ae6f538ea81a08486dab312ba1457423fd05dfefc5ce",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -163,
+            -430,
+            193,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                11,
+                439
+              ],
+              "mainAreas": [
+                45019,
+                45629,
+                44979,
+                45459
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                450,
+                860
+              ],
+              "mainAreas": [
+                42360,
+                37259,
+                42396,
+                40422
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_female-1.png",
+          "sourceSha256": "f10fc400e77a22bf9bc8b52478f10bcb6fee7d0878ba2b3ab28cf6039dd5aa53",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -210,
+            -434,
+            229,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                25,
+                432
+              ],
+              "mainAreas": [
+                61098,
+                55585,
+                61112,
+                56902
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                439,
+                871
+              ],
+              "mainAreas": [
+                57403,
+                56752,
+                67396,
+                57703
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_female-2.png",
+          "sourceSha256": "a222ccd2385658ecb4b99345cc014cbb6be3f703713a86716014c3c4b8401384",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -228,
+            -446,
+            305,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                7,
+                443
+              ],
+              "mainAreas": [
+                51664,
+                57549,
+                57071,
+                49998
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                442,
+                886
+              ],
+              "mainAreas": [
+                51800,
+                57625,
+                58959,
+                51022
+              ]
+            }
+          ]
+        },
+        {
+          "sourceFile": "generated/hd-animations/sheets/original/shadow_rogue_female-3.png",
+          "sourceSha256": "f57a98fa6ebd4df79914fa11fdefd77d236ca91a6cc455cd42fed51ece0c1f03",
+          "nativeScale": 1.0,
+          "sourceSize": [
+            1774,
+            887
+          ],
+          "sharedBounds": [
+            -240,
+            -447,
+            208,
+            2
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                9,
+                454
+              ],
+              "mainAreas": [
+                62692,
+                60876,
+                53864,
+                63268
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                453,
+                866
+              ],
+              "mainAreas": [
+                61065,
+                59099,
+                46090,
+                38187
+              ]
+            }
+          ]
+        }
+      ],
+      "sharedBounds": [
+        -240,
+        -447,
+        305,
+        2
+      ],
+      "outputScale": 0.9100917431192661,
+      "registrationOffsets": {
+        "idle": [
+          [
+            0,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ]
+      }
+    }
+  ],
+  "gifs": 192,
+  "frameSize": [
+    512,
+    512
+  ],
+  "framesPerAction": 4,
+  "pngColors": "full RGBA",
+  "gifColors": 255,
+  "sourceUpscaling": false,
+  "disposal": 2,
+  "loop": 0
+}
