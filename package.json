@@ -4,6 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "test:forest-art": "node scripts/forest-art-smoke.mjs",
+    "test:forest-browser": "node scripts/forest-smoke.mjs",
+    "test": "node --test tests/battle.test.ts tests/boss-balance.test.ts tests/exploration.test.ts tests/forest-completion.test.ts",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "preview": "vite preview",

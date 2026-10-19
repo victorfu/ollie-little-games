@@ -1,0 +1,58 @@
+{
+  "generator": "Codex built-in imagegen",
+  "requestedModel": "GPT-Image2",
+  "reportedModel": null,
+  "encoding": "WebP quality 90; original dimensions and alpha preserved",
+  "assets": [
+    {
+      "id": "ground",
+      "master": "assets/environment/storybook/ground.png",
+      "runtime": "public/environment/storybook/ground.webp",
+      "width": 1254,
+      "height": 1254,
+      "cornerAlpha": 255,
+      "sourceSha256": "4077ce93774c27ec20f7dced35facf6303279bdc4d42b0e0196bf91672fa243f",
+      "bytes": 723982
+    },
+    {
+      "id": "path",
+      "master": "assets/environment/storybook/path.png",
+      "runtime": "public/environment/storybook/path.webp",
+      "width": 1254,
+      "height": 1254,
+      "cornerAlpha": 255,
+      "sourceSha256": "ac9b8281286a24c7a8b46c00b2519fc18d191a3eaaae695e8252a26223e108bc",
+      "bytes": 456214
+    },
+    {
+      "id": "trees",
+      "master": "assets/environment/storybook/trees.png",
+      "runtime": "public/environment/storybook/trees.webp",
+      "width": 1254,
+      "height": 1254,
+      "cornerAlpha": 0,
+      "sourceSha256": "69775ccb30b4523f28ecee87f15e6d230f05d329618e67ef737fd9518fa04f63",
+      "bytes": 561156
+    },
+    {
+      "id": "chest",
+      "master": "assets/environment/storybook/chest.png",
+      "runtime": "public/environment/storybook/chest.webp",
+      "width": 1774,
+      "height": 887,
+      "cornerAlpha": 0,
+      "sourceSha256": "e53f9b335aa540c2d4291e9c4814b77ac3962615ccc47ec82d32901155513fa4",
+      "bytes": 474470
+    },
+    {
+      "id": "camp",
+      "master": "assets/environment/storybook/camp.png",
+      "runtime": "public/environment/storybook/camp.webp",
+      "width": 1254,
+      "height": 1254,
+      "cornerAlpha": 0,
+      "sourceSha256": "1b56da5e10ef047d10278d631f6f46d91784e4241b83d5ad5443146962282041",
+      "bytes": 447660
+    }
+  ]
+}

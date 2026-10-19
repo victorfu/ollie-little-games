@@ -13,6 +13,8 @@ export default function Home() {
           選擇角色，比較高清正常版、高清 Q 版與 48×48、96×96 Q 版像素圖。
         </p>
       </header>
+      <Link to="/forest" className="rounded-xl bg-[#f0b830] px-6 py-4 font-bold text-[#181530]">進入熄燈森林 · 開始探索冒險 →</Link>
+      <Link to="/adventure" className="text-[#f0b830] underline">獨立戰鬥試玩 →</Link>
       <Link to="/monsters" className="text-[#f0b830] underline">查看怪物圖鑑 →</Link>
       <Showcase characters={characters} />
     </main>
