@@ -1,0 +1,3096 @@
+{
+  "generator": "Codex built-in imagegen",
+  "model": null,
+  "monsters": [
+    {
+      "id": "moondew_slime",
+      "nameZh": "月露史萊姆",
+      "nameEn": "Moondew Slime",
+      "elementLabel": "月",
+      "element": "moon",
+      "role": "小怪",
+      "summary": "半透明月露凝成的淘氣小怪，肚子裡藏著月牙。",
+      "actionLabels": [
+        "待機",
+        "彈跳前進",
+        "急速彈跳",
+        "軟泥撞擊",
+        "月露彈",
+        "凝膠防禦",
+        "受傷",
+        "攤成水窪"
+      ],
+      "generationModel": null,
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "sheet": "/monsters/animations/48/moondew_slime/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/48/moondew_slime/idle.gif",
+              "poster": "/monsters/animations/48/moondew_slime/idle-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/idle-0.png",
+                "/monsters/animations/48/moondew_slime/idle-1.png",
+                "/monsters/animations/48/moondew_slime/idle-2.png",
+                "/monsters/animations/48/moondew_slime/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "58f7f9a8feda0d977c956e00b2cae4dddd50f47f1d6fdd44f25777ed9cc2b5b0",
+                "c638c1fa8faa4751780cd369ddc701194aa738b027d4e25b5bf6c12dc3f4d0db",
+                "0be6b8ecfe160b68135cb843e600d12f7cfbcc559bab0db172eee06aeeadd0ba",
+                "4ca2ce03938a5bca56c26825b884d800a58c2ba63642c803b243b0616f296b3d"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "4f4d7791db2b6317f78f51d5d5cba67931e0b13c3d1b7a68f81310af292ee4a8"
+            },
+            {
+              "id": "walk",
+              "label": "彈跳前進",
+              "gif": "/monsters/animations/48/moondew_slime/walk.gif",
+              "poster": "/monsters/animations/48/moondew_slime/walk-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/walk-0.png",
+                "/monsters/animations/48/moondew_slime/walk-1.png",
+                "/monsters/animations/48/moondew_slime/walk-2.png",
+                "/monsters/animations/48/moondew_slime/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "57e022059c37b8c4fde1f8ccd649a4de37b04d21b3dee6c23edd172edd569c88",
+                "4e1ac165fbae3a4f8f7d82a682d33243b0f638fb2e7ff1bcda66a9d5d485e8f0",
+                "58a32ac9782e01b56b544f2de87769253b232a4fdb732c034b68ab00431b67e4",
+                "75c8f690c58ccb9e869899a5e0483ba456eab1c2f1557efafbdf5e02a0ae35af"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "6084271bb892640c7cf83c27f31000d8ed398d7a789311f21b7475885a9df84e"
+            },
+            {
+              "id": "run",
+              "label": "急速彈跳",
+              "gif": "/monsters/animations/48/moondew_slime/run.gif",
+              "poster": "/monsters/animations/48/moondew_slime/run-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/run-0.png",
+                "/monsters/animations/48/moondew_slime/run-1.png",
+                "/monsters/animations/48/moondew_slime/run-2.png",
+                "/monsters/animations/48/moondew_slime/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "93cb7e099e5050011695291f69edc6c6be78155a11aa9b56f7e8d008fa79fe1e",
+                "aa2e8d941e92b7625ff86e6c41f2967617d178357b2eecb360959522fbc1421f",
+                "d531e0234fd601f5f3e4e20a786c4211cb1e1c736dd16851295e15d3b27e473d",
+                "e5590511144932363c9638c19b317e9c99a2ab8bf54b6a99e2633428ef09116b"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "bbb3d81e9422fc0fbd35fe040d46eebc41affed2fc6c2e7a09a7627857d4ad5f"
+            },
+            {
+              "id": "slash",
+              "label": "軟泥撞擊",
+              "gif": "/monsters/animations/48/moondew_slime/slash.gif",
+              "poster": "/monsters/animations/48/moondew_slime/slash-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/slash-0.png",
+                "/monsters/animations/48/moondew_slime/slash-1.png",
+                "/monsters/animations/48/moondew_slime/slash-2.png",
+                "/monsters/animations/48/moondew_slime/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "0493d9a793b5183ac4b4c18dfbd706f0143e98fac6bdc51383a3e9da9aa6a6bf",
+                "35ceac0e57690f3463361e16e98d6376d73323e349fa6028b84b0972ccc14d25",
+                "d20e90289509a8436a55c192fb1a255b2b75df67428b764013ba1f6a2fb6e0d1",
+                "f028b3e4a3b76c77a79f9b86d7087196f17a45e569a3c689f566fe6e26e62ac6"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "9dce5ca443d19fbc93e9dee8948c9aa337b9faef978856faf69bd644e3d09058"
+            },
+            {
+              "id": "thrust",
+              "label": "月露彈",
+              "gif": "/monsters/animations/48/moondew_slime/thrust.gif",
+              "poster": "/monsters/animations/48/moondew_slime/thrust-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/thrust-0.png",
+                "/monsters/animations/48/moondew_slime/thrust-1.png",
+                "/monsters/animations/48/moondew_slime/thrust-2.png",
+                "/monsters/animations/48/moondew_slime/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "c623443524b608529b4a964dd1f8aa189d588b37ce86e536fe263f11f59ccfad",
+                "efce29d73c23a2520d8bd35588fdc4ba6662e32f4d4facc4c678a201eaf194ff",
+                "367a59004f9bf290e2893f5fddfe1a1d6416ea601a87132191593210254620e2",
+                "cf22160844a7f282ec7772c483661f09587091e671a1a7654298cd03441d50bc"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "be2066dba850ce7558a6d7033829cc71e3173ea6913d644d07e55c2320831cdd"
+            },
+            {
+              "id": "block",
+              "label": "凝膠防禦",
+              "gif": "/monsters/animations/48/moondew_slime/block.gif",
+              "poster": "/monsters/animations/48/moondew_slime/block-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/block-0.png",
+                "/monsters/animations/48/moondew_slime/block-1.png",
+                "/monsters/animations/48/moondew_slime/block-2.png",
+                "/monsters/animations/48/moondew_slime/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "4b49828a3c0d690915cf0bbbe1edcc3de8f7d7eff1c1234c2c57b7be45ab5180",
+                "2945bf7691685ba259032ae6d0b438fe829f8c25d083c84bf27963f79516d7eb",
+                "dfc8ee823bf95d5cb0a0eaf0ad31721a05b41f7bf8333d1eea99fa25ca9d555e",
+                "4b6a66a093066fd07f49510c0c53c6130174b0b3a1ac144148275d87dd701e15"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "39f2c02f03d88d24899fc9e5bc2dd9aaeb482d73098d34827e0a8242ba4e358c"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/48/moondew_slime/hurt.gif",
+              "poster": "/monsters/animations/48/moondew_slime/hurt-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/hurt-0.png",
+                "/monsters/animations/48/moondew_slime/hurt-1.png",
+                "/monsters/animations/48/moondew_slime/hurt-2.png",
+                "/monsters/animations/48/moondew_slime/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "889a3d111424a21f481c15dbd91ff73b43c51470ca83b76f2301e88211efcb97",
+                "a8e3a4976745f7ffb682c5bf625d43f7265ee6064a3a792686cf72843d44b292",
+                "4804b754cd9a94b4148967e78b29e34983cb888d47d4cd6d4dafed11a46cf74d",
+                "b1034819cb98d43d51a960f004ec825446b83ffdb2c94cac05f52c5c2f6f33a2"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "232694c196c6371862171bcd9c650205707508a2949da0540b592a429cf235e2"
+            },
+            {
+              "id": "fall",
+              "label": "攤成水窪",
+              "gif": "/monsters/animations/48/moondew_slime/fall.gif",
+              "poster": "/monsters/animations/48/moondew_slime/fall-0.png",
+              "frames": [
+                "/monsters/animations/48/moondew_slime/fall-0.png",
+                "/monsters/animations/48/moondew_slime/fall-1.png",
+                "/monsters/animations/48/moondew_slime/fall-2.png",
+                "/monsters/animations/48/moondew_slime/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "aaf37e0383cc08b5e5d79a55b337026fbf67cb9c7a637bffb72c8e77cd49a9ec",
+                "38fe6e17cc0098cc40061977f0d2602c46af3fbdb37afe1966fc5d607da0a610",
+                "659613dc6d3248f66aad536a760a176221e4907a7cb8b161461c97f54485c271",
+                "3ff324831f9b037fbe14a6379d5576024fd4020b1be3ab7cc287f54d369fc8d2"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "26dad3c5de8410984455d248426e23627717fe7eeff7730e58ea05d5a4d4b6b3"
+            }
+          ]
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "sheet": "/monsters/animations/96/moondew_slime/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/96/moondew_slime/idle.gif",
+              "poster": "/monsters/animations/96/moondew_slime/idle-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/idle-0.png",
+                "/monsters/animations/96/moondew_slime/idle-1.png",
+                "/monsters/animations/96/moondew_slime/idle-2.png",
+                "/monsters/animations/96/moondew_slime/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "b3f9088a9e6699dea1e0056cb25ac3a15b47647a77f4ff44ab6e0772a00a2289",
+                "3ca8b4d02d60bec6043ea4e8856fb86359289cd9d546230eae0feb9b2c0e9983",
+                "ebebbfdf1a4e7134a5addaa2f115ea9ae5639070ee8af7530f7001eb0ec931bd",
+                "4c010ec40fe4d5f5f3fc40499ba85309f06aeb71ecaf24b07527d94c3f882e13"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "2206a86d21ac24266cd429cb5470e995d86d170bc30e9bde4547e300b3bc3150"
+            },
+            {
+              "id": "walk",
+              "label": "彈跳前進",
+              "gif": "/monsters/animations/96/moondew_slime/walk.gif",
+              "poster": "/monsters/animations/96/moondew_slime/walk-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/walk-0.png",
+                "/monsters/animations/96/moondew_slime/walk-1.png",
+                "/monsters/animations/96/moondew_slime/walk-2.png",
+                "/monsters/animations/96/moondew_slime/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "c47487caf403b3fa0236796edf06bf794b06620f8e6d8f6cb44daaf953ee0334",
+                "d65260976625874b8b7d1cd75b5b7e45488f680791ca99e04c9812c0eb4788ba",
+                "85fc7ec17556d32e069cbb508579ef29c1d7e5567cde43eb4d0c20c1ec3b3884",
+                "93dcc2731b123a52d22232e15ce73e4b5fcfb5f89458fe643546719811420fc2"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "4c743a9608024dfc3a92c8a9c2f68c0477b3eacb5fe2a8905be3baf69dd87b8b"
+            },
+            {
+              "id": "run",
+              "label": "急速彈跳",
+              "gif": "/monsters/animations/96/moondew_slime/run.gif",
+              "poster": "/monsters/animations/96/moondew_slime/run-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/run-0.png",
+                "/monsters/animations/96/moondew_slime/run-1.png",
+                "/monsters/animations/96/moondew_slime/run-2.png",
+                "/monsters/animations/96/moondew_slime/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "1a9e55c49d607b630a479d81b2ac8ec292579547d8563bfc37573e546cd33d83",
+                "3dfbfb0a404ef114ec9200d10bd8edf43f43fb6732ef09a794d89b7ded772123",
+                "b91b524cd15b86531b090095bfb38f99998f9204ea22767c2a75669371777194",
+                "7aae3b0bf686546f2b56faeb8534a9199c9b8789eabfa0e69f9b6639b54819c0"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "8fed45ffa56928ce9aa8ba366d0608384aa10cb639343d604e2d603e8f841bf4"
+            },
+            {
+              "id": "slash",
+              "label": "軟泥撞擊",
+              "gif": "/monsters/animations/96/moondew_slime/slash.gif",
+              "poster": "/monsters/animations/96/moondew_slime/slash-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/slash-0.png",
+                "/monsters/animations/96/moondew_slime/slash-1.png",
+                "/monsters/animations/96/moondew_slime/slash-2.png",
+                "/monsters/animations/96/moondew_slime/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "5ac833082861a1a782238cb57f1f86fed4552231226f6fcf35819ae42a2aba01",
+                "a97d3a6ece8d6bb532680df176aee8480dbc399f8acc85adcb57b4fcd477d8e9",
+                "115e54005900a69bfaacdfe5d2e390808bb8d4674216963b30cdba5f9e5fa66e",
+                "5dc85626dbb4e71c195a2ab055f8db139f6d5a1811232f6be24ad0a033b0eb67"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "176f3c2e32975df741eece9669e6c889a7fdac25bdaf0a2006c8ee408548bb98"
+            },
+            {
+              "id": "thrust",
+              "label": "月露彈",
+              "gif": "/monsters/animations/96/moondew_slime/thrust.gif",
+              "poster": "/monsters/animations/96/moondew_slime/thrust-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/thrust-0.png",
+                "/monsters/animations/96/moondew_slime/thrust-1.png",
+                "/monsters/animations/96/moondew_slime/thrust-2.png",
+                "/monsters/animations/96/moondew_slime/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "965824484fafe97a76d0204abf62b7f99f1ad1b941582d9c353f7c45d8aadde5",
+                "1982a1d996e24bdea30db42b0a1a91121c2ae15faf608a1c77a2484341615460",
+                "9c2738c843b84dffedda44786d302871801c80b1f929d505a28ab3a7bb0d7e43",
+                "53ff15134bd5f2374a328fdceafffb8077199d894442e271a7c52cc45f783b99"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "df65e7ae90db83269c237c756b1df976b5f1668d425c87d445c907b33ee598e3"
+            },
+            {
+              "id": "block",
+              "label": "凝膠防禦",
+              "gif": "/monsters/animations/96/moondew_slime/block.gif",
+              "poster": "/monsters/animations/96/moondew_slime/block-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/block-0.png",
+                "/monsters/animations/96/moondew_slime/block-1.png",
+                "/monsters/animations/96/moondew_slime/block-2.png",
+                "/monsters/animations/96/moondew_slime/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "92e4d49d0ff7382e568252f6764f413cf3137f8631fb24e5a30932e6cf4bb154",
+                "201186cf8c3cfaa6921e9e6768939e87ae4c3a6da7f722b34713a21aaab7c3a7",
+                "f476a80596b30fa62fe5354a57f4e2d7916b3ab67dd7e2ecc848c9e322d6cf35",
+                "166edf43ee0d589f56f982979949831d7d9fa5366c1424f5ab9109ad6fe108fd"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "512b7742064fec936f483ba4320454a898d54e1db7b4dd9d07e46d4c1622319f"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/96/moondew_slime/hurt.gif",
+              "poster": "/monsters/animations/96/moondew_slime/hurt-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/hurt-0.png",
+                "/monsters/animations/96/moondew_slime/hurt-1.png",
+                "/monsters/animations/96/moondew_slime/hurt-2.png",
+                "/monsters/animations/96/moondew_slime/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "dfb3fb295f9038dd040b3b40a495b503f542719995cfb9db17e14c259f9b0912",
+                "ad5b7c8feba4fdf45cb3838245fb940350a3ebdcfe86a18697e3e984a5392353",
+                "25c85f12c7a48cc0040602c547c886a048c219c17f38b5928cb4d583b8fdfde7",
+                "4e9f00e6792ba3f7d6a63db26dce39ff72e7518e7ea4381f5502a361a4098118"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "659b2f6236e51fbc61290654f0262165869ab423f987c87c91a72256990a291c"
+            },
+            {
+              "id": "fall",
+              "label": "攤成水窪",
+              "gif": "/monsters/animations/96/moondew_slime/fall.gif",
+              "poster": "/monsters/animations/96/moondew_slime/fall-0.png",
+              "frames": [
+                "/monsters/animations/96/moondew_slime/fall-0.png",
+                "/monsters/animations/96/moondew_slime/fall-1.png",
+                "/monsters/animations/96/moondew_slime/fall-2.png",
+                "/monsters/animations/96/moondew_slime/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "314c9820af8c99fdb01fd5cf9cf3a895e4cf26705d2942bb9f57a13fc2b717d5",
+                "d0f765b0934b992f7ca5d936c7c710d9b18abf52baf1051b31443c72c2d24613",
+                "ec98efa332691b25af7e0f5e7a7b66b71676acfa69019a92c7d08492a4d22e8c",
+                "402746398a77e0c584b4a451833e82be18b7ecc362abc8461f132cb50bd1bf8a"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "0c6784822821b66d2c8272f9f81902403f040475fc5903990b002272c9a0c48a"
+            }
+          ]
+        },
+        "chibi": {
+          "size": [
+            512,
+            512
+          ],
+          "sheet": "/monsters/animations/hd/chibi/moondew_slime/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/idle.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/idle-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/idle-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/idle-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/idle-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "e2c3cd5472297c6e066548b94a41c08fc95854c7d841fa7fd3cc66664cefa62d",
+                "8e7531c9f964616c9eb08b40b5206f7666254b473d66c12a79fb76f06ff00280",
+                "3cce0dbab2445eeeec97b8c8941847933a68c2b41041387e950224f851ed7558",
+                "fd90237e1ee2da6f15f5f22eed3fa049640475fdc7efc33a703baf5a6b6eba35"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "70264059f61f44c92801c9314d997b1559ef8d3cb241f1336a8694cd3fbf55d2"
+            },
+            {
+              "id": "walk",
+              "label": "彈跳前進",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/walk.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/walk-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/walk-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/walk-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/walk-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "2fa877880b9dd95e51f9219b83dc921de7f5108d2a0dd10210794adeded60b7c",
+                "bc52b44c27f3ed795e554cf1b1f162e5ecdbe7bb48b1e0e9804216c659646dac",
+                "33543064e2cca61be2d47ebee06de1133de8f58c2cf3416a3c011eb4d5815799",
+                "10c3788dfc47d0719314a1d96d7bf1cb07834bfbdc405f613322f7612743bad1"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "6e1abc4aaae598b60343cbef4235fabe62df3e23474d7eba8d6b8fcc88bee69f"
+            },
+            {
+              "id": "run",
+              "label": "急速彈跳",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/run.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/run-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/run-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/run-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/run-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "8e50f5e5d3b6b0e7c4a0c6778f472be104a93b4d409a2c2da618fcb73bfaf307",
+                "e94fd14d6632d02cc4c35d687d48cea10504eefa1727f84e353bdeefe3744de8",
+                "577e794dbe5761b8aaa0ed06b4f1337a262f4413e6d09bc0ad4524f920a1bf8f",
+                "cc83403c91821109da839c71d09a1e46eb7c36c9d0ca67d4dff9b361be05677f"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "8700ee195199f46b38f478aeb6d868aec53157849d10df0310ebb97fff77b213"
+            },
+            {
+              "id": "slash",
+              "label": "軟泥撞擊",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/slash.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/slash-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/slash-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/slash-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/slash-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "017143640ed1789f6b3ee28802025206315dbd62feea5f0be7d28244deaf8870",
+                "b5d46d229717bcfbdf628e8a657408cd941059d438da93ed6e429f8a6d876bb9",
+                "8bb581aee5a2739299d47758228fe09330d404783a161f96c0fd1ab83a502b9f",
+                "3ad71fb5886307ba6c2337adac0a91d206287965a9356c9b7abc5688e7a22bed"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "45e8fd9995ab9b0c6058f0b94ad31ab619ae0409d812cf5bbd1b90bf0baad1a6"
+            },
+            {
+              "id": "thrust",
+              "label": "月露彈",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/thrust.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/thrust-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/thrust-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/thrust-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/thrust-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "18cb2df284186e0a0ddf77096f70760280c7f6db630450a0c52461265d1c6344",
+                "b80c19428c10a0844726cc67304e149a7ce11905f6fe501c3ed869420c770e69",
+                "0ecc4161d08dbc734d88ec3e12297a1c4de3ed1441987d2d21d7c3122f4ba5ee",
+                "b6c3052504c1bb51baf5c78b8f03e8f3bb3017564b8b833deee413b6e341f53c"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "19108b2ff412c2828c3f55925aef40d0bde16850131ce681ff780ce7212462dc"
+            },
+            {
+              "id": "block",
+              "label": "凝膠防禦",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/block.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/block-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/block-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/block-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/block-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "02446fc583cca27937d2ef40c515c84c8bb5d9b287b4fdaa130987d155d87383",
+                "304abf16b877bb3da1ea8b3c2f340cec65309d598e78b45e675bffa05be2b30c",
+                "b49a902ccb13e856bcf834ae65005f9d58e5b0132d99573c74d951aec59238e0",
+                "3cc390636b91c63976a976ce21992cf8b28c67f3f47a6914296ae26c8c36ab85"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "b61e8cfd94c74a816888fd213ff52a2c03ad5536826706fe6ec87f0848d5b5d4"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/hurt.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/hurt-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/hurt-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/hurt-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/hurt-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "27cb47d6b084caaf66e4f1a82cb824c5af324f8f9de0e2e598006d214ce75aba",
+                "713683f9888c474628cd788a43b801428e466c5c273cdffb0f26706bb19ac757",
+                "45ebf347c22538c2442df9edbb569eae7088ef486a71f410d199f4e86d33fb84",
+                "145f9ab627728e1c72d539b7b9f73612b10a811fb92b315a4e76babd99625cf6"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "6d7a7a3a1410141d7684f9e5ed11caec5a7302e14127a9a0047a6d6bb75b88a8"
+            },
+            {
+              "id": "fall",
+              "label": "攤成水窪",
+              "gif": "/monsters/animations/hd/chibi/moondew_slime/fall.gif",
+              "poster": "/monsters/animations/hd/chibi/moondew_slime/fall-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/moondew_slime/fall-0.png",
+                "/monsters/animations/hd/chibi/moondew_slime/fall-1.png",
+                "/monsters/animations/hd/chibi/moondew_slime/fall-2.png",
+                "/monsters/animations/hd/chibi/moondew_slime/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "da11ac9ec47bfb067e65c813a160ef1fdea35a804a0c8a44302469f8e6e6f2da",
+                "df3daf10fcb854fae3de334990015f3bd0a3259f026dd733a32041787cd2acbf",
+                "6fb314a012ba6fcfadad6e9dfc18af58bc92802c64e6f6dad71d6435decf398d",
+                "336fac8c768b1950df7cd4f8e90efb98277e8b3f2f3bbcbc85a57515bf274b32"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "c894911b3c7afc0d1f32a74fe8aeb79213b1b724bc95fb6b77e668b6f5d07989"
+            }
+          ]
+        },
+        "original": {
+          "size": [
+            512,
+            512
+          ],
+          "sheet": "/monsters/animations/hd/original/moondew_slime/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/hd/original/moondew_slime/idle.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/idle-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/idle-0.png",
+                "/monsters/animations/hd/original/moondew_slime/idle-1.png",
+                "/monsters/animations/hd/original/moondew_slime/idle-2.png",
+                "/monsters/animations/hd/original/moondew_slime/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "47470086f8a1db83506d31a9c4de2603c1af96af15a5fa4ba3ff52bc5ce46b6a",
+                "142b158ac8af5e27eae1bba12625bf26b0d93cf2ac34237bff6bf0f8ed7a2d6d",
+                "6f797dbe846e3c547cf30d59679c725a5d2e2537f3c16d3fdfff527eb5c1ec31",
+                "345f5b8e78d9665562701d7ae4feb191ad97ba59abb70f988577b213538a5ef5"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "20808b4aa13ef90ed37a5f1d630da77171cc0f21efc3a2519a65ec0b3f8636bb"
+            },
+            {
+              "id": "walk",
+              "label": "彈跳前進",
+              "gif": "/monsters/animations/hd/original/moondew_slime/walk.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/walk-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/walk-0.png",
+                "/monsters/animations/hd/original/moondew_slime/walk-1.png",
+                "/monsters/animations/hd/original/moondew_slime/walk-2.png",
+                "/monsters/animations/hd/original/moondew_slime/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "82865c75f13356117fe9aa269ce687c502bda12642832b2546fef06d24e09b63",
+                "115e94c2e5c3c46f19495628a0739242063eb3b9509cecad5640ed48319c8860",
+                "00c750abce0d35a1180d262a7d985a0cfe74bcb804fee721ca20dda897691136",
+                "21a4f0e601dac934a5627c8293f0eb3275ca7488ffcb458345e9d4167b3917b3"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "125af7a75539dbc85cdd1c34391cc133b182af39dd8feaaae776763ac95e5c0c"
+            },
+            {
+              "id": "run",
+              "label": "急速彈跳",
+              "gif": "/monsters/animations/hd/original/moondew_slime/run.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/run-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/run-0.png",
+                "/monsters/animations/hd/original/moondew_slime/run-1.png",
+                "/monsters/animations/hd/original/moondew_slime/run-2.png",
+                "/monsters/animations/hd/original/moondew_slime/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "cde358df39b0031bfb59fffa152354c1038c416f7f0f6537d11152a48f627764",
+                "ae664694a344ad83deb8acdd8f81394bd155edcb60867aa57aee84c20529e023",
+                "9542b8d4dc1c520e54c8f0857bc979f7a5eb3a185f55de3c74113fa1c04b008b",
+                "9f005676d4dc492a20bb8ef1a5a3c2834a59eede3263f33f5af0a1c305e3f88e"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "1fe07f786886328380fb1ec229af71db46ced2f352f01644423aad02551fa014"
+            },
+            {
+              "id": "slash",
+              "label": "軟泥撞擊",
+              "gif": "/monsters/animations/hd/original/moondew_slime/slash.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/slash-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/slash-0.png",
+                "/monsters/animations/hd/original/moondew_slime/slash-1.png",
+                "/monsters/animations/hd/original/moondew_slime/slash-2.png",
+                "/monsters/animations/hd/original/moondew_slime/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "6d95e3a3158f58ccf1f5d7fac1912a7fa0830509a867a5f51c4e88704479e329",
+                "7421381ab3e1fdfa2e3d5b67067dde3f8810726f668144e7e447d93dfd6151e3",
+                "5ec2cb9c102f7919ac0b210b9ecfe2e48291d6499c036c8366669f805e5dc708",
+                "70830bbe5c8ad978fd2fce1c0cb03486b4a836ff0f2ed88e23326db1d9c65e0a"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "15cae2c747384011d0304eb06f40fcf92347fa340574fcd3c872ed2e4b1baab6"
+            },
+            {
+              "id": "thrust",
+              "label": "月露彈",
+              "gif": "/monsters/animations/hd/original/moondew_slime/thrust.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/thrust-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/thrust-0.png",
+                "/monsters/animations/hd/original/moondew_slime/thrust-1.png",
+                "/monsters/animations/hd/original/moondew_slime/thrust-2.png",
+                "/monsters/animations/hd/original/moondew_slime/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "dda89ea95e349c2a69b58a843ba57ce2fe80f57c8ca2eb6f78e9b944940545ca",
+                "8feaac5170cfe792e754ed350a49f4d263515706b47dac9f16ebc18b89982a7f",
+                "a427512ca653e1f4a374189de4c9cc08f5457e112a1e806b3355d010778be989",
+                "b388066c0c0d6993f638635bc6df238177b00fd72bc2cb437f45a54018d3011f"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "ab505807a66e49eb0fcaf6ebe6ebbbf40d148b60ed44e9ecc4ff05c3390f3acc"
+            },
+            {
+              "id": "block",
+              "label": "凝膠防禦",
+              "gif": "/monsters/animations/hd/original/moondew_slime/block.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/block-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/block-0.png",
+                "/monsters/animations/hd/original/moondew_slime/block-1.png",
+                "/monsters/animations/hd/original/moondew_slime/block-2.png",
+                "/monsters/animations/hd/original/moondew_slime/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "1c9342476faabca4be4456ebf59687984c68185d4b24d3453f32a0cfded84bc8",
+                "fa3922b0896632ea21c620dad181c29fe43b3920f20f83eed763e78aca0d50bb",
+                "85174cc48284f94e06813547b424cb21fa04ebacf9d652055c6972a95a0eaf21",
+                "c57389eae4994df006652216b0923cf97e4ba7c8e6f6e5a555482da72430a7c0"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "066e60361c4135ae98df702c716a108122eab06303327243307aab1fade577cb"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/hd/original/moondew_slime/hurt.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/hurt-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/hurt-0.png",
+                "/monsters/animations/hd/original/moondew_slime/hurt-1.png",
+                "/monsters/animations/hd/original/moondew_slime/hurt-2.png",
+                "/monsters/animations/hd/original/moondew_slime/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "1503b04825fd1377920d093fa131e4daac880e5200aa25d5c3317fa77e7a21f0",
+                "9b90112a88a1f70eea0b27a4fcc1b90e2981ef56c795b76cd118d1b4e80bd848",
+                "e054154cd83772357806c82ca82c1265b2f868a53988eaa54ca137c5affac58d",
+                "29c44dd4d185241e35f3f3aec485a5975d2446a7c8f75b7aee8aa87da008d3b7"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "29b5ef9eac44dcfa727aca2f125799f7f77c1ae20c038fbadea90d6e1a19f6e2"
+            },
+            {
+              "id": "fall",
+              "label": "攤成水窪",
+              "gif": "/monsters/animations/hd/original/moondew_slime/fall.gif",
+              "poster": "/monsters/animations/hd/original/moondew_slime/fall-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/moondew_slime/fall-0.png",
+                "/monsters/animations/hd/original/moondew_slime/fall-1.png",
+                "/monsters/animations/hd/original/moondew_slime/fall-2.png",
+                "/monsters/animations/hd/original/moondew_slime/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "de19f370b1c4a2b6b1043a82ddc4fb196a05a865f4f047d09136ff18a0208672",
+                "8d3700856f691d6ea1620b29a9a50ab58e74dd618b1c42ad536ba0c99ec4ae37",
+                "9c3b579c75ae71d730ac8945dee8b60bd392430fd3af055c0e14ab4de45e18be",
+                "18c40b80a4171a7c961946a71adf7f75b0e94311a110b0b726b709520e2e7d1b"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "31bbccd1d2d1ba02109c255c24c4c5bdefbf9a491567e5808d09a8ddd3c9a513"
+            }
+          ]
+        }
+      },
+      "art": {
+        "original": "/monsters/original/moondew_slime.png",
+        "chibi": "/monsters/chibi/moondew_slime.png",
+        "48": "/monsters/moondew_slime.png",
+        "96": "/monsters/96/moondew_slime.png"
+      },
+      "sources": {
+        "original": {
+          "file": "generated/monsters/original/moondew_slime.png",
+          "sha256": "4d2777747a4426ac979969921c97c375cafcb07141d2629af16a840fc6388138"
+        },
+        "chibi": {
+          "file": "generated/monsters/chibi/moondew_slime.png",
+          "sha256": "83871fd2a27a8dd2f6f71b8da0b5dc5a2ad8b1dccca95d68ececad98cb227b67"
+        },
+        "pixel": {
+          "file": "generated/monsters/masters/chibi/moondew_slime.png",
+          "sha256": "a2f17c8fa035e9b8db88233366ace27df03be7cdde55c473b522c63169aa494c"
+        },
+        "pixelAnimations": {
+          "file": "generated/monsters/animations/sheets/moondew_slime.png",
+          "sha256": "b233f200a7aa9195e44a23dce943304c86b94e1ad3226451e225436cc39d016e",
+          "sourceSize": [
+            887,
+            1774
+          ],
+          "sharedBounds": [
+            -112,
+            -200,
+            114,
+            0
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                28,
+                228
+              ],
+              "mainAreas": [
+                23843,
+                24329,
+                26477,
+                24055
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                248,
+                445
+              ],
+              "mainAreas": [
+                24809,
+                22722,
+                23662,
+                23938
+              ]
+            },
+            {
+              "action": "run",
+              "sourceRow": [
+                469,
+                659
+              ],
+              "mainAreas": [
+                24875,
+                22835,
+                25172,
+                23438
+              ]
+            },
+            {
+              "action": "slash",
+              "sourceRow": [
+                687,
+                873
+              ],
+              "mainAreas": [
+                24437,
+                24506,
+                25302,
+                23453
+              ]
+            },
+            {
+              "action": "thrust",
+              "sourceRow": [
+                903,
+                1098
+              ],
+              "mainAreas": [
+                27012,
+                26209,
+                25241,
+                23641
+              ]
+            },
+            {
+              "action": "block",
+              "sourceRow": [
+                1125,
+                1316
+              ],
+              "mainAreas": [
+                22673,
+                22854,
+                23494,
+                23744
+              ]
+            },
+            {
+              "action": "hurt",
+              "sourceRow": [
+                1344,
+                1538
+              ],
+              "mainAreas": [
+                25877,
+                24888,
+                22865,
+                23365
+              ]
+            },
+            {
+              "action": "fall",
+              "sourceRow": [
+                1584,
+                1751
+              ],
+              "mainAreas": [
+                22494,
+                17903,
+                14715,
+                11190
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "mossrock_grunt",
+      "nameZh": "苔岩小怪",
+      "nameEn": "Mossrock Grunt",
+      "elementLabel": "地",
+      "element": "earth",
+      "role": "小怪",
+      "summary": "身披苔蘚的厚重石怪，以胸口綠晶與巨拳辨識。",
+      "actionLabels": [
+        "待機",
+        "走路",
+        "奔跑",
+        "重拳",
+        "岩晶彈",
+        "抱拳防禦",
+        "受傷",
+        "石堆倒地"
+      ],
+      "generationModel": null,
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "sheet": "/monsters/animations/48/mossrock_grunt/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/48/mossrock_grunt/idle.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/idle-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/idle-0.png",
+                "/monsters/animations/48/mossrock_grunt/idle-1.png",
+                "/monsters/animations/48/mossrock_grunt/idle-2.png",
+                "/monsters/animations/48/mossrock_grunt/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "a00ae63bec995d71c5cb79058f2f604c263df27c4da6de1b836ac1a7692db0b3",
+                "fa28c855522179dea3e57b3274fd27b1fc38fa79b898b7a3e39fc455bfaad583",
+                "7967c98341c1f49c2d08e870eed9424c5b2ee52bf506138535e7ffb4c501c6a2",
+                "eff91164fda6eb669041fd1734c2ce4a1b8ee8d021353c170972ec833000452a"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "4be3bbd3c9b58ba521d1fd3a4f69c89f92075adf5e1d311904ce108c40f9f26f"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/monsters/animations/48/mossrock_grunt/walk.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/walk-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/walk-0.png",
+                "/monsters/animations/48/mossrock_grunt/walk-1.png",
+                "/monsters/animations/48/mossrock_grunt/walk-2.png",
+                "/monsters/animations/48/mossrock_grunt/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "022a9012c4bf2453a5f3009c24b4624e6a2806a1e9cda85581c3713d578156a9",
+                "2cb932893f607101d4bb08637efc268c1c669f042b831297251917df20f99b1c",
+                "1bba03c6fe631f94e3a8cc07c5db08c9fa6e9714aa9c5f49cd5450a927904619",
+                "309f844a2486a567084af95b8b43b5012533b34bf1fe1532522f0da32d7fcc17"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "354724f7f9277336275f53cb6d91aabebc0d415b097de253f791506943b52b8d"
+            },
+            {
+              "id": "run",
+              "label": "奔跑",
+              "gif": "/monsters/animations/48/mossrock_grunt/run.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/run-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/run-0.png",
+                "/monsters/animations/48/mossrock_grunt/run-1.png",
+                "/monsters/animations/48/mossrock_grunt/run-2.png",
+                "/monsters/animations/48/mossrock_grunt/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "129ec77c59d0e794aa0a1eb51081805cb59a12b9d5d374c61292bd03332eae89",
+                "243b15a5c0556ed16612ec5cdbfd12330e109fa522390308acaabfc56937d883",
+                "b95a232c6fd48276cecf64427a8cfcb728d0fd013ca0745e919b42d9b087aa75",
+                "021b5ec58a95e8dac885755be5eccfe656f451c4a65dc4dd3e5ce3468ba1a0a0"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "a94ad57bcdf550394696d743b290a475d1316dd19781fbd5c573592a55217c36"
+            },
+            {
+              "id": "slash",
+              "label": "重拳",
+              "gif": "/monsters/animations/48/mossrock_grunt/slash.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/slash-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/slash-0.png",
+                "/monsters/animations/48/mossrock_grunt/slash-1.png",
+                "/monsters/animations/48/mossrock_grunt/slash-2.png",
+                "/monsters/animations/48/mossrock_grunt/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "7581f3b11f8fd6210baca35932779134951c50ccf2ea54ada8ec422ec1b7d2a5",
+                "1246589f4769f6efe320d516a87c53941dbd65073128f041bc10405ecf880c41",
+                "bfe063c4a8ce7abb4ff166dd1609298ae8e81c2410fe4af9fa3fb6df987e0f5b",
+                "b69a60f1297c57ecc7f21f7f1ec74f4a5200f44b47a70e96ec1ed01db968b501"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "f74610095688bfb1a1bd90be94119a7057a810bc4158a1d1e3464a3a38aadbce"
+            },
+            {
+              "id": "thrust",
+              "label": "岩晶彈",
+              "gif": "/monsters/animations/48/mossrock_grunt/thrust.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/thrust-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/thrust-0.png",
+                "/monsters/animations/48/mossrock_grunt/thrust-1.png",
+                "/monsters/animations/48/mossrock_grunt/thrust-2.png",
+                "/monsters/animations/48/mossrock_grunt/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "24e5847f9b6ab57f688ead5e507ee3efdf8ffed938a5baaa319cd6e9f05a5712",
+                "95cce54df30280a645b2cda492bfea24a3e23fe684f7a9fe12c9e407bc51c501",
+                "a3de84a1dec11f8ff60c2d261049b9f7f7a29442fdb7d4e970e08adf3edf9937",
+                "311bc43a0df568f870585470fe0e0d169d18401e73269270d3ea571b75fbab5a"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "de664180bf42c8e49c1a11b229220af66ed1dd655e8d92aea0d260580f210ef1"
+            },
+            {
+              "id": "block",
+              "label": "抱拳防禦",
+              "gif": "/monsters/animations/48/mossrock_grunt/block.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/block-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/block-0.png",
+                "/monsters/animations/48/mossrock_grunt/block-1.png",
+                "/monsters/animations/48/mossrock_grunt/block-2.png",
+                "/monsters/animations/48/mossrock_grunt/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "ba25c8ac6af28e51d73d226c663f71ed4e22f8e18cbf9bc8c919be5ae32628e6",
+                "e99dc76c3f745f288a6512c6b23cd1c07e6c030fa621a83a8995951d3a2ea1b4",
+                "e0075348504797a56f3e7128e6f261d1ebe5eb9096bbc8f185cd0ac24f56f775",
+                "a0b1a3b7fa4999dc9a9fb46b35b2a08ae783af70ef654940b3cbd3d5ea2d136d"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "0f1fef4256101236db7d4457b702f5816536ca12114a9644a5fc9d19552af48a"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/48/mossrock_grunt/hurt.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/hurt-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/hurt-0.png",
+                "/monsters/animations/48/mossrock_grunt/hurt-1.png",
+                "/monsters/animations/48/mossrock_grunt/hurt-2.png",
+                "/monsters/animations/48/mossrock_grunt/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "e37cc9c8bad137b680ed21a577db2d2521c57d98f4f544dbde226048b9bd3a5a",
+                "f4dca6aaea43ba06f4fca96e701fbe6df684a809497929fbf13b2043b40a6fc0",
+                "7804e4d6c1adda6c7e53e45e96621fb13f84e8951e3b3f836c0276bf0f2b5b31",
+                "4926a8a417ae45f106be66678d1884dbbb821e76f1edb361c60116d03c05c033"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "e403974bfb434989bcd820178e767480a689f2ed55c865a0c80857f3a4782e09"
+            },
+            {
+              "id": "fall",
+              "label": "石堆倒地",
+              "gif": "/monsters/animations/48/mossrock_grunt/fall.gif",
+              "poster": "/monsters/animations/48/mossrock_grunt/fall-0.png",
+              "frames": [
+                "/monsters/animations/48/mossrock_grunt/fall-0.png",
+                "/monsters/animations/48/mossrock_grunt/fall-1.png",
+                "/monsters/animations/48/mossrock_grunt/fall-2.png",
+                "/monsters/animations/48/mossrock_grunt/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "c1a2b2562a65e40475ee791f7080aa2a089d08ee6c715c2ebe5a86524355edda",
+                "94cf357e0541ffc2360ce9802444f73b0a29a99109ef5cfaf3533fe5462b76bd",
+                "8524e8c80230b25ce76be5e978949f3b9759d2b431a6226ad857b2d8fd364691",
+                "5a8d2f0e274fc70d95cea3c7161d59a0763172289766f51fd5db01d450f31076"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "c53c73a76464ade98222b7db8462947b6d5f39f5ee06e0dad680647565172a71"
+            }
+          ]
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "sheet": "/monsters/animations/96/mossrock_grunt/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/96/mossrock_grunt/idle.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/idle-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/idle-0.png",
+                "/monsters/animations/96/mossrock_grunt/idle-1.png",
+                "/monsters/animations/96/mossrock_grunt/idle-2.png",
+                "/monsters/animations/96/mossrock_grunt/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "c746957406a471a1960fa8658c22cb4be3f546116fc7b38df3d776af785cb1a3",
+                "8d18f8828cc759920e32daa96d902291ba23271dc994942df198deef1b63aa2f",
+                "37fb18905afe1d49703e767d95a02b6bf91f4253ac6ef5e056c27e0a96fab7ec",
+                "217d1249ccf12205e652bd60de1dc12d266c3c8efe3a0acc787ea3b5c5347248"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "2159a19648949ccbb50573e1a7ae331ec46a420b95f89b71b8832fbea060d0ec"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/monsters/animations/96/mossrock_grunt/walk.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/walk-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/walk-0.png",
+                "/monsters/animations/96/mossrock_grunt/walk-1.png",
+                "/monsters/animations/96/mossrock_grunt/walk-2.png",
+                "/monsters/animations/96/mossrock_grunt/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "efaef417175fd4326d61695e502da40026c8034afad53832df85f753e64299d4",
+                "10d9eb66aca6ae17b4b2b5c9e938f0131d866b87de9cb09086f9a382f7f82304",
+                "c034fc418b2376ba1bed03686863fe79be43c7ed2c80f959f656968e5c799109",
+                "3184b86c0751766f13d4af0924d176669eb86b3051705fc92aa7508d264922a5"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "cc25d3305dc4635e83dd2af8e55636ef48bf04eef2fe1cc011bfe1cd62cea6cd"
+            },
+            {
+              "id": "run",
+              "label": "奔跑",
+              "gif": "/monsters/animations/96/mossrock_grunt/run.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/run-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/run-0.png",
+                "/monsters/animations/96/mossrock_grunt/run-1.png",
+                "/monsters/animations/96/mossrock_grunt/run-2.png",
+                "/monsters/animations/96/mossrock_grunt/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "e00f3a632b81ef8d1002c4df9c6a62097a0ed2aa624dc82f0e26018942884d27",
+                "54eb38d082fb44396af47b6e3b8ebf050ff379805a2eaa2d3b0f822b741545e8",
+                "4c96f87ab1c7a6933ee14c4ae23ffb67f80925a4952deff818ecc7252c0144ff",
+                "93aec71281d9831c4a2a872e1eaa683dff75a3884565c3e6d7a9255f81ebe7ca"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "4903b2879aba232083be3bc114ede4931b2ee9ca78dda5287f53a6045a6c8b61"
+            },
+            {
+              "id": "slash",
+              "label": "重拳",
+              "gif": "/monsters/animations/96/mossrock_grunt/slash.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/slash-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/slash-0.png",
+                "/monsters/animations/96/mossrock_grunt/slash-1.png",
+                "/monsters/animations/96/mossrock_grunt/slash-2.png",
+                "/monsters/animations/96/mossrock_grunt/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "308d408630de02b3b2bae0455e168c928a2575d8b8ffd55383e87c5dc257db65",
+                "45007d28071ee818ec253e4950f34857930e718757273e0f932ef116dd634ee6",
+                "a756de98edcc0ceeafb8cfd466adbf0c09c7a79c78169a60a7b581745a30c46c",
+                "e81fc1be33f29a1ea80e54ff196f9854a478d5099664891b90021bc2e3718e84"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "6171232f71247781e9981759a00e6f17bd0cd719ecd41e6347b2d469b3ad4292"
+            },
+            {
+              "id": "thrust",
+              "label": "岩晶彈",
+              "gif": "/monsters/animations/96/mossrock_grunt/thrust.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/thrust-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/thrust-0.png",
+                "/monsters/animations/96/mossrock_grunt/thrust-1.png",
+                "/monsters/animations/96/mossrock_grunt/thrust-2.png",
+                "/monsters/animations/96/mossrock_grunt/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "2ed6577ab1bb50adceb40b3b515a3faf132e38b1e647c74bde1e037bae920980",
+                "52a640889da4fc0f00ce870b537217a30d9bdf2a723c8c320020a1ba7e85b2dd",
+                "ba9d74dddcc993d5e6fb041173452287287682ed2274c3d2d01683478da3a1f2",
+                "d6645cef27f76d8c0c64a8e2179a36a2b661eb9f089c92733d2023b75abc6d66"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "b1f1f7eaaadf80157a2ebb94cd5e436ad6d778359d38552d932b12ad13636954"
+            },
+            {
+              "id": "block",
+              "label": "抱拳防禦",
+              "gif": "/monsters/animations/96/mossrock_grunt/block.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/block-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/block-0.png",
+                "/monsters/animations/96/mossrock_grunt/block-1.png",
+                "/monsters/animations/96/mossrock_grunt/block-2.png",
+                "/monsters/animations/96/mossrock_grunt/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "402c8aa9a4706ef52ec3ec1b7b5217b01c5f2cda2332b09006779e79f436a4a2",
+                "c9cdbd5a7b9d83a98b0f3231328e1ff677367da5b32f0c0f342685199d0e68f5",
+                "1b6a049491991d7651e8dd1288f50fe367c8149e4bd8878952f5248ad5e05f26",
+                "a45f4a5e109cb53b744349934066362ffa25963f5a796557c55ea92c5a4db1ed"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "ac9438c647a894bfbf2f0966cf92d1043cc958ba2e9ee6d560a9fa08185a12c8"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/96/mossrock_grunt/hurt.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/hurt-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/hurt-0.png",
+                "/monsters/animations/96/mossrock_grunt/hurt-1.png",
+                "/monsters/animations/96/mossrock_grunt/hurt-2.png",
+                "/monsters/animations/96/mossrock_grunt/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "5d36da9f3e5238446ef511747e9ad4657eace9d1361b2233c173abae8f287f77",
+                "0bede206b1d7c376c741402e6ca10897f50ca894a5755a40c58e804b5b641f49",
+                "c98a2c4e3f6b9041e03473ca7e29d84aa16594167fb8e947139b89de8be55671",
+                "01fe2a9746fd0b91a325ee7b01e8325ca672bb057196ae2b29438f592d00a429"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "16b9e7c673a726bffd783d55102cb2b445187a55cb527f5de502d7dfb20e8495"
+            },
+            {
+              "id": "fall",
+              "label": "石堆倒地",
+              "gif": "/monsters/animations/96/mossrock_grunt/fall.gif",
+              "poster": "/monsters/animations/96/mossrock_grunt/fall-0.png",
+              "frames": [
+                "/monsters/animations/96/mossrock_grunt/fall-0.png",
+                "/monsters/animations/96/mossrock_grunt/fall-1.png",
+                "/monsters/animations/96/mossrock_grunt/fall-2.png",
+                "/monsters/animations/96/mossrock_grunt/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "831e1e52d5ef61a09fb5f1aede6e94bf26e0aecc7079c28fa1c5ae7f2e26510e",
+                "77fff4875e6a8ddf51662d7b3af7c385cace311327387b1e2ca5a0e4dabeb74a",
+                "1ee44b82dda5367762e0f3db84fdb51ff46d5d4d73f3e2205e39d26acc5dd25a",
+                "d406a492b55ec5220d30bef6da168058708bc466dc24dec4371b9000013a4f67"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "bb3438c537bfadfd8f9a25ee00fdc92799297ba4f2cdc8f2f110815b1aa6e36c"
+            }
+          ]
+        },
+        "chibi": {
+          "size": [
+            512,
+            512
+          ],
+          "sheet": "/monsters/animations/hd/chibi/mossrock_grunt/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/idle.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/idle-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/idle-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/idle-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/idle-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "5bf94bf84fc0b94c5e9f71ad1f526ddbdbdd43dc3452851137c1cfe3fba27740",
+                "2460f7060428410dde86336412776a47ba70cbd3607549bc47132bcbd4bd111e",
+                "f6d2589f4579698ba95cd08bca2934004ad0fc14988374a317231c469c95cc67",
+                "bb306cc7da0714427f7c2c3095831ee19ce783d51279b64a7acf104ea4ddcd4d"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "f3d4938def9171e4b0fb8697c0f4ec0dd41f9a359b04dd7cfff1a230eec7e570"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/walk.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/walk-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/walk-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/walk-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/walk-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "5bdb21a17d9c99e45f5978ce4aed4967a9213a27fae35587b06f16c7b4cb52a7",
+                "4bc81c7ed61718f2ee3351c4ae5648451e492d59378e95bb575f6b3b85db354e",
+                "674629a1de3fe3215955c37d235a6fb07674751cef92a08387c4b618972ebd92",
+                "a86bb9f90da03fac820804e1ffe4578b476471e27210dc6c86699fb752adae99"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "76376bec44966fa8578b7f3425ac6d8c401c5bcc091b893164e8d399410e0988"
+            },
+            {
+              "id": "run",
+              "label": "奔跑",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/run.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/run-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/run-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/run-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/run-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "11fbf85f7a04f99d50dd32d7a8059fef741c0019f7640dc96f81f900c9d4dec5",
+                "7c842fc79cebae674153118207afd7cf3df0ad8827d220ea7f00f438302c302e",
+                "c217fb8681cc567e7c0c47a3576b7c4255047e56fa0b7a81d9679dddb1bbb342",
+                "8d9a64e95b056ec12bad9519cb9a9cbe82dab910b88e58a3dfe030a4f72be2f0"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "e59ce9de62fada9494c17d87a43429d8f35b68485a143722df1a934a08e740c1"
+            },
+            {
+              "id": "slash",
+              "label": "重拳",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/slash.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/slash-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/slash-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/slash-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/slash-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "1ac65cebcdaa46d0c3c3400cec2e960c84f96ba4516eea0408b080ef353f3ec6",
+                "e6db1c0d03896f8f92b9bc6cd027a5307c27bac1d7645cb20b8829d76c9f57b6",
+                "fa455de47d0f636f83510076c3c34cedbbb835831e202cac8f26c38f99d5b43e",
+                "d3ccaf373fb3e8627896e0c9239c50c8b10b66ace0a3cd80a65258dc160e8e25"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "3f114d7290927ed319419ee701de77dcb264d78f027e74ab484770b406947cc3"
+            },
+            {
+              "id": "thrust",
+              "label": "岩晶彈",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/thrust.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/thrust-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/thrust-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/thrust-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/thrust-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "3af4403f14cf2f51a02fbe34ffe0742f1edbfbe491df22a0724bcab167488d82",
+                "29e3e40485a5048d6cd6523ef5dbc54a8f6bc9bc2f1ebdd58ffffd87578db658",
+                "cb064e8c1d482c37cea5bdff48eec44a6f9d962b07cee0f648a147630e28ff5e",
+                "a08ebfeed0c4a5f0cd6e415ce4d1100d79fd6318054588d1ae8be30bcc4b4f53"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "1362b1a35e1be80fbc2be1acb00d1955361851666b765e7e0b14d979b4ec6f0c"
+            },
+            {
+              "id": "block",
+              "label": "抱拳防禦",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/block.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/block-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/block-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/block-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/block-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "77a54665f48f820eeec500468a3aad91324ef4c00f02f6a656afc659bb2850c5",
+                "18d5f5b888b29d64ef192459b7f2231993bb5e059113d53e57956fef3c070e1a",
+                "f2e61873c02d530abbd435b12f061c73733d5f59e4c7201bfcdd82d8aaadd6ee",
+                "39c075a90ee9e2f9b3b6e13e2e98708ae23d9655deb4456180716f0b36de183a"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "2e42d41eccb5a84a0de89b646f8238be26b2e50b3e3c6d552ea6bf7c1e391f78"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/hurt.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/hurt-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/hurt-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/hurt-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/hurt-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "990949e96294e5de2494a0bec4915c4b377961282df2da3498e36b278c5691d8",
+                "990abe721bdabdfdb97ea1e4afed64af53028ac3ab9f38f013f105dd4af70cd4",
+                "604311eed905c9882d926463e9c2223dcc89f0b2bd442208a6db737cfa9568a0",
+                "b2da3fc5e0c14f511d19f16a40d756c3a8979bb0d8c55e8c4756acf1ebfddedc"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "85d08e9c556fa4d4570479c1f31546dcb1e8f9edbb5fbfd5f88cc1a282c11e1a"
+            },
+            {
+              "id": "fall",
+              "label": "石堆倒地",
+              "gif": "/monsters/animations/hd/chibi/mossrock_grunt/fall.gif",
+              "poster": "/monsters/animations/hd/chibi/mossrock_grunt/fall-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/mossrock_grunt/fall-0.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/fall-1.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/fall-2.png",
+                "/monsters/animations/hd/chibi/mossrock_grunt/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "1b0f9ac5eebfdb9991942bf778775edc9d7bc601f8d2ce52040bb8b33ef138f5",
+                "64dae5fc5c1ac6f9f162eb6b61c6186373b457b19faf7adf27453d800e4604f2",
+                "fc534d5be7fc23ccab3e36874e047cfd1b5bc7165175e132275a133a370955e2",
+                "f7902b6d50f7a94229255cacf31bc192786a02bb10a50e919bac1de359644008"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "7a7465fe4fec8cf0302783d240eb89c9c86b27dca6ee94717b375ee3d57c8e68"
+            }
+          ]
+        },
+        "original": {
+          "size": [
+            512,
+            512
+          ],
+          "sheet": "/monsters/animations/hd/original/mossrock_grunt/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/idle.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/idle-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/idle-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/idle-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/idle-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "da2aa93d95116326ec54040c976f015c371a21724e6280a7145393f0907fe247",
+                "52437ccfb82e1987bad3013e2a85b5e870ac58f0b2f1a630e89a9d02c74679d2",
+                "e5782adf921c954bb44ce1d0513eeb00735c45b6070b61bb5162db261f9ba52b",
+                "1f97fd07bed4f070102bb31d28cbeb09a1c2f4205bfca42472b49466c8af6c03"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "b428da34f18fa8535d6bd355768d5428a7239f95b6804e12039c1ed9b0c2edb5"
+            },
+            {
+              "id": "walk",
+              "label": "走路",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/walk.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/walk-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/walk-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/walk-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/walk-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "fcc34788744df328c5d207b5b58b773a40eceaee43eaee6fdb0c10171229bd6f",
+                "2c9b496a473e0d9945e140f47f02fda2da1f090a11a9d16e43f80f867cdf983a",
+                "798cd9556764670137d2468a970814f16ada625293d51ac560f05e78c87d1918",
+                "1cbea0d1783b80f3feb32d4cab01ff7dc5dbd60b11d2b41d58575e3298f67a79"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "ebd09bd017d03aee587ba7f81f7840c00f8cbf6da30152ee5cb8f5ea9c49b54e"
+            },
+            {
+              "id": "run",
+              "label": "奔跑",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/run.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/run-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/run-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/run-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/run-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "aa34e3f409ae3e0b99b11a446c6aaa0d34c9f0f7d8e605e07ba1e18eed370d89",
+                "150220a0ff42403f630d4354d8d3fea409a64ca3ab8ff1568baf6dd7f7b35da9",
+                "1708a113a113dce1a6667523413c8ed3bb9c78e2f9dd9c0a18051bc484b99c60",
+                "d8cff97e6fb27b21e3897e13dd1c37f60452a313db2f2c0fc54081efe7ff54b6"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "43f99008f355a49338a906ec45b85d8f954432f7adadaa49ede04b54e310b3b3"
+            },
+            {
+              "id": "slash",
+              "label": "重拳",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/slash.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/slash-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/slash-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/slash-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/slash-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "7fac3da90ad808e2130ef797b6a85cf772cdd8087f546d51dd9d08422f51f84a",
+                "1c5eba13c0f911b74502f2b54dadd3fafb697180c3764f251df24af2ced00757",
+                "494115144c27636477af1ea92da9f9c45527f49037ec774bc80e9054f6d3a583",
+                "0cf5e21176a85c8f610a7a1a04e158fb419a6db0d187c9a1603023280e4f770d"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "f4fc5b6b3c515b9fdda49abb4217223c950aa45d5bca3dfe139cb3dd6865f2d6"
+            },
+            {
+              "id": "thrust",
+              "label": "岩晶彈",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/thrust.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/thrust-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/thrust-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/thrust-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/thrust-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "773270526f46741d0304f81a38984140f256fe4f9c61aa9143508c4aa0eb7238",
+                "68506d0caac852624efb85e51dfdbaa0e4cb6a906d84812690e7aa5f62af1689",
+                "f4f1fc7a6ede549a01324978057a2ebfe7581d9b2852d57fd5e2edddf48e7411",
+                "f1aad3b5790df6163e9660c90e3cc1787080e5e40236521f083f4d4f2a79ef47"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "3923a4558b9a79bef7f5b9a11a6da4472629ce7f04ef3a1690e8fba0f1ba5548"
+            },
+            {
+              "id": "block",
+              "label": "抱拳防禦",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/block.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/block-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/block-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/block-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/block-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "ed7ffd3489673b3944d66c07116810024396941c73b847da30b0bb2c2d6de329",
+                "6b50b3343ee2056911dd082f08c4a61393d7fd92bb5fbbd1f1da6fb29ade9069",
+                "adf7e986e80eb00306ff701d773a5adc8566dc60dfa0f0cb7486a0c122b2331a",
+                "a6b88ab9197ddac8eb22239b4743eb560cee18dc4a0183da86606208c977c063"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "8f41d6f9d1d2f981148caa85c133434ea95c5a25b6471715a2a5c2208fb39211"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/hurt.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/hurt-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/hurt-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/hurt-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/hurt-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "1ad9d8a293961fbd54b77ad25485176bc72ea1e7074713c05dfd55f2905507db",
+                "632506df0df4b67257b737912cb118b6318361b2363177225a1bddfdac310333",
+                "b339db564ca7e6615ffa82cb34e5652ac0610066597b0c1fa0df1460b48336d9",
+                "2561bf8e17429bfd6d483fce1d488197b2ff83d3d66afa4d5460b33c43c25046"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "a3301fdcbd03acd6a864ed46ee3994ea491175afe479c7dc784e5449ba4b659e"
+            },
+            {
+              "id": "fall",
+              "label": "石堆倒地",
+              "gif": "/monsters/animations/hd/original/mossrock_grunt/fall.gif",
+              "poster": "/monsters/animations/hd/original/mossrock_grunt/fall-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/mossrock_grunt/fall-0.png",
+                "/monsters/animations/hd/original/mossrock_grunt/fall-1.png",
+                "/monsters/animations/hd/original/mossrock_grunt/fall-2.png",
+                "/monsters/animations/hd/original/mossrock_grunt/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "4ad8bc47e7c959acf0921dcca4267c9a87a50364dabcbbe3c7b9654c6cc7fc70",
+                "e55f9a0ddaafc3d22f36838e9c7dbdae4f0b04d5b303ad518b19c49a9021e69e",
+                "adc8a60b5c10c7c9454024a670f6677d8f9a1330b049519e4f7a4a9c764fbfd2",
+                "6e9b947adccc26c84ae2eb0b0456f37e628232dd0f9ed3fcb1645ff315090863"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "5097d2ea089cfda67f89a47d4fe6d2afd9fe644a6a5d50e66380f47b1c429791"
+            }
+          ]
+        }
+      },
+      "art": {
+        "original": "/monsters/original/mossrock_grunt.png",
+        "chibi": "/monsters/chibi/mossrock_grunt.png",
+        "48": "/monsters/mossrock_grunt.png",
+        "96": "/monsters/96/mossrock_grunt.png"
+      },
+      "sources": {
+        "original": {
+          "file": "generated/monsters/original/mossrock_grunt.png",
+          "sha256": "fcd9db3a3585f9d975fd07d07cf4dcab5a27a01616c9edf5c120fd91e312eb58"
+        },
+        "chibi": {
+          "file": "generated/monsters/chibi/mossrock_grunt.png",
+          "sha256": "70313fcda9df768bcb8d121f1eee16d73fca6594d05a76b69a7c58a016a315ea"
+        },
+        "pixel": {
+          "file": "generated/monsters/masters/chibi/mossrock_grunt.png",
+          "sha256": "6cb5e66bf087f21692e118aaa6acab668a28a8c7f24f582d0af023b3906b2054"
+        },
+        "pixelAnimations": {
+          "file": "generated/monsters/animations/sheets/mossrock_grunt.png",
+          "sha256": "c1afc710bf8e6c34a91323763a51ab5718add3ec28196f374f2d962e9efabe35",
+          "sourceSize": [
+            887,
+            1774
+          ],
+          "sharedBounds": [
+            -108,
+            -211,
+            149,
+            0
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                15,
+                205
+              ],
+              "mainAreas": [
+                26320,
+                25986,
+                26325,
+                25859
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                216,
+                416
+              ],
+              "mainAreas": [
+                25995,
+                25858,
+                26147,
+                26119
+              ]
+            },
+            {
+              "action": "run",
+              "sourceRow": [
+                418,
+                629
+              ],
+              "mainAreas": [
+                26561,
+                24208,
+                26405,
+                25898
+              ]
+            },
+            {
+              "action": "slash",
+              "sourceRow": [
+                633,
+                834
+              ],
+              "mainAreas": [
+                26148,
+                26023,
+                22687,
+                24653
+              ]
+            },
+            {
+              "action": "thrust",
+              "sourceRow": [
+                843,
+                1044
+              ],
+              "mainAreas": [
+                25978,
+                26588,
+                27318,
+                24687
+              ]
+            },
+            {
+              "action": "block",
+              "sourceRow": [
+                1073,
+                1267
+              ],
+              "mainAreas": [
+                26507,
+                23557,
+                24346,
+                25303
+              ]
+            },
+            {
+              "action": "hurt",
+              "sourceRow": [
+                1297,
+                1488
+              ],
+              "mainAreas": [
+                26157,
+                23970,
+                24845,
+                25527
+              ]
+            },
+            {
+              "action": "fall",
+              "sourceRow": [
+                1524,
+                1717
+              ],
+              "mainAreas": [
+                25780,
+                21254,
+                19510,
+                14252
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "eclipse_treant",
+      "nameZh": "蝕光樹靈",
+      "nameEn": "Eclipse Treant",
+      "elementLabel": "影",
+      "element": "shadow",
+      "role": "Boss",
+      "summary": "胸口封著蝕光核心的古樹，枝幹掛著兩盞種莢燈。",
+      "actionLabels": [
+        "待機",
+        "根足行走",
+        "根足奔跑",
+        "揮枝",
+        "蝕光彈",
+        "枝幹防禦",
+        "受傷",
+        "枯枝倒伏"
+      ],
+      "generationModel": null,
+      "variants": {
+        "48": {
+          "size": [
+            48,
+            48
+          ],
+          "sheet": "/monsters/animations/48/eclipse_treant/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/48/eclipse_treant/idle.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/idle-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/idle-0.png",
+                "/monsters/animations/48/eclipse_treant/idle-1.png",
+                "/monsters/animations/48/eclipse_treant/idle-2.png",
+                "/monsters/animations/48/eclipse_treant/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "f603daa870074a8e39820dde5b8e7438fc4f5a6216f865c5e2b84cffb82fbd49",
+                "a6af2b2cbb35106f0df71259a6a0ece760c44f59b86847c3ccb80ce166526f7f",
+                "1c32fbff0c5a591ccdae903eaab430e6e1541416802941b3af279e064be6f75d",
+                "a50684167c9c890573294fb7db587a2b7094168e179841574d19662eadf276d1"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "6d632be2c54d34a3c30da70f66919c7cdad4675ae25ccf4f178eb9399ca79283"
+            },
+            {
+              "id": "walk",
+              "label": "根足行走",
+              "gif": "/monsters/animations/48/eclipse_treant/walk.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/walk-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/walk-0.png",
+                "/monsters/animations/48/eclipse_treant/walk-1.png",
+                "/monsters/animations/48/eclipse_treant/walk-2.png",
+                "/monsters/animations/48/eclipse_treant/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "ac027de52d5b2ecb1f18e8fed41f203f27468ee1001aac647e44c905c56700d2",
+                "5b1915358b88ad0f1372917d4f1b743de4c82a589274245fc5c6a91bbc8006c7",
+                "de5c2086cf6965ecff15fbd440ef2b69567c08d1e187b653751874dce52d9edf",
+                "31ea4446e8fcd637b26e551dc5b80812a38b53054b721c5c4cc96b8fa847a027"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "a47aa9218ffa4b69157830cd85a1cbf97d4c060ae176ad2b297df39aee67052d"
+            },
+            {
+              "id": "run",
+              "label": "根足奔跑",
+              "gif": "/monsters/animations/48/eclipse_treant/run.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/run-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/run-0.png",
+                "/monsters/animations/48/eclipse_treant/run-1.png",
+                "/monsters/animations/48/eclipse_treant/run-2.png",
+                "/monsters/animations/48/eclipse_treant/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "430f3bcaba48befcde21f7090dd7872c19b3c5e2bfd798a7735548ba9190ca44",
+                "999b81daa1ecd38cc6cb1e7f51e8296e5571017494ec01f9326096a55990733c",
+                "80b77645d85e9555f28abd81e8694bc5d5bd2753724f264dada3d8929ace03ec",
+                "e0d26978048438ba97ea2478c064cd80f1c1434e0d1db52d10b3c7893c737cb6"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "08da67d1f987a2a53c38145618fe8a86ba575f4993aa77ce0d2e4831b223c497"
+            },
+            {
+              "id": "slash",
+              "label": "揮枝",
+              "gif": "/monsters/animations/48/eclipse_treant/slash.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/slash-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/slash-0.png",
+                "/monsters/animations/48/eclipse_treant/slash-1.png",
+                "/monsters/animations/48/eclipse_treant/slash-2.png",
+                "/monsters/animations/48/eclipse_treant/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "4b6ac46de79f7327e45d53128e81a80195fbe12054f6038d858ac123eb22b6e7",
+                "0ba43a343a653c253460a7bdbe9ab725a3cbd0fc503bdead0cdb624361126752",
+                "27a07c5cca0bc23348b786daabaf8483277f0545f027d35ff86d94ffe5d696a1",
+                "628f929cf98f84a9c4dc95b467b6a5da1cdb71d5d397d0e59fd92185682e0184"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "8d20d395ac4e8230fc791b261c3561c98ffc184510f1a1c7b27c1122c1081bdb"
+            },
+            {
+              "id": "thrust",
+              "label": "蝕光彈",
+              "gif": "/monsters/animations/48/eclipse_treant/thrust.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/thrust-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/thrust-0.png",
+                "/monsters/animations/48/eclipse_treant/thrust-1.png",
+                "/monsters/animations/48/eclipse_treant/thrust-2.png",
+                "/monsters/animations/48/eclipse_treant/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "d71862939b4fc90464da7b422e45c9017aba2c9b3770b658740b8e72d8527cc0",
+                "adc154450d3649f96882a8dc6aa50a8dbcdde94e2146353edf011eee9fe4c320",
+                "4f28bd771fd4e4300856bf8d76df9ab7a37b71d0542f84a2151947c8fc599871",
+                "ea63a69ec5a877db1866c2a430418f21f4a7ab2d864a14bcd471ecfc5e13cea6"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "ba4a9eec2a04a180bae34e064edd33e2ae45876ccdf5062957a921efdc39168e"
+            },
+            {
+              "id": "block",
+              "label": "枝幹防禦",
+              "gif": "/monsters/animations/48/eclipse_treant/block.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/block-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/block-0.png",
+                "/monsters/animations/48/eclipse_treant/block-1.png",
+                "/monsters/animations/48/eclipse_treant/block-2.png",
+                "/monsters/animations/48/eclipse_treant/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "40b8e35fd37455aadc4751df03d93d248cf35dffd5f5b6272bed65ce8b195834",
+                "61ea2de6463bcdbf70ca93b1f36461e03b9d8d76d45032810a0df2f34ac85009",
+                "feb761cb6bb7171e00e75c972bab8a4e05fa8b2360df760a27e75f03e01b447d",
+                "0981d8cff38fe3074ff20ff284002ef2ac6181b8f100d0cf61ac7631395c2870"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "a53b13f9954d76ee9dc01e1e8e54fec2a21481ac18ecea5cea9505dcdffdc55a"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/48/eclipse_treant/hurt.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/hurt-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/hurt-0.png",
+                "/monsters/animations/48/eclipse_treant/hurt-1.png",
+                "/monsters/animations/48/eclipse_treant/hurt-2.png",
+                "/monsters/animations/48/eclipse_treant/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "4ee06d1760146232011aa8a1bc46b4bd9e085522df4302bb614260fd6b8a5d70",
+                "dbdb17336aaf4f34236144a66c6063fdcbad1ee21968a0248852e3bedacb0a8f",
+                "0f6c22e40be5b4497ca15d3fc42ab46b54d3016aeab4d75824bd0cd98d5d6def",
+                "58ac53d053bd39db203ef577bbb95c5aafaeb1af8bbe64f00f078ab20ca9d164"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "c36203ae96d8ef6915045eb68603c52a88d31c221690e4552800bd919e216fac"
+            },
+            {
+              "id": "fall",
+              "label": "枯枝倒伏",
+              "gif": "/monsters/animations/48/eclipse_treant/fall.gif",
+              "poster": "/monsters/animations/48/eclipse_treant/fall-0.png",
+              "frames": [
+                "/monsters/animations/48/eclipse_treant/fall-0.png",
+                "/monsters/animations/48/eclipse_treant/fall-1.png",
+                "/monsters/animations/48/eclipse_treant/fall-2.png",
+                "/monsters/animations/48/eclipse_treant/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "fa40ff3a2e9e2974eae8df8e514dfdd5f431cd28f6102ec23a157fb3758de44d",
+                "e04bf9d25acb660dfbdac23d601af3428f3434ac3aa5124fc88e48230d6cf112",
+                "f144c0f48dd318b5dc13fd21e4ea30ca1c728f4b779d0fabb77688074353972b",
+                "8524b47350fe6f582281300dbabdd27c58fb70a15445dbc978646a9221217d32"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "841d0bbe4b74d496d51ce3b5a4593fba93cbe35af41e21ed9c77c96b09461ec2"
+            }
+          ]
+        },
+        "96": {
+          "size": [
+            96,
+            96
+          ],
+          "sheet": "/monsters/animations/96/eclipse_treant/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/96/eclipse_treant/idle.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/idle-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/idle-0.png",
+                "/monsters/animations/96/eclipse_treant/idle-1.png",
+                "/monsters/animations/96/eclipse_treant/idle-2.png",
+                "/monsters/animations/96/eclipse_treant/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "2a009b58800d52827872873d6f5c514dbaba46125cb79a72f15ca7ebe03dd60e",
+                "5521a8ac83c2932edc05006f2946629f172461447c316e24cdb19ea8b682348d",
+                "67fb9241d6aa08b60fe99f35de4ddd188bb92c9125610f839a6eec8c4c34dcf8",
+                "96917216a3d987ec9395a8c23e6eebc6c6fe25ca57f1be3e9132e793df15cdb7"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "19172c308b92d4ab38f2b8826c243e316c2237b9ede6d4cffdd09cc818abda15"
+            },
+            {
+              "id": "walk",
+              "label": "根足行走",
+              "gif": "/monsters/animations/96/eclipse_treant/walk.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/walk-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/walk-0.png",
+                "/monsters/animations/96/eclipse_treant/walk-1.png",
+                "/monsters/animations/96/eclipse_treant/walk-2.png",
+                "/monsters/animations/96/eclipse_treant/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "bc59fe742b49b77899b9a6952cf50f3ce99c1a424efac66c84205233dac802da",
+                "063b9fb5ec85911620f2453ecff83745f2a40db6b33dd40f1879641ee3e6fef4",
+                "62773092dd4f8ed7ff3bb1eb7ddb05f1763bb59927cb931a8f9456146595aa74",
+                "e965179198f7887f009f9dab0e3638f106ec518af79ef13e906331703ca90ec7"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "8d047d7183e548ca45c220a332f52f7afc9b5b202489429483901969a8c19e10"
+            },
+            {
+              "id": "run",
+              "label": "根足奔跑",
+              "gif": "/monsters/animations/96/eclipse_treant/run.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/run-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/run-0.png",
+                "/monsters/animations/96/eclipse_treant/run-1.png",
+                "/monsters/animations/96/eclipse_treant/run-2.png",
+                "/monsters/animations/96/eclipse_treant/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "f02b21f2858bce002e2d448ce4fd366b23ce07d71667d7cb9fb3dba21dd18028",
+                "8d6ffd7a9755ac6688a6ba0a34fbee6461c6212efd4745ac1c2c6ff6f95274b8",
+                "e8e7902b2b7a5897ddc9053ca7455084cc3456654857e20f117b36a7537510b7",
+                "1f60e942577722a34d591e9e2c32e7bcd3795438e1746164a55678771b55fae1"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "a2cbee3e11ccceb5fa15bc217212027294d1fbbecd61c7bdcb6d272affccdff3"
+            },
+            {
+              "id": "slash",
+              "label": "揮枝",
+              "gif": "/monsters/animations/96/eclipse_treant/slash.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/slash-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/slash-0.png",
+                "/monsters/animations/96/eclipse_treant/slash-1.png",
+                "/monsters/animations/96/eclipse_treant/slash-2.png",
+                "/monsters/animations/96/eclipse_treant/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "4e7b34918bce3903164a3e3ddc63b0867235a6cf9329cfe0a88525f4feed6fab",
+                "66676c0e4a5ef5718fbf1ca144c0ea737f126829317707b3ebf3f73bb56889a1",
+                "c0d9ba711b0af35ebca7387aebba8e463c60f997b12738f983fd5a335d7d33ce",
+                "8a9f39490539b32b292a49e1ed409d290f51e59d689085d8c579ad9d829ffb0f"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "5bc4d64bbf48e2b6869915383db48b057e3f4e6999e426ab705dd4e5d3446d7f"
+            },
+            {
+              "id": "thrust",
+              "label": "蝕光彈",
+              "gif": "/monsters/animations/96/eclipse_treant/thrust.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/thrust-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/thrust-0.png",
+                "/monsters/animations/96/eclipse_treant/thrust-1.png",
+                "/monsters/animations/96/eclipse_treant/thrust-2.png",
+                "/monsters/animations/96/eclipse_treant/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "dcacdd2234fb8a94e563f78705effd0a219ad1fd504ca10f35653f9aa89d87e1",
+                "8ee8424eab94c9dc0aab9c9bad104543d63310e6cae50ff35941dc2388f3c6ea",
+                "76ce2fbbfc4a1391e31e30be7ea02935dbe35f8ec259d730dbce86bcaf30ca3c",
+                "e45ea6840dd77da29925808b2e6c93a88d2a3ee0fc3b36cfc793f9e618459b96"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "33e45c1b4b237fcf4dc2780ce84a1f366c60ba00983b9cdceba0f0513bf6fe2d"
+            },
+            {
+              "id": "block",
+              "label": "枝幹防禦",
+              "gif": "/monsters/animations/96/eclipse_treant/block.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/block-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/block-0.png",
+                "/monsters/animations/96/eclipse_treant/block-1.png",
+                "/monsters/animations/96/eclipse_treant/block-2.png",
+                "/monsters/animations/96/eclipse_treant/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "9c8d1bf353bbfc7bf8a2588f06d0f21d5507d80df1e6c8366da500e007b65cc1",
+                "721f4a7c9a6e31039faf0edf44e992b9a4af35d02e21e2fc4d72f4b3c59207ee",
+                "bf9cf51d84ddcfb9e3c62f32eb7419e2990225b8a063d05b1f3a20fa0e7ced60",
+                "508ecdbbbf267e52b574a299812b415fad267aa5bfbb385c547da1ecb66bba36"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "0782a2feff95342114f1ccfb38d88e113cc80abb3c055819370da84ac3485458"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/96/eclipse_treant/hurt.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/hurt-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/hurt-0.png",
+                "/monsters/animations/96/eclipse_treant/hurt-1.png",
+                "/monsters/animations/96/eclipse_treant/hurt-2.png",
+                "/monsters/animations/96/eclipse_treant/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "c2aec94bb0cbbfc0ada23d7a1a26bda25e68ea74bd34b65170183526a53bfa6c",
+                "6e8ab6046b683f9d3dc483d28f6c5dbef585786acc3100c2a1276ba4a0aabe1b",
+                "21f537da0ac3d87b8625c2456fb849377f55bf823f8ae967983352b53dd6dbb9",
+                "62044e0b9c104df5e695773a81370b569d643e9b7958b64ea2a74586c04b1481"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "81311f14bbecd74917d65a644ab687031062ee27bff2047f14ff81326089bdf8"
+            },
+            {
+              "id": "fall",
+              "label": "枯枝倒伏",
+              "gif": "/monsters/animations/96/eclipse_treant/fall.gif",
+              "poster": "/monsters/animations/96/eclipse_treant/fall-0.png",
+              "frames": [
+                "/monsters/animations/96/eclipse_treant/fall-0.png",
+                "/monsters/animations/96/eclipse_treant/fall-1.png",
+                "/monsters/animations/96/eclipse_treant/fall-2.png",
+                "/monsters/animations/96/eclipse_treant/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "684fdf49b5c6bfbacece7b4bad1c322f229ff1126bc6d47810fa02315323f044",
+                "12d87fe0af1a07f22346373feac1ba8e0fc35190f8ed3a90c9e0d3362249ac77",
+                "434fa032ac33b5fbf6f894aa9f797521a6ca02b38b7df8e5050903bd01bb870e",
+                "e2c2192c9dfa49e893a1ae022552807f8ca11e0b2b427018b28e9b555102f9aa"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "76a5ef55bc3c26655a5e86073025ad49eacd6b82c122acf7aa075d59f15210a1"
+            }
+          ]
+        },
+        "chibi": {
+          "size": [
+            512,
+            512
+          ],
+          "sheet": "/monsters/animations/hd/chibi/eclipse_treant/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/idle.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/idle-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/idle-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/idle-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/idle-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "36c4d21533a50af2c002207861dbc3b0241b38dcd78c4fdd26c4baafb6285fd5",
+                "c898960772465157ebe75973251bb6eb37c8c8df9ef890eb5776b5d646ceb3ab",
+                "2e0e81f2c1e01115e8684b34112a4cc1dca10a58fb10b84dbea66f2129c83e6b",
+                "8172a1e0f2b770df8989a3c6ae4988878a7487097ee0fa287d6cda1690915448"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "c45569e962cdf21e1e71ef03467b1b2354fba7cf680223c81ef3e32b06160420"
+            },
+            {
+              "id": "walk",
+              "label": "根足行走",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/walk.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/walk-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/walk-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/walk-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/walk-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "f3cd258151f756d94ae79ab4a9c5e243c96284fff0f83be9050199624281f389",
+                "071ddd30a9e2db75be3fa13dd520fd8ff1a5fd6df0004fb6b5f0b290288f938c",
+                "15190180373b7155a7566abe60b01be53341d3dec84d0cf90f59d39efe0fbe9a",
+                "ad45f7056b0919c3b7362c3fcbb62b6bf70774bf2481310fc90736d2fd932ac1"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "4dd1a109cd5841476e73d807ab006b193fdc6c0065d24077e5cf13ddc937e050"
+            },
+            {
+              "id": "run",
+              "label": "根足奔跑",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/run.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/run-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/run-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/run-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/run-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "013c09618b9c5d8885ac0a4af4e3423028a92da9ce911277c14cf0d6bca3a5b7",
+                "86f62b6d98a5ed10052cd225792891aa052134d47b55052348d8540376bf667d",
+                "452fe8b2ff9e478c8f630f27d656aaf1e7fa486b531d0f3127730177cef7352d",
+                "6d5711dedcf385b99ac4d4f30487cab76ec0f865f68203db8c5a908208daa201"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "bfbc8583028fc3f76f9e3cf3e4ac6df0161815e68a16de8a1f29f9829e0b597c"
+            },
+            {
+              "id": "slash",
+              "label": "揮枝",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/slash.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/slash-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/slash-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/slash-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/slash-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "912724ebd865738dfb9d81706910acf8a95d3a1eb15b53403491ca08d24b1b12",
+                "1e71e411a5e884ebd237c7b45e9311845d63feba245cc551b340b3b70c336371",
+                "75433c22c9992fd133db911dff0b8b7f62f198a0c6ce48dc0e4df97e87d40920",
+                "70b1252b9ea9e701b792c7d24795be089bfc7f8d01cb859a5b0058dd4feeedeb"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "f7d6c4212f4079ab68eae17765da2687313bcfd919afee17c292f76991fa68fa"
+            },
+            {
+              "id": "thrust",
+              "label": "蝕光彈",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/thrust.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/thrust-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/thrust-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/thrust-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/thrust-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "a4281e372f2e1e994667169a963ade8b460a0246c1369c1276cb7c523c8a9bc3",
+                "4bfbf2c600c21f21a8f4690fb9c71478dc8ecbb6088f5f9e1f9f64822997a44f",
+                "bd657981e32c0d56b6aa1888abd9719f23774f4b7e2eca4453505b5651865743",
+                "601c0d819b56bd7e1f57e090add0172fd82a80eac2fb1fdd98438c41403fd5ae"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "e8245a0c9def83835fd85d31dd9ef3330b2eac2287e62877a7cfbd42c191068c"
+            },
+            {
+              "id": "block",
+              "label": "枝幹防禦",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/block.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/block-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/block-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/block-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/block-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "e071f8dfc644a89289219c21dd636b6533b7a720e3c0dc2dc25acbe7e2dbb368",
+                "fb5012f3e61e79b1a4848ee1e55c02055f5bc2feeced028f7ddd4a57a88c8803",
+                "78621ba15a96c586acba8c7b3919068ef53093a97bee128d1a8d4d8e5f952e5d",
+                "b7988dac28b5f116830e9032c693a2db5f91a46aa8607a949ea1fc1b0565127b"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "6a852365ba4206353b0620cdde96d00bc4fa842adef7d8422888d3d41ca0c7aa"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/hurt.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/hurt-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/hurt-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/hurt-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/hurt-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "000a5c879131f0295b7b4a7411c2080db5f57843ded32c986fc2aa54d8f5d50a",
+                "193b9d398f6a74336b3c45b8eef6558202b88949db2e15f6a2b1fd553d3350bf",
+                "265c7ff16f6edb2273a1d5379d48d45bc02afd97b944148fb6cea2167dc4ea88",
+                "247a42c0d6200a40649a30f70a197fb4f460a030daaca60f7902c9759c759467"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "304b4087a6a65caf5b660dae8611b0fc2cbf8d970a41a7be3920342af13bc97b"
+            },
+            {
+              "id": "fall",
+              "label": "枯枝倒伏",
+              "gif": "/monsters/animations/hd/chibi/eclipse_treant/fall.gif",
+              "poster": "/monsters/animations/hd/chibi/eclipse_treant/fall-0.png",
+              "frames": [
+                "/monsters/animations/hd/chibi/eclipse_treant/fall-0.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/fall-1.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/fall-2.png",
+                "/monsters/animations/hd/chibi/eclipse_treant/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "a476de468a43029e89c751a6f3776b0c6a4ed3a832441f32e1dfe591c875b881",
+                "18b8d36bbe3a268299af9193e45ef1d9fc8d397cf7f85943ef838bdbfbf63487",
+                "7684a402162b943f5925c0f7ccfa805d8c53210a9f94c09ee518f0e1709fd6a9",
+                "d8ab2ec70e61bba42aa51d9b7c35536f3b93c79debda26f63444abda053aa51d"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "6d2b51b42da85f61b4dd57457049deb25de039bbb222a60d5e55c820ed813171"
+            }
+          ]
+        },
+        "original": {
+          "size": [
+            512,
+            512
+          ],
+          "sheet": "/monsters/animations/hd/original/eclipse_treant/sheet.png",
+          "actions": [
+            {
+              "id": "idle",
+              "label": "待機",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/idle.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/idle-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/idle-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/idle-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/idle-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/idle-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "6ba38c7daa71391f0cc77f24c7ffbcf162e129ca46bffc290278507c6ba674c6",
+                "32f39047ffb5b30a0912d3a229dfd9fa5a7a2472dd17576a29e3ee5d9037d49c",
+                "749ff46ed0a406014cd91e686ab0136fa5385d818ffb7c7a0a496b36eda74af2",
+                "a148a938d6a9ca28747de5a7f35bc4be845ad79d43a1eb73cfdadbb457cbd147"
+              ],
+              "durations": [
+                260,
+                200,
+                260,
+                200
+              ],
+              "sha256": "129443178b5dc42b7eb8da0956c74307d756af8a5d8f2cd0fa5c23aef22394c6"
+            },
+            {
+              "id": "walk",
+              "label": "根足行走",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/walk.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/walk-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/walk-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/walk-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/walk-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/walk-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "6cd1c7d6d4e392befc52f3e4818c8662928e53a8fc8fb4e371b22e7cc77aa57d",
+                "a913b319c0e37fc7e91e0e01f06df2fbc47d3ad06901ed21e057100d43568fd1",
+                "ee28dd6f80ed8a9073dd3cd0b9a735c53ea3eb35287dd276bb68f07e90892903",
+                "a4fcef94e829875e7e076e8005b56d873818d569e715e77691b68b0ab5f8dbfe"
+              ],
+              "durations": [
+                140,
+                140,
+                140,
+                140
+              ],
+              "sha256": "0a3f64739c06a8bdc5e4a3c90dd60875c6353cc982e66f08f1f3adf79f5836bd"
+            },
+            {
+              "id": "run",
+              "label": "根足奔跑",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/run.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/run-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/run-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/run-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/run-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/run-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "48fb4700c28e6728cf3016acd72f9651283163783a3d4ef0cf34220fc2dbb79e",
+                "57b2baeebee5cad736ecf09cc77e432dc4b50177469cfadc842ec66bc6a48a3f",
+                "ef47b8904a352486f3b51d88d639e3e1f9abc9ca8045861d3ebc8b77601f14e8",
+                "2d0c575cc70f32762944d1d995e8add6bd2e954fd6544a2a6f2dec3f7f24acb9"
+              ],
+              "durations": [
+                90,
+                90,
+                90,
+                90
+              ],
+              "sha256": "5bc904cc00bfb1e607d22f35d7476fab8a2cf528895ecbc1cbd247d915a2be66"
+            },
+            {
+              "id": "slash",
+              "label": "揮枝",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/slash.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/slash-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/slash-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/slash-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/slash-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/slash-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "8f1bc03d462076e9d026df266666a4663b2cc19c8ad8162dfa0bbdf18460cd4d",
+                "b039310b7ec9709df33df33ec911dc8696ec81ad08bf67a191289ba6e86271a8",
+                "cd6a2675f79f7f761376360858c219104bc76ac3155d01bd4467d71339d9b521",
+                "f6dfd0729fa76b4d1d80f8886abc853cc4ee6f75e36823de2a9426ba6d74d5b2"
+              ],
+              "durations": [
+                180,
+                100,
+                100,
+                240
+              ],
+              "sha256": "bdaf5c5bcd39bbc4d9e4ba8c4b54a9c975ece576d84e3c8a54e6877b3e3534de"
+            },
+            {
+              "id": "thrust",
+              "label": "蝕光彈",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/thrust.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/thrust-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/thrust-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/thrust-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/thrust-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/thrust-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "88c897bf0b3396b5b58f76d22ac6a80e8c2ee3eb497687a34aafa0ba38dd91c5",
+                "b49dd343b00acafcabde238ce006bc752743bf544fa60d4476145e0ed0c5f8da",
+                "5720e44a8ae140cfb24e250cc6b54c97e24fee39a6035d7987b88243d35ffbe8",
+                "140b6df68c49e733b342dc132d0db68d862f891db395a1bb547d3882bb240b55"
+              ],
+              "durations": [
+                180,
+                140,
+                100,
+                240
+              ],
+              "sha256": "c5bcea9124b874ef9aab652b837754b0616444f1dadc4bf814072002025c97d4"
+            },
+            {
+              "id": "block",
+              "label": "枝幹防禦",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/block.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/block-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/block-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/block-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/block-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/block-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "9dd25326f784223590764933896924db80bce9e1a27a6706066bf007d5d67a01",
+                "f8762099ea9f335c6fcd82dfdac488559df87d638394c5dc35c9f123d1d6e28b",
+                "10582b48c9be06c596327c46061efaedbdd1e6d1d32c2400ff0fa02a1466b706",
+                "1188a2568e2cc6777dde9b2b76399da962cb8ab561a539d4d4d1d70199981bf2"
+              ],
+              "durations": [
+                180,
+                140,
+                160,
+                240
+              ],
+              "sha256": "b7a4400b420504059a6b67e5ced6a3996d4035a5441980eae2efd7ab644db873"
+            },
+            {
+              "id": "hurt",
+              "label": "受傷",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/hurt.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/hurt-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/hurt-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/hurt-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/hurt-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/hurt-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "2d13cabb362dc99ed9b994cb0cdcf8e5de0f28adaa5438f372eb3867267370b6",
+                "c90f6caab8bb0c40b7404e225028383dcb07e834a49bc7305bb2f5b210fa0913",
+                "e49b20eb80b5c221dafb1757c68cf015e01eec947653268eb8bdf870355b32d2",
+                "55dd93959c10cfd7e286becc6f27ec0d6b561f1ed85c616be92eaa042993e67c"
+              ],
+              "durations": [
+                180,
+                120,
+                160,
+                240
+              ],
+              "sha256": "fc32b3d49e9cd7b6d4666f6feae3c1534e6b2c1e9b54161ec3b0b112915f8fd6"
+            },
+            {
+              "id": "fall",
+              "label": "枯枝倒伏",
+              "gif": "/monsters/animations/hd/original/eclipse_treant/fall.gif",
+              "poster": "/monsters/animations/hd/original/eclipse_treant/fall-0.png",
+              "frames": [
+                "/monsters/animations/hd/original/eclipse_treant/fall-0.png",
+                "/monsters/animations/hd/original/eclipse_treant/fall-1.png",
+                "/monsters/animations/hd/original/eclipse_treant/fall-2.png",
+                "/monsters/animations/hd/original/eclipse_treant/fall-3.png"
+              ],
+              "frameCount": 4,
+              "frameSha256": [
+                "25a72b82cf30ded84d14ad9698d59c627e9b03337e13e8e929782a36fe08ba2b",
+                "b22d5166b294b44c79132e54ed85565777e95345c56536fe3b4a61726a3c6d15",
+                "26a86108b336af2b99b6a72fd87f1795d354c99191e11a1b87ca177b67455001",
+                "23d28a48f5b909c3be9f432d18243bd231e3d0e6e8d50d9bbe888749229ed084"
+              ],
+              "durations": [
+                180,
+                160,
+                160,
+                900
+              ],
+              "sha256": "b773414c746f4debad4e7c74ae269b588c8ad43efbe801d13f73ef688368aec9"
+            }
+          ]
+        }
+      },
+      "art": {
+        "original": "/monsters/original/eclipse_treant.png",
+        "chibi": "/monsters/chibi/eclipse_treant.png",
+        "48": "/monsters/eclipse_treant.png",
+        "96": "/monsters/96/eclipse_treant.png"
+      },
+      "sources": {
+        "original": {
+          "file": "generated/monsters/original/eclipse_treant.png",
+          "sha256": "e6710668c442e2dfff065a5b804b630fe4130064364ace234cc770483aabb9bf"
+        },
+        "chibi": {
+          "file": "generated/monsters/chibi/eclipse_treant.png",
+          "sha256": "ce81456e643cbf0df0f228a9f4fe312c18d2028e941b47f14c89b5245eac848e"
+        },
+        "pixel": {
+          "file": "generated/monsters/masters/chibi/eclipse_treant.png",
+          "sha256": "1382cb64287b96210e3c7967acbec88a8b7bbdaf81c1b59f887be4d2483bc92c"
+        },
+        "pixelAnimations": {
+          "file": "generated/monsters/animations/sheets/eclipse_treant.png",
+          "sha256": "ad52e3e6b1be33baab59957ff1a87c4c8f7043cb4209cffa258e9fec748dfcbe",
+          "sourceSize": [
+            887,
+            1774
+          ],
+          "sharedBounds": [
+            -111,
+            -213,
+            117,
+            0
+          ],
+          "rows": [
+            {
+              "action": "idle",
+              "sourceRow": [
+                3,
+                213
+              ],
+              "mainAreas": [
+                27130,
+                26493,
+                26767,
+                26475
+              ]
+            },
+            {
+              "action": "walk",
+              "sourceRow": [
+                223,
+                434
+              ],
+              "mainAreas": [
+                28057,
+                26752,
+                25616,
+                24346
+              ]
+            },
+            {
+              "action": "run",
+              "sourceRow": [
+                449,
+                657
+              ],
+              "mainAreas": [
+                26006,
+                24675,
+                25634,
+                27119
+              ]
+            },
+            {
+              "action": "slash",
+              "sourceRow": [
+                671,
+                876
+              ],
+              "mainAreas": [
+                26214,
+                27523,
+                24921,
+                26727
+              ]
+            },
+            {
+              "action": "thrust",
+              "sourceRow": [
+                887,
+                1100
+              ],
+              "mainAreas": [
+                28063,
+                28866,
+                28712,
+                25932
+              ]
+            },
+            {
+              "action": "block",
+              "sourceRow": [
+                1114,
+                1322
+              ],
+              "mainAreas": [
+                26189,
+                26997,
+                26158,
+                26104
+              ]
+            },
+            {
+              "action": "hurt",
+              "sourceRow": [
+                1336,
+                1543
+              ],
+              "mainAreas": [
+                24178,
+                23980,
+                23811,
+                26322
+              ]
+            },
+            {
+              "action": "fall",
+              "sourceRow": [
+                1575,
+                1755
+              ],
+              "mainAreas": [
+                24439,
+                21372,
+                18387,
+                15759
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

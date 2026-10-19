@@ -10,7 +10,7 @@ export type AnimationVariant = { size: [number, number]; sheet: string; actions:
 type RawVariant = { size: number[]; sheet: string; actions: (Omit<Animation, "id"> & { id: string })[] };
 type HDRecord = { id: string; variants: Record<"chibi" | "original", RawVariant> };
 
-function parseVariant(variant: RawVariant, id: string, size: number): AnimationVariant {
+export function parseVariant(variant: RawVariant, id: string, size: number): AnimationVariant {
   if (variant.actions.length !== ACTION_IDS.length || variant.size.length !== 2
     || variant.size[0] !== size || variant.size[1] !== size) throw new Error(`Incomplete animations for ${id}`);
   const actions = variant.actions.map((action, index): Animation => {

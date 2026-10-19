@@ -1,5 +1,6 @@
 import { Showcase } from "@/components/showcase";
 import { characters } from "@/lib/characters";
+import { Link } from "react-router";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
           選擇角色，比較高清正常版、高清 Q 版與 48×48、96×96 Q 版像素圖。
         </p>
       </header>
+      <Link to="/monsters" className="text-[#f0b830] underline">查看怪物圖鑑 →</Link>
       <Showcase characters={characters} />
     </main>
   );

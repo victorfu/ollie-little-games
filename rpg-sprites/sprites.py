@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-from spritekit import animations, config, hdanimations, webexport
+from spritekit import animations, config, hdanimations, monsters, webexport
 
 
 def doctor() -> int:
@@ -41,9 +41,13 @@ def main() -> int:
     animation_export.add_argument("--dest", type=Path, default=config.ROOT.parent, help="Next.js app root")
     hd_export = commands.add_parser("export-hd-animations", help="export illustrated normal/chibi 512px GIFs and full-color frames")
     hd_export.add_argument("--dest", type=Path, default=config.ROOT.parent, help="Next.js app root")
+    monster_export = commands.add_parser("export-monsters", help="export all three monster styles and action animations")
+    monster_export.add_argument("--dest", type=Path, default=config.ROOT.parent, help="app root")
     args = parser.parse_args()
     if args.command == "doctor":
         return doctor()
+    if args.command == "export-monsters":
+        return monsters.run(args.dest)
     if args.command == "export-hd-animations":
         return hdanimations.run(args.dest)
     return animations.run(args.dest) if args.command == "export-animations" else webexport.run(args.dest)

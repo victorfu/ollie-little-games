@@ -70,10 +70,10 @@ def register_action(frames: list[Image.Image], horizontal_only: bool = False) ->
     return result, offsets
 
 
-def illustrated_frames(cid: str, style: str) -> tuple[list[list[Image.Image]], dict]:
+def illustrated_frames(cid: str, style: str, source_root: Path = ROOT) -> tuple[list[list[Image.Image]], dict]:
     pairs = []
     for pair in range(4):
-        source = ROOT / "sheets" / style / f"{cid}-{pair}.png"
+        source = source_root / "sheets" / style / f"{cid}-{pair}.png"
         rows, report = animations.split_sheet(source, row_count=2, preserve_alpha=True)
         if report["sourceSize"][0] < 1536 or report["sourceSize"][1] < 768:
             raise ValueError(f"{source}: HD poses require at least 384 native pixels per cell")
