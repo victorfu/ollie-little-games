@@ -41,7 +41,7 @@ export function AnimationViewer({ character, size, action, scale, style, onActio
   );
 }
 
-function FramePlayer({ animation, name, size, scale, pixelated, playing, setPlaying }: {
+export function FramePlayer({ animation, name, size, scale, pixelated, playing, setPlaying }: {
   animation: Animation; name: string; size: number; scale: number; pixelated: boolean; playing: boolean; setPlaying: (value: boolean) => void;
 }) {
   const [index, setIndex] = useState(0);

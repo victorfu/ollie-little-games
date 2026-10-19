@@ -1,0 +1,1722 @@
+{
+  "monsters": [
+    {
+      "id": "moondew_slime",
+      "size": 48,
+      "colors": 24,
+      "bounds": [
+        2,
+        4,
+        46,
+        46
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "size": 96,
+      "colors": 24,
+      "bounds": [
+        4,
+        8,
+        92,
+        92
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "hd": {
+        "chibi": {
+          "sources": [
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/moondew_slime-0.png",
+              "sourceSha256": "74a4323cbc95ae7460a27f7836aa1db7d865f0c415d3a2cc51a05acac2fa498d",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -249,
+                -428,
+                233,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    15,
+                    441
+                  ],
+                  "mainAreas": [
+                    117693,
+                    103730,
+                    110970,
+                    111163
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    453,
+                    853
+                  ],
+                  "mainAreas": [
+                    99002,
+                    95500,
+                    96184,
+                    98008
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/moondew_slime-1.png",
+              "sourceSha256": "40d1460647f6dca1502f6b44cfc7e02edef90f7c3014d336983c568163f55539",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -277,
+                -413,
+                275,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    28,
+                    439
+                  ],
+                  "mainAreas": [
+                    77242,
+                    84779,
+                    87642,
+                    85289
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    479,
+                    847
+                  ],
+                  "mainAreas": [
+                    92048,
+                    81282,
+                    118208,
+                    82064
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/moondew_slime-2.png",
+              "sourceSha256": "806d7ed3f6800b6417c35d8acb11ff24eb8646c86c21bd7f0e9a15c94db47363",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -221,
+                -423,
+                240,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    15,
+                    436
+                  ],
+                  "mainAreas": [
+                    108840,
+                    114749,
+                    118538,
+                    103891
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    461,
+                    865
+                  ],
+                  "mainAreas": [
+                    107372,
+                    100921,
+                    112141,
+                    103446
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/moondew_slime-3.png",
+              "sourceSha256": "12bbbdf24c57a80576c889e644fa5a4230fa238ace4a7f38853eb02d40470b27",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -222,
+                -445,
+                237,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    17,
+                    460
+                  ],
+                  "mainAreas": [
+                    101735,
+                    106375,
+                    97422,
+                    106031
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    475,
+                    853
+                  ],
+                  "mainAreas": [
+                    95482,
+                    78621,
+                    74379,
+                    49888
+                  ]
+                }
+              ]
+            }
+          ],
+          "sharedBounds": [
+            -277,
+            -445,
+            275,
+            2
+          ],
+          "outputScale": 0.8985507246376812,
+          "registrationOffsets": {
+            "idle": [
+              [
+                0,
+                0
+              ],
+              [
+                -12,
+                0
+              ],
+              [
+                0,
+                0
+              ],
+              [
+                6,
+                0
+              ]
+            ],
+            "run": [
+              [
+                -4,
+                0
+              ],
+              [
+                42,
+                0
+              ],
+              [
+                28,
+                0
+              ],
+              [
+                -3,
+                0
+              ]
+            ]
+          }
+        },
+        "original": {
+          "sources": [
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/moondew_slime-0.png",
+              "sourceSha256": "68f9e11367432998b07524f991fd085c4d687b9925de3038dc7e8abcb0347a02",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -214,
+                -423,
+                246,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    15,
+                    436
+                  ],
+                  "mainAreas": [
+                    96466,
+                    92414,
+                    98955,
+                    94708
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    453,
+                    854
+                  ],
+                  "mainAreas": [
+                    88101,
+                    89015,
+                    85144,
+                    82728
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/moondew_slime-1.png",
+              "sourceSha256": "f224f5d3948aefa98d4ecb1845a5cf554778ac0c455e5c3794ba15918bb088e7",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -227,
+                -399,
+                245,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    39,
+                    427
+                  ],
+                  "mainAreas": [
+                    83739,
+                    72659,
+                    71635,
+                    76912
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    472,
+                    862
+                  ],
+                  "mainAreas": [
+                    89582,
+                    73362,
+                    92930,
+                    78472
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/moondew_slime-2.png",
+              "sourceSha256": "8897752b514e9e151a9c756497f669ebc4f88fd6960a4da7612ac85e02c1e6d9",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -230,
+                -431,
+                272,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    22,
+                    451
+                  ],
+                  "mainAreas": [
+                    80686,
+                    92871,
+                    97205,
+                    74700
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    461,
+                    868
+                  ],
+                  "mainAreas": [
+                    83650,
+                    93773,
+                    77096,
+                    78353
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/moondew_slime-3.png",
+              "sourceSha256": "f13f4be1162259b440fcc8a53571685dbecd430627b07c028bef6f487a7d234c",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -218,
+                -429,
+                218,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    28,
+                    455
+                  ],
+                  "mainAreas": [
+                    88224,
+                    75315,
+                    79486,
+                    77985
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    481,
+                    863
+                  ],
+                  "mainAreas": [
+                    83252,
+                    71686,
+                    52640,
+                    44742
+                  ]
+                }
+              ]
+            }
+          ],
+          "sharedBounds": [
+            -230,
+            -431,
+            272,
+            2
+          ],
+          "outputScale": 0.9880478087649402,
+          "registrationOffsets": {
+            "idle": [
+              [
+                18,
+                0
+              ],
+              [
+                -1,
+                0
+              ],
+              [
+                -22,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "pixel": {
+        "sourceSize": [
+          887,
+          1774
+        ],
+        "sharedBounds": [
+          -112,
+          -200,
+          114,
+          0
+        ],
+        "rows": [
+          {
+            "action": "idle",
+            "sourceRow": [
+              28,
+              228
+            ],
+            "mainAreas": [
+              23843,
+              24329,
+              26477,
+              24055
+            ]
+          },
+          {
+            "action": "walk",
+            "sourceRow": [
+              248,
+              445
+            ],
+            "mainAreas": [
+              24809,
+              22722,
+              23662,
+              23938
+            ]
+          },
+          {
+            "action": "run",
+            "sourceRow": [
+              469,
+              659
+            ],
+            "mainAreas": [
+              24875,
+              22835,
+              25172,
+              23438
+            ]
+          },
+          {
+            "action": "slash",
+            "sourceRow": [
+              687,
+              873
+            ],
+            "mainAreas": [
+              24437,
+              24506,
+              25302,
+              23453
+            ]
+          },
+          {
+            "action": "thrust",
+            "sourceRow": [
+              903,
+              1098
+            ],
+            "mainAreas": [
+              27012,
+              26209,
+              25241,
+              23641
+            ]
+          },
+          {
+            "action": "block",
+            "sourceRow": [
+              1125,
+              1316
+            ],
+            "mainAreas": [
+              22673,
+              22854,
+              23494,
+              23744
+            ]
+          },
+          {
+            "action": "hurt",
+            "sourceRow": [
+              1344,
+              1538
+            ],
+            "mainAreas": [
+              25877,
+              24888,
+              22865,
+              23365
+            ]
+          },
+          {
+            "action": "fall",
+            "sourceRow": [
+              1584,
+              1751
+            ],
+            "mainAreas": [
+              22494,
+              17903,
+              14715,
+              11190
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "mossrock_grunt",
+      "size": 48,
+      "colors": 24,
+      "bounds": [
+        2,
+        5,
+        46,
+        46
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "size": 96,
+      "colors": 24,
+      "bounds": [
+        4,
+        9,
+        92,
+        92
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "hd": {
+        "chibi": {
+          "sources": [
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/mossrock_grunt-0.png",
+              "sourceSha256": "c59436a56476b2e9c468bebe5196bee7421b797ecbb9fcb87d8ce33eb95460a8",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -217,
+                -433,
+                249,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    12,
+                    443
+                  ],
+                  "mainAreas": [
+                    120276,
+                    118601,
+                    117133,
+                    116713
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    456,
+                    860
+                  ],
+                  "mainAreas": [
+                    114511,
+                    108480,
+                    106894,
+                    109281
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/mossrock_grunt-1.png",
+              "sourceSha256": "3754e55c349e71d9db38cb099dd0221a8def0ff02ae753d19e599325b4c842df",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -256,
+                -434,
+                273,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    9,
+                    441
+                  ],
+                  "mainAreas": [
+                    107793,
+                    99724,
+                    105366,
+                    93111
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    468,
+                    855
+                  ],
+                  "mainAreas": [
+                    100341,
+                    114037,
+                    104910,
+                    86774
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/mossrock_grunt-2.png",
+              "sourceSha256": "8674c1494a686a2e066be31f7819ca54a7da31bf811b3e6a580e273cbe3899cb",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -229,
+                -411,
+                250,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    26,
+                    434
+                  ],
+                  "mainAreas": [
+                    107980,
+                    106046,
+                    112777,
+                    87954
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    462,
+                    871
+                  ],
+                  "mainAreas": [
+                    111301,
+                    103978,
+                    104637,
+                    103982
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/mossrock_grunt-3.png",
+              "sourceSha256": "26c84d8028960bbeb0ca906aafa867cb544e7a98bd6850b52ee4c5dffaf0fb99",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -256,
+                -441,
+                229,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    28,
+                    467
+                  ],
+                  "mainAreas": [
+                    118842,
+                    111992,
+                    102773,
+                    109932
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    492,
+                    857
+                  ],
+                  "mainAreas": [
+                    100883,
+                    91679,
+                    77128,
+                    64741
+                  ]
+                }
+              ]
+            }
+          ],
+          "sharedBounds": [
+            -256,
+            -441,
+            273,
+            2
+          ],
+          "outputScale": 0.9376181474480151,
+          "registrationOffsets": {
+            "idle": [
+              [
+                0,
+                0
+              ],
+              [
+                -10,
+                0
+              ],
+              [
+                -5,
+                0
+              ],
+              [
+                -4,
+                0
+              ]
+            ],
+            "run": [
+              [
+                0,
+                0
+              ],
+              [
+                17,
+                0
+              ],
+              [
+                -26,
+                0
+              ],
+              [
+                -13,
+                0
+              ]
+            ]
+          }
+        },
+        "original": {
+          "sources": [
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/mossrock_grunt-0.png",
+              "sourceSha256": "f28d18e5d7ab7afce4625e65547e689818f481c0be0d0249ac6d58b89488684f",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -222,
+                -437,
+                227,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    15,
+                    450
+                  ],
+                  "mainAreas": [
+                    109697,
+                    109226,
+                    113849,
+                    109207
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    447,
+                    867
+                  ],
+                  "mainAreas": [
+                    103725,
+                    95120,
+                    104703,
+                    91572
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/mossrock_grunt-1.png",
+              "sourceSha256": "720e86d8c5b47343e11d1dbde171ed5cde6462c86cb89446307c84258e27a72a",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -222,
+                -425,
+                277,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    21,
+                    444
+                  ],
+                  "mainAreas": [
+                    94156,
+                    86142,
+                    93513,
+                    94213
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    462,
+                    860
+                  ],
+                  "mainAreas": [
+                    87745,
+                    90282,
+                    95403,
+                    74205
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/mossrock_grunt-2.png",
+              "sourceSha256": "5166e354725cce65ce774378e77dd23f4e07a3ac07d5d6e5d4586d5f2c0aa83a",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -248,
+                -432,
+                238,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    21,
+                    451
+                  ],
+                  "mainAreas": [
+                    106928,
+                    103790,
+                    101628,
+                    84390
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    459,
+                    866
+                  ],
+                  "mainAreas": [
+                    89643,
+                    83201,
+                    84487,
+                    89276
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/mossrock_grunt-3.png",
+              "sourceSha256": "09e0ef5f88e20cd3598f276e51bc3edfbbe92f944706dd7736b69818010d85bd",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -283,
+                -432,
+                246,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    39,
+                    469
+                  ],
+                  "mainAreas": [
+                    93857,
+                    90683,
+                    102630,
+                    103700
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    492,
+                    854
+                  ],
+                  "mainAreas": [
+                    92273,
+                    73529,
+                    69337,
+                    64306
+                  ]
+                }
+              ]
+            }
+          ],
+          "sharedBounds": [
+            -283,
+            -437,
+            277,
+            2
+          ],
+          "outputScale": 0.8857142857142857,
+          "registrationOffsets": {
+            "idle": [
+              [
+                0,
+                0
+              ],
+              [
+                4,
+                0
+              ],
+              [
+                16,
+                0
+              ],
+              [
+                4,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "pixel": {
+        "sourceSize": [
+          887,
+          1774
+        ],
+        "sharedBounds": [
+          -108,
+          -211,
+          149,
+          0
+        ],
+        "rows": [
+          {
+            "action": "idle",
+            "sourceRow": [
+              15,
+              205
+            ],
+            "mainAreas": [
+              26320,
+              25986,
+              26325,
+              25859
+            ]
+          },
+          {
+            "action": "walk",
+            "sourceRow": [
+              216,
+              416
+            ],
+            "mainAreas": [
+              25995,
+              25858,
+              26147,
+              26119
+            ]
+          },
+          {
+            "action": "run",
+            "sourceRow": [
+              418,
+              629
+            ],
+            "mainAreas": [
+              26561,
+              24208,
+              26405,
+              25898
+            ]
+          },
+          {
+            "action": "slash",
+            "sourceRow": [
+              633,
+              834
+            ],
+            "mainAreas": [
+              26148,
+              26023,
+              22687,
+              24653
+            ]
+          },
+          {
+            "action": "thrust",
+            "sourceRow": [
+              843,
+              1044
+            ],
+            "mainAreas": [
+              25978,
+              26588,
+              27318,
+              24687
+            ]
+          },
+          {
+            "action": "block",
+            "sourceRow": [
+              1073,
+              1267
+            ],
+            "mainAreas": [
+              26507,
+              23557,
+              24346,
+              25303
+            ]
+          },
+          {
+            "action": "hurt",
+            "sourceRow": [
+              1297,
+              1488
+            ],
+            "mainAreas": [
+              26157,
+              23970,
+              24845,
+              25527
+            ]
+          },
+          {
+            "action": "fall",
+            "sourceRow": [
+              1524,
+              1717
+            ],
+            "mainAreas": [
+              25780,
+              21254,
+              19510,
+              14252
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "eclipse_treant",
+      "size": 48,
+      "colors": 24,
+      "bounds": [
+        2,
+        5,
+        46,
+        46
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "size": 96,
+      "colors": 24,
+      "bounds": [
+        4,
+        9,
+        92,
+        92
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "hd": {
+        "chibi": {
+          "sources": [
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/eclipse_treant-0.png",
+              "sourceSha256": "c1c036cc9bdedc23c449165c42354ecd1a2af9f1e4c4edf8e2bd8c326c58b948",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -215,
+                -435,
+                232,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    5,
+                    438
+                  ],
+                  "mainAreas": [
+                    114500,
+                    118516,
+                    110814,
+                    113460
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    445,
+                    872
+                  ],
+                  "mainAreas": [
+                    108317,
+                    105669,
+                    108992,
+                    105840
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/eclipse_treant-1.png",
+              "sourceSha256": "1a8893f05af2db05d7e8911bfc41da277cef629ec0f3112e9b31f8fa4bdf2732",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -228,
+                -431,
+                249,
+                3
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    7,
+                    436
+                  ],
+                  "mainAreas": [
+                    112141,
+                    104609,
+                    100622,
+                    105222
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    453,
+                    869
+                  ],
+                  "mainAreas": [
+                    110150,
+                    101949,
+                    116228,
+                    105995
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/eclipse_treant-2.png",
+              "sourceSha256": "1f5c9f4547722c76bbbe31ec8a4e4e9706d0ec47d2a51ac21bfdcce7efa1ad9e",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -232,
+                -429,
+                233,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    14,
+                    441
+                  ],
+                  "mainAreas": [
+                    109863,
+                    111835,
+                    109199,
+                    111947
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    448,
+                    871
+                  ],
+                  "mainAreas": [
+                    108184,
+                    102299,
+                    114533,
+                    111920
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/chibi/eclipse_treant-3.png",
+              "sourceSha256": "f2587cd55691bf3557f237a13d29f5eebd63e0c80f8461dbc7f91ae1d1203825",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -241,
+                -431,
+                239,
+                27
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    20,
+                    449
+                  ],
+                  "mainAreas": [
+                    102039,
+                    105032,
+                    105571,
+                    109211
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    471,
+                    853
+                  ],
+                  "mainAreas": [
+                    98868,
+                    96617,
+                    82048,
+                    70862
+                  ]
+                }
+              ]
+            }
+          ],
+          "sharedBounds": [
+            -241,
+            -435,
+            249,
+            27
+          ],
+          "outputScale": 1.0,
+          "registrationOffsets": {
+            "idle": [
+              [
+                0,
+                0
+              ],
+              [
+                3,
+                0
+              ],
+              [
+                11,
+                0
+              ],
+              [
+                -5,
+                0
+              ]
+            ],
+            "run": [
+              [
+                0,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                13,
+                0
+              ],
+              [
+                11,
+                0
+              ]
+            ]
+          }
+        },
+        "original": {
+          "sources": [
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/eclipse_treant-0.png",
+              "sourceSha256": "d0687d44b1ea1e0b6327ccb0c4667fa0007ca4f467c35052272b4e230efea262",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -214,
+                -441,
+                217,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    5,
+                    444
+                  ],
+                  "mainAreas": [
+                    101344,
+                    103196,
+                    102080,
+                    100547
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    447,
+                    876
+                  ],
+                  "mainAreas": [
+                    100753,
+                    98931,
+                    95059,
+                    95404
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/eclipse_treant-1.png",
+              "sourceSha256": "3e382bdedd7b376a5c424d4ca346371e23fe4493341243789ae9143580e7ce74",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -224,
+                -435,
+                235,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    9,
+                    442
+                  ],
+                  "mainAreas": [
+                    99775,
+                    90816,
+                    93259,
+                    85334
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    447,
+                    876
+                  ],
+                  "mainAreas": [
+                    96128,
+                    102672,
+                    116146,
+                    81995
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/eclipse_treant-2.png",
+              "sourceSha256": "5cac5c4d35a34365065d4ac1abbb7f82ebf37deb5e59b7717eacaed11b63a78d",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -237,
+                -445,
+                270,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    4,
+                    447
+                  ],
+                  "mainAreas": [
+                    94368,
+                    106500,
+                    101810,
+                    91828
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    448,
+                    873
+                  ],
+                  "mainAreas": [
+                    97180,
+                    101527,
+                    97786,
+                    100189
+                  ]
+                }
+              ]
+            },
+            {
+              "sourceFile": "generated/monsters/hd-animations/sheets/original/eclipse_treant-3.png",
+              "sourceSha256": "723de2d916eb107a915ec31dfea8bdf9c200f8eefbf28267a60ddebc59277220",
+              "nativeScale": 1.0,
+              "sourceSize": [
+                1774,
+                887
+              ],
+              "sharedBounds": [
+                -264,
+                -471,
+                258,
+                2
+              ],
+              "rows": [
+                {
+                  "action": "idle",
+                  "sourceRow": [
+                    15,
+                    484
+                  ],
+                  "mainAreas": [
+                    106358,
+                    97850,
+                    107204,
+                    114458
+                  ]
+                },
+                {
+                  "action": "walk",
+                  "sourceRow": [
+                    484,
+                    861
+                  ],
+                  "mainAreas": [
+                    89809,
+                    82818,
+                    82641,
+                    60288
+                  ]
+                }
+              ]
+            }
+          ],
+          "sharedBounds": [
+            -264,
+            -471,
+            270,
+            2
+          ],
+          "outputScale": 0.9288389513108615,
+          "registrationOffsets": {
+            "idle": [
+              [
+                0,
+                0
+              ],
+              [
+                -3,
+                0
+              ],
+              [
+                -8,
+                0
+              ],
+              [
+                -3,
+                0
+              ]
+            ]
+          }
+        }
+      },
+      "pixel": {
+        "sourceSize": [
+          887,
+          1774
+        ],
+        "sharedBounds": [
+          -111,
+          -213,
+          117,
+          0
+        ],
+        "rows": [
+          {
+            "action": "idle",
+            "sourceRow": [
+              3,
+              213
+            ],
+            "mainAreas": [
+              27130,
+              26493,
+              26767,
+              26475
+            ]
+          },
+          {
+            "action": "walk",
+            "sourceRow": [
+              223,
+              434
+            ],
+            "mainAreas": [
+              28057,
+              26752,
+              25616,
+              24346
+            ]
+          },
+          {
+            "action": "run",
+            "sourceRow": [
+              449,
+              657
+            ],
+            "mainAreas": [
+              26006,
+              24675,
+              25634,
+              27119
+            ]
+          },
+          {
+            "action": "slash",
+            "sourceRow": [
+              671,
+              876
+            ],
+            "mainAreas": [
+              26214,
+              27523,
+              24921,
+              26727
+            ]
+          },
+          {
+            "action": "thrust",
+            "sourceRow": [
+              887,
+              1100
+            ],
+            "mainAreas": [
+              28063,
+              28866,
+              28712,
+              25932
+            ]
+          },
+          {
+            "action": "block",
+            "sourceRow": [
+              1114,
+              1322
+            ],
+            "mainAreas": [
+              26189,
+              26997,
+              26158,
+              26104
+            ]
+          },
+          {
+            "action": "hurt",
+            "sourceRow": [
+              1336,
+              1543
+            ],
+            "mainAreas": [
+              24178,
+              23980,
+              23811,
+              26322
+            ]
+          },
+          {
+            "action": "fall",
+            "sourceRow": [
+              1575,
+              1755
+            ],
+            "mainAreas": [
+              24439,
+              21372,
+              18387,
+              15759
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "gifs": 96,
+  "frames": 384,
+  "framesPerAction": 4,
+  "pixelColors": 24,
+  "hdFrameSize": [
+    512,
+    512
+  ],
+  "sourceUpscaling": false,
+  "disposal": 2,
+  "loop": 0
+}

@@ -97,3 +97,35 @@ rpg-sprites/.venv/bin/python rpg-sprites/sprites.py export-hd-animations
 網站動畫風格參數為 `art=pixel|chibi|original`。高清以一般圖片縮放顯示，像素版使用整數倍率；三種風格均可播放、暫停、逐格查看與下載。
 
 高清待機匯出會匹配頭部與上半身，校正原圖人物間距不均造成的漂移；Q 版跑步（含掌燈人）只校正水平位移，保留上下起伏。畫稿修正、提示詞與來源雜湊見 [動畫 review](generated/hd-animations/review/README.md)。
+
+## 怪物素材
+
+三隻怪物與角色使用相同的圖像規格，獨立保存於 `generated/monsters/`：
+
+| id | 名稱 | 屬性 | 定位 |
+| --- | --- | --- | --- |
+| `moondew_slime` | 月露史萊姆 | 月 | 小怪 |
+| `mossrock_grunt` | 苔岩小怪 | 地 | 小怪 |
+| `eclipse_treant` | 蝕光樹靈 | 影 | Boss |
+
+- `chibi/`、`original/`：透明高清 Q 版與正常比例原稿；不縮小原檔。
+- `masters/chibi/`：獨立生成的像素風來源，並非把高清插畫直接縮小。
+- `animations/sheets/`：4 欄 × 8 列的像素動作來源，每動作 4 個真實生成姿勢。
+- `hd-animations/sheets/<chibi|original>/`：每隻每種風格 4 張 4×2 動作來源，至少 384 個原生像素／格；不放大來源。
+- `prompts/`、`animations/prompts/`、`hd-animations/prompts/`：保留提示詞；`jobs.json` 記錄來源與對應提示詞。
+- `manifest.json`：名稱、屬性、描述與各怪物的動作名稱；沒有性別變體。
+
+```bash
+python rpg-sprites/sprites.py export-monsters
+```
+
+指令重用角色的輪廓拆格、色盤、位置對齊及 GIF 編碼器，在所有來源驗證成功後才寫入。輸出至 `public/monsters/` 與 `src/data/monsters.json`，包含：
+
+- 6 張高清原檔、6 張 48／96px 像素圖、6 張整數倍預覽與 2 張像素總覽。
+- **96 個 GIF**：3 隻 × 8 動作 × 4 規格（48、96、高清 Q 版、高清正常）。
+- **384 張逐格 PNG**、12 張完整動作表與生成報告。
+- 像素最多 24 色、二值透明；高清 PNG 全彩 RGBA，GIF 255 色加透明色。所有 GIF 使用 disposal=2，倒地末格停留 900ms。
+
+`slash`／`thrust` 保留為共用動作 id，顯示名稱依怪物改為撞擊、重拳、揮枝、魔法攻擊等。網站 `/monsters` 可切換怪物與風格、播放／暫停、逐格查看及下載；`prefers-reduced-motion` 預設暫停。這批只提供素材及圖鑑，尚未接入戰鬥數值或遊戲邏輯。
+
+素材使用內建 imagegen，工具未提供實際模型版本，因此 `model`／`generationModel` 為 null，不宣稱使用特定模型版本。與人物一樣，像素素材是生成來源再取樣，尚未逐點手工精修。

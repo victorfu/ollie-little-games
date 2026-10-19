@@ -172,3 +172,9 @@ npm run build  # 含 tsc -b 型別檢查
 cd rpg-sprites
 .venv/bin/python -m unittest discover -s tests
 ```
+
+## 怪物圖鑑
+
+新增月露史萊姆（月）、苔岩小怪（地）、蝕光樹靈（影屬性 Boss）。首頁「查看怪物圖鑑」可進入 `/monsters`，比較高清正常、高清 Q 版、48px 與 96px 像素造型，並播放、暫停、逐格檢查及下載八種動作。
+
+怪物共提供 96 個 GIF、384 張逐格 PNG、12 張完整動作表；來源、提示詞、索引與生成報告均保留。重建方式見 [rpg-sprites](rpg-sprites/README.md#怪物素材)。靜態主機需把 `/monsters` 回退到 `index.html`。

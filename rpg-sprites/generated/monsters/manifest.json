@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "generator": "Codex built-in imagegen",
+  "model": null,
+  "monsters": [
+    {
+      "id": "moondew_slime",
+      "nameZh": "月露史萊姆",
+      "nameEn": "Moondew Slime",
+      "elementLabel": "月",
+      "element": "moon",
+      "role": "小怪",
+      "summary": "半透明月露凝成的淘氣小怪，肚子裡藏著月牙。",
+      "actionLabels": [
+        "待機",
+        "彈跳前進",
+        "急速彈跳",
+        "軟泥撞擊",
+        "月露彈",
+        "凝膠防禦",
+        "受傷",
+        "攤成水窪"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "nameZh": "苔岩小怪",
+      "nameEn": "Mossrock Grunt",
+      "elementLabel": "地",
+      "element": "earth",
+      "role": "小怪",
+      "summary": "身披苔蘚的厚重石怪，以胸口綠晶與巨拳辨識。",
+      "actionLabels": [
+        "待機",
+        "走路",
+        "奔跑",
+        "重拳",
+        "岩晶彈",
+        "抱拳防禦",
+        "受傷",
+        "石堆倒地"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "nameZh": "蝕光樹靈",
+      "nameEn": "Eclipse Treant",
+      "elementLabel": "影",
+      "element": "shadow",
+      "role": "Boss",
+      "summary": "胸口封著蝕光核心的古樹，枝幹掛著兩盞種莢燈。",
+      "actionLabels": [
+        "待機",
+        "根足行走",
+        "根足奔跑",
+        "揮枝",
+        "蝕光彈",
+        "枝幹防禦",
+        "受傷",
+        "枯枝倒伏"
+      ]
+    }
+  ]
+}

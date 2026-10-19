@@ -1,0 +1,492 @@
+{
+  "generator": "Codex built-in imagegen",
+  "generationModel": null,
+  "jobs": [
+    {
+      "id": "moondew_slime",
+      "kind": "static",
+      "style": "chibi",
+      "source": "chibi/moondew_slime.png",
+      "prompt": "prompts/moondew_slime-chibi.txt",
+      "sha256": "83871fd2a27a8dd2f6f71b8da0b5dc5a2ad8b1dccca95d68ececad98cb227b67",
+      "references": []
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "static",
+      "style": "original",
+      "source": "original/moondew_slime.png",
+      "prompt": "prompts/moondew_slime-original.txt",
+      "sha256": "4d2777747a4426ac979969921c97c375cafcb07141d2629af16a840fc6388138",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "static",
+      "style": "pixel",
+      "source": "masters/chibi/moondew_slime.png",
+      "prompt": "prompts/moondew_slime-pixel.txt",
+      "sha256": "a2f17c8fa035e9b8db88233366ace27df03be7cdde55c473b522c63169aa494c",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "pixel",
+      "source": "animations/sheets/moondew_slime.png",
+      "prompt": "animations/prompts/moondew_slime-final.txt",
+      "sha256": "b233f200a7aa9195e44a23dce943304c86b94e1ad3226451e225436cc39d016e",
+      "references": [
+        "masters/chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "idle",
+        "walk"
+      ],
+      "source": "hd-animations/sheets/chibi/moondew_slime-0.png",
+      "prompt": "hd-animations/prompts/chibi/moondew_slime-0.txt",
+      "sha256": "74a4323cbc95ae7460a27f7836aa1db7d865f0c415d3a2cc51a05acac2fa498d",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "run",
+        "slash"
+      ],
+      "source": "hd-animations/sheets/chibi/moondew_slime-1.png",
+      "prompt": "hd-animations/prompts/chibi/moondew_slime-1.txt",
+      "sha256": "40d1460647f6dca1502f6b44cfc7e02edef90f7c3014d336983c568163f55539",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "thrust",
+        "block"
+      ],
+      "source": "hd-animations/sheets/chibi/moondew_slime-2.png",
+      "prompt": "hd-animations/prompts/chibi/moondew_slime-2.txt",
+      "sha256": "806d7ed3f6800b6417c35d8acb11ff24eb8646c86c21bd7f0e9a15c94db47363",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "hurt",
+        "fall"
+      ],
+      "source": "hd-animations/sheets/chibi/moondew_slime-3.png",
+      "prompt": "hd-animations/prompts/chibi/moondew_slime-3.txt",
+      "sha256": "12bbbdf24c57a80576c889e644fa5a4230fa238ace4a7f38853eb02d40470b27",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "idle",
+        "walk"
+      ],
+      "source": "hd-animations/sheets/original/moondew_slime-0.png",
+      "prompt": "hd-animations/prompts/original/moondew_slime-0.txt",
+      "sha256": "68f9e11367432998b07524f991fd085c4d687b9925de3038dc7e8abcb0347a02",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "run",
+        "slash"
+      ],
+      "source": "hd-animations/sheets/original/moondew_slime-1.png",
+      "prompt": "hd-animations/prompts/original/moondew_slime-1.txt",
+      "sha256": "f224f5d3948aefa98d4ecb1845a5cf554778ac0c455e5c3794ba15918bb088e7",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "thrust",
+        "block"
+      ],
+      "source": "hd-animations/sheets/original/moondew_slime-2.png",
+      "prompt": "hd-animations/prompts/original/moondew_slime-2.txt",
+      "sha256": "8897752b514e9e151a9c756497f669ebc4f88fd6960a4da7612ac85e02c1e6d9",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "moondew_slime",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "hurt",
+        "fall"
+      ],
+      "source": "hd-animations/sheets/original/moondew_slime-3.png",
+      "prompt": "hd-animations/prompts/original/moondew_slime-3.txt",
+      "sha256": "f13f4be1162259b440fcc8a53571685dbecd430627b07c028bef6f487a7d234c",
+      "references": [
+        "chibi/moondew_slime.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "static",
+      "style": "chibi",
+      "source": "chibi/mossrock_grunt.png",
+      "prompt": "prompts/mossrock_grunt-chibi.txt",
+      "sha256": "70313fcda9df768bcb8d121f1eee16d73fca6594d05a76b69a7c58a016a315ea",
+      "references": []
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "static",
+      "style": "original",
+      "source": "original/mossrock_grunt.png",
+      "prompt": "prompts/mossrock_grunt-original.txt",
+      "sha256": "fcd9db3a3585f9d975fd07d07cf4dcab5a27a01616c9edf5c120fd91e312eb58",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "static",
+      "style": "pixel",
+      "source": "masters/chibi/mossrock_grunt.png",
+      "prompt": "prompts/mossrock_grunt-pixel.txt",
+      "sha256": "6cb5e66bf087f21692e118aaa6acab668a28a8c7f24f582d0af023b3906b2054",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "pixel",
+      "source": "animations/sheets/mossrock_grunt.png",
+      "prompt": "animations/prompts/mossrock_grunt-background-fix.txt",
+      "sha256": "c1afc710bf8e6c34a91323763a51ab5718add3ec28196f374f2d962e9efabe35",
+      "references": [
+        "review/mossrock_grunt-background-before.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "idle",
+        "walk"
+      ],
+      "source": "hd-animations/sheets/chibi/mossrock_grunt-0.png",
+      "prompt": "hd-animations/prompts/chibi/mossrock_grunt-0.txt",
+      "sha256": "c59436a56476b2e9c468bebe5196bee7421b797ecbb9fcb87d8ce33eb95460a8",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "run",
+        "slash"
+      ],
+      "source": "hd-animations/sheets/chibi/mossrock_grunt-1.png",
+      "prompt": "hd-animations/prompts/chibi/mossrock_grunt-1.txt",
+      "sha256": "3754e55c349e71d9db38cb099dd0221a8def0ff02ae753d19e599325b4c842df",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "thrust",
+        "block"
+      ],
+      "source": "hd-animations/sheets/chibi/mossrock_grunt-2.png",
+      "prompt": "hd-animations/prompts/chibi/mossrock_grunt-2.txt",
+      "sha256": "8674c1494a686a2e066be31f7819ca54a7da31bf811b3e6a580e273cbe3899cb",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "hurt",
+        "fall"
+      ],
+      "source": "hd-animations/sheets/chibi/mossrock_grunt-3.png",
+      "prompt": "hd-animations/prompts/chibi/mossrock_grunt-3.txt",
+      "sha256": "26c84d8028960bbeb0ca906aafa867cb544e7a98bd6850b52ee4c5dffaf0fb99",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "idle",
+        "walk"
+      ],
+      "source": "hd-animations/sheets/original/mossrock_grunt-0.png",
+      "prompt": "hd-animations/prompts/original/mossrock_grunt-0.txt",
+      "sha256": "f28d18e5d7ab7afce4625e65547e689818f481c0be0d0249ac6d58b89488684f",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "run",
+        "slash"
+      ],
+      "source": "hd-animations/sheets/original/mossrock_grunt-1.png",
+      "prompt": "hd-animations/prompts/original/mossrock_grunt-1.txt",
+      "sha256": "720e86d8c5b47343e11d1dbde171ed5cde6462c86cb89446307c84258e27a72a",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "thrust",
+        "block"
+      ],
+      "source": "hd-animations/sheets/original/mossrock_grunt-2.png",
+      "prompt": "hd-animations/prompts/original/mossrock_grunt-2.txt",
+      "sha256": "5166e354725cce65ce774378e77dd23f4e07a3ac07d5d6e5d4586d5f2c0aa83a",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "mossrock_grunt",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "hurt",
+        "fall"
+      ],
+      "source": "hd-animations/sheets/original/mossrock_grunt-3.png",
+      "prompt": "hd-animations/prompts/original/mossrock_grunt-3.txt",
+      "sha256": "09e0ef5f88e20cd3598f276e51bc3edfbbe92f944706dd7736b69818010d85bd",
+      "references": [
+        "chibi/mossrock_grunt.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "static",
+      "style": "chibi",
+      "source": "chibi/eclipse_treant.png",
+      "prompt": "prompts/eclipse_treant-chibi.txt",
+      "sha256": "ce81456e643cbf0df0f228a9f4fe312c18d2028e941b47f14c89b5245eac848e",
+      "references": []
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "static",
+      "style": "original",
+      "source": "original/eclipse_treant.png",
+      "prompt": "prompts/eclipse_treant-original.txt",
+      "sha256": "e6710668c442e2dfff065a5b804b630fe4130064364ace234cc770483aabb9bf",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "static",
+      "style": "pixel",
+      "source": "masters/chibi/eclipse_treant.png",
+      "prompt": "prompts/eclipse_treant-pixel.txt",
+      "sha256": "1382cb64287b96210e3c7967acbec88a8b7bbdaf81c1b59f887be4d2483bc92c",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "pixel",
+      "source": "animations/sheets/eclipse_treant.png",
+      "prompt": "animations/prompts/eclipse_treant.txt",
+      "sha256": "ad52e3e6b1be33baab59957ff1a87c4c8f7043cb4209cffa258e9fec748dfcbe",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "idle",
+        "walk"
+      ],
+      "source": "hd-animations/sheets/chibi/eclipse_treant-0.png",
+      "prompt": "hd-animations/prompts/chibi/eclipse_treant-0.txt",
+      "sha256": "c1c036cc9bdedc23c449165c42354ecd1a2af9f1e4c4edf8e2bd8c326c58b948",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "run",
+        "slash"
+      ],
+      "source": "hd-animations/sheets/chibi/eclipse_treant-1.png",
+      "prompt": "hd-animations/prompts/chibi/eclipse_treant-1.txt",
+      "sha256": "1a8893f05af2db05d7e8911bfc41da277cef629ec0f3112e9b31f8fa4bdf2732",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "thrust",
+        "block"
+      ],
+      "source": "hd-animations/sheets/chibi/eclipse_treant-2.png",
+      "prompt": "hd-animations/prompts/chibi/eclipse_treant-2.txt",
+      "sha256": "1f5c9f4547722c76bbbe31ec8a4e4e9706d0ec47d2a51ac21bfdcce7efa1ad9e",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "chibi",
+      "actions": [
+        "hurt",
+        "fall"
+      ],
+      "source": "hd-animations/sheets/chibi/eclipse_treant-3.png",
+      "prompt": "hd-animations/prompts/chibi/eclipse_treant-3.txt",
+      "sha256": "f2587cd55691bf3557f237a13d29f5eebd63e0c80f8461dbc7f91ae1d1203825",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "idle",
+        "walk"
+      ],
+      "source": "hd-animations/sheets/original/eclipse_treant-0.png",
+      "prompt": "hd-animations/prompts/original/eclipse_treant-0.txt",
+      "sha256": "d0687d44b1ea1e0b6327ccb0c4667fa0007ca4f467c35052272b4e230efea262",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "run",
+        "slash"
+      ],
+      "source": "hd-animations/sheets/original/eclipse_treant-1.png",
+      "prompt": "hd-animations/prompts/original/eclipse_treant-1.txt",
+      "sha256": "3e382bdedd7b376a5c424d4ca346371e23fe4493341243789ae9143580e7ce74",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "thrust",
+        "block"
+      ],
+      "source": "hd-animations/sheets/original/eclipse_treant-2.png",
+      "prompt": "hd-animations/prompts/original/eclipse_treant-2.txt",
+      "sha256": "5cac5c4d35a34365065d4ac1abbb7f82ebf37deb5e59b7717eacaed11b63a78d",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    },
+    {
+      "id": "eclipse_treant",
+      "kind": "animation",
+      "style": "original",
+      "actions": [
+        "hurt",
+        "fall"
+      ],
+      "source": "hd-animations/sheets/original/eclipse_treant-3.png",
+      "prompt": "hd-animations/prompts/original/eclipse_treant-3.txt",
+      "sha256": "723de2d916eb107a915ec31dfea8bdf9c200f8eefbf28267a60ddebc59277220",
+      "references": [
+        "chibi/eclipse_treant.png"
+      ]
+    }
+  ]
+}
