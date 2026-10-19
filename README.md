@@ -4,7 +4,7 @@
   <img src="public/icon.png" width="96" height="96" alt="Ollie Little Games 河狸吉祥物 favicon" />
 </p>
 
-六職業、男女各一位，共 12 張獨立造型：守火人、碎岩者、掌燈人、拾風者、晨光使、借影人。首頁可選職業與性別，查看高清正常、高清 Q 版、像素圖或三者並排比較，切換背景並下載 PNG，也可播放各角色的八種動作 GIF。
+六職業、男女各一位，共 12 張獨立造型：守火人、碎岩者、掌燈人、拾風者、晨光使、借影人。首頁可選職業與性別，查看高清正常、高清 Q 版、像素圖或三者並排比較，切換背景並下載 PNG，也可播放各角色的八種動作 GIF。另有月露史萊姆、苔岩小怪與蝕光樹靈，造型及動畫預覽見下方[怪物圖鑑](#怪物圖鑑)。
 
 ## 高清與像素角色對照
 
@@ -90,6 +90,32 @@
 | 借影人・女 | <a href="public/characters/animations/hd/chibi/shadow_rogue_female/idle.gif"><img src="public/characters/animations/hd/chibi/shadow_rogue_female/idle.gif" width="160" height="160" alt="借影人・女 高清 Q 版 待機動畫" /></a> | <a href="public/characters/animations/hd/original/shadow_rogue_female/idle.gif"><img src="public/characters/animations/hd/original/shadow_rogue_female/idle.gif" width="160" height="160" alt="借影人・女 高清正常 待機動畫" /></a> |
 | 借影人・男 | <a href="public/characters/animations/hd/chibi/shadow_rogue_male/idle.gif"><img src="public/characters/animations/hd/chibi/shadow_rogue_male/idle.gif" width="160" height="160" alt="借影人・男 高清 Q 版 待機動畫" /></a> | <a href="public/characters/animations/hd/original/shadow_rogue_male/idle.gif"><img src="public/characters/animations/hd/original/shadow_rogue_male/idle.gif" width="160" height="160" alt="借影人・男 高清正常 待機動畫" /></a> |
 
+## 怪物圖鑑
+
+新增月露史萊姆（月）、苔岩小怪（地）、蝕光樹靈（影屬性 Boss）。首頁「查看怪物圖鑑」可進入 `/monsters`，比較高清正常、高清 Q 版、48px 與 96px 像素造型，並播放、暫停、逐格檢查及下載八種動作。
+
+怪物共提供 96 個 GIF、384 張逐格 PNG、12 張完整動作表；來源、提示詞、索引與生成報告均保留。重建方式見 [rpg-sprites](rpg-sprites/README.md#怪物素材)。靜態主機需把 `/monsters` 回退到 `index.html`。
+
+### 高清與像素怪物對照
+
+點選圖片可開啟原始 PNG；像素預覽沿用角色的整數倍放大方式。
+
+| 怪物 | 高清正常 | 高清 Q 版 | 像素 48×48（4× 預覽） | 像素 96×96（2× 預覽） |
+| --- | --- | --- | --- | --- |
+| 月露史萊姆（月・小怪） | <a href="public/monsters/original/moondew_slime.png"><img src="public/monsters/original/moondew_slime.png" width="120" alt="月露史萊姆 高清正常" /></a> | <a href="public/monsters/chibi/moondew_slime.png"><img src="public/monsters/chibi/moondew_slime.png" width="120" alt="月露史萊姆 高清 Q 版" /></a> | <a href="public/monsters/moondew_slime.png"><img src="public/monsters/previews/48/moondew_slime.png" width="192" alt="月露史萊姆 48×48 像素圖" /></a> | <a href="public/monsters/96/moondew_slime.png"><img src="public/monsters/previews/96/moondew_slime.png" width="192" alt="月露史萊姆 96×96 像素圖" /></a> |
+| 苔岩小怪（地・小怪） | <a href="public/monsters/original/mossrock_grunt.png"><img src="public/monsters/original/mossrock_grunt.png" width="120" alt="苔岩小怪 高清正常" /></a> | <a href="public/monsters/chibi/mossrock_grunt.png"><img src="public/monsters/chibi/mossrock_grunt.png" width="120" alt="苔岩小怪 高清 Q 版" /></a> | <a href="public/monsters/mossrock_grunt.png"><img src="public/monsters/previews/48/mossrock_grunt.png" width="192" alt="苔岩小怪 48×48 像素圖" /></a> | <a href="public/monsters/96/mossrock_grunt.png"><img src="public/monsters/previews/96/mossrock_grunt.png" width="192" alt="苔岩小怪 96×96 像素圖" /></a> |
+| 蝕光樹靈（影・Boss） | <a href="public/monsters/original/eclipse_treant.png"><img src="public/monsters/original/eclipse_treant.png" width="120" alt="蝕光樹靈 高清正常" /></a> | <a href="public/monsters/chibi/eclipse_treant.png"><img src="public/monsters/chibi/eclipse_treant.png" width="120" alt="蝕光樹靈 高清 Q 版" /></a> | <a href="public/monsters/eclipse_treant.png"><img src="public/monsters/previews/48/eclipse_treant.png" width="192" alt="蝕光樹靈 48×48 像素圖" /></a> | <a href="public/monsters/96/eclipse_treant.png"><img src="public/monsters/previews/96/eclipse_treant.png" width="192" alt="蝕光樹靈 96×96 像素圖" /></a> |
+
+### 怪物待機動畫
+
+以下展示三種風格的待機 GIF；完整八種動作可在怪物圖鑑 `/monsters` 查看。
+
+| 怪物 | 高清正常 | 高清 Q 版 | 像素 96×96（2× 預覽） |
+| --- | --- | --- | --- |
+| 月露史萊姆 | <a href="public/monsters/animations/hd/original/moondew_slime/idle.gif"><img src="public/monsters/animations/hd/original/moondew_slime/idle.gif" width="160" alt="月露史萊姆 高清正常 待機動畫" /></a> | <a href="public/monsters/animations/hd/chibi/moondew_slime/idle.gif"><img src="public/monsters/animations/hd/chibi/moondew_slime/idle.gif" width="160" alt="月露史萊姆 高清 Q 版 待機動畫" /></a> | <a href="public/monsters/animations/96/moondew_slime/idle.gif"><img src="public/monsters/animations/96/moondew_slime/idle.gif" width="192" alt="月露史萊姆 96×96 像素 待機動畫" /></a> |
+| 苔岩小怪 | <a href="public/monsters/animations/hd/original/mossrock_grunt/idle.gif"><img src="public/monsters/animations/hd/original/mossrock_grunt/idle.gif" width="160" alt="苔岩小怪 高清正常 待機動畫" /></a> | <a href="public/monsters/animations/hd/chibi/mossrock_grunt/idle.gif"><img src="public/monsters/animations/hd/chibi/mossrock_grunt/idle.gif" width="160" alt="苔岩小怪 高清 Q 版 待機動畫" /></a> | <a href="public/monsters/animations/96/mossrock_grunt/idle.gif"><img src="public/monsters/animations/96/mossrock_grunt/idle.gif" width="192" alt="苔岩小怪 96×96 像素 待機動畫" /></a> |
+| 蝕光樹靈 | <a href="public/monsters/animations/hd/original/eclipse_treant/idle.gif"><img src="public/monsters/animations/hd/original/eclipse_treant/idle.gif" width="160" alt="蝕光樹靈 高清正常 待機動畫" /></a> | <a href="public/monsters/animations/hd/chibi/eclipse_treant/idle.gif"><img src="public/monsters/animations/hd/chibi/eclipse_treant/idle.gif" width="160" alt="蝕光樹靈 高清 Q 版 待機動畫" /></a> | <a href="public/monsters/animations/96/eclipse_treant/idle.gif"><img src="public/monsters/animations/96/eclipse_treant/idle.gif" width="192" alt="蝕光樹靈 96×96 像素 待機動畫" /></a> |
+
 ## 展示頁操作
 
 - 各職業預設展示女性；可切換男性／女性，網址明確指定 `gender=male` 時仍展示男性。切換職業會保留已選性別與顯示模式。
@@ -172,9 +198,3 @@ npm run build  # 含 tsc -b 型別檢查
 cd rpg-sprites
 .venv/bin/python -m unittest discover -s tests
 ```
-
-## 怪物圖鑑
-
-新增月露史萊姆（月）、苔岩小怪（地）、蝕光樹靈（影屬性 Boss）。首頁「查看怪物圖鑑」可進入 `/monsters`，比較高清正常、高清 Q 版、48px 與 96px 像素造型，並播放、暫停、逐格檢查及下載八種動作。
-
-怪物共提供 96 個 GIF、384 張逐格 PNG、12 張完整動作表；來源、提示詞、索引與生成報告均保留。重建方式見 [rpg-sprites](rpg-sprites/README.md#怪物素材)。靜態主機需把 `/monsters` 回退到 `index.html`。
